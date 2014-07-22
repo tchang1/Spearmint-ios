@@ -21,6 +21,7 @@
 		58F643D5197DA5F6001D0236 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58F643D3197DA5F6001D0236 /* InfoPlist.strings */; };
 		58F643D7197DA5F6001D0236 /* SpearnintIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643D6197DA5F6001D0236 /* SpearnintIOSTests.m */; };
 		58F643E8197DAD2F001D0236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F643E7197DAD2F001D0236 /* Main.storyboard */; };
+		58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643EA197F16C1001D0236 /* RDPGoal.m */; };
 		F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
 		F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,8 @@
 		58F643D4197DA5F6001D0236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58F643D6197DA5F6001D0236 /* SpearnintIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpearnintIOSTests.m; sourceTree = "<group>"; };
 		58F643E7197DAD2F001D0236 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		58F643E9197F16C1001D0236 /* RDPGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPGoal.h; sourceTree = "<group>"; };
+		58F643EA197F16C1001D0236 /* RDPGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPGoal.m; sourceTree = "<group>"; };
 		C1A66A01DDAC4711864FBE10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26756A3197DB60300A14D94 /* RDPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPViewController.h; sourceTree = "<group>"; };
 		F26756A4197DB60300A14D94 /* RDPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPViewController.m; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 		58F643E1197DAC90001D0236 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				58F643E9197F16C1001D0236 /* RDPGoal.h */,
+				58F643EA197F16C1001D0236 /* RDPGoal.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58F643BE197DA5F6001D0236 /* main.m in Sources */,
+				58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
 			);
