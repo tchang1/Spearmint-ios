@@ -43,20 +43,20 @@
 
 /* Begin PBXFileReference section */
 		418596D1A2794C27B7EA9326 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		58F643AE197DA5F6001D0236 /* SpearnintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearnintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		58F643B5197DA5F6001D0236 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		58F643B9197DA5F6001D0236 /* SpearnintIOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpearnintIOS-Info.plist"; sourceTree = "<group>"; };
+		58F643B9197DA5F6001D0236 /* SpearmintIOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpearmintIOS-Info.plist"; sourceTree = "<group>"; };
 		58F643BB197DA5F6001D0236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58F643BD197DA5F6001D0236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		58F643BF197DA5F6001D0236 /* SpearnintIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpearnintIOS-Prefix.pch"; sourceTree = "<group>"; };
+		58F643BF197DA5F6001D0236 /* SpearmintIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpearmintIOS-Prefix.pch"; sourceTree = "<group>"; };
 		58F643C0197DA5F6001D0236 /* RDPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDPAppDelegate.h; sourceTree = "<group>"; };
 		58F643C1197DA5F6001D0236 /* RDPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RDPAppDelegate.m; sourceTree = "<group>"; };
 		58F643C3197DA5F6001D0236 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		58F643C9197DA5F6001D0236 /* SpearnintIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearnintIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearmintIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643CA197DA5F6001D0236 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		58F643D2197DA5F6001D0236 /* SpearnintIOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpearnintIOSTests-Info.plist"; sourceTree = "<group>"; };
+		58F643D2197DA5F6001D0236 /* SpearmintIOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpearmintIOSTests-Info.plist"; sourceTree = "<group>"; };
 		58F643D4197DA5F6001D0236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58F643D6197DA5F6001D0236 /* SpearnintIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpearnintIOSTests.m; sourceTree = "<group>"; };
 		58F643E7197DAD2F001D0236 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -112,8 +112,8 @@
 		58F643AF197DA5F6001D0236 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				58F643AE197DA5F6001D0236 /* SpearnintIOS.app */,
-				58F643C9197DA5F6001D0236 /* SpearnintIOSTests.xctest */,
+				58F643AE197DA5F6001D0236 /* SpearmintIOS.app */,
+				58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,10 +151,10 @@
 				58F643E6197DACDA001D0236 /* FTU Images */,
 				58F643E5197DACCC001D0236 /* Assets  */,
 				58F643E4197DACBD001D0236 /* Saving Images */,
-				58F643B9197DA5F6001D0236 /* SpearnintIOS-Info.plist */,
+				58F643B9197DA5F6001D0236 /* SpearmintIOS-Info.plist */,
 				58F643BA197DA5F6001D0236 /* InfoPlist.strings */,
 				58F643BD197DA5F6001D0236 /* main.m */,
-				58F643BF197DA5F6001D0236 /* SpearnintIOS-Prefix.pch */,
+				58F643BF197DA5F6001D0236 /* SpearmintIOS-Prefix.pch */,
 				58F643EC197F2750001D0236 /* RDPStrings.h */,
 				58F643ED197F2750001D0236 /* RDPStrings.m */,
 			);
@@ -173,7 +173,7 @@
 		58F643D1197DA5F6001D0236 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				58F643D2197DA5F6001D0236 /* SpearnintIOSTests-Info.plist */,
+				58F643D2197DA5F6001D0236 /* SpearmintIOSTests-Info.plist */,
 				58F643D3197DA5F6001D0236 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -240,9 +240,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58F643AD197DA5F6001D0236 /* SpearnintIOS */ = {
+		58F643AD197DA5F6001D0236 /* SpearmintIOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58F643DA197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearnintIOS" */;
+			buildConfigurationList = 58F643DA197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearmintIOS" */;
 			buildPhases = (
 				9B289DAF7BF241F0B1BA7943 /* Check Pods Manifest.lock */,
 				58F643AA197DA5F6001D0236 /* Sources */,
@@ -254,14 +254,14 @@
 			);
 			dependencies = (
 			);
-			name = SpearnintIOS;
+			name = SpearmintIOS;
 			productName = SpearnintIOS;
-			productReference = 58F643AE197DA5F6001D0236 /* SpearnintIOS.app */;
+			productReference = 58F643AE197DA5F6001D0236 /* SpearmintIOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		58F643C8197DA5F6001D0236 /* SpearnintIOSTests */ = {
+		58F643C8197DA5F6001D0236 /* SpearmintIOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58F643DD197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearnintIOSTests" */;
+			buildConfigurationList = 58F643DD197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearmintIOSTests" */;
 			buildPhases = (
 				58F643C5197DA5F6001D0236 /* Sources */,
 				58F643C6197DA5F6001D0236 /* Frameworks */,
@@ -272,9 +272,9 @@
 			dependencies = (
 				58F643CF197DA5F6001D0236 /* PBXTargetDependency */,
 			);
-			name = SpearnintIOSTests;
+			name = SpearmintIOSTests;
 			productName = SpearnintIOSTests;
-			productReference = 58F643C9197DA5F6001D0236 /* SpearnintIOSTests.xctest */;
+			productReference = 58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -292,7 +292,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 58F643A9197DA5F6001D0236 /* Build configuration list for PBXProject "SpearnintIOS" */;
+			buildConfigurationList = 58F643A9197DA5F6001D0236 /* Build configuration list for PBXProject "SpearmintIOS" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -304,8 +304,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58F643AD197DA5F6001D0236 /* SpearnintIOS */,
-				58F643C8197DA5F6001D0236 /* SpearnintIOSTests */,
+				58F643AD197DA5F6001D0236 /* SpearmintIOS */,
+				58F643C8197DA5F6001D0236 /* SpearmintIOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -395,7 +395,7 @@
 /* Begin PBXTargetDependency section */
 		58F643CF197DA5F6001D0236 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 58F643AD197DA5F6001D0236 /* SpearnintIOS */;
+			target = 58F643AD197DA5F6001D0236 /* SpearmintIOS */;
 			targetProxy = 58F643CE197DA5F6001D0236 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -496,10 +496,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpearnintIOS/SpearnintIOS-Prefix.pch";
-				INFOPLIST_FILE = "SpearnintIOS/SpearnintIOS-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "SpearnintIOS/SpearmintIOS-Prefix.pch";
+				INFOPLIST_FILE = "SpearnintIOS/SpearmintIOS-Info.plist";
+				PRODUCT_NAME = SpearmintIOS;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -510,10 +514,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpearnintIOS/SpearnintIOS-Prefix.pch";
-				INFOPLIST_FILE = "SpearnintIOS/SpearnintIOS-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "SpearnintIOS/SpearmintIOS-Prefix.pch";
+				INFOPLIST_FILE = "SpearnintIOS/SpearmintIOS-Info.plist";
+				PRODUCT_NAME = SpearmintIOS;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -533,8 +541,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SpearnintIOSTests/SpearnintIOSTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "SpearnintIOSTests/SpearmintIOSTests-Info.plist";
+				PRODUCT_NAME = SpearmintIOSTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -551,8 +559,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpearnintIOS/SpearnintIOS-Prefix.pch";
-				INFOPLIST_FILE = "SpearnintIOSTests/SpearnintIOSTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "SpearnintIOSTests/SpearmintIOSTests-Info.plist";
+				PRODUCT_NAME = SpearmintIOSTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -561,7 +569,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58F643A9197DA5F6001D0236 /* Build configuration list for PBXProject "SpearnintIOS" */ = {
+		58F643A9197DA5F6001D0236 /* Build configuration list for PBXProject "SpearmintIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58F643D8197DA5F6001D0236 /* Debug */,
@@ -570,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58F643DA197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearnintIOS" */ = {
+		58F643DA197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearmintIOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58F643DB197DA5F6001D0236 /* Debug */,
@@ -579,7 +587,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58F643DD197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearnintIOSTests" */ = {
+		58F643DD197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearmintIOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58F643DE197DA5F6001D0236 /* Debug */,
