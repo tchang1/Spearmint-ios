@@ -29,10 +29,10 @@
 		F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A9197DC05F00A14D94 /* RDPTimerManager.m */; };
 		F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756AD197DC19500A14D94 /* RDPTimer.m */; };
 		F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756AD197DC19500A14D94 /* RDPTimer.m */; };
-		F2FD6F48198070070035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F45198070070035ED06 /* RDPInterpolation.m */; };
-		F2FD6F49198070070035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F45198070070035ED06 /* RDPInterpolation.m */; };
-		F2FD6F4A198070070035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F47198070070035ED06 /* RDPLinearInterpolation.m */; };
-		F2FD6F4B198070070035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F47198070070035ED06 /* RDPLinearInterpolation.m */; };
+		F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
+		F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
+		F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
+		F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,10 +75,10 @@
 		F26756A9197DC05F00A14D94 /* RDPTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTimerManager.m; sourceTree = "<group>"; };
 		F26756AC197DC19500A14D94 /* RDPTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTimer.h; sourceTree = "<group>"; };
 		F26756AD197DC19500A14D94 /* RDPTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTimer.m; sourceTree = "<group>"; };
-		F2FD6F44198070070035ED06 /* RDPInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPInterpolation.h; sourceTree = "<group>"; };
-		F2FD6F45198070070035ED06 /* RDPInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPInterpolation.m; sourceTree = "<group>"; };
-		F2FD6F46198070070035ED06 /* RDPLinearInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLinearInterpolation.h; sourceTree = "<group>"; };
-		F2FD6F47198070070035ED06 /* RDPLinearInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPLinearInterpolation.m; sourceTree = "<group>"; };
+		F2FD6F4C198073A80035ED06 /* RDPInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPInterpolation.h; sourceTree = "<group>"; };
+		F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPInterpolation.m; sourceTree = "<group>"; };
+		F2FD6F4E198073A80035ED06 /* RDPLinearInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLinearInterpolation.h; sourceTree = "<group>"; };
+		F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPLinearInterpolation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,10 +257,10 @@
 		F2FD6F1B1980646E0035ED06 /* Interpolations */ = {
 			isa = PBXGroup;
 			children = (
-				F2FD6F44198070070035ED06 /* RDPInterpolation.h */,
-				F2FD6F45198070070035ED06 /* RDPInterpolation.m */,
-				F2FD6F46198070070035ED06 /* RDPLinearInterpolation.h */,
-				F2FD6F47198070070035ED06 /* RDPLinearInterpolation.m */,
+				F2FD6F4C198073A80035ED06 /* RDPInterpolation.h */,
+				F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */,
+				F2FD6F4E198073A80035ED06 /* RDPLinearInterpolation.h */,
+				F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */,
 			);
 			name = Interpolations;
 			sourceTree = "<group>";
@@ -399,9 +399,9 @@
 			files = (
 				58F643BE197DA5F6001D0236 /* main.m in Sources */,
 				58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */,
-				F2FD6F4A198070070035ED06 /* RDPLinearInterpolation.m in Sources */,
+				F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				58F643EE197F2750001D0236 /* RDPStrings.m in Sources */,
-				F2FD6F48198070070035ED06 /* RDPInterpolation.m in Sources */,
+				F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
 				F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
@@ -413,9 +413,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2FD6F49198070070035ED06 /* RDPInterpolation.m in Sources */,
+				F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
-				F2FD6F4B198070070035ED06 /* RDPLinearInterpolation.m in Sources */,
+				F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
 				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
@@ -536,6 +536,7 @@
 				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				PRODUCT_NAME = SpearmintIOS;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -554,6 +555,7 @@
 				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				PRODUCT_NAME = SpearmintIOS;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

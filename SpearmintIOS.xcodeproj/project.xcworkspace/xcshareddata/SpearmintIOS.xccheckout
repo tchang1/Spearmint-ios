@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>2B25A84D-2873-4EFD-B305-AD47E8A43696</string>
+	<string>EA933DE5-1DB8-4108-B11B-7E2419509614</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SpearmintIOS</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FF0A3947-A850-452F-B25C-2BCCE7110925</key>
-		<string>https://github.com/tchang1/Spearmint-ios</string>
+		<key>5B3FD0CA-86A2-4E8A-ABD3-5679C7D9366D</key>
+		<string>https://github.com/tchang1/Spearmint-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SpearmintIOS.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FF0A3947-A850-452F-B25C-2BCCE7110925</key>
+		<key>5B3FD0CA-86A2-4E8A-ABD3-5679C7D9366D</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/tchang1/Spearmint-ios</string>
+	<string>https://github.com/tchang1/Spearmint-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FF0A3947-A850-452F-B25C-2BCCE7110925</string>
+	<string>5B3FD0CA-86A2-4E8A-ABD3-5679C7D9366D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FF0A3947-A850-452F-B25C-2BCCE7110925</string>
+			<string>5B3FD0CA-86A2-4E8A-ABD3-5679C7D9366D</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SpearmintIOS</string>
+			<string>Spearmint-ios</string>
 		</dict>
 	</array>
 </dict>
