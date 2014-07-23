@@ -25,6 +25,10 @@
 		58F643EE197F2750001D0236 /* RDPStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643ED197F2750001D0236 /* RDPStrings.m */; };
 		F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
 		F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
+		F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A9197DC05F00A14D94 /* RDPTimerManager.m */; };
+		F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A9197DC05F00A14D94 /* RDPTimerManager.m */; };
+		F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756AD197DC19500A14D94 /* RDPTimer.m */; };
+		F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756AD197DC19500A14D94 /* RDPTimer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		C1A66A01DDAC4711864FBE10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F26756A3197DB60300A14D94 /* RDPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPViewController.h; sourceTree = "<group>"; };
 		F26756A4197DB60300A14D94 /* RDPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPViewController.m; sourceTree = "<group>"; };
+		F26756A8197DC05F00A14D94 /* RDPTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTimerManager.h; sourceTree = "<group>"; };
+		F26756A9197DC05F00A14D94 /* RDPTimerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTimerManager.m; sourceTree = "<group>"; };
+		F26756AC197DC19500A14D94 /* RDPTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTimer.h; sourceTree = "<group>"; };
+		F26756AD197DC19500A14D94 /* RDPTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +133,10 @@
 		58F643B7197DA5F6001D0236 /* SpearnintIOS */ = {
 			isa = PBXGroup;
 			children = (
+				58F643E0197DAC89001D0236 /* Controllers */,
+				58F643E1197DAC90001D0236 /* Models */,
 				58F643E3197DAC9C001D0236 /* Modules */,
 				58F643E2197DAC96001D0236 /* Views */,
-				58F643E1197DAC90001D0236 /* Models */,
-				58F643E0197DAC89001D0236 /* Controllers */,
 				58F643C0197DA5F6001D0236 /* RDPAppDelegate.h */,
 				58F643C1197DA5F6001D0236 /* RDPAppDelegate.m */,
 				58F643C3197DA5F6001D0236 /* Images.xcassets */,
@@ -200,6 +208,10 @@
 		58F643E3197DAC9C001D0236 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F26756A8197DC05F00A14D94 /* RDPTimerManager.h */,
+				F26756A9197DC05F00A14D94 /* RDPTimerManager.m */,
+				F26756AC197DC19500A14D94 /* RDPTimer.h */,
+				F26756AD197DC19500A14D94 /* RDPTimer.m */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -361,7 +373,9 @@
 				58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */,
 				58F643EE197F2750001D0236 /* RDPStrings.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
+				F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
+				F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,8 +383,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
 				58F643D7197DA5F6001D0236 /* SpearnintIOSTests.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
+				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
