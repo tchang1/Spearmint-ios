@@ -19,7 +19,7 @@
 		58F643CC197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643CD197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
 		58F643D5197DA5F6001D0236 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58F643D3197DA5F6001D0236 /* InfoPlist.strings */; };
-		58F643D7197DA5F6001D0236 /* SpearnintIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643D6197DA5F6001D0236 /* SpearnintIOSTests.m */; };
+		58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643D6197DA5F6001D0236 /* SpearmintIOSTests.m */; };
 		58F643E8197DAD2F001D0236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F643E7197DAD2F001D0236 /* Main.storyboard */; };
 		58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643EA197F16C1001D0236 /* RDPGoal.m */; };
 		58F643EE197F2750001D0236 /* RDPStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643ED197F2750001D0236 /* RDPStrings.m */; };
@@ -41,7 +41,7 @@
 			containerPortal = 58F643A6197DA5F6001D0236 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 58F643AD197DA5F6001D0236;
-			remoteInfo = SpearnintIOS;
+			remoteInfo = SpearmintIOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,7 +62,7 @@
 		58F643CA197DA5F6001D0236 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		58F643D2197DA5F6001D0236 /* SpearmintIOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpearmintIOSTests-Info.plist"; sourceTree = "<group>"; };
 		58F643D4197DA5F6001D0236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		58F643D6197DA5F6001D0236 /* SpearnintIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpearnintIOSTests.m; sourceTree = "<group>"; };
+		58F643D6197DA5F6001D0236 /* SpearmintIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpearmintIOSTests.m; sourceTree = "<group>"; };
 		58F643E7197DAD2F001D0236 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		58F643E9197F16C1001D0236 /* RDPGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPGoal.h; sourceTree = "<group>"; };
 		58F643EA197F16C1001D0236 /* RDPGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPGoal.m; sourceTree = "<group>"; };
@@ -109,8 +109,8 @@
 		58F643A5197DA5F6001D0236 = {
 			isa = PBXGroup;
 			children = (
-				58F643B7197DA5F6001D0236 /* SpearnintIOS */,
-				58F643D0197DA5F6001D0236 /* SpearnintIOSTests */,
+				58F643B7197DA5F6001D0236 /* SpearmintIOS */,
+				58F643D0197DA5F6001D0236 /* SpearmintIOSTests */,
 				58F643B0197DA5F6001D0236 /* Frameworks */,
 				58F643AF197DA5F6001D0236 /* Products */,
 				418596D1A2794C27B7EA9326 /* Pods.xcconfig */,
@@ -138,7 +138,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		58F643B7197DA5F6001D0236 /* SpearnintIOS */ = {
+		58F643B7197DA5F6001D0236 /* SpearmintIOS */ = {
 			isa = PBXGroup;
 			children = (
 				58F643E0197DAC89001D0236 /* Controllers */,
@@ -150,7 +150,7 @@
 				58F643C3197DA5F6001D0236 /* Images.xcassets */,
 				58F643B8197DA5F6001D0236 /* Supporting Files */,
 			);
-			path = SpearnintIOS;
+			path = SpearmintIOS;
 			sourceTree = "<group>";
 		};
 		58F643B8197DA5F6001D0236 /* Supporting Files */ = {
@@ -169,13 +169,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		58F643D0197DA5F6001D0236 /* SpearnintIOSTests */ = {
+		58F643D0197DA5F6001D0236 /* SpearmintIOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				58F643D6197DA5F6001D0236 /* SpearnintIOSTests.m */,
+				58F643D6197DA5F6001D0236 /* SpearmintIOSTests.m */,
 				58F643D1197DA5F6001D0236 /* Supporting Files */,
 			);
-			path = SpearnintIOSTests;
+			path = SpearmintIOSTests;
 			sourceTree = "<group>";
 		};
 		58F643D1197DA5F6001D0236 /* Supporting Files */ = {
@@ -283,7 +283,7 @@
 			dependencies = (
 			);
 			name = SpearmintIOS;
-			productName = SpearnintIOS;
+			productName = SpearmintIOS;
 			productReference = 58F643AE197DA5F6001D0236 /* SpearmintIOS.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -301,7 +301,7 @@
 				58F643CF197DA5F6001D0236 /* PBXTargetDependency */,
 			);
 			name = SpearmintIOSTests;
-			productName = SpearnintIOSTests;
+			productName = SpearmintIOSTests;
 			productReference = 58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -416,7 +416,7 @@
 				F2FD6F49198070070035ED06 /* RDPInterpolation.m in Sources */,
 				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
 				F2FD6F4B198070070035ED06 /* RDPLinearInterpolation.m in Sources */,
-				58F643D7197DA5F6001D0236 /* SpearnintIOSTests.m in Sources */,
+				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
 				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 			);
@@ -533,8 +533,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpearnintIOS/SpearmintIOS-Prefix.pch";
-				INFOPLIST_FILE = "SpearnintIOS/SpearmintIOS-Info.plist";
+				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
+				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				PRODUCT_NAME = SpearmintIOS;
 				WRAPPER_EXTENSION = app;
 			};
@@ -551,8 +551,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpearnintIOS/SpearmintIOS-Prefix.pch";
-				INFOPLIST_FILE = "SpearnintIOS/SpearmintIOS-Info.plist";
+				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
+				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				PRODUCT_NAME = SpearmintIOS;
 				WRAPPER_EXTENSION = app;
 			};
@@ -561,19 +561,19 @@
 		58F643DE197DA5F6001D0236 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpearnintIOS.app/SpearnintIOS";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpearmintIOS.app/SpearmintIOS";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpearnintIOS/SpearnintIOS-Prefix.pch";
+				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "SpearnintIOSTests/SpearmintIOSTests-Info.plist";
+				INFOPLIST_FILE = "SpearmintIOSTests/SpearmintIOSTests-Info.plist";
 				PRODUCT_NAME = SpearmintIOSTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -583,15 +583,15 @@
 		58F643DF197DA5F6001D0236 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpearnintIOS.app/SpearnintIOS";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpearmintIOS.app/SpearmintIOS";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpearnintIOS/SpearnintIOS-Prefix.pch";
-				INFOPLIST_FILE = "SpearnintIOSTests/SpearmintIOSTests-Info.plist";
+				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
+				INFOPLIST_FILE = "SpearmintIOSTests/SpearmintIOSTests-Info.plist";
 				PRODUCT_NAME = SpearmintIOSTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
