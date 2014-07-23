@@ -9,12 +9,12 @@
 #import "RDPTimer.h"
 //#import <NSDate>
 
-typedef void(^CompletionBlock)(void);
-
 @interface RDPTimer()
 
 @property NSInteger beginningTime;
 @property NSInteger endTime;
+@property NSInteger currentTime;
+@property BOOL complete;
 @property (nonatomic, copy) CompletionBlock completionBlock;
 
 @end
@@ -31,33 +31,44 @@ typedef void(^CompletionBlock)(void);
     return [self initWithTime:milliseconds andCompletionBlock:nil];
 }
 
-- (RDPTimer*) initWithTime:(NSInteger)milliseconds andCompletionBlock:(void (^)(void))block
+- (RDPTimer*) initWithTime:(NSInteger)milliseconds andCompletionBlock:(CompletionBlock)block
 {
     self = [super init];
     if (self)
     {
-        self.beginningTime = [NSDate timeIntervalSinceReferenceDate];
+        self.beginningTime = 0;
+        self.currentTime = self.beginningTime;
         self.endTime = self.beginningTime + milliseconds;
-        self.completionBlock = block;
+        _completionBlock = block;
     }
     return self;
 }
 
 - (void) tick:(NSInteger)milliseconds
 {
-    
+    self.currentTime += milliseconds;
+    if (self.currentTime > self.endTime) {
+        self.currentTime = self.endTime;
+        if (!self.isComplete && self.completionBlock) {
+            self.completionBlock();
+            self.complete = YES;
+        }
+    }
+}
+
+- (void) setCompletionBlock:(CompletionBlock)block
+{
+    _completionBlock = block;
 }
 
 - (NSNumber*) getProgress
 {
-
-    return nil;
+    return [NSNumber numberWithDouble:(self.currentTime/self.endTime)];
 }
 
 - (BOOL) isComplete
 {
-
-    return NO;
+    return self.complete;
 }
 
 @end

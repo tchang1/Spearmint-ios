@@ -7,6 +7,7 @@
 //
 
 #import "RDPAppDelegate.h"
+#import "RDPTimerManager.h"
 
 @implementation RDPAppDelegate
 
@@ -16,6 +17,17 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+//    [RDPTimerManager registerUpdateBlock:^(NSInteger milliseconds) {
+//        NSLog(@"Milliseconds: %i", milliseconds);
+//    }
+//                                withName:@"testBlock"];
+//    
+//    [RDPTimerManager pauseFor:5000 millisecondsThen:^(void){
+//        [RDPTimerManager clearUpdateBlockWithName:@"testBlock"];
+//        NSLog(@"Stopping now");
+//    }];
+    
     return YES;
 }
 
