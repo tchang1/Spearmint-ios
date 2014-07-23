@@ -15,9 +15,23 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "58F643AD197DA5F6001D0236"
-               BuildableName = "SpearnintIOS.app"
-               BlueprintName = "SpearnintIOS"
-               ReferencedContainer = "container:SpearnintIOS.xcodeproj">
+               BuildableName = "SpearmintIOS.app"
+               BlueprintName = "SpearmintIOS"
+               ReferencedContainer = "container:SpearmintIOS.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "58F643C8197DA5F6001D0236"
+               BuildableName = "SpearmintIOSTests.xctest"
+               BlueprintName = "SpearmintIOSTests"
+               ReferencedContainer = "container:SpearmintIOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,24 +42,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "58F643C8197DA5F6001D0236"
-               BuildableName = "SpearnintIOSTests.xctest"
-               BlueprintName = "SpearnintIOSTests"
-               ReferencedContainer = "container:SpearnintIOS.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58F643AD197DA5F6001D0236"
-            BuildableName = "SpearnintIOS.app"
-            BlueprintName = "SpearnintIOS"
-            ReferencedContainer = "container:SpearnintIOS.xcodeproj">
+            BuildableName = "SpearmintIOS.app"
+            BlueprintName = "SpearmintIOS"
+            ReferencedContainer = "container:SpearmintIOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58F643AD197DA5F6001D0236"
-            BuildableName = "SpearnintIOS.app"
-            BlueprintName = "SpearnintIOS"
-            ReferencedContainer = "container:SpearnintIOS.xcodeproj">
+            BuildableName = "SpearmintIOS.app"
+            BlueprintName = "SpearmintIOS"
+            ReferencedContainer = "container:SpearmintIOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58F643AD197DA5F6001D0236"
-            BuildableName = "SpearnintIOS.app"
-            BlueprintName = "SpearnintIOS"
-            ReferencedContainer = "container:SpearnintIOS.xcodeproj">
+            BuildableName = "SpearmintIOS.app"
+            BlueprintName = "SpearmintIOS"
+            ReferencedContainer = "container:SpearmintIOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
