@@ -33,6 +33,10 @@
 		F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
 		F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
 		F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
+		F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F5519807BE90035ED06 /* RDPEaseInInterpolation.m */; };
+		F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F5519807BE90035ED06 /* RDPEaseInInterpolation.m */; };
+		F2FD6F5A19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F5919807CC90035ED06 /* RDPEaseOutInterpolation.m */; };
+		F2FD6F5B19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F5919807CC90035ED06 /* RDPEaseOutInterpolation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPInterpolation.m; sourceTree = "<group>"; };
 		F2FD6F4E198073A80035ED06 /* RDPLinearInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLinearInterpolation.h; sourceTree = "<group>"; };
 		F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPLinearInterpolation.m; sourceTree = "<group>"; };
+		F2FD6F5419807BE90035ED06 /* RDPEaseInInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPEaseInInterpolation.h; sourceTree = "<group>"; };
+		F2FD6F5519807BE90035ED06 /* RDPEaseInInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPEaseInInterpolation.m; sourceTree = "<group>"; };
+		F2FD6F5819807CC90035ED06 /* RDPEaseOutInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPEaseOutInterpolation.h; sourceTree = "<group>"; };
+		F2FD6F5919807CC90035ED06 /* RDPEaseOutInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPEaseOutInterpolation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +269,10 @@
 				F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */,
 				F2FD6F4E198073A80035ED06 /* RDPLinearInterpolation.h */,
 				F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */,
+				F2FD6F5419807BE90035ED06 /* RDPEaseInInterpolation.h */,
+				F2FD6F5519807BE90035ED06 /* RDPEaseInInterpolation.m */,
+				F2FD6F5819807CC90035ED06 /* RDPEaseOutInterpolation.h */,
+				F2FD6F5919807CC90035ED06 /* RDPEaseOutInterpolation.m */,
 			);
 			name = Interpolations;
 			sourceTree = "<group>";
@@ -403,9 +415,11 @@
 				58F643EE197F2750001D0236 /* RDPStrings.m in Sources */,
 				F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
+				F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
 				F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */,
+				F2FD6F5A19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,10 +427,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FD6F5B19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
 				F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
 				F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,
+				F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
 				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 			);
