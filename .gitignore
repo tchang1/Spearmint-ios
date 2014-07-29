@@ -20,3 +20,5 @@ DerivedData
 .DS_Store
 .AppleDouble
 .LSOverride
+
+/SpearmintIOS.xcodeproj/project.pbxproj.orig

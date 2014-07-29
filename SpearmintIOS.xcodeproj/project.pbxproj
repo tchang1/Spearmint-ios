@@ -11,6 +11,10 @@
 		5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5569A7D919808617001FC14C /* RDPHTTPClient.m */; };
 		558181A81986F83600390741 /* RDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181A71986F83600390741 /* RDPUser.m */; };
 		558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181AA1987009F00390741 /* RDPSavingEvent.m */; };
+		58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
+		58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
+		58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
+		58988F2F1988153200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -60,6 +64,11 @@
 		558181A71986F83600390741 /* RDPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUser.m; sourceTree = "<group>"; };
 		558181A91987009F00390741 /* RDPSavingEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSavingEvent.h; sourceTree = "<group>"; };
 		558181AA1987009F00390741 /* RDPSavingEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSavingEvent.m; sourceTree = "<group>"; };
+		58988F231987065200E05AC5 /* RDPImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcher.h; sourceTree = "<group>"; };
+		58988F241987065200E05AC5 /* RDPImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageFetcher.m; sourceTree = "<group>"; };
+		58988F2A198814D200E05AC5 /* RDPImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageBlur.h; sourceTree = "<group>"; };
+		58988F2B198814D200E05AC5 /* RDPImageBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageBlur.m; sourceTree = "<group>"; };
+		58988F2D198814F900E05AC5 /* RDPImageFetcherDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcherDelegate.h; sourceTree = "<group>"; };
 		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +139,18 @@
 				5569A7D919808617001FC14C /* RDPHTTPClient.m */,
 			);
 			name = HTTP;
+			sourceTree = "<group>";
+		};		
+		58988F221987060300E05AC5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				58988F231987065200E05AC5 /* RDPImageFetcher.h */,
+				58988F241987065200E05AC5 /* RDPImageFetcher.m */,
+				58988F2A198814D200E05AC5 /* RDPImageBlur.h */,
+				58988F2B198814D200E05AC5 /* RDPImageBlur.m */,
+				58988F2D198814F900E05AC5 /* RDPImageFetcherDelegate.h */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		58F643A5197DA5F6001D0236 = {
@@ -247,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				5569A7D719807D47001FC14C /* HTTP */,
+				58988F221987060300E05AC5 /* Images */,
 				F2FD6F1B1980646E0035ED06 /* Interpolations */,
 				F2FD6F1A1980645E0035ED06 /* Timer */,
 			);
@@ -432,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */,
 				58F643BE197DA5F6001D0236 /* main.m in Sources */,
 				558181A81986F83600390741 /* RDPUser.m in Sources */,
 				58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */,
@@ -440,6 +463,7 @@
 				F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
+				58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
@@ -453,6 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2FD6F5B19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
 				F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
@@ -461,6 +486,7 @@
 				F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
 				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
+				58988F2F1988153200E05AC5 /* RDPImageBlur.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
