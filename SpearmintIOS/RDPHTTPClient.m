@@ -195,8 +195,14 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
 {
     NSDictionary *params = @{@"goalid":@"53d2bf28c5fb963e0717d8c8", @"categoryid":@"0"};
     [self GET:@"images/me" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        NSArray *responseArray= responseObject;
+        NSURL *imageurl1 = [NSURL URLWithString:[responseArray[0] objectForKey:@"uri"]];
+        NSURL *imageurl2 = [NSURL URLWithString:[responseArray[1] objectForKey:@"uri"]];
+        NSArray *urlArray = @[imageurl1,imageurl2];
+        if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didGetImageURLs:)]) {
+            [self.delegate RDPHTTPClient:self didGetImageURLs:urlArray];
+        }
+        //NSLog( @"%@", urlArray );
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);

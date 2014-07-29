@@ -8,7 +8,12 @@
 
 #import "AFHTTPSessionManager.h"
 
+@protocol RDPHTTPClientDelegate;
+
+
 @interface RDPHTTPClient : AFHTTPSessionManager
+
+@property (nonatomic,weak) id<RDPHTTPClientDelegate>delegate;
 
 +(RDPHTTPClient *)sharedRDPHTTPClient;
 -(instancetype)initWithBaseURL:(NSURL *)url;
@@ -24,3 +29,11 @@
 
 
 @end
+
+@protocol RDPHTTPClientDelegate <NSObject>
+
+@optional
+-(void)RDPHTTPClient:(RDPHTTPClient *)client didGetImageURLs:(NSArray *)images;
+
+@end
+
