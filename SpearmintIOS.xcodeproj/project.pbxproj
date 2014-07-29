@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3DA685B260D1443591BE91E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A66A01DDAC4711864FBE10 /* libPods.a */; };
+		5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5569A7D919808617001FC14C /* RDPHTTPClient.m */; };
+		558181A81986F83600390741 /* RDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181A71986F83600390741 /* RDPUser.m */; };
+		558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181AA1987009F00390741 /* RDPSavingEvent.m */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -51,6 +54,12 @@
 
 /* Begin PBXFileReference section */
 		418596D1A2794C27B7EA9326 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		5569A7D819808617001FC14C /* RDPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHTTPClient.h; sourceTree = "<group>"; };
+		5569A7D919808617001FC14C /* RDPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHTTPClient.m; sourceTree = "<group>"; };
+		558181A61986F83600390741 /* RDPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUser.h; sourceTree = "<group>"; };
+		558181A71986F83600390741 /* RDPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUser.m; sourceTree = "<group>"; };
+		558181A91987009F00390741 /* RDPSavingEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSavingEvent.h; sourceTree = "<group>"; };
+		558181AA1987009F00390741 /* RDPSavingEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSavingEvent.m; sourceTree = "<group>"; };
 		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -114,6 +123,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5569A7D719807D47001FC14C /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				5569A7D819808617001FC14C /* RDPHTTPClient.h */,
+				5569A7D919808617001FC14C /* RDPHTTPClient.m */,
+			);
+			name = HTTP;
+			sourceTree = "<group>";
+		};
 		58F643A5197DA5F6001D0236 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +227,10 @@
 			children = (
 				58F643E9197F16C1001D0236 /* RDPGoal.h */,
 				58F643EA197F16C1001D0236 /* RDPGoal.m */,
+				558181A61986F83600390741 /* RDPUser.h */,
+				558181A71986F83600390741 /* RDPUser.m */,
+				558181A91987009F00390741 /* RDPSavingEvent.h */,
+				558181AA1987009F00390741 /* RDPSavingEvent.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -224,6 +246,7 @@
 		58F643E3197DAC9C001D0236 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5569A7D719807D47001FC14C /* HTTP */,
 				F2FD6F1B1980646E0035ED06 /* Interpolations */,
 				F2FD6F1A1980645E0035ED06 /* Timer */,
 			);
@@ -410,16 +433,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				58F643BE197DA5F6001D0236 /* main.m in Sources */,
+				558181A81986F83600390741 /* RDPUser.m in Sources */,
 				58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */,
 				F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				58F643EE197F2750001D0236 /* RDPStrings.m in Sources */,
 				F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */,
+				5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
 				F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
 				F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */,
 				F2FD6F5A19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
+				558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

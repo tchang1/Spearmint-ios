@@ -10,6 +10,16 @@
 
 @implementation RDPGoal
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    // model_property_name : json_field_name
+    return @{
+             @"goalName" : @"name",
+             @"targetAmount" : @"targetAmount",
+             @"amountSaved" : @"amountSaved"
+             };
+}
+
 - (id)init
 {
     self = [super init];

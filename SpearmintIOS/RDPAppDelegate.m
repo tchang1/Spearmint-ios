@@ -8,6 +8,7 @@
 
 #import "RDPAppDelegate.h"
 #import "RDPTimerManager.h"
+#import "RDPHTTPClient.h"
 
 @implementation RDPAppDelegate
 
@@ -27,7 +28,17 @@
 //        [RDPTimerManager clearUpdateBlockWithName:@"testBlock"];
 //        NSLog(@"Stopping now");
 //    }];
-    
+    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
+    //[client getMyGoal];
+   // [client getMySavings];
+    //[client getMyNotifications];
+    [client getNextImage];
+    //[client postSavings:@{@"amountSaved":@"10"}];
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]) {
+        NSLog(@"%@",cookie);
+    }
     return YES;
 }
 

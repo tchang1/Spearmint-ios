@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MTLModel.h"
+#import "MTLJSONAdapter.h"
 
-@interface RDPGoal : NSObject
+@interface RDPGoal :  MTLModel <MTLJSONSerializing>
 
 @property (nonatomic, strong) NSString *goalName;
 
