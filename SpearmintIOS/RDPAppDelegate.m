@@ -14,31 +14,31 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-//    [RDPTimerManager registerUpdateBlock:^(NSInteger milliseconds) {
-//        NSLog(@"Milliseconds: %i", milliseconds);
-//    }
-//                                withName:@"testBlock"];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
 //    
-//    [RDPTimerManager pauseFor:5000 millisecondsThen:^(void){
-//        [RDPTimerManager clearUpdateBlockWithName:@"testBlock"];
-//        NSLog(@"Stopping now");
-//    }];
-    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
-    //[client getMyGoal];
-   // [client getMySavings];
-    //[client getMyNotifications];
-    [client getNextImage];
-    //[client postSavings:@{@"amountSaved":@"10"}];
-    NSHTTPCookie *cookie;
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (cookie in [storage cookies]) {
-        NSLog(@"%@",cookie);
-    }
+////    [RDPTimerManager registerUpdateBlock:^(NSInteger milliseconds) {
+////        NSLog(@"Milliseconds: %i", milliseconds);
+////    }
+////                                withName:@"testBlock"];
+////    
+////    [RDPTimerManager pauseFor:5000 millisecondsThen:^(void){
+////        [RDPTimerManager clearUpdateBlockWithName:@"testBlock"];
+////        NSLog(@"Stopping now");
+////    }];
+//    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
+//    //[client getMyGoal];
+//   // [client getMySavings];
+//    //[client getMyNotifications];
+//    [client getNextImage];
+//    //[client postSavings:@{@"amountSaved":@"10"}];
+//    NSHTTPCookie *cookie;
+//    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    for (cookie in [storage cookies]) {
+//        NSLog(@"%@",cookie);
+//    }
     return YES;
 }
 

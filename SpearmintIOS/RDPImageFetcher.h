@@ -7,13 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RDPImageFetcherDelegate.h"
+#import "RDPHTTPClient.h"
 
 typedef void(^ImageBlock)(UIImage*);
 
-@interface RDPImageFetcher : NSObject
+@interface RDPImageFetcher : NSObject <RDPHTTPClientDelegate>
 
-@property (nonatomic,strong) UIImage *image;
+@property (nonatomic, weak) id<RDPImageFetcherDelegate> delegate;
 
-- (void) nextImage;
+/**
+ Method to be called by the view controller to load the next image for the home screen.
+ */
+- (void)nextImage;
 
 @end

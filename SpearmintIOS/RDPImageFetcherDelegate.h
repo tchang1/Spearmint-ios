@@ -9,5 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @protocol RDPImageFetcherDelegate <NSObject>
+/**
+ Lets the view controller know when an image has been loaded and is 
+ ready to be displayed to the user 
+ 
+ @param image : The image that has been returned from the server
+ */
+- (void)imageHasLoaded:(UIImage*)image;
 
 @end
+
