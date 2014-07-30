@@ -10,4 +10,11 @@
 
 @implementation RDPImageBlur
 
+- (UIImage *)applyBlurOnImage: (UIImage *)imageToBlur withRadius:(CGFloat)blurRadius
+{
+    GPUImageGaussianBlurFilter *blurFilter = [[GPUImageGaussianBlurFilter alloc] init];
+    blurFilter.blurRadiusInPixels = blurRadius;
+    return [blurFilter imageByFilteringImage: imageToBlur];
+}
+
 @end

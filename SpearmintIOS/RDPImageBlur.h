@@ -7,7 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GPUImage.h"
 
 @interface RDPImageBlur : NSObject
+
+/**
+ Creates a UIImage that is a blurred version of the imageToBlur
+ 
+ @param imageToBlur : The original image to blur.
+ @param blurRadius : The radius of the gaussian blur to apply.
+ */
+- (UIImage *)applyBlurOnImage: (UIImage *)imageToBlur withRadius:(CGFloat)blurRadius;
 
 @end
