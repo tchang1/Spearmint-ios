@@ -17,7 +17,7 @@ static NSMutableArray* timers = nil;
 static NSMutableDictionary* blocks = nil;
 static double previousTime = 0;
 static BOOL needsUpdating = NO;
-static dispatch_queue_t updateQueue;
+//static dispatch_queue_t updateQueue;
 static dispatch_source_t gcdTimer;
 
 @implementation RDPTimerManager
@@ -67,7 +67,7 @@ static dispatch_source_t gcdTimer;
             [RDPTimerManager callUpdateIn:(1.0/FPS)];
         }
         else {
-            updateQueue = NULL;
+//            updateQueue = NULL;
         }
     }
 }
@@ -96,9 +96,9 @@ static dispatch_source_t gcdTimer;
  */
 +(void) startUpdating
 {
-    if (!updateQueue) {
-        updateQueue = dispatch_queue_create(kQueueName , DISPATCH_QUEUE_SERIAL);
-    }
+//    if (!updateQueue) {
+//        updateQueue = dispatch_queue_create(kQueueName , DISPATCH_QUEUE_SERIAL);
+//    }
     needsUpdating = YES;
     previousTime = CACurrentMediaTime() * 1000;
     [RDPTimerManager callUpdateIn:1.0/FPS];
@@ -110,7 +110,7 @@ static dispatch_source_t gcdTimer;
 +(void) callUpdateIn:(double)milliseconds
 {
     if (!gcdTimer) {
-        gcdTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, updateQueue);
+        gcdTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
         
         if (gcdTimer) {
             dispatch_source_set_timer(gcdTimer, dispatch_time(DISPATCH_TIME_NOW, milliseconds * NSEC_PER_SEC), milliseconds * NSEC_PER_SEC, (kTolerance * NSEC_PER_SEC));
