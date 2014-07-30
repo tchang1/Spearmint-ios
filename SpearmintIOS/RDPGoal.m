@@ -14,6 +14,7 @@
 {
     // model_property_name : json_field_name
     return @{
+             @"goalID" : @"_id",
              @"goalName" : @"name",
              @"targetAmount" : @"targetAmount",
              @"amountSaved" : @"amountSaved"

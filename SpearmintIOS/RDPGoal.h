@@ -12,6 +12,8 @@
 
 @interface RDPGoal :  MTLModel <MTLJSONSerializing>
 
+@property (nonatomic, strong) NSString *goalID;
+
 @property (nonatomic, strong) NSString *goalName;
 
 @property (nonatomic, strong) NSDecimalNumber *targetAmount;
