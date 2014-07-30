@@ -7,6 +7,8 @@
 //
 
 #import "AFHTTPSessionManager.h"
+#import "RDPGoal.h"
+#import "RDPSavingEvent.h"
 
 @protocol RDPHTTPClientDelegate;
 
@@ -19,12 +21,20 @@
 -(instancetype)initWithBaseURL:(NSURL *)url;
 -(void)testGETHTTPRequest:(NSString *)path;
 -(void)testPOSTHTTPRequest:(NSString *)path;
+//User
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
+//Goals
 -(void)getMyGoal;
+-(void)updateMyGoal:(RDPGoal *)goal;
+-(void)postNewGoal:(RDPGoal *)goal;
+//Savings
 -(void)getMySavings;
--(void)postSavings:(NSDictionary *)savings;
+-(void)updateSavings:(RDPSavingEvent *)saving;
+-(void)postSavings:(RDPSavingEvent *)saving;
+//Notifications
 -(void)getMyNotifications;
 -(void)updateNotifications:(NSDictionary *)params;
+//Images
 -(void)getNextImage;
 
 
@@ -34,6 +44,12 @@
 
 @optional
 -(void)RDPHTTPClient:(RDPHTTPClient *)client didGetImageURLs:(NSArray *)images;
+-(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMyGoal:(RDPGoal *)goal;
+-(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMySavings:(NSArray *)savings;
+-(void)RDPHTTPClient:(RDPHTTPClient *)client did:(RDPGoal *)goal;
+-(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMyGoal:(RDPGoal *)goal;
+
+
 
 @end
 

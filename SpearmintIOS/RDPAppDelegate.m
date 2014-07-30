@@ -30,9 +30,9 @@
 //    }];
     RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
     //[client getMyGoal];
-   // [client getMySavings];
+    // [client getMySavings];
     //[client getMyNotifications];
-    [client getNextImage];
+    //[client getNextImage];
     //[client postSavings:@{@"amountSaved":@"10"}];
     NSHTTPCookie *cookie;
     NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];

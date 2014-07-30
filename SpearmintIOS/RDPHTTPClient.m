@@ -96,7 +96,9 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
         NSDictionary *response=(NSDictionary *) responseObject;
         NSError *error=nil;
         RDPGoal *goal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
-        
+        if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didGetMyGoal:)]) {
+            [self.delegate RDPHTTPClient:self didGetMyGoal:goal];
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
         
@@ -140,7 +142,7 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     }];
 }
 
--(void)postSavings:(NSDictionary *)savings
+-(void)postSavings:(RDPSavingEvent *)savings
 {
     [self POST:@"savings" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
@@ -151,7 +153,7 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     }];
 }
 
--(void)updateSavings:(NSDictionary *)savings
+-(void)updateSavings:(RDPSavingEvent *)savings
 {
     [self PUT:@"savings" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
@@ -198,6 +200,7 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
         NSArray *responseArray= responseObject;
         NSURL *imageurl1 = [NSURL URLWithString:[responseArray[0] objectForKey:@"uri"] relativeToURL:[NSURL URLWithString:@"http://moment-qa.intuitlabs.com/"]];
         NSURL *imageurl2 = [NSURL URLWithString:[responseArray[1] objectForKey:@"uri"] relativeToURL:[NSURL URLWithString:@"http://moment-qa.intuitlabs.com/"]];
+
         NSArray *urlArray = @[imageurl1,imageurl2];
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didGetImageURLs:)]) {
             [self.delegate RDPHTTPClient:self didGetImageURLs:urlArray];
