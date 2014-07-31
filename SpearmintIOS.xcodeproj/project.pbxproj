@@ -99,7 +99,6 @@
 		58988F241987065200E05AC5 /* RDPImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageFetcher.m; sourceTree = "<group>"; };
 		58988F2A198814D200E05AC5 /* RDPImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageBlur.h; sourceTree = "<group>"; };
 		58988F2B198814D200E05AC5 /* RDPImageBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageBlur.m; sourceTree = "<group>"; };
-		58988F2D198814F900E05AC5 /* RDPImageFetcherDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcherDelegate.h; sourceTree = "<group>"; };
 		58988F3019881AB600E05AC5 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		58988F3D19881BD600E05AC5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		58988F3F19881BE200E05AC5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -196,7 +195,6 @@
 				58988F241987065200E05AC5 /* RDPImageFetcher.m */,
 				58988F2A198814D200E05AC5 /* RDPImageBlur.h */,
 				58988F2B198814D200E05AC5 /* RDPImageBlur.m */,
-				58988F2D198814F900E05AC5 /* RDPImageFetcherDelegate.h */,
 			);
 			name = Images;
 			sourceTree = "<group>";

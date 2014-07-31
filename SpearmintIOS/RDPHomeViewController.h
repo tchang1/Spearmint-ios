@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "RDPImageFetcher.h"
-#import "RDPImageFetcherDelegate.h"
+#import "RDPCounter.h"
 
-@interface RDPHomeViewController : UIViewController <RDPImageFetcherDelegate>
+@interface RDPHomeViewController : UIViewController
 
 // The image views that contain the clear and blurred version of
 // the image to display to users on the home screen.
 @property (weak, nonatomic) IBOutlet UIImageView *clearImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImageView;
+
+// THe counter view
+@property (weak, nonatomic) IBOutlet RDPCounter *counterView;
 
 // The gesture recognizer to detect when a user is pressing and holding
 // down anywhere on the screen
@@ -23,6 +26,8 @@
 
 // The image fetcher to get our next image 
 @property RDPImageFetcher *imageFetcher;
+
+// The im
 
 /**
  Fades our the blurred image to reveal the clear image when a user holds the screen

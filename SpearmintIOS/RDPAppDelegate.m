@@ -9,6 +9,7 @@
 #import "RDPAppDelegate.h"
 #import "RDPTimerManager.h"
 #import "RDPHTTPClient.h"
+#import "RDPImageFetcher.h"
 
 @implementation RDPAppDelegate
 
@@ -38,6 +39,9 @@
 //    for (cookie in [storage cookies]) {
 //        NSLog(@"%@",cookie);
 //    }
+    
+    [RDPImageFetcher getImageFetcher]; 
+    
     return YES;
 }
 

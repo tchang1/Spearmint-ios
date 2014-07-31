@@ -10,8 +10,8 @@
 #import "RDPTimerManager.h"
 #include <math.h>
 
-#define kDefaultPadding             10
-#define kDefaultLineWidth           10
+#define kDefaultPadding             0
+#define kDefaultLineWidth           7
 #define kDefaultIncrementAmount     1
 #define kDefaultRevsPerSec          1
 

@@ -32,15 +32,24 @@
                                             <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="nKH-Dy-cCl"/>
                                         </connections>
                                     </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2JH-s5-c12" customClass="RDPCounter">
+                                        <rect key="frame" x="95" y="418" width="130" height="130"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="dqT-vz-diN"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="blurredImageView" destination="XWs-xP-zvl" id="fAB-A9-u1C"/>
                         <outlet property="clearImageView" destination="ZSe-LU-9DX" id="T78-lR-bON"/>
+                        <outlet property="counterView" destination="2JH-s5-c12" id="aOG-Jz-OIb"/>
                         <outlet property="pressAndHoldGestureRecognizer" destination="6p7-Gz-es9" id="O55-TO-A9p"/>
                     </connections>
                 </viewController>

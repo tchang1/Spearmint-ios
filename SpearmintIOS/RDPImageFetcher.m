@@ -10,7 +10,41 @@
 
 @implementation RDPImageFetcher
 
-- (void)nextImageToDisplayWithBlock:(ImageBlock)block andImageURL:(NSURL *)imageURL
+static RDPImageFetcher *imageFetcher = nil;
+
++ (RDPImageFetcher *)getImageFetcher
+{
+    if (imageFetcher) {
+        return imageFetcher;
+    }
+
+    imageFetcher = [[RDPImageFetcher alloc] init];
+    [imageFetcher nextImage];
+    return imageFetcher;
+
+}
+
+- (void)setImageWithBlock:(ImageBlock)block
+{
+    self.completionBlock = block;
+    // If we already have the images, execute the block
+    if (self.nextImagesArray) {
+        UIImage *image = self.nextImagesArray[0];
+        self.completionBlock(image);
+    }
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:_nextImagesArray    forKey:@"nextImages"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [self init];
+    self.nextImagesArray = [coder decodeObjectForKey:@"nextImages"];
+    return self;
+}
+
+- (void)nextImageToDisplay:(NSURL *)imageURL
 {
     NSURL *nextImageURL = imageURL;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -18,7 +52,11 @@
         
         dispatch_async(dispatch_get_main_queue(), ^{
             // Pass the image to our image block to update the UI
-            block([UIImage imageWithData:imageData]);
+            UIImage *image =[UIImage imageWithData:imageData];
+            self.nextImagesArray = @[image];
+            if (self.completionBlock) {
+                self.completionBlock(image);
+            }
         });
     });
 }
@@ -32,18 +70,11 @@
 }
 
 -(void)RDPHTTPClient:(RDPHTTPClient *)client didGetImageURLs:(NSArray *)images {
-    // Create block to tell the view controller when image has been fully loaded
-    ImageBlock block = ^(UIImage* nextImage) {
-        if ([self.delegate respondsToSelector:@selector(imageHasLoaded:)]) {
-            [self.delegate imageHasLoaded:nextImage];
-        }
-        
-    };
     
     // TODO: load more than one image at a time, but let view display
     // the first image when it is immediately returned
     NSURL *imageURL = images[0];
-    [self nextImageToDisplayWithBlock:block andImageURL:imageURL];
+    [self nextImageToDisplay:imageURL];
 }
 
 
