@@ -35,7 +35,6 @@
 @interface RDPCounter()
 
 @property CGRect frame;
-@property (nonatomic, assign) BOOL completedOneRevolution;
 @property (nonatomic, readonly) UIColor* currentColor;
 @property (nonatomic, readonly) UIColor* previousColor;
 @property (nonatomic) NSInteger currentColorIndex;
@@ -76,7 +75,6 @@
 - (void)setDefaultParameters
 {
     self.colors = @[kColor_Green, kColor_Blue];
-    self.completedOneRevolution = NO;
     self.startAngle = M_PI * 1.5;
     self.lineWidth = kDefaultLineWidth;
     self.padding = kDefaultPadding;
@@ -179,29 +177,52 @@
 {
     self.currencyValue = [NSNumber numberWithDouble:0];
     self.progress = 0;
-    self.completedOneRevolution = 0;
     [self setNeedsDisplay];
 }
 
 - (void)update:(NSInteger)milliseconds
 {
-    if ([self.currencyValue doubleValue] < self.maxValue) {
-        self.progress += (self.rotationsPerSecond / 1000) * milliseconds;
-        if (self.progress >= 1) {
-            double value = [self.currencyValue doubleValue];
+    self.progress += (self.rotationsPerSecond / 1000) * milliseconds;
+    double value = [self.currencyValue doubleValue];
+    
+    if (self.progress >= 1) {
+        if (value < self.maxValue) {
+            
             value += self.incrementAmount;
             self.currencyValue = [NSNumber numberWithDouble:value];
             
             self.progress = 0.000001;
-            self.completedOneRevolution = YES;
+            
             self.currentColorIndex += 1;
             if (self.currentColorIndex >= [self.colors count]) {
                 self.currentColorIndex = 0;
             }
             
+        
         }
-        [self setNeedsDisplay];
+        else {
+            self.progress = 1;
+        }
     }
+    
+    if (self.progress < 0) {
+        if (value > 0) {
+            value -= self.incrementAmount;
+            self.currencyValue = [NSNumber numberWithDouble:value];
+            self.progress = 0.9999999;
+            
+            self.currentColorIndex -= 1;
+            if (self.currentColorIndex < 0) {
+                self.currentColorIndex = [self.colors count] -1;
+            }
+            
+        }
+        else {
+            self.progress = 0;
+        }
+    }
+    
+    [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -226,7 +247,7 @@
         CGContextRestoreGState(context);
         
         // Only draw the previous circle if there was at least one revolution.
-        if (self.completedOneRevolution) {
+        if ([self.currencyValue doubleValue] >= self.incrementAmount) {
             // Only draw the part of the circle that would not be drawn by the main arc. Drawing a full cicle under the main arc will look bad
             // with transparent colors.
             [self drawArcInContext:context withStartAngle:endAngle andEndAngle:self.startAngle withColor:self.previousColor.CGColor];
