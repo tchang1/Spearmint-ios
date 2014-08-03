@@ -81,25 +81,32 @@
     RDPSavingEvent *saved = [[RDPSavingEvent alloc] init];
     saved.goalid = @"53d2bf28c5fb963e0717d8c8"; //TODO: get actual goal id for user
     saved.amount = (NSDecimalNumber*) amountSaved;
-    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
-    [client postSavings:saved];
     
+    // reset the counter
     [self.counterView reset];
     
-    
-    // Transition the images
-    int nextIndex = (self.imageFetcher.indexOfImageArray + 1) % self.imageFetcher.numImages;
-    self.clearImageView.image = self.imageFetcher.clearImagesArray[nextIndex];
-    
-    [UIView animateWithDuration:0.75 animations:^{
-        self.blurredImageView.image = self.imageFetcher.blurredImagesArray[nextIndex];
-    }];
-    
-    // Update the index for the images array
-    self.imageFetcher.indexOfImageArray = nextIndex;
-    
-    // Get new images from the server
-    [self.imageFetcher nextImage];
+    // Transition the images and save this amount only if we have saved more than 0
+    if (![amountSaved isEqualToNumber:[NSNumber numberWithInt:0]]) {
+        RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
+        [client postSavings:saved];
+        
+        int nextIndex = (self.imageFetcher.indexOfImageArray + 1) % self.imageFetcher.numImages;
+        self.clearImageView.image = self.imageFetcher.clearImagesArray[nextIndex];
+        
+        UIImage * toImage = self.imageFetcher.blurredImagesArray[nextIndex];
+        [UIView transitionWithView:self.blurredImageView
+                          duration:3.0f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.blurredImageView.image = toImage;
+                        } completion:nil];
+        
+        // Update the index for the images array
+        self.imageFetcher.indexOfImageArray = nextIndex;
+        
+        // Get new images from the server
+        [self.imageFetcher nextImage];
+    }
 }
 
 /*
