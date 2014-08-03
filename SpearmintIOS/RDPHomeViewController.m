@@ -12,40 +12,14 @@
 
 @implementation RDPHomeViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    // TODO: move this code to get the next image to a place
-    // before this view is loading 
-//    self.imageFetcher = [[RDPImageFetcher alloc] init];
-//    self.imageFetcher.delegate = self;
-//    
-//    [self.imageFetcher nextImage];
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
     int index = self.imageFetcher.indexOfImageArray;
     self.clearImageView.image = self.imageFetcher.clearImagesArray[index];
     self.blurredImageView.image = self.imageFetcher.blurredImagesArray[index];
-    
-    
-//    __weak __typeof(self) weakSelf = self;
-//    self.imageFetcher.completionBlock = ^(UIImage* image) {
-//        weakSelf.clearImageView.image = image;
-//        
-//        // Apply the blur to our background image
-//        RDPImageBlur *blur = [[RDPImageBlur alloc] init];
-//        weakSelf.blurredImageView.image = [blur applyBlurOnImage:image withRadius:10];
-//        [weakSelf.view setNeedsDisplay];
-//    };
     
     self.counterView.hidden = YES;
 }
@@ -90,6 +64,7 @@
             
             [self.counterView stop];
             [self.counterView hide];
+            
         }
             break;
         case UIGestureRecognizerStateCancelled:
@@ -101,6 +76,18 @@
 
 - (void)transitionImages
 {
+    // Get the information on how much has been saved
+    NSNumber *amountSaved = self.counterView.currencyValue;
+    RDPSavingEvent *saved = [[RDPSavingEvent alloc] init];
+    saved.goalid = @"53d2bf28c5fb963e0717d8c8"; //TODO: get actual goal id for user
+    saved.amount = (NSDecimalNumber*) amountSaved;
+    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
+    [client postSavings:saved];
+    
+    [self.counterView reset];
+    
+    
+    // Transition the images
     int nextIndex = (self.imageFetcher.indexOfImageArray + 1) % self.imageFetcher.numImages;
     self.clearImageView.image = self.imageFetcher.clearImagesArray[nextIndex];
     
@@ -108,9 +95,10 @@
         self.blurredImageView.image = self.imageFetcher.blurredImagesArray[nextIndex];
     }];
     
-    // Get new images from the server
+    // Update the index for the images array
     self.imageFetcher.indexOfImageArray = nextIndex;
-//    [self.imageFetcher blurNextTwoImages];
+    
+    // Get new images from the server
     [self.imageFetcher nextImage];
 }
 

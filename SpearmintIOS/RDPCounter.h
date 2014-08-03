@@ -61,4 +61,9 @@
  */
 - (void)show;
 
+/**
+ Resets the timer.
+ */
+- (void)reset;
+
 @end

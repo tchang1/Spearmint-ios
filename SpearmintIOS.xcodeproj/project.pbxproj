@@ -342,6 +342,8 @@
 		58F643E0197DAC89001D0236 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				58988F4719885F9600E05AC5 /* RDPHomeViewController.h */,
+				58988F4819885F9600E05AC5 /* RDPHomeViewController.m */,
 				F26756A3197DB60300A14D94 /* RDPViewController.h */,
 				F26756A4197DB60300A14D94 /* RDPViewController.m */,
 				F2F1CF70198E9E7B00438A8A /* RDPSettingsController.h */,
@@ -369,8 +371,6 @@
 			isa = PBXGroup;
 			children = (
 				58F643E7197DAD2F001D0236 /* Main.storyboard */,
-				58988F4719885F9600E05AC5 /* RDPHomeViewController.h */,
-				58988F4819885F9600E05AC5 /* RDPHomeViewController.m */,
 				F2F1CF78198EB39000438A8A /* RDPTableViewCellWithName.h */,
 				F2F1CF79198EB39000438A8A /* RDPTableViewCellWithName.m */,
 				F2F1CF7A198EB39000438A8A /* RDPTableViewCellWithName.xib */,

@@ -134,21 +134,8 @@ static RDPImageFetcher *imageFetcher = nil;
     UIImage *blurredImage = [blur applyBlurOnImage:image withRadius:20];
     
     // Save the blurred image to our array
-    int tryCount = 0;
-    while (!blurredImage) {
-        NSLog(@"Blurred image is nil, try number %d", tryCount);
-        blurredImage = [blur applyBlurOnImage:image withRadius:20];
-        tryCount += 1;
-        if (tryCount > 5) {
-            NSLog(@"FAILURE! Error occured 6 times");
-            break;
-        }
-    }
-    
-    if (blurredImage) {
-        self.blurredImagesArray[index] = blurredImage;
-        NSLog(@"SUCCESS! Saved blurred image %d", index);
-    }
+    self.blurredImagesArray[index] = blurredImage;
+    NSLog(@"SUCCESS! Saved blurred image %d", index);
     
     // Save the image data for the blurred image to our documents
     NSData *pngData = UIImagePNGRepresentation(blurredImage);
