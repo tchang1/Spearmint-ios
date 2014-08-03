@@ -14,3 +14,4 @@
 #define kColor_LightGreyText                [UIColor colorWithRed:180 green:180 blue:180 alpha:1]
 #define kColor_CounterBackgroundColor       [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.6]
 #define kColor_CounterText                  [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]
+#define kColor_DarkText                     [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75]

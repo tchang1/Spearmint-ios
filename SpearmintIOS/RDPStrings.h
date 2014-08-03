@@ -16,6 +16,7 @@ typedef enum {
     sNotificationSettings,
     sSubmitFeedback,
     sHistory,
+    sRateTheApp,
     sLogout
 } RDPStringID;
 

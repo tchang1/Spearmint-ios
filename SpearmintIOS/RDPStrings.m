@@ -34,10 +34,13 @@
             result = @"My Goal";
             break;
         case sNotificationSettings:
-            result = @"Notification Settings";
+            result = @"Notifications";
             break;
         case sSubmitFeedback:
-            result = @"Submit Feedback";
+            result = @"Feedback";
+            break;
+        case sRateTheApp:
+            result = @"Rate the app";
             break;
     }
     
