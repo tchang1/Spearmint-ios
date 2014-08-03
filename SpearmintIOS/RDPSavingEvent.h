@@ -14,8 +14,13 @@
 
 @property (nonatomic, strong) NSDecimalNumber *amount;
 
-@property (nonatomic, strong) NSString *reason;
+@property (nonatomic, strong) NSString *savingid;
 
-@property (nonatomic, strong) NSDate *savingDate;
+@property (nonatomic, strong) NSString *goalid;
+
+
+//@property (nonatomic, strong) NSString *reason;
+
+//@property (nonatomic, strong) NSDate *savingDate;
 
 @end

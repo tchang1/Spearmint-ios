@@ -15,8 +15,8 @@
     // model_property_name : json_field_name
     return @{
              @"amount" : @"savingsAmount",
-             @"reason" : @"reason",
-             @"savingdate" : @"savingdate"
+             @"goalid" : @"goalid"
+             //@"savingid" : @"_id"
              };
 }
 
@@ -24,9 +24,10 @@
 {
     self = [super init];
     if (self) {
-        self.amount = [NSDecimalNumber zero];;
-        self.reason = @"";
-        self.savingDate = [NSDate date] ;
+        self.amount = [[NSDecimalNumber alloc] initWithString:@"0"];
+        
+        //self.reason = @"";
+        //self.savingDate = [[NSDate alloc] init];
     }
     return self;
 }

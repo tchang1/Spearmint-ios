@@ -133,8 +133,12 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
 -(void)getMySavings
 {
     [self GET:@"savings/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary *response=(NSDictionary *) responseObject;
+        NSArray *response= responseObject;
+        NSError *error=nil;
         NSLog( @"%@", response );
+        NSArray *savings = [MTLJSONAdapter modelsOfClass:RDPSavingEvent.class fromJSONArray:response error:&error];
+        
+        NSLog( @"%@", savings );
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
@@ -144,8 +148,10 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
 
 -(void)postSavings:(RDPSavingEvent *)savings
 {
-    [self POST:@"savings" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:savings];
+    [self POST:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
+
         NSLog( @"%@", response );
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

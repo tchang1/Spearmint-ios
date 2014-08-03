@@ -47,7 +47,6 @@
 -(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMyGoal:(RDPGoal *)goal;
 -(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMySavings:(NSArray *)savings;
 -(void)RDPHTTPClient:(RDPHTTPClient *)client did:(RDPGoal *)goal;
--(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMyGoal:(RDPGoal *)goal;
 
 
 

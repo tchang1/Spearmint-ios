@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) NSNumber *notifications;
 
-- (id)initWithName:(NSString *)username andTarget:(NSString *)password;
+- (id)initWithName:(NSString *)username andPassword:(NSString *)password;
 
 
 @end
