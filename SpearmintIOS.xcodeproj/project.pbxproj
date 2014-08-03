@@ -15,7 +15,6 @@
 		58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
 		58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
 		58988F2F1988153200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
-		58988F3C19881B5100E05AC5 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F3719881AB600E05AC5 /* libGPUImage.a */; };
 		58988F3E19881BD600E05AC5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F3D19881BD600E05AC5 /* CoreMedia.framework */; };
 		58988F4019881BE200E05AC5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F3F19881BE200E05AC5 /* CoreVideo.framework */; };
 		58988F4219881BF300E05AC5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F4119881BF300E05AC5 /* OpenGLES.framework */; };
@@ -23,6 +22,7 @@
 		58988F4619881C1300E05AC5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F4519881C1300E05AC5 /* QuartzCore.framework */; };
 		58988F4919885F9600E05AC5 /* RDPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F4819885F9600E05AC5 /* RDPHomeViewController.m */; };
 		58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F4819885F9600E05AC5 /* RDPHomeViewController.m */; };
+		58988F81198EF2BD00E05AC5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F80198EF2BD00E05AC5 /* Accelerate.framework */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -105,27 +105,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		58988F3619881AB600E05AC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58988F3019881AB600E05AC5 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
-			remoteInfo = GPUImage;
-		};
-		58988F3819881AB600E05AC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58988F3019881AB600E05AC5 /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCE209E51943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
-		58988F3A19881AC500E05AC5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58988F3019881AB600E05AC5 /* GPUImage.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
-			remoteInfo = GPUImage;
-		};
 		58F643CE197DA5F6001D0236 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 58F643A6197DA5F6001D0236 /* Project object */;
@@ -147,7 +126,6 @@
 		58988F241987065200E05AC5 /* RDPImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageFetcher.m; sourceTree = "<group>"; };
 		58988F2A198814D200E05AC5 /* RDPImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageBlur.h; sourceTree = "<group>"; };
 		58988F2B198814D200E05AC5 /* RDPImageBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageBlur.m; sourceTree = "<group>"; };
-		58988F3019881AB600E05AC5 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		58988F3D19881BD600E05AC5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		58988F3F19881BE200E05AC5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		58988F4119881BF300E05AC5 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -155,6 +133,7 @@
 		58988F4519881C1300E05AC5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		58988F4719885F9600E05AC5 /* RDPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHomeViewController.h; sourceTree = "<group>"; };
 		58988F4819885F9600E05AC5 /* RDPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHomeViewController.m; sourceTree = "<group>"; };
+		58988F80198EF2BD00E05AC5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -228,12 +207,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58988F81198EF2BD00E05AC5 /* Accelerate.framework in Frameworks */,
 				58988F4619881C1300E05AC5 /* QuartzCore.framework in Frameworks */,
 				58988F4419881C0000E05AC5 /* AVFoundation.framework in Frameworks */,
 				58988F4219881BF300E05AC5 /* OpenGLES.framework in Frameworks */,
 				58988F4019881BE200E05AC5 /* CoreVideo.framework in Frameworks */,
 				58988F3E19881BD600E05AC5 /* CoreMedia.framework in Frameworks */,
-				58988F3C19881B5100E05AC5 /* libGPUImage.a in Frameworks */,
 				58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */,
 				58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */,
 				58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */,
@@ -274,19 +253,9 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		58988F3119881AB600E05AC5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				58988F3719881AB600E05AC5 /* libGPUImage.a */,
-				58988F3919881AB600E05AC5 /* GPUImage.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		58F643A5197DA5F6001D0236 = {
 			isa = PBXGroup;
 			children = (
-				58988F3019881AB600E05AC5 /* GPUImage.xcodeproj */,
 				58F643B7197DA5F6001D0236 /* SpearmintIOS */,
 				58F643D0197DA5F6001D0236 /* SpearmintIOSTests */,
 				58F643B0197DA5F6001D0236 /* Frameworks */,
@@ -307,6 +276,7 @@
 		58F643B0197DA5F6001D0236 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58988F80198EF2BD00E05AC5 /* Accelerate.framework */,
 				58988F4519881C1300E05AC5 /* QuartzCore.framework */,
 				58988F4319881C0000E05AC5 /* AVFoundation.framework */,
 				58988F4119881BF300E05AC5 /* OpenGLES.framework */,
@@ -522,7 +492,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				58988F3B19881AC500E05AC5 /* PBXTargetDependency */,
 			);
 			name = SpearmintIOS;
 			productName = SpearmintIOS;
@@ -572,12 +541,6 @@
 			mainGroup = 58F643A5197DA5F6001D0236;
 			productRefGroup = 58F643AF197DA5F6001D0236 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 58988F3119881AB600E05AC5 /* Products */;
-					ProjectRef = 58988F3019881AB600E05AC5 /* GPUImage.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				58F643AD197DA5F6001D0236 /* SpearmintIOS */,
@@ -585,23 +548,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		58988F3719881AB600E05AC5 /* libGPUImage.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGPUImage.a;
-			remoteRef = 58988F3619881AB600E05AC5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		58988F3919881AB600E05AC5 /* GPUImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GPUImage.framework;
-			remoteRef = 58988F3819881AB600E05AC5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		58F643AC197DA5F6001D0236 /* Resources */ = {
@@ -753,11 +699,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		58988F3B19881AC500E05AC5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GPUImage;
-			targetProxy = 58988F3A19881AC500E05AC5 /* PBXContainerItemProxy */;
-		};
 		58F643CF197DA5F6001D0236 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 58F643AD197DA5F6001D0236 /* SpearmintIOS */;
@@ -873,7 +814,6 @@
 					"\"${PODS_ROOT}/Headers/Canvas\"",
 					"\"${PODS_ROOT}/Headers/Mantle\"",
 					"\"${PODS_ROOT}/Headers/pop\"",
-					"\"$(PROJECT_DIR)/GPUImage/framework\"/**",
 				);
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				PRODUCT_NAME = SpearmintIOS;
@@ -900,7 +840,6 @@
 					"\"${PODS_ROOT}/Headers/Canvas\"",
 					"\"${PODS_ROOT}/Headers/Mantle\"",
 					"\"${PODS_ROOT}/Headers/pop\"",
-					"\"$(PROJECT_DIR)/GPUImage/framework\"/**",
 				);
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				PRODUCT_NAME = SpearmintIOS;

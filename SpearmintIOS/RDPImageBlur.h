@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GPUImage.h"
 
 @interface RDPImageBlur : NSObject
 

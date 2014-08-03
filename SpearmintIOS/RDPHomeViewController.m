@@ -32,9 +32,9 @@
 //    
 //    [self.imageFetcher nextImage];
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
-    int index = self.imageFetcher.indexOfImageFile;
-    self.clearImageView.image = self.imageFetcher.nextImagesArray[index];
-    self.blurredImageView.image = self.imageFetcher.currentBlurredImage;
+    int index = self.imageFetcher.indexOfImageArray;
+    self.clearImageView.image = self.imageFetcher.clearImagesArray[index];
+    self.blurredImageView.image = self.imageFetcher.blurredImagesArray[index];
     
     
 //    __weak __typeof(self) weakSelf = self;
@@ -101,16 +101,16 @@
 
 - (void)transitionImages
 {
-    int nextIndex = (self.imageFetcher.indexOfImageFile + 1) % 10;
-    self.clearImageView.image = self.imageFetcher.nextImagesArray[nextIndex];
+    int nextIndex = (self.imageFetcher.indexOfImageArray + 1) % self.imageFetcher.numImages;
+    self.clearImageView.image = self.imageFetcher.clearImagesArray[nextIndex];
     
     [UIView animateWithDuration:0.75 animations:^{
-        self.blurredImageView.image = self.imageFetcher.nextBlurredImage;
+        self.blurredImageView.image = self.imageFetcher.blurredImagesArray[nextIndex];
     }];
     
     // Get new images from the server
-    self.imageFetcher.indexOfImageFile = nextIndex;
-    [self.imageFetcher blurNextTwoImages];
+    self.imageFetcher.indexOfImageArray = nextIndex;
+//    [self.imageFetcher blurNextTwoImages];
     [self.imageFetcher nextImage];
 }
 
