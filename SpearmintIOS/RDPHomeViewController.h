@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "RDPImageFetcher.h"
 #import "RDPCounter.h"
+#import "RDPViewController.h"
 
-@interface RDPHomeViewController : UIViewController
+@interface RDPHomeViewController : RDPViewController
 
 // The image views that contain the clear and blurred version of
 // the image to display to users on the home screen.
@@ -26,8 +27,6 @@
 
 // The image fetcher to get our next image 
 @property RDPImageFetcher *imageFetcher;
-
-// The im
 
 /**
  Fades our the blurred image to reveal the clear image when a user holds the screen

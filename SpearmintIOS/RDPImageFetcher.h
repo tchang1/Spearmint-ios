@@ -13,12 +13,19 @@ typedef void(^ImageBlock)(UIImage*);
 
 @interface RDPImageFetcher : NSObject <NSCoding, RDPHTTPClientDelegate>
 
-@property (nonatomic, strong) NSArray *nextImagesArray;
+@property (nonatomic, strong) NSMutableArray *nextImagesArray;
 @property (nonatomic, strong) ImageBlock completionBlock;
+
+@property (nonatomic, assign) int indexOfImageFile;
+
+@property (nonatomic, strong) UIImage *currentBlurredImage;
+@property (nonatomic, strong) UIImage *nextBlurredImage;
 
 + (RDPImageFetcher *)getImageFetcher;
 
-- (void)setImageWithBlock:(ImageBlock)block;
+//- (void)setImageWithBlock:(ImageBlock)block;
+
+- (void)blurNextTwoImages;
 
 /**
  Method to be called by the view controller to load the next image for the home screen.

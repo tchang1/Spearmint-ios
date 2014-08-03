@@ -8,10 +8,7 @@
 
 #import "RDPHomeViewController.h"
 #import "RDPImageBlur.h"
-
-@interface RDPHomeViewController ()
-
-@end
+#import "RDPHTTPClient.h"
 
 @implementation RDPHomeViewController
 
@@ -35,18 +32,22 @@
 //    
 //    [self.imageFetcher nextImage];
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
+    int index = self.imageFetcher.indexOfImageFile;
+    self.clearImageView.image = self.imageFetcher.nextImagesArray[index];
+    self.blurredImageView.image = self.imageFetcher.currentBlurredImage;
     
-    __weak __typeof(self) weakSelf = self;
-    self.imageFetcher.completionBlock = ^(UIImage* image) {
-        weakSelf.clearImageView.image = image;
-        
-        // Apply the blur to our background image
-        RDPImageBlur *blur = [[RDPImageBlur alloc] init];
-        weakSelf.blurredImageView.image = [blur applyBlurOnImage:image withRadius:10];
-        [weakSelf.view setNeedsDisplay];
-    };
     
-    [self.counterView start]; 
+//    __weak __typeof(self) weakSelf = self;
+//    self.imageFetcher.completionBlock = ^(UIImage* image) {
+//        weakSelf.clearImageView.image = image;
+//        
+//        // Apply the blur to our background image
+//        RDPImageBlur *blur = [[RDPImageBlur alloc] init];
+//        weakSelf.blurredImageView.image = [blur applyBlurOnImage:image withRadius:10];
+//        [weakSelf.view setNeedsDisplay];
+//    };
+    
+    self.counterView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +67,8 @@
                 self.blurredImageView.alpha = 0.0;
                 
             }];
+            self.counterView.hidden = NO;
+            [self.counterView start];
         }
             break;
             
@@ -80,8 +83,13 @@
             [UIView animateWithDuration:0.75 animations:^{
                 
                 self.blurredImageView.alpha = 1.0;
-                
-            }];
+            }
+                             completion:^(BOOL finished){
+                                 [self transitionImages];
+                             }];
+            
+            [self.counterView stop];
+            [self.counterView hide];
         }
             break;
         case UIGestureRecognizerStateCancelled:
@@ -91,6 +99,20 @@
     }
 }
 
+- (void)transitionImages
+{
+    int nextIndex = (self.imageFetcher.indexOfImageFile + 1) % 10;
+    self.clearImageView.image = self.imageFetcher.nextImagesArray[nextIndex];
+    
+    [UIView animateWithDuration:0.75 animations:^{
+        self.blurredImageView.image = self.imageFetcher.nextBlurredImage;
+    }];
+    
+    // Get new images from the server
+    self.imageFetcher.indexOfImageFile = nextIndex;
+    [self.imageFetcher blurNextTwoImages];
+    [self.imageFetcher nextImage];
+}
 
 /*
  #pragma mark - Navigation

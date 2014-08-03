@@ -7,6 +7,11 @@
 //
 
 #import "RDPImageFetcher.h"
+#import "RDPImageBlur.h"
+
+@interface RDPImageFetcher()
+
+@end
 
 @implementation RDPImageFetcher
 
@@ -19,18 +24,61 @@ static RDPImageFetcher *imageFetcher = nil;
     }
 
     imageFetcher = [[RDPImageFetcher alloc] init];
-    [imageFetcher nextImage];
+    imageFetcher.indexOfImageFile = 0;
+    [imageFetcher blurNextTwoImages];
+    //[imageFetcher nextImage];
     return imageFetcher;
 
 }
 
-- (void)setImageWithBlock:(ImageBlock)block
+//- (void)setImageWithBlock:(ImageBlock)block
+//{
+//    self.completionBlock = block;
+//    // If we already have the images, execute the block
+//    if (self.nextImagesArray) {
+//        UIImage *image = self.nextImagesArray[0];
+//        self.completionBlock(image);
+//    }
+//}
+
+// Add new functions
+- (NSMutableArray *)nextImagesArray
 {
-    self.completionBlock = block;
-    // If we already have the images, execute the block
-    if (self.nextImagesArray) {
-        UIImage *image = self.nextImagesArray[0];
-        self.completionBlock(image);
+    
+    if (_nextImagesArray != nil) {
+        return _nextImagesArray;
+    }
+    
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for (int i=0; i <10; i++) {
+        NSString *imageFileName = [[NSString stringWithFormat:@"%d", i] stringByAppendingString:@".jpg"];
+        UIImage *image = [UIImage imageNamed:imageFileName];
+        [array addObject:image];
+    }
+    
+    imageFetcher.nextImagesArray = array; 
+    
+    return array;
+}
+
+- (void)blurNextTwoImages
+{
+    RDPImageBlur *blur = [[RDPImageBlur alloc] init];
+    
+    // If we don't have the next blurred image then we need to blur two images
+    if (_nextBlurredImage == nil) {
+        imageFetcher.currentBlurredImage = [blur applyBlurOnImage:self.nextImagesArray[self.indexOfImageFile] withRadius:20];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^(void) {
+            int nextIndex = (imageFetcher.indexOfImageFile +1) % 10;
+            imageFetcher.nextBlurredImage = [blur applyBlurOnImage:imageFetcher.nextImagesArray[nextIndex] withRadius:20];
+        });
+    } else {
+        imageFetcher.currentBlurredImage = imageFetcher.nextBlurredImage;
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, (unsigned long)NULL), ^{
+            int nextIndex = (imageFetcher.indexOfImageFile +1) % 10;
+            imageFetcher.nextBlurredImage = [blur applyBlurOnImage:imageFetcher.nextImagesArray[nextIndex] withRadius:20];
+        });
     }
 }
 
@@ -51,12 +99,15 @@ static RDPImageFetcher *imageFetcher = nil;
         NSData *imageData = [NSData dataWithContentsOfURL:nextImageURL];
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            // Pass the image to our image block to update the UI
+            
             UIImage *image =[UIImage imageWithData:imageData];
-            self.nextImagesArray = @[image];
-            if (self.completionBlock) {
-                self.completionBlock(image);
+            int prevIndex;
+            if (self.indexOfImageFile == 0) {
+                prevIndex = 9;
+            } else {
+                prevIndex = self.indexOfImageFile - 1;
             }
+            self.nextImagesArray[prevIndex] = image;
         });
     });
 }
