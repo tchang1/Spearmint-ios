@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3DA685B260D1443591BE91E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A66A01DDAC4711864FBE10 /* libPods.a */; };
+		5531CA05198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */; };
+		5531CA06198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */; };
 		5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5569A7D919808617001FC14C /* RDPHTTPClient.m */; };
 		558181A81986F83600390741 /* RDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181A71986F83600390741 /* RDPUser.m */; };
 		558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181AA1987009F00390741 /* RDPSavingEvent.m */; };
@@ -116,6 +118,8 @@
 
 /* Begin PBXFileReference section */
 		418596D1A2794C27B7EA9326 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		5531CA03198EFE6F0076D8B8 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		5569A7D819808617001FC14C /* RDPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHTTPClient.h; sourceTree = "<group>"; };
 		5569A7D919808617001FC14C /* RDPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHTTPClient.m; sourceTree = "<group>"; };
 		558181A61986F83600390741 /* RDPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUser.h; sourceTree = "<group>"; };
@@ -249,6 +253,8 @@
 				58988F241987065200E05AC5 /* RDPImageFetcher.m */,
 				58988F2A198814D200E05AC5 /* RDPImageBlur.h */,
 				58988F2B198814D200E05AC5 /* RDPImageBlur.m */,
+				5531CA03198EFE6F0076D8B8 /* UIImage+ImageEffects.h */,
+				5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -654,6 +660,7 @@
 				58F643BE197DA5F6001D0236 /* main.m in Sources */,
 				558181A81986F83600390741 /* RDPUser.m in Sources */,
 				F2F1CF72198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
+				5531CA05198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */,
 				58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */,
 				58988F4919885F9600E05AC5 /* RDPHomeViewController.m in Sources */,
 				F2208C661989B0A200EDD6CF /* RDPCounter.m in Sources */,
@@ -678,6 +685,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5531CA06198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */,
 				F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
 				58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2FD6F5B19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
