@@ -10,10 +10,22 @@
 #import "RDPImageBlur.h"
 
 #define numImagesTotal 10
+NSString * const kIndexInArray = @"kArray";
+NSString * const kIndexInFiles = @"kFiles";
 
 @implementation RDPImageFetcher
 
 static RDPImageFetcher *imageFetcher = nil;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self loadIndices];
+        _numImages = numImagesTotal;
+    }
+    return self;
+}
 
 + (RDPImageFetcher *)getImageFetcher
 {
@@ -21,12 +33,8 @@ static RDPImageFetcher *imageFetcher = nil;
         return imageFetcher;
     }
 
-    imageFetcher = [[RDPImageFetcher alloc] init];
-    imageFetcher.indexOfImageFile = 0;
-    imageFetcher.indexOfImageArray = 0;
-    imageFetcher.numImages = numImagesTotal;
+    imageFetcher = [[self alloc] init];
     return imageFetcher;
-
 }
 
 - (UIImage *)getCurrentBlurredImage
@@ -192,6 +200,35 @@ static RDPImageFetcher *imageFetcher = nil;
     });
 }
 
+# pragma mark - Save and Load Indices
+
+-(void)saveIndices
+{
+    [[NSUserDefaults standardUserDefaults]
+     setObject:[NSNumber numberWithInt:self.indexOfImageFile] forKey:kIndexInFiles];
+    
+    [[NSUserDefaults standardUserDefaults]
+     setObject:[NSNumber numberWithInt:self.indexOfImageArray] forKey:kIndexInArray];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+-(void)loadIndices
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kIndexInArray])
+    {
+        self.indexOfImageFile = [[[NSUserDefaults standardUserDefaults]
+                                   objectForKey:kIndexInFiles] intValue];
+        
+        self.indexOfImageArray = [[[NSUserDefaults standardUserDefaults]
+                                   objectForKey:kIndexInArray] intValue];
+    }
+    else
+    {
+        self.indexOfImageArray = 0;
+        self.indexOfImageFile = 0;
+    } 
+}
 
 
 @end

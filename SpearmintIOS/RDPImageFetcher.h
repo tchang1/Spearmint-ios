@@ -32,4 +32,10 @@ typedef void(^ImageBlock)(UIImage*);
  */
 - (void)nextImage;
 
+/**
+ Methods to save and load the indices for the images arrays 
+ */
+-(void)saveIndices;
+-(void)loadIndices;
+
 @end

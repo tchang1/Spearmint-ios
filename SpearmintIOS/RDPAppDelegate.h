@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDPImageFetcher.h"
 
 @interface RDPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) RDPImageFetcher *imageFetcher; 
 
 @end
