@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDPViewController.h"
 
-@interface RDPSettingsController : UITableViewController
+@interface RDPSettingsController : RDPViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
 @end

@@ -50,8 +50,6 @@
 		F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756AD197DC19500A14D94 /* RDPTimer.m */; };
 		F2F1CF72198E9E7B00438A8A /* RDPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */; };
 		F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */; };
-		F2F1CF76198EA6FD00438A8A /* RDPTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF75198EA6FD00438A8A /* RDPTableViewViewController.m */; };
-		F2F1CF77198EA6FD00438A8A /* RDPTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF75198EA6FD00438A8A /* RDPTableViewViewController.m */; };
 		F2F1CF7B198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF79198EB39000438A8A /* RDPTableViewCellWithName.m */; };
 		F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF79198EB39000438A8A /* RDPTableViewCellWithName.m */; };
 		F2F1CF7D198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF7A198EB39000438A8A /* RDPTableViewCellWithName.xib */; };
@@ -96,6 +94,10 @@
 		F2F1CFBB198EC2AA00438A8A /* 9_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF94198EC2AA00438A8A /* 9_blur.jpg */; };
 		F2F1CFBC198EC2AA00438A8A /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF95198EC2AA00438A8A /* 9.jpg */; };
 		F2F1CFBD198EC2AA00438A8A /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF95198EC2AA00438A8A /* 9.jpg */; };
+		F2F1CFD6198F016C00438A8A /* UINavigationController+Retro.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFD5198F016C00438A8A /* UINavigationController+Retro.m */; };
+		F2F1CFD7198F016C00438A8A /* UINavigationController+Retro.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFD5198F016C00438A8A /* UINavigationController+Retro.m */; };
+		F2F1CFDA198F103700438A8A /* RDPPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */; };
+		F2F1CFDB198F103700438A8A /* RDPPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */; };
 		F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
 		F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
 		F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
@@ -171,8 +173,6 @@
 		F26756AD197DC19500A14D94 /* RDPTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTimer.m; sourceTree = "<group>"; };
 		F2F1CF70198E9E7B00438A8A /* RDPSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSettingsController.h; sourceTree = "<group>"; };
 		F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSettingsController.m; sourceTree = "<group>"; };
-		F2F1CF74198EA6FD00438A8A /* RDPTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTableViewViewController.h; sourceTree = "<group>"; };
-		F2F1CF75198EA6FD00438A8A /* RDPTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTableViewViewController.m; sourceTree = "<group>"; };
 		F2F1CF78198EB39000438A8A /* RDPTableViewCellWithName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTableViewCellWithName.h; sourceTree = "<group>"; };
 		F2F1CF79198EB39000438A8A /* RDPTableViewCellWithName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTableViewCellWithName.m; sourceTree = "<group>"; };
 		F2F1CF7A198EB39000438A8A /* RDPTableViewCellWithName.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPTableViewCellWithName.xib; sourceTree = "<group>"; };
@@ -196,6 +196,10 @@
 		F2F1CF93198EC2AA00438A8A /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		F2F1CF94198EC2AA00438A8A /* 9_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9_blur.jpg; sourceTree = "<group>"; };
 		F2F1CF95198EC2AA00438A8A /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		F2F1CFD4198F016C00438A8A /* UINavigationController+Retro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Retro.h"; sourceTree = "<group>"; };
+		F2F1CFD5198F016C00438A8A /* UINavigationController+Retro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Retro.m"; sourceTree = "<group>"; };
+		F2F1CFD8198F103700438A8A /* RDPPushAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPPushAnimation.h; sourceTree = "<group>"; };
+		F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPPushAnimation.m; sourceTree = "<group>"; };
 		F2FD6F4C198073A80035ED06 /* RDPInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPInterpolation.h; sourceTree = "<group>"; };
 		F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPInterpolation.m; sourceTree = "<group>"; };
 		F2FD6F4E198073A80035ED06 /* RDPLinearInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLinearInterpolation.h; sourceTree = "<group>"; };
@@ -354,8 +358,10 @@
 				F26756A4197DB60300A14D94 /* RDPViewController.m */,
 				F2F1CF70198E9E7B00438A8A /* RDPSettingsController.h */,
 				F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */,
-				F2F1CF74198EA6FD00438A8A /* RDPTableViewViewController.h */,
-				F2F1CF75198EA6FD00438A8A /* RDPTableViewViewController.m */,
+				F2F1CFD4198F016C00438A8A /* UINavigationController+Retro.h */,
+				F2F1CFD5198F016C00438A8A /* UINavigationController+Retro.m */,
+				F2F1CFD8198F103700438A8A /* RDPPushAnimation.h */,
+				F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -666,18 +672,19 @@
 				F2208C661989B0A200EDD6CF /* RDPCounter.m in Sources */,
 				F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				58F643EE197F2750001D0236 /* RDPStrings.m in Sources */,
+				F2F1CFD6198F016C00438A8A /* UINavigationController+Retro.m in Sources */,
 				F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
 				58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
+				F2F1CFDA198F103700438A8A /* RDPPushAnimation.m in Sources */,
 				F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 				F2F1CF7B198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
 				F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */,
 				F2FD6F5A19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
 				558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */,
-				F2F1CF76198EA6FD00438A8A /* RDPTableViewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +696,8 @@
 				F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
 				58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2FD6F5B19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
+				F2F1CFDB198F103700438A8A /* RDPPushAnimation.m in Sources */,
+				F2F1CFD7198F016C00438A8A /* UINavigationController+Retro.m in Sources */,
 				F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
 				F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
@@ -697,7 +706,6 @@
 				F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
-				F2F1CF77198EA6FD00438A8A /* RDPTableViewViewController.m in Sources */,
 				F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
 				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 				58988F2F1988153200E05AC5 /* RDPImageBlur.m in Sources */,

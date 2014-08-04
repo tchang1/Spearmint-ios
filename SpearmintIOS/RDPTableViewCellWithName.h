@@ -10,5 +10,6 @@
 
 @interface RDPTableViewCellWithName : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *cellLabel;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end

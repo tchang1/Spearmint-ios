@@ -9,6 +9,9 @@
 #import "RDPSettingsController.h"
 #import "RDPViewController.h"
 #import "RDPTableViewCellWithName.h"
+#import "UINavigationController+Retro.h"
+#import "RDPPushAnimation.h"
+
 
 #define kKeyName                    @"name"
 #define kKeySelector                @"selector"
@@ -21,9 +24,19 @@
 #define kSegueToHistory             @"segueToHistory"
 #define kSegueToFeedback            @"segueToFeedback"
 
+#define kStoryboard                 @"Main"
+
+#define kMyGoalIdentifier           @"settingsMyGoal"
+#define kNotificationsIdentifier    @"settingsNotifications"
+#define kHistoryIdentifier          @"settingsHistory"
+#define kFeedbackIdentifier         @"settingsFeedback"
+
 @interface RDPSettingsController ()
 
 @property (nonatomic, strong) NSArray* menuItems;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UIView *statusBarBackground;
 
 @end
 
@@ -52,26 +65,40 @@
     return _menuItems;
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    myNavController.view insertSubview:myImageView atIndex:0
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"5_blur.jpg"]];
+    [self.navigationController.view insertSubview:imageView atIndex:0];
+    [self.navigationController.navigationBar setBackgroundColor:kColor_SettingPanelHeader];
+    [self.logoutButton setTitle:[RDPStrings stringForID:sLogout] forState:UIControlStateNormal];
+    [self.logoutButton setBackgroundColor:kColor_LogoutButtonPanelColor];
+    [self.logoutButton setTintColor:kColor_LightText];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.navigationController.delegate = self;
+    [self.view setBackgroundColor:kColor_Transparent];
+    [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
     [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                             forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    [self.statusBarBackground setBackgroundColor:kColor_SettingPanelHeader];
+//    self.tableView.separatorColor = kColor_TableViewSeparatorColor;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +129,8 @@
     }
     
     [cell.cellLabel setText:[[self.menuItems objectAtIndex:indexPath.row] objectForKey:kKeyName]];
+    [cell setBackgroundColor:kColor_Transparent];
+    [cell.contentView setBackgroundColor:kColor_PanelColor];
     
     return cell;
 }
@@ -155,6 +184,7 @@
 }
 */
 
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -164,26 +194,49 @@
     // Pass the selected object to the new view controller.
 }
 
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    
+    RDPPushAnimation* pushAnimation = [RDPPushAnimation new];
+    pushAnimation.navigationControllerOperation = operation;
+    return pushAnimation;
+}
 
 #pragma mark tap handlers
                        
 -(void)goalsTapped
 {
-    [self performSegueWithIdentifier:kSegueToMyGoal sender:self];
+    UIViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kMyGoalIdentifier];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)notificationsTapped
 {
-    [self performSegueWithIdentifier:kSegueToNotifications sender:self];}
+    UIViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kNotificationsIdentifier];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 -(void)historyTapped
 {
-    [self performSegueWithIdentifier:kSegueToHistory sender:self];
+    UIViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kHistoryIdentifier];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)feedbackTapped
 {
-    [self performSegueWithIdentifier:kSegueToFeedback sender:self];
+    UIViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kFeedbackIdentifier];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)rateTapped
