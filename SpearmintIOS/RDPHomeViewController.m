@@ -11,7 +11,7 @@
 #import "RDPHTTPClient.h"
 #import "RDPStrings.h"
 
-#define kSuggestionDisplayDuration 4.5
+#define kSuggestionDisplayDuration 4
 #define kShowCongratsDuration 2500
 
 @implementation RDPHomeViewController
@@ -19,9 +19,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Let the gesture recognizer fire immediately after the user touches
-    self.pressAndHoldGestureRecognizer.minimumPressDuration = 0.1;
     
     // Get the clear and blurred image from the image fetcher
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
@@ -135,10 +132,16 @@
             
             if (!amountHasBeenSaved) {
                 self.pressAndHoldView.hidden = NO;
-                
                 self.pressAndHoldView.duration = 0.75;
                 self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                 [self.pressAndHoldView startCanvasAnimation];
+                
+                // Show suggestions
+                self.suggestionView.hidden = NO;
+                self.suggestionView.duration = 0.75;
+                self.suggestionView.type     = CSAnimationTypeFadeIn;
+                [self.suggestionView startCanvasAnimation];
+                [self startSuggestionsTimer];
             } else {
                 NSString *symbol = self.counterView.currencySymbol;
                 NSString *justKept = [RDPStrings stringForID:sJustKept];
