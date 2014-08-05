@@ -10,6 +10,10 @@
 #import "RDPImageFetcher.h"
 #import "RDPCounter.h"
 #import "RDPViewController.h"
+#import "CSAnimationView.h"
+#import "RDPCongratulations.h"
+#import "RDPSavingSuggestions.h"
+#import "RDPTimerManager.h"
 
 @interface RDPHomeViewController : RDPViewController
 
@@ -18,7 +22,23 @@
 @property (weak, nonatomic) IBOutlet UIImageView *clearImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImageView;
 
-// THe counter view
+// Press and hold to save view and label
+@property (weak, nonatomic) IBOutlet CSAnimationView *pressAndHoldView;
+@property (weak, nonatomic) IBOutlet UILabel *pressAndHoldLabel;
+
+// Congratulations view and labels
+@property (weak, nonatomic) IBOutlet CSAnimationView *congratsView;
+@property (weak, nonatomic) IBOutlet UILabel *congratsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *amountKeptLabel;
+
+// Savings suggestion view and label
+@property (weak, nonatomic) IBOutlet CSAnimationView *suggestionView;
+@property (weak, nonatomic) IBOutlet UILabel *suggestionLabel;
+
+// The settings button view
+@property (weak, nonatomic) IBOutlet CSAnimationView *settingsButtonView;
+
+// The counter view
 @property (weak, nonatomic) IBOutlet RDPCounter *counterView;
 
 // The gesture recognizer to detect when a user is pressing and holding
@@ -26,7 +46,15 @@
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *pressAndHoldGestureRecognizer;
 
 // The image fetcher to get our next image 
-@property RDPImageFetcher *imageFetcher;
+@property (strong, nonatomic) RDPImageFetcher *imageFetcher;
+
+// The congratulations message
+@property (strong, nonatomic) RDPCongratulations *congratulations;
+
+// The saving suggestion messages
+@property (strong, nonatomic) RDPSavingSuggestions *suggestions;
+@property (nonatomic, assign) int suggestionIndex;
+@property (nonatomic, strong) NSTimer *suggestionTimer;
 
 /**
  Fades our the blurred image to reveal the clear image when a user holds the screen

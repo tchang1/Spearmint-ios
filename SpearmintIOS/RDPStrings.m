@@ -16,7 +16,7 @@
     
     switch (stringID) {
         case sPressAndHold:
-            result = @"Press and hold to Keep the savings.";
+            result = @"Tap and hold \n to keep the savings";
             break;
         case sSettings:
             result = @"Settings";
@@ -41,6 +41,9 @@
             break;
         case sRateTheApp:
             result = @"Rate the app";
+            break;
+        case sJustKept:
+            result = @"You just kept ";
             break;
     }
     

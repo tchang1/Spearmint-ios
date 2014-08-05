@@ -17,7 +17,8 @@ typedef enum {
     sSubmitFeedback,
     sHistory,
     sRateTheApp,
-    sLogout
+    sLogout,
+    sJustKept
 } RDPStringID;
 
 @interface RDPStrings : NSObject

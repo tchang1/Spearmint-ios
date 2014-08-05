@@ -11,7 +11,7 @@
 #include <math.h>
 
 #define kDefaultPadding             0
-#define kDefaultLineWidth           7
+#define kDefaultLineWidth           5
 #define kDefaultIncrementAmount     1
 #define kDefaultRevsPerSec          1
 
@@ -19,14 +19,14 @@
 #define kDefaultHeight              200
 
 #define kTrueMaxValue               99
-#define kDefaultFontName            @"Helvetica"
+#define kDefaultFontName            @"Helvetica-Light"
 #define kDefaultCurrencySymbol      @"$"
 
-#define kDefaultFontSize            56
+#define kDefaultFontSize            32
 #define kCurrencySymbolFontScale    0.3
 #define kTextOffsetX                0
 #define kTextOffsetY                8
-#define kNumberOffsetX              10
+#define kNumberOffsetX              6
 #define kNumberOffsetY              -8
 
 #define kCounterUpdateBlockName     @"counterUpdateBlock"

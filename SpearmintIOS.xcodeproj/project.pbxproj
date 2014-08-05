@@ -25,6 +25,14 @@
 		58988F4919885F9600E05AC5 /* RDPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F4819885F9600E05AC5 /* RDPHomeViewController.m */; };
 		58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F4819885F9600E05AC5 /* RDPHomeViewController.m */; };
 		58988F81198EF2BD00E05AC5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F80198EF2BD00E05AC5 /* Accelerate.framework */; };
+		58988F86198FF42100E05AC5 /* Fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F84198FF42100E05AC5 /* Fingerprint.png */; };
+		58988F87198FF42100E05AC5 /* Fingerprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F84198FF42100E05AC5 /* Fingerprint.png */; };
+		58988F88198FF42100E05AC5 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F85198FF42100E05AC5 /* Settings.png */; };
+		58988F89198FF42100E05AC5 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F85198FF42100E05AC5 /* Settings.png */; };
+		58988F8D198FFEC900E05AC5 /* RDPSavingSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F8C198FFEC900E05AC5 /* RDPSavingSuggestions.m */; };
+		58988F8E198FFEC900E05AC5 /* RDPSavingSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F8C198FFEC900E05AC5 /* RDPSavingSuggestions.m */; };
+		58988F91198FFEEA00E05AC5 /* RDPCongratulations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F90198FFEEA00E05AC5 /* RDPCongratulations.m */; };
+		58988F92198FFEEA00E05AC5 /* RDPCongratulations.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F90198FFEEA00E05AC5 /* RDPCongratulations.m */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -140,6 +148,12 @@
 		58988F4719885F9600E05AC5 /* RDPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHomeViewController.h; sourceTree = "<group>"; };
 		58988F4819885F9600E05AC5 /* RDPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHomeViewController.m; sourceTree = "<group>"; };
 		58988F80198EF2BD00E05AC5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		58988F84198FF42100E05AC5 /* Fingerprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fingerprint.png; sourceTree = "<group>"; };
+		58988F85198FF42100E05AC5 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		58988F8B198FFEC900E05AC5 /* RDPSavingSuggestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSavingSuggestions.h; sourceTree = "<group>"; };
+		58988F8C198FFEC900E05AC5 /* RDPSavingSuggestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSavingSuggestions.m; sourceTree = "<group>"; };
+		58988F8F198FFEEA00E05AC5 /* RDPCongratulations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPCongratulations.h; sourceTree = "<group>"; };
+		58988F90198FFEEA00E05AC5 /* RDPCongratulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPCongratulations.m; sourceTree = "<group>"; };
 		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -261,6 +275,17 @@
 				5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		58988F8A198FFE3C00E05AC5 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				58988F8B198FFEC900E05AC5 /* RDPSavingSuggestions.h */,
+				58988F8C198FFEC900E05AC5 /* RDPSavingSuggestions.m */,
+				58988F8F198FFEEA00E05AC5 /* RDPCongratulations.h */,
+				58988F90198FFEEA00E05AC5 /* RDPCongratulations.m */,
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 		58F643A5197DA5F6001D0236 = {
@@ -393,6 +418,7 @@
 		58F643E3197DAC9C001D0236 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				58988F8A198FFE3C00E05AC5 /* Messages */,
 				F2208C611989B08900EDD6CF /* Counter */,
 				5569A7D719807D47001FC14C /* HTTP */,
 				58988F221987060300E05AC5 /* Images */,
@@ -432,6 +458,8 @@
 		58F643E5197DACCC001D0236 /* Assets  */ = {
 			isa = PBXGroup;
 			children = (
+				58988F84198FF42100E05AC5 /* Fingerprint.png */,
+				58988F85198FF42100E05AC5 /* Settings.png */,
 			);
 			name = "Assets ";
 			sourceTree = "<group>";
@@ -576,9 +604,11 @@
 				F2F1CFA0198EC2AA00438A8A /* 2.jpg in Resources */,
 				F2F1CFA4198EC2AA00438A8A /* 3.jpg in Resources */,
 				F2F1CFB4198EC2AA00438A8A /* 7.jpg in Resources */,
+				58988F88198FF42100E05AC5 /* Settings.png in Resources */,
 				F2F1CFB6198EC2AA00438A8A /* 8_blur.jpg in Resources */,
 				F2F1CF96198EC2AA00438A8A /* 0_blur.jpg in Resources */,
 				58F643BC197DA5F6001D0236 /* InfoPlist.strings in Resources */,
+				58988F86198FF42100E05AC5 /* Fingerprint.png in Resources */,
 				58F643C4197DA5F6001D0236 /* Images.xcassets in Resources */,
 				F2F1CF9C198EC2AA00438A8A /* 1.jpg in Resources */,
 				F2F1CFA8198EC2AA00438A8A /* 4.jpg in Resources */,
@@ -605,10 +635,12 @@
 				F2F1CFAF198EC2AA00438A8A /* 6_blur.jpg in Resources */,
 				F2F1CFA3198EC2AA00438A8A /* 3_blur.jpg in Resources */,
 				F2F1CF97198EC2AA00438A8A /* 0_blur.jpg in Resources */,
+				58988F89198FF42100E05AC5 /* Settings.png in Resources */,
 				F2F1CF9D198EC2AA00438A8A /* 1.jpg in Resources */,
 				F2F1CFA5198EC2AA00438A8A /* 3.jpg in Resources */,
 				58F643D5197DA5F6001D0236 /* InfoPlist.strings in Resources */,
 				F2F1CFBD198EC2AA00438A8A /* 9.jpg in Resources */,
+				58988F87198FF42100E05AC5 /* Fingerprint.png in Resources */,
 				F2F1CFB1198EC2AA00438A8A /* 6.jpg in Resources */,
 				F2F1CFA7198EC2AA00438A8A /* 4_blur.jpg in Resources */,
 				F2F1CF9F198EC2AA00438A8A /* 2_blur.jpg in Resources */,
@@ -662,6 +694,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58988F91198FFEEA00E05AC5 /* RDPCongratulations.m in Sources */,
 				58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */,
 				58F643BE197DA5F6001D0236 /* main.m in Sources */,
 				558181A81986F83600390741 /* RDPUser.m in Sources */,
@@ -680,6 +713,7 @@
 				F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				F2F1CFDA198F103700438A8A /* RDPPushAnimation.m in Sources */,
 				F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
+				58988F8D198FFEC900E05AC5 /* RDPSavingSuggestions.m in Sources */,
 				F2F1CF7B198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
 				F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */,
@@ -700,10 +734,12 @@
 				F2F1CFD7198F016C00438A8A /* UINavigationController+Retro.m in Sources */,
 				F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
+				58988F92198FFEEA00E05AC5 /* RDPCongratulations.m in Sources */,
 				F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */,
 				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,
 				F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
+				58988F8E198FFEC900E05AC5 /* RDPSavingSuggestions.m in Sources */,
 				58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
 				F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
