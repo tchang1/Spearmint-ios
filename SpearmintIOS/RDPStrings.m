@@ -45,6 +45,51 @@
         case sJustKept:
             result = @"You just kept ";
             break;
+        case sGoal:
+            result = @"GOAL";
+            break;
+        case sAmount:
+            result = @"AMOUNT";
+            break;
+        case sAmountSaved:
+            result = @"AMOUNT SAVED";
+            break;
+        case sIWantTo:
+            result = @"I want to...";
+            break;
+        case sDaily:
+            result = @"Daily";
+            break;
+        case sWeekly:
+            result = @"Weekly";
+            break;
+        case sWeeklyReport:
+            result = @"Weekly Report";
+            break;
+        case sWhenIReachMyGoal:
+            result = @"When I Reach My Goal";
+            break;
+        case sWhenIDontSaveForThreeDays:
+            result = @"When I don't save for 3 days";
+            break;
+        case sEmail:
+            result = @"EMAIL";
+            break;
+        case sPushNotifications:
+            result = @"PUSH NOTIFICATIONS";
+            break;
+        case sFeedback:
+            result = @"Feedback";
+            break;
+        case sTypeFeedbackHere:
+            result = @"Type feedback here...";
+            break;
+        case sUndo:
+            result = @"Undo";
+            break;
+        case sSubmit:
+            result = @"Submit";
+            break;
     }
     
     return result;

@@ -18,7 +18,22 @@ typedef enum {
     sHistory,
     sRateTheApp,
     sLogout,
-    sJustKept
+    sJustKept,
+    sGoal,
+    sAmount,
+    sAmountSaved,
+    sIWantTo,
+    sDaily,
+    sWeeklyReport,
+    sWeekly,
+    sWhenIReachMyGoal,
+    sWhenIDontSaveForThreeDays,
+    sEmail,
+    sPushNotifications,
+    sFeedback,
+    sTypeFeedbackHere,
+    sUndo,
+    sSubmit
 } RDPStringID;
 
 @interface RDPStrings : NSObject

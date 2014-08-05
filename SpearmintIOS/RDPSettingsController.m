@@ -34,9 +34,9 @@
 @interface RDPSettingsController ()
 
 @property (nonatomic, strong) NSArray* menuItems;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIView *statusBarBackground;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -87,13 +87,10 @@
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
     [self.statusBarBackground setBackgroundColor:kColor_SettingPanelHeader];
-//    self.tableView.separatorColor = kColor_TableViewSeparatorColor;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [RDPFonts fontForID:fNavigationHeaderFont],
+      NSFontAttributeName, nil]];
 }
 
 - (BOOL)prefersStatusBarHidden
@@ -129,6 +126,8 @@
     }
     
     [cell.cellLabel setText:[[self.menuItems objectAtIndex:indexPath.row] objectForKey:kKeyName]];
+    [cell.cellLabel setFont:[RDPFonts fontForID:fMenuFont]];
+    [cell.cellLabel setTextColor:kColor_DarkText];
     [cell setBackgroundColor:kColor_Transparent];
     [cell.contentView setBackgroundColor:kColor_PanelColor];
     
@@ -245,31 +244,6 @@
 }
 
 -(void)logoutTapped
-{
-    
-}
-                       
-#pragma mark segues
-
--(void)segueToMyGoal:(RDPViewController*)goalController
-{
-    
-}
-
--(void)segueToNotifications:(RDPViewController*)notificationsController
-{
-    
-}
-
-// history
--(void)segueToHistory:(RDPViewController*)historyController
-{
-    
-}
-
-
-// feedback
--(void)segueToFeedback:(RDPViewController*)feedbackController
 {
     
 }

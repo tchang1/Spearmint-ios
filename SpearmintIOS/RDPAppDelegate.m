@@ -27,17 +27,17 @@
 ////        [RDPTimerManager clearUpdateBlockWithName:@"testBlock"];
 ////        NSLog(@"Stopping now");
 ////    }];
-//    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
-//    //[client getMyGoal];
-//   // [client getMySavings];
-//    //[client getMyNotifications];
-//    [client getNextImage];
-//    //[client postSavings:@{@"amountSaved":@"10"}];
-//    NSHTTPCookie *cookie;
-//    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-//    for (cookie in [storage cookies]) {
-//        NSLog(@"%@",cookie);
-//    }
+
+//    NSShadow *shadow = [[NSShadow alloc] init];
+//    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
+//    shadow.shadowColor = [UIColor whiteColor];
+    
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:kColor_DarkText,
+       NSFontAttributeName:[RDPFonts fontForID:fNavigationButtonFont]
+       }
+     forState:UIControlStateNormal];
     
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
     
