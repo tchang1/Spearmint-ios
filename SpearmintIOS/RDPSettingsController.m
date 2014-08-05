@@ -11,6 +11,7 @@
 #import "RDPTableViewCellWithName.h"
 #import "UINavigationController+Retro.h"
 #import "RDPPushAnimation.h"
+#import "RDPImageFetcher.h"
 
 
 #define kKeyName                    @"name"
@@ -31,11 +32,12 @@
 #define kHistoryIdentifier          @"settingsHistory"
 #define kFeedbackIdentifier         @"settingsFeedback"
 
+#define kStatusBarHeight            38
+
 @interface RDPSettingsController ()
 
 @property (nonatomic, strong) NSArray* menuItems;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
-@property (weak, nonatomic) IBOutlet UIView *statusBarBackground;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -68,9 +70,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    myNavController.view insertSubview:myImageView atIndex:0
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"5_blur.jpg"]];
+    UIImage* backgroundImage = [[RDPImageFetcher getImageFetcher] getCurrentBlurredImage];
+    
+    backgroundImage = [UIImage imageWithCGImage:backgroundImage.CGImage
+                                                scale:backgroundImage.scale
+                                          orientation:UIImageOrientationUpMirrored];
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:backgroundImage];
+    
     [self.navigationController.view insertSubview:imageView atIndex:0];
+    imageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
+                                 self.navigationController.view.frame.origin.y,
+                                 self.navigationController.view.frame.size.width,
+                                 self.navigationController.view.frame.size.height);
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    
+    UIView* statusBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 340, 20)];
+    [statusBackground setBackgroundColor:kColor_SettingPanelHeader];
+    [self.navigationController.view insertSubview:statusBackground atIndex:1];
+    
     [self.navigationController.navigationBar setBackgroundColor:kColor_SettingPanelHeader];
     [self.logoutButton setTitle:[RDPStrings stringForID:sLogout] forState:UIControlStateNormal];
     [self.logoutButton setBackgroundColor:kColor_LogoutButtonPanelColor];
@@ -86,11 +104,14 @@
                              forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
-    [self.statusBarBackground setBackgroundColor:kColor_SettingPanelHeader];
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [RDPFonts fontForID:fNavigationHeaderFont],
       NSFontAttributeName, nil]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController.navigationBar.layer removeAllAnimations];
 }
 
 - (BOOL)prefersStatusBarHidden

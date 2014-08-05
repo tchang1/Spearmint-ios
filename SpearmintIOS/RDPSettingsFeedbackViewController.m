@@ -9,7 +9,6 @@
 #import "RDPSettingsFeedbackViewController.h"
 
 @interface RDPSettingsFeedbackViewController ()
-@property (weak, nonatomic) IBOutlet UIView *statusBarBackground;
 @property (weak, nonatomic) IBOutlet UILabel *feedbackHeader;
 @property (weak, nonatomic) IBOutlet UIView *feedbackContainer;
 @property (weak, nonatomic) IBOutlet UITextView *feedbackTextView;
@@ -31,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.statusBarBackground setBackgroundColor:kColor_SettingPanelHeader];
     [self.feedbackHeader setFont:[RDPFonts fontForID:fSectionHeaderFont]];
     [self.feedbackHeader setTextColor:kColor_DarkText];
     [self.feedbackHeader setText:[RDPStrings stringForID:sFeedback]];

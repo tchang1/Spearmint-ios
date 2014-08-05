@@ -25,7 +25,6 @@
 @interface RDPSettingsGoalViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray* goalOptions;
-@property (weak, nonatomic) IBOutlet UIView *statusBarBackground;
 
 @end
 
@@ -48,7 +47,6 @@
     self.tableView.dataSource = self;
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
-    [self.statusBarBackground setBackgroundColor:kColor_SettingPanelHeader];
 }
 
 - (void)didReceiveMemoryWarning

@@ -32,7 +32,6 @@
 
 @interface RDPSettingsNotificationsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIView *statusBarBackground;
 @property (strong, nonatomic) NSArray* sections;
 
 @end
@@ -56,7 +55,6 @@
     self.tableView.dataSource = self;
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
-    [self.statusBarBackground setBackgroundColor:kColor_SettingPanelHeader];
 }
 
 - (void)didReceiveMemoryWarning

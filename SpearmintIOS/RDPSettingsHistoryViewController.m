@@ -19,7 +19,6 @@
 #define kSavingCellHeight               50
 
 @interface RDPSettingsHistoryViewController ()
-@property (weak, nonatomic) IBOutlet UIView *statusBarBackground;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray* savings;
@@ -45,7 +44,6 @@
     self.tableView.dataSource = self;
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
-    [self.statusBarBackground setBackgroundColor:kColor_SettingPanelHeader];
 }
 
 - (void)didReceiveMemoryWarning
