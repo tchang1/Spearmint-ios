@@ -23,6 +23,9 @@
     
     self.emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"PlaceHolder Text" attributes:@{NSForegroundColorAttributeName: color}];
     self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"PlaceHolder Text" attributes:@{NSForegroundColorAttributeName: color}];
+    
+    self.emailTextField.text=@"iostest@trykeep.com";
+    self.passwordTextField.text=@"test";
     // Do any additional setup after loading the view.
 }
 
@@ -84,7 +87,7 @@
 }
 
 -(BOOL)validatePassword:(NSString *)password {
-    return [password length]>=6;
+    return [password length]>=4;
 }
 
 -(void)tryLoginWithUsername:(NSString *)username andPassword:(NSString *)password {
