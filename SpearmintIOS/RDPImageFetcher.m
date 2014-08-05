@@ -138,8 +138,7 @@ static RDPImageFetcher *imageFetcher = nil;
 {
     NSString *path = [self documentsPathForFileName:name];
     
-    RDPImageBlur *blur = [[RDPImageBlur alloc] init];
-    UIImage *blurredImage = [blur applyBlurOnImage:image withRadius:20];
+    UIImage *blurredImage = [RDPImageBlur applyBlurOnImage:image];
     
     // Save the blurred image to our array
     self.blurredImagesArray[index] = blurredImage;

@@ -12,9 +12,9 @@
 @implementation RDPImageBlur
 
 // The following method is from blog.bubbly.net/tag/gpu-image/#sJRpXftgd4fm0vbE.99
-- (UIImage *)applyBlurOnImage: (UIImage *)imageToBlur withRadius:(CGFloat)blurRadius
++ (UIImage *)applyBlurOnImage: (UIImage *)imageToBlur
 {
-    return [imageToBlur applyBlurWithRadius:blurRadius];
+    return [imageToBlur applyTheBlurAndTheTint];
 }
 
 

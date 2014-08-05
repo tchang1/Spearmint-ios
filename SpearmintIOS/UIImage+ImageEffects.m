@@ -101,7 +101,32 @@
 
 @implementation UIImage (ImageEffects)
 
-- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius
+- (UIImage *)applyTheBlurAndTheTint
+{
+    UIColor *tintColor = [UIColor colorWithWhite:0 alpha:0.25];
+    return [self applyBlurWithRadius:20 andTintColor:tintColor];
+}
+
+- (UIImage *)applyTintEffectWithColor:(UIColor *)tintColor andAlpha:(CGFloat)alpha andBlur:(CGFloat)radius
+{
+    UIColor *effectColor = tintColor;
+    int componentCount = CGColorGetNumberOfComponents(tintColor.CGColor);
+    if (componentCount == 2) {
+        CGFloat b;
+        if ([tintColor getWhite:&b alpha:NULL]) {
+            effectColor = [UIColor colorWithWhite:b alpha:alpha];
+        }
+    }
+    else {
+        CGFloat r, g, b;
+        if ([tintColor getRed:&r green:&g blue:&b alpha:NULL]) {
+            effectColor = [UIColor colorWithRed:r green:g blue:b alpha:alpha];
+        }
+    }
+    return [self applyBlurWithRadius:radius andTintColor:effectColor];
+}
+
+- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius andTintColor:(UIColor *)tintColor
 {
     // Check pre-conditions.
     if (self.size.width < 1 || self.size.height < 1) {
@@ -184,6 +209,13 @@
     if (hasBlur) {
         CGContextSaveGState(outputContext);
         CGContextDrawImage(outputContext, imageRect, effectImage.CGImage);
+        CGContextRestoreGState(outputContext);
+    }
+    
+    if (tintColor) {
+        CGContextSaveGState(outputContext);
+        CGContextSetFillColorWithColor(outputContext, tintColor.CGColor);
+        CGContextFillRect(outputContext, imageRect);
         CGContextRestoreGState(outputContext);
     }
 

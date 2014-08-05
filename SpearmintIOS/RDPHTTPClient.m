@@ -8,6 +8,7 @@
 
 #import "RDPHTTPClient.h"
 #import "RDPGoal.h"
+#import "RDPJSONResponseSerializer.h"
 
 static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
 
@@ -30,7 +31,7 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     self = [super initWithBaseURL:url];
     
     if (self) {
-        self.responseSerializer = [AFJSONResponseSerializer serializer];
+        self.responseSerializer = [RDPJSONResponseSerializer serializer];
         self.requestSerializer = [AFJSONRequestSerializer serializer];
     }
     
@@ -71,7 +72,7 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     
 }
 
-//USERS
+#pragma mark - USERS
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password
 {
     NSDictionary *parameters = @{@"username": username,
@@ -79,6 +80,9 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     [self POST:@"login" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSLog( @"%@", response );
+        if ([self.delegate respondsToSelector:@selector(RDPHTTPClientDidLogIn)]) {
+            [self.delegate RDPHTTPClientDidLogIn];
+        }
         
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -88,7 +92,40 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     
 }
 
-//GOALS
+-(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block
+andFailureBlock:(errorBlock)errorBlock
+{
+    NSDictionary *parameters = @{@"username": username,
+                                 @"password": password};
+    [self POST:@"login" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSLog( @"%@", response );
+        block();
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        errorBlock(error);
+    }];
+    
+}
+
+-(void)logout
+{
+
+    [self GET:@"logoutWithoutRedirect" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([self.delegate respondsToSelector:@selector(RDPHTTPClientDidLogOut)]) {
+            [self.delegate RDPHTTPClientDidLogOut];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+
+    }
+
+    ];
+    
+}
+
+#pragma mark - GOALS
 
 -(void)getMyGoal
 {
@@ -106,29 +143,87 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     
 }
 
--(void)updateMyGoal:(NSDictionary *)goal
+-(void)updateMyGoal:(RDPGoal *)goal
 {
-    [self PUT:@"goals/me" parameters:goal success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
+    [self PUT:@"goals/me" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSLog( @"%@", response );
+        
+        if ([self.delegate respondsToSelector:@selector(RDPHTTPClientDidUpdateMyGoal)]) {
+            [self.delegate RDPHTTPClientDidUpdateMyGoal];
+        }
+        
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
     }];
 }
 
--(void)postNewGoal:(NSDictionary *)goal
+-(void)postNewGoal:(RDPGoal *)goal
 {
-    [self POST:@"goals" parameters:goal success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
+    [self POST:@"goals" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSLog( @"%@", response );
+        NSError *error=nil;
+        RDPGoal *returnedGoal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
+        
+        if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didPostNewGoal:)]) {
+            [self.delegate RDPHTTPClient:self didPostNewGoal:returnedGoal];
+        }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
     }];
 }
 
-//SAVINGS
+-(void)getMyGoalWithSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock
+{
+    [self GET:@"goals/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSError *error=nil;
+        RDPGoal *goal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
+        
+        block(goal);
+
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        errorBlock(error);
+        
+    }];
+
+}
+-(void)updateMyGoal:(RDPGoal *)goal withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock
+{
+    NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
+    [self PUT:@"goals/me" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSLog( @"%@", response );
+        block();
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
+-(void)postNewGoal:(RDPGoal *)goal withSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock
+{
+    NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
+    [self POST:@"goals" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSLog( @"%@", response );
+        NSError *error=nil;
+        RDPGoal *returnedGoal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
+        
+        block(returnedGoal);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        errorBlock(error);
+    }];
+}
+
+#pragma mark - SAVINGS
 
 -(void)getMySavings
 {
@@ -141,6 +236,9 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
         NSLog( @"%@", savings );
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
+        NSInteger statusCode=[responseErrorData statusCode];
+        NSData *data = [[error userInfo] objectForKey:RDPJSONResponseSerializerKey];
         NSLog(@"%@", error);
         
     }];
@@ -151,9 +249,10 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:savings];
     [self POST:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-
         NSLog( @"%@", response );
-        
+        if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didPostSavings:)]) {
+            [self.delegate RDPHTTPClient:self didPostSavings:savings];
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
     }];
@@ -161,16 +260,20 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
 
 -(void)updateSavings:(RDPSavingEvent *)savings
 {
-    [self PUT:@"savings" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:savings];
+    [self PUT:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSLog( @"%@", response );
+        if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didUpdateSavings:)]) {
+            [self.delegate RDPHTTPClient:self didUpdateSavings:savings];
+        }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
     }];
 }
 
-//NOTIFICATIONS
+#pragma mark - NOTIFICATIONS
 
 -(void)getMyNotifications
 {
@@ -197,7 +300,7 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     }];
 }
 
-//IMAGES
+#pragma mark - IMAGES
 
 -(void)getNextImage
 {

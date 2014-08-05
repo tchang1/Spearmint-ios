@@ -27,7 +27,6 @@
 ////        [RDPTimerManager clearUpdateBlockWithName:@"testBlock"];
 ////        NSLog(@"Stopping now");
 ////    }];
-
 //    NSShadow *shadow = [[NSShadow alloc] init];
 //    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
 //    shadow.shadowColor = [UIColor whiteColor];
@@ -40,6 +39,24 @@
      forState:UIControlStateNormal];
     
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
+//    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
+//    [client getMyGoal];
+//    [client testPOSTHTTPRequest:@""];
+//     [client getMySavings];
+//    //[client getMyNotifications];
+//    [client getNextImage];
+//    [client logout];
+//    RDPSavingEvent *saved = [[RDPSavingEvent alloc] init];
+//    [saved setGoalid:@"53d2bf28c5fb963e0717d8c8"];
+//    [saved setAmount:[[NSDecimalNumber alloc] initWithString:@"4377"]];
+//    [client postSavings:saved];
+//    NSHTTPCookie *cookie;
+//    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    for (cookie in [storage cookies]) {
+//        NSLog(@"%@",cookie);
+//    }
+    
+//   [RDPImageFetcher getImageFetcher];
     
     return YES;
 }

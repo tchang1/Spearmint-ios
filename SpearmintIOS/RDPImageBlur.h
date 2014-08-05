@@ -16,6 +16,6 @@
  @param imageToBlur : The original image to blur.
  @param blurRadius : The radius of the gaussian blur to apply.
  */
-- (UIImage *)applyBlurOnImage: (UIImage *)imageToBlur withRadius:(CGFloat)blurRadius;
++ (UIImage *)applyBlurOnImage: (UIImage *)imageToBlur;
 
 @end

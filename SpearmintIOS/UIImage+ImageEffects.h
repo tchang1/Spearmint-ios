@@ -97,5 +97,9 @@
 
 @interface UIImage (ImageEffects)
 
-- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius;
+
+- (UIImage *)applyTheBlurAndTheTint;
+- (UIImage *)applyBlurWithRadius:(CGFloat)blurRadius andTintColor:(UIColor *)tintColor;
+- (UIImage *)applyTintEffectWithColor:(UIColor *)tintColor andAlpha:(CGFloat)alpha andBlur:(CGFloat)radius;
+
 @end

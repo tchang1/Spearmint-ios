@@ -7,6 +7,7 @@
 //
 
 #import "RDPSavingEvent.h"
+#import "MTLValueTransformer.h"
 
 @implementation RDPSavingEvent
 
@@ -15,17 +16,18 @@
     // model_property_name : json_field_name
     return @{
              @"amount" : @"savingsAmount",
-             @"goalid" : @"goalid"
-             //@"savingid" : @"_id"
+             @"goalid" : @"goalid",
+             @"savingid" : @"_id"
              };
 }
+
+
 
 - (id)init
 {
     self = [super init];
     if (self) {
         self.amount = [[NSDecimalNumber alloc] initWithString:@"0"];
-        
         //self.reason = @"";
         //self.savingDate = [[NSDate alloc] init];
     }
