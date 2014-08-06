@@ -50,7 +50,7 @@ typedef void (^savingBlock)(RDPSavingEvent*);
 -(void)postSavings:(RDPSavingEvent *)saving;
 
 -(void)getMySavingsWithSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;
--(void)updateMySaving:(RDPSavingEvent *)saving withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
+-(void)updateMySaving:(RDPSavingEvent *)saving withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock;
 -(void)postNewSaving:(RDPSavingEvent *)goal withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
 
 //Notifications

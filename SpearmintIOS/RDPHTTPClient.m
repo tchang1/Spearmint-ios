@@ -118,7 +118,6 @@ andFailureBlock:(errorBlock)errorBlock
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
-
     }
 
     ];
@@ -272,6 +271,57 @@ andFailureBlock:(errorBlock)errorBlock
         NSLog(@"%@", error);
     }];
 }
+
+-(void)getMySavingsWithSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock
+{
+    [self GET:@"savings/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *response= responseObject;
+        NSError *error=nil;
+        NSLog( @"%@", response );
+        NSArray *savings = [MTLJSONAdapter modelsOfClass:RDPSavingEvent.class fromJSONArray:response error:&error];
+        NSLog( @"%@", savings );
+
+        block(savings);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
+        NSInteger statusCode=[responseErrorData statusCode];
+        NSData *data = [[error userInfo] objectForKey:RDPJSONResponseSerializerKey];
+        errorBlock(error);
+        NSLog(@"%@", error);
+        
+    }];
+}
+-(void)updateMySaving:(RDPSavingEvent *)saving withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock
+{
+    NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:saving];
+    [self PUT:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSLog( @"%@", response );
+        block();
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        errorBlock(error);
+    }];
+}
+-(void)postNewSaving:(RDPSavingEvent *)saving withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock
+{
+    NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:saving];
+    [self POST:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSError *error=nil;
+        NSLog( @"%@", response );
+        RDPSavingEvent *returnedSaving=[MTLJSONAdapter modelOfClass:RDPSavingEvent.class fromJSONDictionary:response error:&error];
+        block(returnedSaving);
+
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        errorBlock(error);
+    }];
+}
+
 
 #pragma mark - NOTIFICATIONS
 
