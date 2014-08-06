@@ -91,6 +91,7 @@ static RDPImageFetcher *imageFetcher = nil;
     NSMutableArray *array = [NSMutableArray array];
     
     for (int i=0; i < imageFetcher.numImages; i++) {
+        NSString *clearImageFileName = [[NSString stringWithFormat:@"%d", i] stringByAppendingString:@".jpg"];
         NSString *imageFileName = [[NSString stringWithFormat:@"%d", i] stringByAppendingString:@"_blur.jpg"];
         
         // Get the path for the file if it exists in our documents directory
@@ -103,7 +104,8 @@ static RDPImageFetcher *imageFetcher = nil;
             image = [UIImage imageWithData:pngData];
         }
         else { // If the image has not yet been written to our documents directory, get it from our app files then write it to documents
-            image = [UIImage imageNamed:imageFileName];
+            UIImage *clearImage = [UIImage imageNamed:clearImageFileName];
+            image = [RDPImageBlur applyBlurOnImage:clearImage];
             NSData *pngData = UIImagePNGRepresentation(image);
             [self saveImageWithName:imageFileName andImageData:pngData];
             
@@ -138,11 +140,16 @@ static RDPImageFetcher *imageFetcher = nil;
 {
     NSString *path = [self documentsPathForFileName:name];
     
+    if (image == nil) {
+        NSLog(@"Image returned from server is nil");
+        return;
+    } 
+    
     UIImage *blurredImage = [RDPImageBlur applyBlurOnImage:image];
     
     // Save the blurred image to our array
     self.blurredImagesArray[index] = blurredImage;
-    NSLog(@"SUCCESS! Saved blurred image %d", index);
+    //NSLog(@"SUCCESS! Saved blurred image %d", index);
     
     // Save the image data for the blurred image to our documents
     NSData *pngData = UIImagePNGRepresentation(blurredImage);

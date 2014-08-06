@@ -595,7 +595,7 @@
     <resources>
         <image name="Envelope.png" width="50" height="36"/>
         <image name="Fingerprint.png" width="81" height="82"/>
-        <image name="Settings.png" width="52" height="52"/>
+        <image name="Settings.png" width="51" height="51"/>
         <image name="ridge.jpg" width="640" height="1136"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
