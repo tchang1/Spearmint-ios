@@ -33,7 +33,13 @@ typedef enum {
     sFeedback,
     sTypeFeedbackHere,
     sUndo,
-    sSubmit
+    sSubmit,
+    sSlogan,
+    sCoffeeExampleHeader,
+    sCoffeeTapAndHold,
+    sCoffeeCounterLabel,
+    sAddToGoalInstructions,
+    sContinue,
 } RDPStringID;
 
 @interface RDPStrings : NSObject

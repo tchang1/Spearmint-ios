@@ -39,7 +39,7 @@ static RDPImageFetcher *imageFetcher = nil;
 
 - (UIImage *)getCurrentBlurredImage
 {
-    int index = imageFetcher.indexOfImageFile;
+    int index = imageFetcher.indexOfImageArray;
     return imageFetcher.blurredImagesArray[index];
 }
 

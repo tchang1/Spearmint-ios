@@ -90,6 +90,24 @@
         case sSubmit:
             result = @"Submit";
             break;
+        case sSlogan:
+            result = @"Keep is a way to save for your \n goals by recording good \n spending decisions";
+            break;
+        case sCoffeeExampleHeader:
+            result = @"When you decide to \n skip the $3 coffee that \n you usually buy...";
+            break;
+        case sCoffeeTapAndHold:
+            result = @"Tap and hold \n to keep the $3 \n for your goal instead";
+            break;
+        case sCoffeeCounterLabel:
+            result = @"When the timer \n reaches $3, \n release the screen";
+            break;
+        case sAddToGoalInstructions:
+            result = @"Each time you record \n something in Keep we \n will add it to your goal.";
+            break;
+        case sContinue:
+            result = @"Continue";
+            break;
     }
     
     return result;

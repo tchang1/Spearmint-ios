@@ -45,6 +45,12 @@
 		58988F4919885F9600E05AC5 /* RDPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F4819885F9600E05AC5 /* RDPHomeViewController.m */; };
 		58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F4819885F9600E05AC5 /* RDPHomeViewController.m */; };
 		58988F81198EF2BD00E05AC5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F80198EF2BD00E05AC5 /* Accelerate.framework */; };
+		58988F941992D0E300E05AC5 /* ireland.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58988F931992D0E300E05AC5 /* ireland.jpg */; };
+		58988F951992D0E300E05AC5 /* ireland.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 58988F931992D0E300E05AC5 /* ireland.jpg */; };
+		58988F981992D68A00E05AC5 /* RDPFTUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F971992D68A00E05AC5 /* RDPFTUViewController.m */; };
+		58988F991992D68A00E05AC5 /* RDPFTUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F971992D68A00E05AC5 /* RDPFTUViewController.m */; };
+		58988F9B1993114500E05AC5 /* Keep.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9A1993114500E05AC5 /* Keep.png */; };
+		58988F9C1993114500E05AC5 /* Keep.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9A1993114500E05AC5 /* Keep.png */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -191,6 +197,10 @@
 		58988F4719885F9600E05AC5 /* RDPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHomeViewController.h; sourceTree = "<group>"; };
 		58988F4819885F9600E05AC5 /* RDPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHomeViewController.m; sourceTree = "<group>"; };
 		58988F80198EF2BD00E05AC5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		58988F931992D0E300E05AC5 /* ireland.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ireland.jpg; sourceTree = "<group>"; };
+		58988F961992D68A00E05AC5 /* RDPFTUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPFTUViewController.h; sourceTree = "<group>"; };
+		58988F971992D68A00E05AC5 /* RDPFTUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPFTUViewController.m; sourceTree = "<group>"; };
+		58988F9A1993114500E05AC5 /* Keep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keep.png; sourceTree = "<group>"; };
 		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -446,6 +456,8 @@
 				F2F1CFD5198F016C00438A8A /* UINavigationController+Retro.m */,
 				F2F1CFD8198F103700438A8A /* RDPPushAnimation.h */,
 				F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */,
+				58988F961992D68A00E05AC5 /* RDPFTUViewController.h */,
+				58988F971992D68A00E05AC5 /* RDPFTUViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -525,6 +537,8 @@
 		58F643E6197DACDA001D0236 /* FTU Images */ = {
 			isa = PBXGroup;
 			children = (
+				58988F9A1993114500E05AC5 /* Keep.png */,
+				58988F931992D0E300E05AC5 /* ireland.jpg */,
 				5560B8DF199098F80023691B /* ridge.jpg */,
 			);
 			name = "FTU Images";
@@ -706,6 +720,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58988F9B1993114500E05AC5 /* Keep.png in Resources */,
 				F2F1CFB8198EC2AA00438A8A /* 8.jpg in Resources */,
 				F2F1CFB2198EC2AA00438A8A /* 7_blur.jpg in Resources */,
 				F2F1CFBA198EC2AA00438A8A /* 9_blur.jpg in Resources */,
@@ -728,6 +743,7 @@
 				F2F1CFA8198EC2AA00438A8A /* 4.jpg in Resources */,
 				551AA6241992C7220010E65B /* key.png in Resources */,
 				F2F1CFAC198EC2AA00438A8A /* 5.jpg in Resources */,
+				58988F941992D0E300E05AC5 /* ireland.jpg in Resources */,
 				F2F1CFFC19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */,
 				551AA6181992AE390010E65B /* RDPInputViewWithImage.xib in Resources */,
 				F2F1CFAA198EC2AA00438A8A /* 5_blur.jpg in Resources */,
@@ -748,6 +764,9 @@
 				F2F1CFE3198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */,
 				551AA6251992C7220010E65B /* key.png in Resources */,
 				F2F1D0231990993900438A8A /* Settings.png in Resources */,
+				58988F951992D0E300E05AC5 /* ireland.jpg in Resources */,
+				58988F9C1993114500E05AC5 /* Keep.png in Resources */,
+				5560B8E419909E3C0023691B /* Envelope.png in Resources */,
 				F2F1CFAB198EC2AA00438A8A /* 5_blur.jpg in Resources */,
 				F2F1CFA9198EC2AA00438A8A /* 4.jpg in Resources */,
 				F2F1D0211990993900438A8A /* Fingerprint.png in Resources */,
@@ -845,6 +864,7 @@
 				5531CA09198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */,
 				F2F1CF7B198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
+				58988F981992D68A00E05AC5 /* RDPFTUViewController.m in Sources */,
 				F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */,
 				F2FD6F5A19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
 				F2F1CFFA19900E5200438A8A /* RDPTableViewCellWithToggle.m in Sources */,
@@ -888,6 +908,7 @@
 				F2F1D01D1990992200438A8A /* RDPSavingSuggestions.m in Sources */,
 				F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
 				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
+				58988F991992D68A00E05AC5 /* RDPFTUViewController.m in Sources */,
 				F2F1CFE7198FF18D00438A8A /* RDPInputViewWithLabel.m in Sources */,
 				F2F1D00E19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */,
 				58988F2F1988153200E05AC5 /* RDPImageBlur.m in Sources */,
