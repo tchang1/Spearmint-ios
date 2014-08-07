@@ -17,5 +17,9 @@
     return [imageToBlur applyTheBlurAndTheTint];
 }
 
++ (UIImage *)applyBlurOnFTUImage: (UIImage *)imageToBlur
+{
+    return [imageToBlur applyBlurWithRadius:20 andTintColor:nil];
+}
 
 @end

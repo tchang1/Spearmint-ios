@@ -61,6 +61,10 @@
 		58988F991992D68A00E05AC5 /* RDPFTUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F971992D68A00E05AC5 /* RDPFTUViewController.m */; };
 		58988F9B1993114500E05AC5 /* Keep.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9A1993114500E05AC5 /* Keep.png */; };
 		58988F9C1993114500E05AC5 /* Keep.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9A1993114500E05AC5 /* Keep.png */; };
+		58988F9E1993F56A00E05AC5 /* ridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9D1993F56A00E05AC5 /* ridge.png */; };
+		58988FA01993F57600E05AC5 /* ireland.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9F1993F57600E05AC5 /* ireland.png */; };
+		58988FA31994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */; };
+		58988FA41994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -212,7 +216,6 @@
 		5560B8CF199006AF0023691B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		5560B8D0199006AF0023691B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		5560B8D619906C410023691B /* Keep_Alone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keep_Alone.png; sourceTree = "<group>"; };
-		5560B8DF199098F80023691B /* ridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ridge.jpg; sourceTree = "<group>"; };
 		5569A7D819808617001FC14C /* RDPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHTTPClient.h; sourceTree = "<group>"; };
 		5569A7D919808617001FC14C /* RDPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHTTPClient.m; sourceTree = "<group>"; };
 		558181A61986F83600390741 /* RDPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUser.h; sourceTree = "<group>"; };
@@ -231,10 +234,13 @@
 		58988F4719885F9600E05AC5 /* RDPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHomeViewController.h; sourceTree = "<group>"; };
 		58988F4819885F9600E05AC5 /* RDPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHomeViewController.m; sourceTree = "<group>"; };
 		58988F80198EF2BD00E05AC5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		58988F931992D0E300E05AC5 /* ireland.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ireland.jpg; sourceTree = "<group>"; };
 		58988F961992D68A00E05AC5 /* RDPFTUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPFTUViewController.h; sourceTree = "<group>"; };
 		58988F971992D68A00E05AC5 /* RDPFTUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPFTUViewController.m; sourceTree = "<group>"; };
 		58988F9A1993114500E05AC5 /* Keep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keep.png; sourceTree = "<group>"; };
+		58988F9D1993F56A00E05AC5 /* ridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ridge.png; sourceTree = "<group>"; };
+		58988F9F1993F57600E05AC5 /* ireland.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ireland.png; sourceTree = "<group>"; };
+		58988FA11994078E00E05AC5 /* RDPSetAGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSetAGoalViewController.h; sourceTree = "<group>"; };
+		58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSetAGoalViewController.m; sourceTree = "<group>"; };
 		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -513,6 +519,8 @@
 				F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */,
 				58988F961992D68A00E05AC5 /* RDPFTUViewController.h */,
 				58988F971992D68A00E05AC5 /* RDPFTUViewController.m */,
+				58988FA11994078E00E05AC5 /* RDPSetAGoalViewController.h */,
+				58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -603,9 +611,9 @@
 		58F643E6197DACDA001D0236 /* FTU Images */ = {
 			isa = PBXGroup;
 			children = (
+				58988F9F1993F57600E05AC5 /* ireland.png */,
+				58988F9D1993F56A00E05AC5 /* ridge.png */,
 				58988F9A1993114500E05AC5 /* Keep.png */,
-				58988F931992D0E300E05AC5 /* ireland.jpg */,
-				5560B8DF199098F80023691B /* ridge.jpg */,
 			);
 			name = "FTU Images";
 			sourceTree = "<group>";
@@ -818,8 +826,10 @@
 				F2F1CFB4198EC2AA00438A8A /* 7.jpg in Resources */,
 				F2F1D0201990993900438A8A /* Fingerprint.png in Resources */,
 				58F643BC197DA5F6001D0236 /* InfoPlist.strings in Resources */,
+				58988FA01993F57600E05AC5 /* ireland.png in Resources */,
 				F2F1CFE2198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */,
 				58F643C4197DA5F6001D0236 /* Images.xcassets in Resources */,
+				58988F9E1993F56A00E05AC5 /* ridge.png in Resources */,
 				F2F1CF9C198EC2AA00438A8A /* 1.jpg in Resources */,
 				F2F1D00F19903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
 				F2F1CFA8198EC2AA00438A8A /* 4.jpg in Resources */,
@@ -931,6 +941,7 @@
 				F2208C661989B0A200EDD6CF /* RDPCounter.m in Sources */,
 				F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				5560B8D1199006AF0023691B /* MBProgressHUD.m in Sources */,
+				58988FA31994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */,
 				58F643EE197F2750001D0236 /* RDPStrings.m in Sources */,
 				F281342A1993510500D7E9EF /* RDPAsyncProgressTracker.m in Sources */,
 				F2F1CFD6198F016C00438A8A /* UINavigationController+Retro.m in Sources */,
@@ -971,6 +982,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5531CA06198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */,
+				58988FA41994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */,
 				F2F1D0051990301500438A8A /* RDPSettingsFeedbackViewController.m in Sources */,
 				F281343D1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */,
 				F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */,

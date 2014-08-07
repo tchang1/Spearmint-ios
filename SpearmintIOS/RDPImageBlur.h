@@ -14,8 +14,14 @@
  Creates a UIImage that is a blurred version of the imageToBlur
  
  @param imageToBlur : The original image to blur.
- @param blurRadius : The radius of the gaussian blur to apply.
  */
 + (UIImage *)applyBlurOnImage: (UIImage *)imageToBlur;
+
+/**
+ Creates a UIImage that is a blurred version of the imageToBlur without tint
+ 
+ @param imageToBlur : The original image to blur.
+ */
++ (UIImage *)applyBlurOnFTUImage: (UIImage *)imageToBlur;
 
 @end

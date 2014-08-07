@@ -38,13 +38,23 @@ typedef enum {
     sCoffeeExampleHeader,
     sCoffeeTapAndHold,
     sCoffeeCounterLabel,
+    sCoffeeReleaseScreen,
     sAddToGoalInstructions,
     sContinue,
     sLogin,
     SEmailPlaceholder,
     sPasswordPlaceholder,
     sEmailValidation,
-    sPasswordValidation
+    sPasswordValidation,
+    sKeepHolding,
+    sKeepHolding3,
+    sKeepHolding8,
+    sBusExmapleHeader,
+    sBusTapAndHold,
+    sBusCounterLabel,
+    sBusReleaseScreen,
+    sUseKeepInstructions,
+    sSetAGoal,
 } RDPStringID;
 
 @interface RDPStrings : NSObject

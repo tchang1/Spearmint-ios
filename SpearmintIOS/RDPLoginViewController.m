@@ -22,7 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [_backgroundImageView setImage:[RDPImageBlur applyBlurOnImage:_backgroundImageView.image]];
+    [_backgroundImageView setImage:[RDPImageBlur applyBlurOnFTUImage:_backgroundImageView.image]];
     
     self.emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:SEmailPlaceholder] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
         NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];

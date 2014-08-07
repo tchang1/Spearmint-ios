@@ -91,24 +91,27 @@
             result = @"Submit";
             break;
         case sSlogan:
-            result = @"Keep is a way to save for your \n goals by recording good \n spending decisions";
+            result = @"Keep is a way to save for your \ngoals by recording good \nspending decisions";
             break;
         case sCoffeeExampleHeader:
             result = @"When you decide to \n skip the $3 coffee that \n you usually buy...";
             break;
         case sCoffeeTapAndHold:
-            result = @"Tap and hold \n to keep the $3 \n for your goal instead";
+            result = @"Tap and hold \nto keep the $3 \nfor your goal instead";
             break;
         case sCoffeeCounterLabel:
-            result = @"When the timer \n reaches $3, \n release the screen";
+            result = @"When the timer \nreaches $3, \nrelease the screen";
+            break;
+        case sCoffeeReleaseScreen:
+            result = @"Release the screen";
             break;
         case sAddToGoalInstructions:
-            result = @"Each time you record \n something in Keep we \n will add it to your goal.";
+            result = @"Each time you record \nsomething in Keep we \nwill add it to your goal.";
             break;
         case sContinue:
             result = @"Continue";
             break;
-        case sLogin:
+	case sLogin:
             result = @"Login";
             break;
         case SEmailPlaceholder:
@@ -123,7 +126,34 @@
         case sPasswordValidation:
             result = @"Passwords must be at least 6 characters";
             break;
-    }
+	case sKeepHolding:
+            result = @"Keep holding";
+            break;
+        case sKeepHolding3:
+            result = @"Keep holding until \nyou reach $3";
+            break;
+        case sKeepHolding8:
+            result = @"Keep holding until \nyou reach $8";
+            break;
+        case sBusExmapleHeader:
+            result = @"When you decide to take a \n$2 bus over a $10 cab...";
+            break;
+        case sBusTapAndHold:
+            result = @"Tap and hold \nto keep the \n difference";
+            break;
+        case sBusCounterLabel:
+            result = @"Everytime you \nrecord something in \nKeep you'll get to \nsee a new photo.";
+            break;
+        case sBusReleaseScreen:
+            result = @"When the timer reaches \n the amount you Kept \nrelease the screen";
+            break;
+        case sUseKeepInstructions:
+            result = @"Use Keep to record \neverytime you make a \ngood spending decision.";
+            break;
+        case sSetAGoal:
+            result = @"Set a goal";
+            break;    
+}
     
     return result;
 }
