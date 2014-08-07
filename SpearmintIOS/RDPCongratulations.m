@@ -17,25 +17,24 @@ NSString * const kCongrats5 = @"Great work!";
 
 @implementation RDPCongratulations
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.congratsMessage = @"";
+        self.defaultMessageIndex = 0;
+    }
+    return self;
+}
+
 - (NSString *)congratsMessage
 {
     if (_congratsMessage != nil) {
         return _congratsMessage;
     }
     
-    _defaultMessageIndex = 0;
-    
-    NSString *message;
-    
-    // Get a message from the server
-    BOOL success = NO;
-    if (success) { // TODO: have success be dependant on return from server
-        // TODO: get message
-    } else {
-        message = self.defaultMessages[_defaultMessageIndex];
-    }
-    
-    return message;
+    else return self.defaultMessages[_defaultMessageIndex];
+
 }
 
 - (NSArray *)defaultMessages
@@ -49,14 +48,15 @@ NSString * const kCongrats5 = @"Great work!";
 
 - (void)getNextCongratsMessage
 {
+    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
     // Get a message from the server
-    BOOL success = NO;
-    if (success) { // TODO: have success be dependant on return from server
-        // TODO: get message
-    } else {
+    [client getCongratulations:@1 withSuccess:^(NSArray *congrats) {
+        self.congratsMessage=congrats[0];
+    } andFailure:^(NSError *error) {
         self.defaultMessageIndex = (self.defaultMessageIndex + 1) % 5;
         self.congratsMessage = self.defaultMessages[self.defaultMessageIndex];
-    }
+    }];
+
 }
 
 @end

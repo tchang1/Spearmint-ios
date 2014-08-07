@@ -17,23 +17,32 @@ NSString * const kSuggestion5 = @"Biked to work?";
 
 @implementation RDPSavingSuggestions
 
+-(id)init
+{
+    self=[super init];
+    if (self) {
+        
+    }
+    return self;
+}
 - (NSArray *)suggestionMessages
 {
     if (_suggestionMessages != nil) {
         return _suggestionMessages;
     }
     
-    NSArray *array = [NSArray new];
-    
-    // Get a message from the server
-    BOOL success = NO;
-    if (success) { // TODO: have success be dependant on return from server
-        // TODO: get message
-    } else {
-        array = self.defaultMessages;
-    }
-    
-    return array;
+    else return self.defaultMessages;
+
+}
+
+-(void)getNextSuggestionMessages
+{
+    [[RDPHTTPClient sharedRDPHTTPClient] getSuggestions:@5 withSuccess:^(NSArray *suggestions) {
+        _suggestionMessages=suggestions;
+        NSLog(@"Got server suggestions");
+    } andFailure:^(NSError *error) {
+        _suggestionMessages=self.defaultMessages;
+    }];
 }
 
 - (NSArray *)defaultMessages

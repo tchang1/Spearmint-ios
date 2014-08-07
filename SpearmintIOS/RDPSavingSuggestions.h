@@ -13,4 +13,7 @@
 @property (nonatomic, strong) NSArray *suggestionMessages;
 @property (nonatomic, strong) NSArray *defaultMessages;
 
+-(void)getNextSuggestionMessages;
+
+
 @end

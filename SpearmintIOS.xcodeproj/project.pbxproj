@@ -10,6 +10,14 @@
 		3DA685B260D1443591BE91E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A66A01DDAC4711864FBE10 /* libPods.a */; };
 		551AA60E1990B20C0010E65B /* RDPUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA60D1990B20C0010E65B /* RDPUITextField.m */; };
 		551AA60F1990B20C0010E65B /* RDPUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA60D1990B20C0010E65B /* RDPUITextField.m */; };
+		551AA6121992A5630010E65B /* RDPInputViewWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA6111992A5630010E65B /* RDPInputViewWithImage.m */; };
+		551AA6131992A5630010E65B /* RDPInputViewWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA6111992A5630010E65B /* RDPInputViewWithImage.m */; };
+		551AA6181992AE390010E65B /* RDPInputViewWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6171992AE390010E65B /* RDPInputViewWithImage.xib */; };
+		551AA6191992AE390010E65B /* RDPInputViewWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6171992AE390010E65B /* RDPInputViewWithImage.xib */; };
+		551AA6211992C6910010E65B /* Envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6201992C6910010E65B /* Envelope.png */; };
+		551AA6221992C6910010E65B /* Envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6201992C6910010E65B /* Envelope.png */; };
+		551AA6241992C7220010E65B /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6231992C7220010E65B /* key.png */; };
+		551AA6251992C7220010E65B /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6231992C7220010E65B /* key.png */; };
 		5531CA05198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */; };
 		5531CA06198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */; };
 		5531CA09198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA08198F23AD0076D8B8 /* RDPJSONResponseSerializer.m */; };
@@ -22,8 +30,6 @@
 		5560B8D819906C410023691B /* Keep_Alone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5560B8D619906C410023691B /* Keep_Alone.png */; };
 		5560B8E0199098F80023691B /* ridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5560B8DF199098F80023691B /* ridge.jpg */; };
 		5560B8E1199098F80023691B /* ridge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5560B8DF199098F80023691B /* ridge.jpg */; };
-		5560B8E319909E3C0023691B /* Envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 5560B8E219909E3C0023691B /* Envelope.png */; };
-		5560B8E419909E3C0023691B /* Envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 5560B8E219909E3C0023691B /* Envelope.png */; };
 		5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5569A7D919808617001FC14C /* RDPHTTPClient.m */; };
 		558181A81986F83600390741 /* RDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181A71986F83600390741 /* RDPUser.m */; };
 		558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181AA1987009F00390741 /* RDPSavingEvent.m */; };
@@ -152,6 +158,11 @@
 		418596D1A2794C27B7EA9326 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		551AA60C1990B20C0010E65B /* RDPUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUITextField.h; sourceTree = "<group>"; };
 		551AA60D1990B20C0010E65B /* RDPUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUITextField.m; sourceTree = "<group>"; };
+		551AA6101992A5630010E65B /* RDPInputViewWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPInputViewWithImage.h; sourceTree = "<group>"; };
+		551AA6111992A5630010E65B /* RDPInputViewWithImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPInputViewWithImage.m; sourceTree = "<group>"; };
+		551AA6171992AE390010E65B /* RDPInputViewWithImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPInputViewWithImage.xib; sourceTree = "<group>"; };
+		551AA6201992C6910010E65B /* Envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Envelope.png; sourceTree = "<group>"; };
+		551AA6231992C7220010E65B /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
 		5531CA03198EFE6F0076D8B8 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		5531CA07198F23AD0076D8B8 /* RDPJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPJSONResponseSerializer.h; sourceTree = "<group>"; };
@@ -162,7 +173,6 @@
 		5560B8D0199006AF0023691B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		5560B8D619906C410023691B /* Keep_Alone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keep_Alone.png; sourceTree = "<group>"; };
 		5560B8DF199098F80023691B /* ridge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ridge.jpg; sourceTree = "<group>"; };
-		5560B8E219909E3C0023691B /* Envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Envelope.png; sourceTree = "<group>"; };
 		5569A7D819808617001FC14C /* RDPHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPHTTPClient.h; sourceTree = "<group>"; };
 		5569A7D919808617001FC14C /* RDPHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPHTTPClient.m; sourceTree = "<group>"; };
 		558181A61986F83600390741 /* RDPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUser.h; sourceTree = "<group>"; };
@@ -459,6 +469,9 @@
 				58F643E7197DAD2F001D0236 /* Main.storyboard */,
 				F2F1CFE8198FF66A00438A8A /* Cells */,
 				F2F1D006199031AD00438A8A /* RDPFeedbackPanel.h */,
+				551AA6101992A5630010E65B /* RDPInputViewWithImage.h */,
+				551AA6111992A5630010E65B /* RDPInputViewWithImage.m */,
+				551AA6171992AE390010E65B /* RDPInputViewWithImage.xib */,
 				551AA60C1990B20C0010E65B /* RDPUITextField.h */,
 				551AA60D1990B20C0010E65B /* RDPUITextField.m */,
 				F2F1D007199031AD00438A8A /* RDPFeedbackPanel.m */,
@@ -502,8 +515,9 @@
 			children = (
 				F2F1D01E1990993900438A8A /* Fingerprint.png */,
 				F2F1D01F1990993900438A8A /* Settings.png */,
-				5560B8E219909E3C0023691B /* Envelope.png */,
+				551AA6201992C6910010E65B /* Envelope.png */,
 				5560B8D619906C410023691B /* Keep_Alone.png */,
+				551AA6231992C7220010E65B /* key.png */,
 			);
 			name = "Assets ";
 			sourceTree = "<group>";
@@ -693,12 +707,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2F1CFB8198EC2AA00438A8A /* 8.jpg in Resources */,
+				F2F1CFB2198EC2AA00438A8A /* 7_blur.jpg in Resources */,
+				F2F1CFBA198EC2AA00438A8A /* 9_blur.jpg in Resources */,
+				551AA6211992C6910010E65B /* Envelope.png in Resources */,
 				F2F1CFB0198EC2AA00438A8A /* 6.jpg in Resources */,
 				F2F1CF98198EC2AA00438A8A /* 0.jpg in Resources */,
 				58F643E8197DAD2F001D0236 /* Main.storyboard in Resources */,
 				5560B8E0199098F80023691B /* ridge.jpg in Resources */,
 				F2F1D0221990993900438A8A /* Settings.png in Resources */,
-				5560B8E319909E3C0023691B /* Envelope.png in Resources */,
 				F2F1CFA0198EC2AA00438A8A /* 2.jpg in Resources */,
 				5560B8D719906C410023691B /* Keep_Alone.png in Resources */,
 				F2F1CFA4198EC2AA00438A8A /* 3.jpg in Resources */,
@@ -710,8 +726,14 @@
 				F2F1CF9C198EC2AA00438A8A /* 1.jpg in Resources */,
 				F2F1D00F19903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
 				F2F1CFA8198EC2AA00438A8A /* 4.jpg in Resources */,
+				551AA6241992C7220010E65B /* key.png in Resources */,
 				F2F1CFAC198EC2AA00438A8A /* 5.jpg in Resources */,
 				F2F1CFFC19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */,
+				551AA6181992AE390010E65B /* RDPInputViewWithImage.xib in Resources */,
+				F2F1CFAA198EC2AA00438A8A /* 5_blur.jpg in Resources */,
+				F2F1CFA2198EC2AA00438A8A /* 3_blur.jpg in Resources */,
+				F2F1CFA6198EC2AA00438A8A /* 4_blur.jpg in Resources */,
+				F2F1CF9A198EC2AA00438A8A /* 1_blur.jpg in Resources */,
 				F2F1CFBC198EC2AA00438A8A /* 9.jpg in Resources */,
 				F2F1CF7D198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */,
 			);
@@ -722,9 +744,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2F1CFB9198EC2AA00438A8A /* 8.jpg in Resources */,
+				551AA6191992AE390010E65B /* RDPInputViewWithImage.xib in Resources */,
 				F2F1CFE3198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */,
+				551AA6251992C7220010E65B /* key.png in Resources */,
 				F2F1D0231990993900438A8A /* Settings.png in Resources */,
-				5560B8E419909E3C0023691B /* Envelope.png in Resources */,
+				F2F1CFAB198EC2AA00438A8A /* 5_blur.jpg in Resources */,
 				F2F1CFA9198EC2AA00438A8A /* 4.jpg in Resources */,
 				F2F1D0211990993900438A8A /* Fingerprint.png in Resources */,
 				F2F1D01019903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
@@ -740,6 +764,7 @@
 				F2F1CFAD198EC2AA00438A8A /* 5.jpg in Resources */,
 				F2F1CFA1198EC2AA00438A8A /* 2.jpg in Resources */,
 				F2F1CFB5198EC2AA00438A8A /* 7.jpg in Resources */,
+				551AA6221992C6910010E65B /* Envelope.png in Resources */,
 				F2F1CF7E198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,6 +830,7 @@
 				F2F1D0261990A49600438A8A /* RDPSettingsNavigationController.m in Sources */,
 				5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
+				551AA6121992A5630010E65B /* RDPInputViewWithImage.m in Sources */,
 				58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				5531CA0D198FED900076D8B8 /* RDPLoginViewController.m in Sources */,
@@ -858,6 +884,7 @@
 				551AA60F1990B20C0010E65B /* RDPUITextField.m in Sources */,
 				58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
+				551AA6131992A5630010E65B /* RDPInputViewWithImage.m in Sources */,
 				F2F1D01D1990992200438A8A /* RDPSavingSuggestions.m in Sources */,
 				F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
 				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,

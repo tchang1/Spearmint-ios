@@ -33,11 +33,13 @@
     
     // Prepare the congratulations message
     self.congratulations = [[RDPCongratulations alloc] init];
+    [self.congratulations getNextCongratsMessage];
     self.congratsLabel.text = self.congratulations.congratsMessage;
     self.congratsView.hidden = YES;
     
     self.suggestionIndex = 0;
     self.suggestions = [[RDPSavingSuggestions alloc] init];
+    [self.suggestions getNextSuggestionMessages];
     self.suggestionLabel.text = self.suggestions.suggestionMessages[self.suggestionIndex];
     [self startSuggestionsTimer];
 }

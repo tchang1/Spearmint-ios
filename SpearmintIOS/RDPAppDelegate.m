@@ -42,7 +42,11 @@
 //    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
 //    [client getMyGoal];
 //    [client testPOSTHTTPRequest:@""];
-//     [client getMySavings];
+//     [client getSuggestions:@10 withSuccess:^(NSArray *suggestions) {
+//         NSLog(@"%@",suggestions);
+//     } andFailure:^(NSError *error) {
+//         NSLog(error);
+//     }];
 //    //[client getMyNotifications];
 //    [client getNextImage];
 //    [client logout];

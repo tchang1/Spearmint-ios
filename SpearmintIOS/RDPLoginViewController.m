@@ -13,15 +13,6 @@
 
 @end
 
-@implementation UITextField (custom)
-- (CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectMake(bounds.origin.x + 10, bounds.origin.y + 8,
-                      bounds.size.width - 20, bounds.size.height - 16);
-}
-- (CGRect)editingRectForBounds:(CGRect)bounds {
-    return [self textRectForBounds:bounds];
-}
-@end
 @implementation RDPLoginViewController
 
 - (void)viewDidLoad
@@ -35,6 +26,18 @@
     
     self.emailTextField.text=@"iostest@trykeep.com";
     self.passwordTextField.text=@"test";
+    
+    self.emailTextField.layer.cornerRadius = 2;
+    self.emailTextField.clipsToBounds = YES;
+    
+    self.passwordTextField.layer.cornerRadius = 2;
+    self.passwordTextField.clipsToBounds = YES;
+    
+    self.testView= [RDPInputViewWithImage customView];
+
+    self.testView.inputField.text=@"hello";
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -72,6 +75,8 @@
     
     if(valid)
     {
+        self.emailStatusLabel.text=@"";
+        self.passwordStatusLabel.text=@"";
         HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self.view addSubview:HUD];
         HUD.delegate = self;

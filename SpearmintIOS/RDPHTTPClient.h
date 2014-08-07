@@ -63,6 +63,10 @@ typedef void (^savingBlock)(RDPSavingEvent*);
 -(void)getNextImage;
 -(void)getNextImageWithSuccess:(arrayBlock)imageURLs andFailure:(errorBlock)errorBlock;
 
+//Messages
+-(void)getSuggestions:(NSNumber *)limit withSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;
+-(void)getCongratulations:(NSNumber *)limit withSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;
+
 
 
 @end

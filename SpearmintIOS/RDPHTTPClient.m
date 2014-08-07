@@ -372,6 +372,46 @@ andFailureBlock:(errorBlock)errorBlock
     }];
 }
 
+#pragma mark - MESSAGES
+
+-(void)getSuggestions:(NSNumber *)limit withSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock
+{
+    NSDictionary *param=@{@"limit":limit};
+    [self GET:@"suggestions" parameters:param success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *response= responseObject;
+        
+        NSLog( @"%@", response );
+        block(response);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
+        NSInteger statusCode=[responseErrorData statusCode];
+        NSData *data = [[error userInfo] objectForKey:RDPJSONResponseSerializerKey];
+        NSLog(@"%@", error);
+        errorBlock(error);
+        
+    }];
+}
+
+
+-(void)getCongratulations:(NSNumber *)limit withSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock
+{
+    NSDictionary *param=@{@"limit":limit};
+    [self GET:@"congratulations" parameters:param success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *response= responseObject;
+        
+        NSLog( @"%@", response );
+        block(response);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
+        NSInteger statusCode=[responseErrorData statusCode];
+        NSData *data = [[error userInfo] objectForKey:RDPJSONResponseSerializerKey];
+        NSLog(@"%@", error);
+        errorBlock(error);
+        
+    }];
+}
 
 
 @end
