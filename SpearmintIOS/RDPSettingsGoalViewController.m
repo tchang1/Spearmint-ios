@@ -8,6 +8,7 @@
 
 #import "RDPSettingsGoalViewController.h"
 #import "RDPTableViewCellWithInput.h"
+#import "RDPUserService.h"
 
 #define kCellXibName                    @"RDPTableViewCellWithInput"
 #define kCellReusableIdentifier         @"InputCell"
@@ -22,9 +23,15 @@
 
 #define kCellHeight                     62
 
+#define kGoalNameTag                    1
+#define kGoalTargetAmountTag            2
+#define kGoalAmountSavedTag             3
+
 @interface RDPSettingsGoalViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray* goalOptions;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (strong, nonatomic) RDPUser* modifiedUser;
 
 @end
 
@@ -47,6 +54,9 @@
     self.tableView.dataSource = self;
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
+    self.modifiedUser = [RDPUserService getUser];
+    // Get the reference to the current toolbar buttons
+    [self hideSaveButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,21 +110,105 @@
         cell = [[RDPTableViewCellWithInput alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellReusableIdentifier];
     }
     
-    [cell.inputView.label setText:[[self.goalOptions objectAtIndex:indexPath.row] objectForKey:kNameKey]];
+    NSDictionary* goalInfo = [self.goalOptions objectAtIndex:indexPath.row];
+    
+    [cell.inputView.label setText:[goalInfo objectForKey:kNameKey]];
     [cell.inputView.label setFont:[RDPFonts fontForID:fSectionHeaderFont]];
     [cell.inputView.label setTextColor:kColor_DarkText];
     [cell.inputView setBackgroundColor:kColor_PanelColor];
     [cell.inputView setInputBackgroundColor:kColor_InputFieldColor];
-    [cell.inputView.input setPlaceholder:[[self.goalOptions objectAtIndex:indexPath.row] objectForKey:kPlaceholderKey]];
+    [cell.inputView.input setPlaceholder:[goalInfo objectForKey:kPlaceholderKey]];
     [cell.contentView setBackgroundColor:kColor_Transparent];
+    [cell.inputView.input addTarget:self
+                  action:@selector(textFieldDidChange:)
+        forControlEvents:UIControlEventEditingChanged];
     
-    if ([[[self.goalOptions objectAtIndex:indexPath.row]objectForKey:kIdentifierKey]  isEqualToString: kGoalAmountIdentifier] ||
-        [[[self.goalOptions objectAtIndex:indexPath.row]objectForKey:kIdentifierKey]  isEqualToString: kGoalAmountSavedIdentifier])
-    {
-        [cell.inputView.input setKeyboardType:UIKeyboardTypeDecimalPad];
+    if ([[goalInfo objectForKey:kIdentifierKey] isEqualToString:kGoalNameIdentifier]) {
+        cell.inputView.input.text = [[[RDPUserService getUser] getGoal] getGoalName];
+        cell.inputView.input.tag = kGoalNameTag;
+    }
+    else if ([[goalInfo objectForKey:kIdentifierKey]  isEqualToString: kGoalAmountIdentifier]) {
+        cell.inputView.input.text = [[[[RDPUserService getUser] getGoal] getTargetAmount] description];
+        [cell.inputView.input setKeyboardType:UIKeyboardTypeNumberPad];
+        cell.inputView.input.tag = kGoalTargetAmountTag;
+    }
+    else if ([[goalInfo objectForKey:kIdentifierKey]  isEqualToString: kGoalAmountSavedIdentifier]) {
+        cell.inputView.input.text = [[[[RDPUserService getUser] getGoal] getCurrentAmount] description];
+        [cell.inputView.input setKeyboardType:UIKeyboardTypeNumberPad];
+        cell.inputView.input.tag = kGoalAmountSavedTag;
     }
     
     return cell;
+}
+
+- (BOOL)textFieldDidChange:(UITextField *)textField
+{
+    BOOL dirty = NO;
+    BOOL valid = YES;
+    RDPResponseCode status;
+    NSString* value = textField.text;
+    
+    if (kGoalNameTag == textField.tag) {
+        if (![[[[RDPUserService getUser] getGoal] getGoalName] isEqualToString:textField.text]) {
+            dirty = YES;
+            status = [[self.modifiedUser getGoal] setGoalName:textField.text];
+            if (RDPResponseCodeOK != status) {
+                valid = NO;
+            }
+        }
+    }
+    else if (kGoalTargetAmountTag == textField.tag) {
+        if (![[[[[RDPUserService getUser] getGoal] getTargetAmount] description] isEqualToString:textField.text]) {
+            dirty = YES;
+            if ([value isEqualToString:@""]) {
+                value = @"0";
+            }
+            status = [[self.modifiedUser getGoal] setTargetAmount:[[RDPConfig numberFormatter] numberFromString:value]];
+            if (RDPResponseCodeOK != status) {
+                valid = NO;
+            }
+        }
+    }
+    else if (kGoalAmountSavedTag == textField.tag) {
+        if (![[[[[RDPUserService getUser] getGoal] getCurrentAmount] description] isEqualToString:textField.text]) {
+            dirty = YES;
+            if ([value isEqualToString:@""]) {
+                value = @"0";
+            }
+            status = [[self.modifiedUser getGoal] setCurrentAmount:[[RDPConfig numberFormatter] numberFromString:textField.text]];
+            if (RDPResponseCodeOK != status) {
+                valid = NO;
+            }
+        }
+    }
+    
+    if (dirty && valid) {
+        [self showSaveButton];
+    }
+    else {
+        [self hideSaveButton];
+    }
+    return YES;
+}
+
+- (void)hideSaveButton
+{
+    NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+    [toolbarButtons removeObject:self.saveButton];
+    [self.navigationItem setRightBarButtonItems:toolbarButtons animated:YES];
+}
+
+- (void)showSaveButton
+{
+    NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
+    // This is how you add the button to the toolbar and animate it
+    if (![toolbarButtons containsObject:self.saveButton]) {
+        // The following line adds the object to the end of the array.
+        // If you want to add the button somewhere else, use the `insertObject:atIndex:`
+        // method instead of the `addObject` method.
+        [toolbarButtons addObject:self.saveButton];
+        [self.navigationItem setRightBarButtonItems:toolbarButtons animated:YES];
+    }
 }
 
 - (IBAction)cancelPressed:(id)sender {
@@ -122,6 +216,13 @@
 }
 
 - (IBAction)savePressed:(id)sender {
+    [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
+        if (RDPResponseCodeOK == response) {
+            self.modifiedUser = [RDPUserService getUser];
+            [self hideSaveButton];
+            
+        }
+    }];
 }
 
 

@@ -13,7 +13,7 @@ typedef enum {
     RDPSettingMaximumPasswordLength,
     RDPSettingEmailRegex,
     RDPSettingMinimumGoalNameLength,
-    RDPSettingMaximumGoalNameLength
+    RDPSettingMaximumGoalNameLength,
 } RDPSettingID;
 
 @interface RDPConfig : NSObject
@@ -21,5 +21,7 @@ typedef enum {
 +(id)settingForID:(RDPSettingID)settingID;
 +(NSString*)stringSettingForID:(RDPSettingID)settingID;
 +(NSNumber*)numberSettingForID:(RDPSettingID)settingID;
+
++(NSNumberFormatter*)numberFormatter;
 
 @end

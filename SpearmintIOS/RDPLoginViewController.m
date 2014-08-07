@@ -110,34 +110,10 @@
 
 -(void)tryLoginWithUsername:(NSString *)username andPassword:(NSString *)password {
     NSLog(@"trying login");
-//    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
-//    [client loginWithUsername:username andPassword:password andCompletionBlock:^(void){
-//        HUD.labelText=@"ClientDidLoginYALL!";
-//        HUD.mode =MBProgressHUDModeText;
-//        [HUD hide:YES afterDelay:2];
-//        
-//        double delayInSeconds = 2.0;
-//        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-//        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//            [self performSegueWithIdentifier:@"loginToHome" sender:self];
-//        });
-//    }
-//     andFailureBlock:^(NSError *error) {
-//         HUD.labelText=@"Something bad happened";
-//         HUD.mode =MBProgressHUDModeText;
-//         [HUD hide:YES afterDelay:2];
-//     }];
     [RDPUserService loginWithUsername:username andPassword:password then:^(RDPUser *user) {
         HUD.labelText=@"ClientDidLoginYALL!";
         HUD.mode =MBProgressHUDModeText;
         [HUD hide:YES afterDelay:2];
-        
-        RDPUser* testUser = [RDPUserService getUser];
-        [[testUser getGoal] setGoalName:@"testGoal3"];
-        [RDPUserService saveUser:testUser withResponse:^(RDPResponseCode response) {
-            RDPUser* testUser = [RDPUserService getUser];
-            NSLog(@"Test");
-        }];
         
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));

@@ -12,6 +12,7 @@
 #define kSettingsFileType       @"plist"
 
 static NSDictionary* settings;
+static NSNumberFormatter* numberFormatter;
 
 @implementation RDPConfig
 
@@ -57,6 +58,15 @@ static NSDictionary* settings;
 +(NSNumber*)numberSettingForID:(RDPSettingID)settingID
 {
     return (NSNumber*)[RDPConfig settingForID:settingID];
+}
+
++(NSNumberFormatter*)numberFormatter
+{
+    if (!numberFormatter) {
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    }
+    return numberFormatter;
 }
 
 @end

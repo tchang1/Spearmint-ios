@@ -103,23 +103,26 @@
         if (![self object:[self getAmount] isEqualTo:[other getAmount]]) {
             isEqual = NO;
         }
-        if (![self object:[self getReason] isEqualTo:[other getReason]]) {
-            isEqual = NO;
-        }
-        if (![self.date isEqualToDate:other.date]) {
-            isEqual = NO;
-        }
-        if (![self.location isEqualToString:other.location]) {
-            isEqual = NO;
-        }
-        if (self.deleted != other.deleted) {
-            isEqual = NO;
-        }
-        
     }
-    @catch (NSException * e) {
-        isEqual = YES;
+    @catch (NSException *exception) {
+        if (self.getAmount != other.getAmount) {
+            isEqual = NO;
+        }
     }
+    
+    if (![self object:[self getReason] isEqualTo:[other getReason]]) {
+        isEqual = NO;
+    }
+    if (![self.date isEqualToDate:other.date]) {
+        isEqual = NO;
+    }
+    if (![self.location isEqualToString:other.location]) {
+        isEqual = NO;
+    }
+    if (self.deleted != other.deleted) {
+        isEqual = NO;
+    }
+    
     
     return isEqual;
 }
