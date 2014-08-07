@@ -1,26 +1,34 @@
 //
-//  RDPSavingEvent.h
+//  RDPSavings.h
 //  SpearmintIOS
 //
-//  Created by Chang, Tony on 7/28/14.
+//  Created by Matthew Ziegler on 8/6/14.
 //  Copyright (c) 2014 Spearmint. All rights reserved.
 //
 
-#import "MTLModel.h"
-#import "MTLJSONAdapter.h"
+#import <Foundation/Foundation.h>
 
+@interface RDPSavingEvent : NSObject
 
-@interface RDPSavingEvent : MTLModel <MTLJSONSerializing>
+@property (strong, readonly, nonatomic) NSDate* date;
+@property (strong, readonly, nonatomic) NSString* location;
+@property (strong, readonly, nonatomic) NSString* savingID;
+@property (readonly, nonatomic) BOOL deleted;
 
-@property (nonatomic, strong) NSDecimalNumber *amount;
+-(RDPSavingEvent*)initWithAmount:(NSNumber*)amount
+                       andReason:(NSString*)reason
+                         andDate:(NSDate*)date
+                     andLocation:(NSString*)location
+                           andID:(NSString*)savingID;
 
-@property (nonatomic, strong) NSString *savingid;
+-(NSNumber*)getAmount;
+-(RDPResponseCode)setAmount:(NSNumber*)amount;
+-(NSString*)getReason;
+-(RDPResponseCode)setReason:(NSString*)reason;
+-(void)deleteSavingEvent;
 
-@property (nonatomic, strong) NSString *goalid;
+-(BOOL)isEqualTo:(RDPSavingEvent*)other;
 
-
-//@property (nonatomic, strong) NSString *reason;
-
-//@property (nonatomic, strong) NSDate *savingDate;
+-(RDPSavingEvent*) copy;
 
 @end

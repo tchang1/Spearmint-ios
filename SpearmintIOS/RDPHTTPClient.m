@@ -7,7 +7,7 @@
 //
 
 #import "RDPHTTPClient.h"
-#import "RDPGoal.h"
+#import "RDPGoalModel.h"
 #import "RDPJSONResponseSerializer.h"
 
 static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
@@ -33,6 +33,7 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     if (self) {
         self.responseSerializer = [RDPJSONResponseSerializer serializer];
         self.requestSerializer = [AFJSONRequestSerializer serializer];
+        self.responseSerializer.acceptableContentTypes = [self.responseSerializer.acceptableContentTypes setByAddingObject:@"text/plain"];
     }
     
     return self;
@@ -46,7 +47,7 @@ static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
     [self GET:path parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSError *error=nil;
-        RDPGoal *goal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
+        RDPGoalModel *goal=[MTLJSONAdapter modelOfClass:RDPGoalModel.class fromJSONDictionary:response error:&error];
         NSLog( @"%@", goal );
 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -131,7 +132,7 @@ andFailureBlock:(errorBlock)errorBlock
     [self GET:@"goals/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSError *error=nil;
-        RDPGoal *goal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
+        RDPGoalModel *goal=[MTLJSONAdapter modelOfClass:RDPGoalModel.class fromJSONDictionary:response error:&error];
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didGetMyGoal:)]) {
             [self.delegate RDPHTTPClient:self didGetMyGoal:goal];
         }
@@ -142,7 +143,7 @@ andFailureBlock:(errorBlock)errorBlock
     
 }
 
--(void)updateMyGoal:(RDPGoal *)goal
+-(void)updateMyGoal:(RDPGoalModel *)goal
 {
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
     [self PUT:@"goals/me" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -159,14 +160,14 @@ andFailureBlock:(errorBlock)errorBlock
     }];
 }
 
--(void)postNewGoal:(RDPGoal *)goal
+-(void)postNewGoal:(RDPGoalModel *)goal
 {
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
     [self POST:@"goals" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSLog( @"%@", response );
         NSError *error=nil;
-        RDPGoal *returnedGoal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
+        RDPGoalModel *returnedGoal=[MTLJSONAdapter modelOfClass:RDPGoalModel.class fromJSONDictionary:response error:&error];
         
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didPostNewGoal:)]) {
             [self.delegate RDPHTTPClient:self didPostNewGoal:returnedGoal];
@@ -182,7 +183,7 @@ andFailureBlock:(errorBlock)errorBlock
     [self GET:@"goals/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSError *error=nil;
-        RDPGoal *goal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
+        RDPGoalModel *goal=[MTLJSONAdapter modelOfClass:RDPGoalModel.class fromJSONDictionary:response error:&error];
         
         block(goal);
 
@@ -193,7 +194,7 @@ andFailureBlock:(errorBlock)errorBlock
     }];
 
 }
--(void)updateMyGoal:(RDPGoal *)goal withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock
+-(void)updateMyGoal:(RDPGoalModel *)goal withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock
 {
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
     [self PUT:@"goals/me" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -205,14 +206,14 @@ andFailureBlock:(errorBlock)errorBlock
         NSLog(@"%@", error);
     }];
 }
--(void)postNewGoal:(RDPGoal *)goal withSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock
+-(void)postNewGoal:(RDPGoalModel *)goal withSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock
 {
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
     [self POST:@"goals" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSLog( @"%@", response );
         NSError *error=nil;
-        RDPGoal *returnedGoal=[MTLJSONAdapter modelOfClass:RDPGoal.class fromJSONDictionary:response error:&error];
+        RDPGoalModel *returnedGoal=[MTLJSONAdapter modelOfClass:RDPGoalModel.class fromJSONDictionary:response error:&error];
         
         block(returnedGoal);
         
@@ -226,24 +227,10 @@ andFailureBlock:(errorBlock)errorBlock
 
 -(void)getMySavings
 {
-    [self GET:@"savings/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSArray *response= responseObject;
-        NSError *error=nil;
-        NSLog( @"%@", response );
-        NSArray *savings = [MTLJSONAdapter modelsOfClass:RDPSavingEvent.class fromJSONArray:response error:&error];
-        
-        NSLog( @"%@", savings );
-        
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
-        NSInteger statusCode=[responseErrorData statusCode];
-        NSData *data = [[error userInfo] objectForKey:RDPJSONResponseSerializerKey];
-        NSLog(@"%@", error);
-        
-    }];
+    [self getMySavingsWithSuccess:nil andFailure:nil];
 }
 
--(void)postSavings:(RDPSavingEvent *)savings
+-(void)postSavings:(RDPSavingEventModel *)savings
 {
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:savings];
     [self POST:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -257,7 +244,7 @@ andFailureBlock:(errorBlock)errorBlock
     }];
 }
 
--(void)updateSavings:(RDPSavingEvent *)savings
+-(void)updateSavings:(RDPSavingEventModel *)savings
 {
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:savings];
     [self PUT:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -278,7 +265,7 @@ andFailureBlock:(errorBlock)errorBlock
         NSArray *response= responseObject;
         NSError *error=nil;
         NSLog( @"%@", response );
-        NSArray *savings = [MTLJSONAdapter modelsOfClass:RDPSavingEvent.class fromJSONArray:response error:&error];
+        NSArray *savings = [MTLJSONAdapter modelsOfClass:RDPSavingEventModel.class fromJSONArray:response error:&error];
         NSLog( @"%@", savings );
 
         block(savings);
@@ -292,7 +279,7 @@ andFailureBlock:(errorBlock)errorBlock
         
     }];
 }
--(void)updateMySaving:(RDPSavingEvent *)saving withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock
+-(void)updateMySaving:(RDPSavingEventModel *)saving withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock
 {
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:saving];
     [self PUT:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -305,14 +292,14 @@ andFailureBlock:(errorBlock)errorBlock
         errorBlock(error);
     }];
 }
--(void)postNewSaving:(RDPSavingEvent *)saving withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock
+-(void)postNewSaving:(RDPSavingEventModel *)saving withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock
 {
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:saving];
     [self POST:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSError *error=nil;
         NSLog( @"%@", response );
-        RDPSavingEvent *returnedSaving=[MTLJSONAdapter modelOfClass:RDPSavingEvent.class fromJSONDictionary:response error:&error];
+        RDPSavingEventModel *returnedSaving=[MTLJSONAdapter modelOfClass:RDPSavingEventModel.class fromJSONDictionary:response error:&error];
         block(returnedSaving);
 
         

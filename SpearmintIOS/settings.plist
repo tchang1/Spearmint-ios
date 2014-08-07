@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>maximumPasswordLength</key>
+	<integer>32</integer>
+	<key>emailRegex</key>
+	<string>@&quot;^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$&quot;</string>
+	<key>minimumGoalNameLength</key>
+	<integer>3</integer>
+	<key>maximumGoalNameLength</key>
+	<integer>32</integer>
+	<key>minimumPasswordLength</key>
+	<integer>6</integer>
+</dict>
+</plist>

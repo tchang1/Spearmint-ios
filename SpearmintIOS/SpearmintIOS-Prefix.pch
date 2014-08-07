@@ -18,3 +18,5 @@
 #import "RDPColors.h"
 #import "RDPStrings.h"
 #import "RDPFonts.h"
+#import "RDPConfig.h"
+#import "RDPErrorCodes.h"

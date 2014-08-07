@@ -202,12 +202,12 @@
 
 - (void)createSavingEventForAmount:(NSNumber *)amountSaved
 {
-    // Create a saving event with the amount saved
-    RDPSavingEvent *saved = [[RDPSavingEvent alloc] init];
-    saved.goalid = @"53d2bf28c5fb963e0717d8c8"; //TODO: get actual goal id for user
-    saved.amount = (NSDecimalNumber*) amountSaved;
-    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
-    [client postSavings:saved];
+//    // Create a saving event with the amount saved
+//    RDPSavingEvent *saved = [[RDPSavingEvent alloc] init];
+//    saved.goalid = @"53d2bf28c5fb963e0717d8c8"; //TODO: get actual goal id for user
+//    saved.amount = (NSDecimalNumber*) amountSaved;
+//    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
+//    [client postSavings:saved];
 }
 
 - (void)transitionImagesWithSaveAmount

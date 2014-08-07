@@ -7,14 +7,14 @@
 //
 
 #import "AFHTTPSessionManager.h"
-#import "RDPGoal.h"
-#import "RDPSavingEvent.h"
+#import "RDPGoalModel.h"
+#import "RDPSavingEventModel.h"
 
 typedef void (^completionBlock)(void);
 typedef void (^errorBlock)(NSError*);
-typedef void (^goalBlock)(RDPGoal*);
+typedef void (^goalBlock)(RDPGoalModel*);
 typedef void (^arrayBlock)(NSArray*);
-typedef void (^savingBlock)(RDPSavingEvent*);
+typedef void (^savingBlock)(RDPSavingEventModel*);
 
 
 @protocol RDPHTTPClientDelegate;
@@ -37,21 +37,21 @@ typedef void (^savingBlock)(RDPSavingEvent*);
 
 //Goals
 -(void)getMyGoal;
--(void)updateMyGoal:(RDPGoal *)goal;
--(void)postNewGoal:(RDPGoal *)goal;
+-(void)updateMyGoal:(RDPGoalModel *)goal;
+-(void)postNewGoal:(RDPGoalModel *)goal;
 
 -(void)getMyGoalWithSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock;
--(void)updateMyGoal:(RDPGoal *)goal withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock;
--(void)postNewGoal:(RDPGoal *)goal withSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock;
+-(void)updateMyGoal:(RDPGoalModel *)goal withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock;
+-(void)postNewGoal:(RDPGoalModel *)goal withSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock;
 
 //Savings
 -(void)getMySavings;
--(void)updateSavings:(RDPSavingEvent *)saving;
--(void)postSavings:(RDPSavingEvent *)saving;
+-(void)updateSavings:(RDPSavingEventModel *)saving;
+-(void)postSavings:(RDPSavingEventModel *)saving;
 
 -(void)getMySavingsWithSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;
--(void)updateMySaving:(RDPSavingEvent *)saving withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock;
--(void)postNewSaving:(RDPSavingEvent *)goal withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
+-(void)updateMySaving:(RDPSavingEventModel *)saving withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
+-(void)postNewSaving:(RDPSavingEventModel *)goal withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
 
 //Notifications
 -(void)getMyNotifications;
@@ -79,14 +79,14 @@ typedef void (^savingBlock)(RDPSavingEvent*);
 
 
 -(void)RDPHTTPClient:(RDPHTTPClient *)client didGetImageURLs:(NSArray *)images;
--(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMyGoal:(RDPGoal *)goal;
--(void)RDPHTTPClient:(RDPHTTPClient *)client didPostNewGoal:(RDPGoal *)goal;
+-(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMyGoal:(RDPGoalModel *)goal;
+-(void)RDPHTTPClient:(RDPHTTPClient *)client didPostNewGoal:(RDPGoalModel *)goal;
 -(void)RDPHTTPClientDidUpdateMyGoal;
 
 
 -(void)RDPHTTPClient:(RDPHTTPClient *)client didGetMySavings:(NSArray *)savings;
--(void)RDPHTTPClient:(RDPHTTPClient *)client didPostSavings:(RDPSavingEvent *)saving;
--(void)RDPHTTPClient:(RDPHTTPClient *)client didUpdateSavings:(RDPSavingEvent *)saving;
+-(void)RDPHTTPClient:(RDPHTTPClient *)client didPostSavings:(RDPSavingEventModel *)saving;
+-(void)RDPHTTPClient:(RDPHTTPClient *)client didUpdateSavings:(RDPSavingEventModel *)saving;
 
 
 -(void)RDPHTTPClientDidReceiveNotAuthorizedResponse;
