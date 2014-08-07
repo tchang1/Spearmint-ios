@@ -22,4 +22,12 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)undoSelected:(id)sender {
+    if (self.delegate) {
+        if ([self.delegate respondsToSelector:@selector(undoSelectedForCellWithIdentifier:)]) {
+            [self.delegate undoSelectedForCellWithIdentifier:self.savingID];
+        }
+    }
+}
+
 @end

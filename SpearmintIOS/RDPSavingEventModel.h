@@ -12,7 +12,7 @@
 
 @interface RDPSavingEventModel : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, strong) NSDecimalNumber *amount;
+@property (nonatomic, strong) NSNumber *amount;
 
 @property (nonatomic, strong) NSString *savingid;
 

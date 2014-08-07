@@ -284,7 +284,7 @@ andFailureBlock:(errorBlock)errorBlock
         NSLog( @"%@", response );
         NSArray *savings = [MTLJSONAdapter modelsOfClass:RDPSavingEventModel.class fromJSONArray:response error:&error];
         NSLog( @"%@", savings );
-
+        
         block(savings);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

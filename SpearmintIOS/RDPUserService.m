@@ -205,9 +205,20 @@ static RDPUser* storedUser;
     savingEventModel.amount = [NSDecimalNumber decimalNumberWithDecimal:[[savingEvent getAmount] decimalValue]];
     savingEventModel.goalid = goalID;
     savingEventModel.savingid = savingEvent.savingID;
+    savingEventModel.deleted = (savingEvent.deleted) ? @"T" : @"F";
     if (savingEventModel.savingid) {
         [[RDPHTTPClient sharedRDPHTTPClient] updateMySaving:savingEventModel withSuccess:^(RDPSavingEventModel *savingEventModel) {
+            
+//            NSMutableArray* newSavings = [[NSMutableArray alloc] initWithArray:[[storedUser getGoal] getSavingEvents]];
+//            for (NSInteger i = 0; i < [newSavings count]; i++) {
+//                if ([[[newSavings objectAtIndex:i] savingID] isEqualToString:savingEvent.savingID]) {
+//                    [newSavings insertObject:savingEvent atIndex:i];
+//                    [[storedUser getGoal] setSavingEvents:[newSavings copy]];
+//                    break;
+//                }
+//            }
             response(RDPResponseCodeOK);
+            
         } andFailure:^(NSError *error) {
             response([RDPUserService handleError:error]);
         }];
@@ -215,6 +226,7 @@ static RDPUser* storedUser;
     else {
         [[RDPHTTPClient sharedRDPHTTPClient] postNewSaving:savingEventModel withSuccess:^(RDPSavingEventModel *savingEventModel) {
             response(RDPResponseCodeOK);
+            [[storedUser getGoal] addSavingEvent:savingEvent];
         } andFailure:^(NSError *error) {
             response([RDPUserService handleError:error]);
         }];

@@ -7,7 +7,7 @@
 //
 
 #import "RDPSettingsHistoryViewController.h"
-#import "RDPTableViewSavingsCell.h"
+#import "RDPUserService.h"
 
 #define kCellXibName                    @"RDPTableViewSavingsCell"
 #define kCellReusableIdentifier         @"SavingsCell"
@@ -15,13 +15,17 @@
 #define kAmountKey                      @"amount"
 #define kReasonKey                      @"reason"
 #define kTimeAndPlaceKey                @"timeAndPlaceKey"
+#define kSavingIDKey                    @"savingID"
 
 #define kSavingCellHeight               50
+#define kUndoButtonIndex                1
+#define kCancelButtonIndex              0
 
 @interface RDPSettingsHistoryViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) NSString* currentSavingID;
 
-@property (strong, nonatomic) NSArray* savings;
+//@property (strong, nonatomic) NSArray* savings;
 
 @end
 
@@ -44,6 +48,10 @@
     self.tableView.dataSource = self;
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
+    UIView* statusBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 340, 20)];
+    [statusBackground setBackgroundColor:kColor_SettingPanelHeader];
+    [self.view addSubview:statusBackground];
+    [[[self.navigationController.view subviews] objectAtIndex:1] setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,19 +60,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSArray*) savings
+- (void)viewWillDisappear:(BOOL)animated
 {
-    if (!_savings) {
-        _savings = @[@{kAmountKey : @"$3",
-                       kReasonKey : @"I stole coffee",
-                       kTimeAndPlaceKey : @"time and date"
-                       },
-                     @{kAmountKey : @"$87",
-                       kReasonKey : @"I made her pay",
-                       kTimeAndPlaceKey : @"time and date"
-                       }];
+    [[[self.navigationController.view subviews] objectAtIndex:1] setHidden:NO];
+}
+
+- (NSArray*) getSavings
+{
+    NSMutableArray* savings = [[NSMutableArray alloc] init];
+    NSArray* savingEventsModel = [[[RDPUserService getUser] getGoal] getSavingEvents];
+    for (NSInteger i = 0; i < [savingEventsModel count]; i++) {
+        RDPSavingEvent* savingEvent = [savingEventsModel objectAtIndex:i];
+        if (!savingEvent.deleted) {
+            [savings addObject:@{kAmountKey: [@"$" stringByAppendingString:[[savingEvent getAmount] description]],
+                                kReasonKey: [savingEvent getReason],
+                                 kTimeAndPlaceKey: [[savingEvent.date description] stringByAppendingString:savingEvent.location],
+                                 kSavingIDKey: savingEvent.savingID}];
+        }
     }
-    return _savings;
+    
+    return [savings copy];
 }
 
 - (IBAction)backPressed:(id)sender {
@@ -80,7 +95,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.savings count];
+    return [[self getSavings] count];
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -102,7 +117,7 @@
         cell = [[RDPTableViewSavingsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellReusableIdentifier];
     }
     
-    NSDictionary* cellData = [self.savings objectAtIndex:indexPath.row];
+    NSDictionary* cellData = [[self getSavings] objectAtIndex:indexPath.row];
     
     [cell.container setBackgroundColor:kColor_PanelColor];
     cell.amountLabel.text = [cellData objectForKey:kAmountKey];
@@ -117,8 +132,38 @@
     cell.undoButton.titleLabel.text = [RDPStrings stringForID:sUndo];
     [cell.undoButton.titleLabel setFont:[RDPFonts fontForID:fMenuFont]];
     [cell.undoButton.titleLabel setTextColor:kColor_WarningRed];
+    cell.delegate = self;
+    cell.savingID = [cellData objectForKey:kSavingIDKey];
     
     return cell;
+}
+
+-(void)undoSelectedForCellWithIdentifier:(NSString*)savingID
+{
+    self.currentSavingID = savingID;
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:[RDPStrings stringForID:sUndoSavingBodyMessage]
+                                                   delegate:(id)self
+                                          cancelButtonTitle:[RDPStrings stringForID:sUndoSavingCancelButton]
+                                          otherButtonTitles:[RDPStrings stringForID:sUndoSavingUndoButton], nil];
+    alert.delegate = self;
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (kUndoButtonIndex == buttonIndex) {
+        RDPUser* editedUser = [RDPUserService getUser];
+        for (NSInteger i = 0; i < [[[editedUser getGoal] getSavingEvents] count]; i++) {
+            if ([self.currentSavingID isEqualToString:[[[[editedUser getGoal] getSavingEvents] objectAtIndex:i] savingID]]) {
+                [[[[editedUser getGoal] getSavingEvents] objectAtIndex:i] deleteSavingEvent];
+                [RDPUserService saveUser:editedUser withResponse:^(RDPResponseCode response) {
+                    [self.tableView reloadData];
+                }];
+                break;
+            }
+        }
+    }
 }
 
 /*

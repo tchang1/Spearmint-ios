@@ -11,6 +11,11 @@
 typedef enum {
     sPressAndHold,
     sSettings,
+    sUndoSavingBodyMessage,
+    sUndoSavingUndoButton,
+    sUndoSavingCancelButton,
+    sSubmitFeedbackAlertText,
+    sSubmitFeedbackAlertDismissButton,
     sBack,
     sMyGoal,
     sNotificationSettings,

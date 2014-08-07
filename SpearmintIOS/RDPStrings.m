@@ -21,6 +21,21 @@
         case sSettings:
             result = @"Settings";
             break;
+        case sUndoSavingBodyMessage:
+            result = @"Are you sure?";
+            break;
+        case sUndoSavingUndoButton:
+            result = @"Undo";
+            break;
+        case sUndoSavingCancelButton:
+            result = @"Cancel";
+            break;
+        case sSubmitFeedbackAlertText:
+            result = @"Than you for the feedback! We are working hard to make Keep better.";
+            break;
+        case sSubmitFeedbackAlertDismissButton:
+            result = @"Dismiss";
+            break;
         case sBack:
             result = @"Back";
             break;

@@ -99,18 +99,11 @@
 -(BOOL)isEqualTo:(RDPSavingEvent*)other
 {
     BOOL isEqual = YES;
-    @try {
-        if (![self object:[self getAmount] isEqualTo:[other getAmount]]) {
-            isEqual = NO;
-        }
-    }
-    @catch (NSException *exception) {
-        if (self.getAmount != other.getAmount) {
-            isEqual = NO;
-        }
+    if (![[self getAmount] isEqualToNumber:[other getAmount]]) {
+        isEqual = NO;
     }
     
-    if (![self object:[self getReason] isEqualTo:[other getReason]]) {
+    if (![[self getReason] isEqualToString:[other getReason]]) {
         isEqual = NO;
     }
     if (![self.date isEqualToDate:other.date]) {
@@ -123,17 +116,20 @@
         isEqual = NO;
     }
     
-    
     return isEqual;
 }
 
 -(RDPSavingEvent*)copy
 {
-    return [[RDPSavingEvent alloc] initWithAmount:[self.savingAmount copy]
-                                        andReason:[self.savingReason copy]
-                                          andDate:[self.date copy]
-                                      andLocation:[self.location copy]
-                                            andID:[self.savingID copy]];
+    RDPSavingEvent* copyEvent = [[RDPSavingEvent alloc] initWithAmount:[self.savingAmount copy]
+                                                            andReason:[self.savingReason copy]
+                                                              andDate:[self.date copy]
+                                                          andLocation:[self.location copy]
+                                                                andID:[self.savingID copy]];
+    if (self.deleted) {
+        [copyEvent deleteSavingEvent];
+    }
+    return copyEvent;
 }
 
 @end
