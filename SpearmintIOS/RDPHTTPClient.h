@@ -32,6 +32,7 @@ typedef void (^savingBlock)(RDPSavingEventModel*);
 //User
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
+-(void)signupWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 -(void)logout;
 -(void)logoutWithCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 

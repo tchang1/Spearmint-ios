@@ -59,9 +59,18 @@ static RDPUser* storedUser;
     }];
 }
 
-+(void)createUserWithUsername:(NSString*)username andPassword:(NSString*)password then:(userBlock)completionBlock failure:(responseBlock)fail
++(void)createUserWithUsername:(NSString*)username andPassword:(NSString*)password andGoal:(RDPGoal*)goal then:(userBlock)completionBlock failure:(responseBlock)fail
 {
-    
+    [[RDPHTTPClient sharedRDPHTTPClient] signupWithUsername:username andPassword:password andCompletionBlock:^{
+        NSLog(@"signup to server completed");
+        [RDPUserService saveGoalModel:goal withResponse:^(RDPResponseCode code) {
+            NSLog(@"save goal to server completed");
+            storedUser=[[RDPUser alloc]initWithUsername:username andPassword:password andGoal:goal];
+            completionBlock([storedUser copy]);
+        }];
+    } andFailureBlock:^(NSError *error) {
+        fail([RDPUserService handleError:error]);
+    }];
 }
 
 +(void)loginWithUsername:(NSString*)username andPassword:(NSString*)password then:(userBlock)completionBlock failure:(responseBlock)fail

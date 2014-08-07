@@ -12,6 +12,7 @@
 #import "RDPFonts.h"
 #import "RDPColors.h"
 #import "RDPStrings.h"
+#import "RDPValidationService.h"
 
 @interface RDPLoginViewController ()
 
@@ -70,13 +71,13 @@
 - (IBAction)loginButtonPressed:(id)sender {
     [self.loginButton setAlpha:1];
     BOOL valid=YES;
-    if (![self validateUsername:self.emailTextField.text])
+    if (![RDPValidationService validateUsername:self.emailTextField.text])
     {
         self.emailStatusLabel.text=[RDPStrings stringForID:sEmailValidation];
         [self.emailFieldIcon setImage:[UIImage imageNamed:@"Envelope_red.png"]];
         valid=NO;
     }
-    if (![self validatePassword:self.passwordTextField.text])
+    if (![RDPValidationService validatePassword:self.passwordTextField.text])
     {
         self.passwordStatusLabel.text=[RDPStrings stringForID:sPasswordValidation];
         [self.passwordFieldIcon setImage:[UIImage imageNamed:@"Key_red.png" ]];
@@ -97,23 +98,6 @@
 
 
     
-}
-
--(BOOL)validateUsername:(NSString *)username {
-    NSString *emailRegex=@"^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$";
-    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:emailRegex options:NSRegularExpressionCaseInsensitive error:nil];
-    NSUInteger regExMatches = [regEx numberOfMatchesInString:username options:0 range:NSMakeRange(0, [username length])];
-    
-    NSLog(@"%i", regExMatches);
-    if (regExMatches == 0) {
-        return NO;
-    } else {
-        return YES;
-    }
-}
-
--(BOOL)validatePassword:(NSString *)password {
-    return [password length]>=4;
 }
 
 -(void)tryLoginWithUsername:(NSString *)username andPassword:(NSString *)password {

@@ -43,7 +43,7 @@
      forState:UIControlStateNormal];
     
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
-    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
+//    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
 //    [client getMyGoal];
 //    [client testPOSTHTTPRequest:@""];
 //     [client getSuggestions:@10 withSuccess:^(NSArray *suggestions) {

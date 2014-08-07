@@ -110,6 +110,23 @@ andFailureBlock:(errorBlock)errorBlock
     
 }
 
+-(void)signupWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block
+         andFailureBlock:(errorBlock)errorBlock
+{
+    NSDictionary *parameters = @{@"username": username,
+                                 @"password": password,
+                                 @"notifications":@"Y"};
+    [self POST:@"users" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSLog( @"%@", response );
+        block();
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        errorBlock(error);
+    }];
+}
+
 -(void)logout
 {
 
@@ -393,7 +410,6 @@ andFailureBlock:(errorBlock)errorBlock
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
         NSInteger statusCode=[responseErrorData statusCode];
-        NSData *data = [[error userInfo] objectForKey:RDPJSONResponseSerializerKey];
         NSLog(@"%@", error);
         errorBlock(error);
         
