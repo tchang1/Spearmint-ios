@@ -24,18 +24,21 @@ PODS:
   - Mantle (1.5):
     - Mantle/extobjc
   - Mantle/extobjc (1.5)
+  - Mixpanel (2.4.1)
   - pop (1.0.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2)
   - Canvas (~> 0.1)
   - Mantle
+  - Mixpanel
   - pop (~> 1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   Canvas: 45356a2e61087a776bfde5090676d290cf67f7f2
   Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
+  Mixpanel: a29ff32db93936dea24162f0dc4fecc4a8f17071
   pop: e518794da38942c05255eb64b36d894e70cb4f00
 
 COCOAPODS: 0.33.1

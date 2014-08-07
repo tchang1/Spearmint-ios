@@ -18,6 +18,16 @@
 		551AA6221992C6910010E65B /* Envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6201992C6910010E65B /* Envelope.png */; };
 		551AA6241992C7220010E65B /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6231992C7220010E65B /* key.png */; };
 		551AA6251992C7220010E65B /* key.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6231992C7220010E65B /* key.png */; };
+		551AA6281993F2590010E65B /* Envelope_Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6261993F2590010E65B /* Envelope_Red.png */; };
+		551AA6291993F2590010E65B /* Envelope_Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6261993F2590010E65B /* Envelope_Red.png */; };
+		551AA62A1993F2590010E65B /* Key_Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6271993F2590010E65B /* Key_Red.png */; };
+		551AA62B1993F2590010E65B /* Key_Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6271993F2590010E65B /* Key_Red.png */; };
+		551AA62D1993FC4C0010E65B /* Email_Ridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA62C1993FC4C0010E65B /* Email_Ridge.png */; };
+		551AA62E1993FC4C0010E65B /* Email_Ridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA62C1993FC4C0010E65B /* Email_Ridge.png */; };
+		551AA6301993FDC10010E65B /* Background_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA62F1993FDC10010E65B /* Background_password.png */; };
+		551AA6311993FDC10010E65B /* Background_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 551AA62F1993FDC10010E65B /* Background_password.png */; };
+		551AA63419941FB60010E65B /* RDPSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA63319941FB60010E65B /* RDPSignupViewController.m */; };
+		551AA63519941FB60010E65B /* RDPSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA63319941FB60010E65B /* RDPSignupViewController.m */; };
 		5531CA05198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */; };
 		5531CA06198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */; };
 		5531CA09198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA08198F23AD0076D8B8 /* RDPJSONResponseSerializer.m */; };
@@ -187,6 +197,12 @@
 		551AA6171992AE390010E65B /* RDPInputViewWithImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPInputViewWithImage.xib; sourceTree = "<group>"; };
 		551AA6201992C6910010E65B /* Envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Envelope.png; sourceTree = "<group>"; };
 		551AA6231992C7220010E65B /* key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = key.png; sourceTree = "<group>"; };
+		551AA6261993F2590010E65B /* Envelope_Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Envelope_Red.png; sourceTree = "<group>"; };
+		551AA6271993F2590010E65B /* Key_Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Key_Red.png; sourceTree = "<group>"; };
+		551AA62C1993FC4C0010E65B /* Email_Ridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Email_Ridge.png; sourceTree = "<group>"; };
+		551AA62F1993FDC10010E65B /* Background_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_password.png; sourceTree = "<group>"; };
+		551AA63219941FB60010E65B /* RDPSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSignupViewController.h; sourceTree = "<group>"; };
+		551AA63319941FB60010E65B /* RDPSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSignupViewController.m; sourceTree = "<group>"; };
 		5531CA03198EFE6F0076D8B8 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		5531CA07198F23AD0076D8B8 /* RDPJSONResponseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPJSONResponseSerializer.h; sourceTree = "<group>"; };
@@ -483,6 +499,8 @@
 				F281343A1993514300D7E9EF /* RDPFlipLeftSegue.h */,
 				F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */,
 				5531CA0B198FED900076D8B8 /* RDPLoginViewController.h */,
+				551AA63219941FB60010E65B /* RDPSignupViewController.h */,
+				551AA63319941FB60010E65B /* RDPSignupViewController.m */,
 				5531CA0C198FED900076D8B8 /* RDPLoginViewController.m */,
 				58988F4719885F9600E05AC5 /* RDPHomeViewController.h */,
 				58988F4819885F9600E05AC5 /* RDPHomeViewController.m */,
@@ -570,6 +588,10 @@
 			isa = PBXGroup;
 			children = (
 				F2F1D01E1990993900438A8A /* Fingerprint.png */,
+				551AA62C1993FC4C0010E65B /* Email_Ridge.png */,
+				551AA6261993F2590010E65B /* Envelope_Red.png */,
+				551AA62F1993FDC10010E65B /* Background_password.png */,
+				551AA6271993F2590010E65B /* Key_Red.png */,
 				F2F1D01F1990993900438A8A /* Settings.png */,
 				551AA6201992C6910010E65B /* Envelope.png */,
 				5560B8D619906C410023691B /* Keep_Alone.png */,
@@ -780,6 +802,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				551AA62D1993FC4C0010E65B /* Email_Ridge.png in Resources */,
 				58988F9B1993114500E05AC5 /* Keep.png in Resources */,
 				F2F1CFB8198EC2AA00438A8A /* 8.jpg in Resources */,
 				551AA6211992C6910010E65B /* Envelope.png in Resources */,
@@ -787,6 +810,7 @@
 				F2F1CF98198EC2AA00438A8A /* 0.jpg in Resources */,
 				58F643E8197DAD2F001D0236 /* Main.storyboard in Resources */,
 				5560B8E0199098F80023691B /* ridge.jpg in Resources */,
+				551AA6281993F2590010E65B /* Envelope_Red.png in Resources */,
 				F2F1D0221990993900438A8A /* Settings.png in Resources */,
 				F2F1CFA0198EC2AA00438A8A /* 2.jpg in Resources */,
 				5560B8D719906C410023691B /* Keep_Alone.png in Resources */,
@@ -799,12 +823,14 @@
 				F2F1CF9C198EC2AA00438A8A /* 1.jpg in Resources */,
 				F2F1D00F19903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
 				F2F1CFA8198EC2AA00438A8A /* 4.jpg in Resources */,
+				551AA62A1993F2590010E65B /* Key_Red.png in Resources */,
 				F2813423199350D700D7E9EF /* settings.plist in Resources */,
 				551AA6241992C7220010E65B /* key.png in Resources */,
 				F2F1CFAC198EC2AA00438A8A /* 5.jpg in Resources */,
 				58988F941992D0E300E05AC5 /* ireland.jpg in Resources */,
 				F2F1CFFC19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */,
 				551AA6181992AE390010E65B /* RDPInputViewWithImage.xib in Resources */,
+				551AA6301993FDC10010E65B /* Background_password.png in Resources */,
 				F2F1CFBC198EC2AA00438A8A /* 9.jpg in Resources */,
 				F2F1CF7D198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */,
 			);
@@ -818,16 +844,20 @@
 				551AA6191992AE390010E65B /* RDPInputViewWithImage.xib in Resources */,
 				F2F1CFE3198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */,
 				551AA6251992C7220010E65B /* key.png in Resources */,
+				551AA62E1993FC4C0010E65B /* Email_Ridge.png in Resources */,
 				F2F1D0231990993900438A8A /* Settings.png in Resources */,
 				58988F951992D0E300E05AC5 /* ireland.jpg in Resources */,
 				58988F9C1993114500E05AC5 /* Keep.png in Resources */,
 				F2F1CFA9198EC2AA00438A8A /* 4.jpg in Resources */,
 				F2F1D0211990993900438A8A /* Fingerprint.png in Resources */,
+				551AA6291993F2590010E65B /* Envelope_Red.png in Resources */,
 				F2813424199350D700D7E9EF /* settings.plist in Resources */,
 				F2F1D01019903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
 				5560B8D819906C410023691B /* Keep_Alone.png in Resources */,
 				F2F1CF99198EC2AA00438A8A /* 0.jpg in Resources */,
+				551AA62B1993F2590010E65B /* Key_Red.png in Resources */,
 				F2F1CF9D198EC2AA00438A8A /* 1.jpg in Resources */,
+				551AA6311993FDC10010E65B /* Background_password.png in Resources */,
 				F2F1CFA5198EC2AA00438A8A /* 3.jpg in Resources */,
 				5560B8E1199098F80023691B /* ridge.jpg in Resources */,
 				58F643D5197DA5F6001D0236 /* InfoPlist.strings in Resources */,
@@ -913,6 +943,7 @@
 				F28134341993513200D7E9EF /* RDPGoalModel.m in Sources */,
 				F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				5531CA0D198FED900076D8B8 /* RDPLoginViewController.m in Sources */,
+				551AA63419941FB60010E65B /* RDPSignupViewController.m in Sources */,
 				F2F1CFDA198F103700438A8A /* RDPPushAnimation.m in Sources */,
 				F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
 				F2F1CFF119900DAC00438A8A /* RDPSettingsNotificationsViewController.m in Sources */,
@@ -967,6 +998,7 @@
 				F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				F2F1CFE1198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */,
 				F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */,
+				551AA63519941FB60010E65B /* RDPSignupViewController.m in Sources */,
 				F2F1D01B1990992200438A8A /* RDPCongratulations.m in Sources */,
 				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,
 				F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,

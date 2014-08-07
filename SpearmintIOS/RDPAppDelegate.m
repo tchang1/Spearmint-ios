@@ -9,6 +9,8 @@
 #import "RDPAppDelegate.h"
 #import "RDPTimerManager.h"
 #import "RDPHTTPClient.h"
+#import "RDPGoal.h"
+#import "Mixpanel.h"
 
 @implementation RDPAppDelegate
 
@@ -31,6 +33,8 @@
 //    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
 //    shadow.shadowColor = [UIColor whiteColor];
     
+    [Mixpanel sharedInstanceWithToken:@"b133e5346052531eec04852182e9ad0f"];
+    
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
      setTitleTextAttributes:
      @{NSForegroundColorAttributeName:kColor_DarkText,
@@ -39,7 +43,7 @@
      forState:UIControlStateNormal];
     
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
-//    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
+    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
 //    [client getMyGoal];
 //    [client testPOSTHTTPRequest:@""];
 //     [client getSuggestions:@10 withSuccess:^(NSArray *suggestions) {
@@ -48,7 +52,6 @@
 //         NSLog(error);
 //     }];
 //    //[client getMyNotifications];
-//    [client getNextImage];
 //    [client logout];
 //    RDPSavingEvent *saved = [[RDPSavingEvent alloc] init];
 //    [saved setGoalid:@"53d2bf28c5fb963e0717d8c8"];

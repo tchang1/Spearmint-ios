@@ -22,3 +22,5 @@
 #define kColor_LogoutButtonPanelColor       [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]
 #define kColor_PlaceholderText              [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]
 #define kColor_WarningRed                   [UIColor colorWithRed:1 green:0 blue:0 alpha:1]
+#define kColor_WhiteText                    [UIColor colorWithWhite:1 alpha:1]
+#define kColor_halfWhiteText                [UIColor colorWithWhite:1 alpha:.5]

@@ -40,6 +40,11 @@ typedef enum {
     sCoffeeCounterLabel,
     sAddToGoalInstructions,
     sContinue,
+    sLogin,
+    SEmailPlaceholder,
+    sPasswordPlaceholder,
+    sEmailValidation,
+    sPasswordValidation
 } RDPStringID;
 
 @interface RDPStrings : NSObject

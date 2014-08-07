@@ -108,6 +108,21 @@
         case sContinue:
             result = @"Continue";
             break;
+        case sLogin:
+            result = @"Login";
+            break;
+        case SEmailPlaceholder:
+            result = @"Email";
+            break;
+        case sPasswordPlaceholder:
+            result = @"Password";
+            break;
+        case sEmailValidation:
+            result = @"Please enter a valid email address";
+            break;
+        case sPasswordValidation:
+            result = @"Passwords must be at least 6 characters";
+            break;
     }
     
     return result;

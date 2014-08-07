@@ -36,19 +36,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WrF-Dz-0ap" customClass="RDPInputViewWithImage">
-                                <rect key="frame" x="0.0" y="105" width="320" height="230"/>
+                                <rect key="frame" x="0.0" y="105" width="320" height="247"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9cE-Wt-CxA">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="N9s-7H-w6x" customClass="RDPUITextField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" background="Email_Ridge.png" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="N9s-7H-w6x" customClass="RDPUITextField">
                                                 <rect key="frame" x="41" y="5" width="271" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.33333333333333331" alpha="0.48999999999999999" colorSpace="calibratedWhite"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
                                             </textField>
                                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Envelope.png" translatesAutoresizingMaskIntoConstraints="NO" id="X72-ZG-7Lu">
@@ -65,12 +63,11 @@
                                         <rect key="frame" x="0.0" y="75" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bbx-ff-vPT" customClass="RDPUITextField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" background="Background_password.png" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Bbx-ff-vPT" customClass="RDPUITextField">
                                                 <rect key="frame" x="41" y="5" width="271" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="0.5" colorSpace="calibratedWhite"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                <attributedString key="attributedText"/>
                                                 <textInputTraits key="textInputTraits" keyboardAppearance="light" secureTextEntry="YES"/>
                                                 <connections>
                                                     <action selector="passwordEditingBegan:" destination="0o8-qi-gHo" eventType="editingDidBegin" id="Kra-sa-j0b"/>
@@ -83,42 +80,63 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WA4-hQ-I6m">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WA4-hQ-I6m">
                                         <rect key="frame" x="0.0" y="155" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="loginButtonDown:" destination="0o8-qi-gHo" eventType="touchDown" id="j7o-DL-L1V"/>
                                             <action selector="loginButtonPressed:" destination="0o8-qi-gHo" eventType="touchUpInside" id="IJU-LF-gpZ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhe-2h-4lA">
-                                        <rect key="frame" x="80" y="50" width="220" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhe-2h-4lA">
+                                        <rect key="frame" x="42" y="55" width="220" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXw-dR-o4s">
-                                        <rect key="frame" x="80" y="118" width="220" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXw-dR-o4s">
+                                        <rect key="frame" x="42" y="130" width="220" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u24-DA-9Wo">
+                                        <rect key="frame" x="81" y="213" width="159" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Forgot your password?">
+                                            <color key="titleColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="N9s-7H-w6x" firstAttribute="leading" secondItem="Qhe-2h-4lA" secondAttribute="leading" id="JqG-s2-uUa"/>
+                                    <constraint firstItem="OXw-dR-o4s" firstAttribute="leading" secondItem="Bbx-ff-vPT" secondAttribute="leading" id="pbc-zX-EBS"/>
+                                </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Keep_Alone.png" translatesAutoresizingMaskIntoConstraints="NO" id="E4N-Ma-KWm">
+                                <rect key="frame" x="71" y="-12" width="178" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="O6d-tB-yRe"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="1nE-LU-SwW" id="0oA-RD-LXd"/>
+                        <outlet property="emailFieldIcon" destination="X72-ZG-7Lu" id="n3A-93-48d"/>
                         <outlet property="emailStatusLabel" destination="Qhe-2h-4lA" id="Z0X-2b-lnj"/>
                         <outlet property="emailTextField" destination="N9s-7H-w6x" id="fYh-Gf-Oea"/>
+                        <outlet property="loginButton" destination="WA4-hQ-I6m" id="HB5-tN-b1D"/>
+                        <outlet property="passwordFieldIcon" destination="uza-ZS-xcd" id="3Nc-1E-7PD"/>
                         <outlet property="passwordStatusLabel" destination="OXw-dR-o4s" id="pRn-kz-OWT"/>
                         <outlet property="passwordTextField" destination="Bbx-ff-vPT" id="xxq-46-dUL"/>
                         <segue destination="RLe-TQ-3X4" kind="custom" identifier="loginToHome" id="m5p-NK-Jov"/>
@@ -126,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QW1-x7-dkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="184" y="-655"/>
+            <point key="canvasLocation" x="692" y="-1383"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="RTd-wf-3x1">
@@ -768,11 +786,139 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pE8-Wb-Ntz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="CP6-g7-9Rc">
+            <objects>
+                <viewController id="Ogk-Bi-4NI" customClass="RDPLoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5ct-EZ-Gvc"/>
+                        <viewControllerLayoutGuide type="bottom" id="F1M-mx-xuM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OON-te-GS2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ridge.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="igf-hE-mUk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WyC-Hq-boS" customClass="RDPInputViewWithImage">
+                                <rect key="frame" x="0.0" y="105" width="320" height="247"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIv-CH-ILW">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" background="Email_Ridge.png" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TNc-yG-Slq" customClass="RDPUITextField">
+                                                <rect key="frame" x="41" y="5" width="271" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <attributedString key="attributedText"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                                            </textField>
+                                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Envelope.png" translatesAutoresizingMaskIntoConstraints="NO" id="DEG-HH-qYb">
+                                                <rect key="frame" x="8" y="18" width="25" height="19"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                                </accessibility>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAV-gP-r3Z" customClass="RDPInputViewWithImage">
+                                        <rect key="frame" x="0.0" y="75" width="320" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" background="Background_password.png" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dFR-hB-y2v" customClass="RDPUITextField">
+                                                <rect key="frame" x="41" y="5" width="271" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                <attributedString key="attributedText"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="light" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="passwordEditingBegan:" destination="Ogk-Bi-4NI" eventType="editingDidBegin" id="ih0-vq-NKB"/>
+                                                </connections>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="key.png" translatesAutoresizingMaskIntoConstraints="NO" id="y3Y-HQ-dsS">
+                                                <rect key="frame" x="8" y="15" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reN-eg-RnS">
+                                        <rect key="frame" x="0.0" y="155" width="320" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginButtonDown:" destination="Ogk-Bi-4NI" eventType="touchDown" id="kqZ-wo-o2M"/>
+                                            <action selector="loginButtonPressed:" destination="Ogk-Bi-4NI" eventType="touchUpInside" id="zMO-RO-YPM"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJF-xg-KhG">
+                                        <rect key="frame" x="42" y="55" width="220" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6B9-bh-SO6">
+                                        <rect key="frame" x="42" y="130" width="220" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDy-uh-nW1">
+                                        <rect key="frame" x="81" y="213" width="159" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Forgot your password?">
+                                            <color key="titleColor" red="0.99607849120000003" green="0.99607849120000003" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="TNc-yG-Slq" firstAttribute="leading" secondItem="sJF-xg-KhG" secondAttribute="leading" id="8Kn-uU-RId"/>
+                                    <constraint firstItem="6B9-bh-SO6" firstAttribute="leading" secondItem="dFR-hB-y2v" secondAttribute="leading" id="yMM-6t-DLT"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Keep_Alone.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dsh-Xz-xB2">
+                                <rect key="frame" x="71" y="-12" width="178" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="csW-HK-mjO"/>
+                    <connections>
+                        <outlet property="emailFieldIcon" destination="DEG-HH-qYb" id="7wl-Vt-PYs"/>
+                        <outlet property="emailStatusLabel" destination="sJF-xg-KhG" id="ijZ-zo-hcU"/>
+                        <outlet property="emailTextField" destination="TNc-yG-Slq" id="Nhi-pB-Lwd"/>
+                        <outlet property="loginButton" destination="reN-eg-RnS" id="6av-xb-Pec"/>
+                        <outlet property="passwordFieldIcon" destination="y3Y-HQ-dsS" id="oWP-aL-tJq"/>
+                        <outlet property="passwordStatusLabel" destination="6B9-bh-SO6" id="UxR-xV-GA5"/>
+                        <outlet property="passwordTextField" destination="dFR-hB-y2v" id="jhK-EJ-72Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n59-pC-dlj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1276" y="-1383"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Background_password.png" width="541" height="90"/>
+        <image name="Email_Ridge.png" width="541" height="90"/>
         <image name="Envelope.png" width="50" height="36"/>
         <image name="Fingerprint.png" width="81" height="82"/>
         <image name="Keep.png" width="303" height="104"/>
+        <image name="Keep_Alone.png" width="448" height="305"/>
         <image name="Settings.png" width="51" height="51"/>
         <image name="key.png" width="50" height="50"/>
         <image name="ridge.jpg" width="640" height="1136"/>

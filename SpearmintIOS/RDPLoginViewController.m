@@ -9,6 +9,9 @@
 #import "RDPLoginViewController.h"
 #import "RDPImageBlur.h"
 #import "RDPUserService.h"
+#import "RDPFonts.h"
+#import "RDPColors.h"
+#import "RDPStrings.h"
 
 @interface RDPLoginViewController ()
 
@@ -20,24 +23,20 @@
 {
     [super viewDidLoad];
     [_backgroundImageView setImage:[RDPImageBlur applyBlurOnImage:_backgroundImageView.image]];
-    UIColor *color = [UIColor whiteColor];
     
-    self.emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"PlaceHolder Text" attributes:@{NSForegroundColorAttributeName: color}];
-    self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"PlaceHolder Text" attributes:@{NSForegroundColorAttributeName: color}];
+    self.emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:SEmailPlaceholder] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
+        NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+    self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sPasswordPlaceholder] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
+        NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
     
-    self.emailTextField.text=@"iostest@trykeep.com";
-    self.passwordTextField.text=@"test";
+    self.emailTextField.attributedText = [[NSAttributedString alloc] initWithString:@"iostest@trykeep.com" attributes:@{NSForegroundColorAttributeName: kColor_WhiteText, NSFontAttributeName : [RDPFonts fontForID:fLoginFont]}];
+    self.passwordTextField.attributedText = [[NSAttributedString alloc] initWithString:@"test" attributes:@{NSForegroundColorAttributeName: kColor_WhiteText, NSFontAttributeName : [RDPFonts fontForID:fLoginFont]}];
     
     self.emailTextField.layer.cornerRadius = 2;
     self.emailTextField.clipsToBounds = YES;
     
     self.passwordTextField.layer.cornerRadius = 2;
     self.passwordTextField.clipsToBounds = YES;
-    
-    self.testView= [RDPInputViewWithImage customView];
-
-    self.testView.inputField.text=@"hello";
-    
     
     // Do any additional setup after loading the view.
 }
@@ -64,16 +63,23 @@
 }
 */
 
+- (IBAction)loginButtonDown:(id)sender {
+    [self.loginButton setAlpha:0.5];
+}
+
 - (IBAction)loginButtonPressed:(id)sender {
+    [self.loginButton setAlpha:1];
     BOOL valid=YES;
     if (![self validateUsername:self.emailTextField.text])
     {
-        self.emailStatusLabel.text=@"Please enter a valid email address";
+        self.emailStatusLabel.text=[RDPStrings stringForID:sEmailValidation];
+        [self.emailFieldIcon setImage:[UIImage imageNamed:@"Envelope_red.png"]];
         valid=NO;
     }
     if (![self validatePassword:self.passwordTextField.text])
     {
-        self.passwordStatusLabel.text=@"Passwords must be at least 6 characters";
+        self.passwordStatusLabel.text=[RDPStrings stringForID:sPasswordValidation];
+        [self.passwordFieldIcon setImage:[UIImage imageNamed:@"Key_red.png" ]];
         valid=NO;
     }
     
@@ -81,6 +87,8 @@
     {
         self.emailStatusLabel.text=@"";
         self.passwordStatusLabel.text=@"";
+        [self.passwordFieldIcon setImage:[UIImage imageNamed:@"key.png" ]];
+        [self.emailFieldIcon setImage:[UIImage imageNamed:@"Envelope.png"]];
         HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self.view addSubview:HUD];
         HUD.delegate = self;

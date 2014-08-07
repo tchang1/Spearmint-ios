@@ -33,6 +33,12 @@
         case fCurrencyFont:
             font = [UIFont fontWithName:@"Helvetica-Light" size:20];
             break;
+        case fLoginFont:
+            font = [UIFont fontWithName:@"HelveticaNeue" size:18];
+            break;
+        case fLoginPlaceholderFont:
+            font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+            break;
     }
     
     return font;
