@@ -20,11 +20,12 @@
 		NSMutableDictionary *userInfo = [(*error).userInfo mutableCopy];
 		if (data == nil) {
             //			// NOTE: You might want to convert data to a string here too, up to you.
-            //			userInfo[JSONResponseSerializerWithDataKey] = @"";
+            			userInfo[RDPJSONResponseSerializerWithDataKey] = @"";
 			userInfo[RDPJSONResponseSerializerKey] = [NSData data];
 		} else {
             //			// NOTE: You might want to convert data to a string here too, up to you.
-            //			userInfo[JSONResponseSerializerWithDataKey] = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSError *error;
+            userInfo[RDPJSONResponseSerializerWithDataKey] = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 			userInfo[RDPJSONResponseSerializerKey] = data;
 		}
 		NSError *newError = [NSError errorWithDomain:(*error).domain code:(*error).code userInfo:userInfo];

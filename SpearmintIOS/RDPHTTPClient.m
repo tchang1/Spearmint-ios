@@ -288,9 +288,6 @@ andFailureBlock:(errorBlock)errorBlock
         block(savings);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
-        NSInteger statusCode=[responseErrorData statusCode];
-        NSData *data = [[error userInfo] objectForKey:RDPJSONResponseSerializerKey];
         errorBlock(error);
         NSLog(@"%@", error);
         
@@ -329,16 +326,20 @@ andFailureBlock:(errorBlock)errorBlock
 
 #pragma mark - NOTIFICATIONS
 
--(void)getMyNotifications
+-(void)getMyNotificationsWithSuccess:(stringBlock)block andFailure:(errorBlock)errorBlock
 {
     [self GET:@"notifications/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
+        NSString *notifications=[response objectForKey:@"notifications"];
+            block(notifications);
         NSLog( @"%@", response );
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
+        errorBlock(error);
         
     }];
+
     
 }
 
@@ -388,9 +389,6 @@ andFailureBlock:(errorBlock)errorBlock
         block(response);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
-        NSInteger statusCode=[responseErrorData statusCode];
-        NSData *data = [[error userInfo] objectForKey:RDPJSONResponseSerializerKey];
         NSLog(@"%@", error);
         errorBlock(error);
         
@@ -408,8 +406,6 @@ andFailureBlock:(errorBlock)errorBlock
         block(response);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
-        NSInteger statusCode=[responseErrorData statusCode];
         NSLog(@"%@", error);
         errorBlock(error);
         

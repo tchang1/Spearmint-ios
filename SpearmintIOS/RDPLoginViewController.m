@@ -35,9 +35,13 @@
     
     self.emailTextField.layer.cornerRadius = 2;
     self.emailTextField.clipsToBounds = YES;
+    self.emailTextField.indentAmount=10;
+
     
     self.passwordTextField.layer.cornerRadius = 2;
     self.passwordTextField.clipsToBounds = YES;
+    self.passwordTextField.indentAmount=10;
+
     
     // Do any additional setup after loading the view.
 }

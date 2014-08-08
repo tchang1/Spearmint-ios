@@ -15,14 +15,15 @@
 #import "RDPFonts.h"
 #import "RDPColors.h"
 #import "RDPStrings.h"
+#import "RDPUITextField.h"
 
 @interface RDPSignupViewController : RDPViewController <MBProgressHUDDelegate, RDPHTTPClientDelegate, UITextFieldDelegate> {
 
 MBProgressHUD *HUD;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet RDPUITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet RDPUITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UILabel *emailStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passwordStatusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *emailFieldIcon;

@@ -9,6 +9,8 @@
 #import "AFURLResponseSerialization.h"
 
 static NSString * const RDPJSONResponseSerializerKey = @"RDPJSONResponseSerializerKey";
+static NSString * const RDPJSONResponseSerializerWithDataKey = @"RDPJSONResponseSerializerWithDataKey";
+
 
 @interface RDPJSONResponseSerializer : AFJSONResponseSerializer
 

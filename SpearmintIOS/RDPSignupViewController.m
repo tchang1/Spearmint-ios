@@ -39,9 +39,14 @@
     
     self.emailTextField.layer.cornerRadius = 2;
     self.emailTextField.clipsToBounds = YES;
+    self.emailTextField.indentAmount=10;
     
     self.passwordTextField.layer.cornerRadius = 2;
     self.passwordTextField.clipsToBounds = YES;
+    self.passwordTextField.indentAmount=10;
+
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+
     
 }
 
@@ -101,7 +106,12 @@
             [self performSegueWithIdentifier:@"signupToHome" sender:self];
         });
     } failure:^(RDPResponseCode errorCode) {
-        HUD.labelText=@"Something bad happened";
+        if (errorCode==RDPErrorCodeInvalidUsername) {
+            HUD.labelText=@"Invalid email";
+        }
+        else {
+            HUD.labelText=@"Something bad happened";
+        }
         HUD.mode =MBProgressHUDModeText;
         [HUD hide:YES afterDelay:2];
     }];

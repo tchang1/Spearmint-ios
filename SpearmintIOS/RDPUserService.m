@@ -213,7 +213,7 @@ static RDPUser* storedUser;
     savingEventModel.savingid = savingEvent.savingID;
     savingEventModel.deleted = (savingEvent.deleted) ? @"T" : @"F";
     if (savingEventModel.savingid) {
-        [[RDPHTTPClient sharedRDPHTTPClient] updateMySaving:savingEventModel withSuccess:^(RDPSavingEventModel *savingEventModel) {
+        [[RDPHTTPClient sharedRDPHTTPClient] updateMySaving:savingEventModel withSuccess:^(void) {
             response(RDPResponseCodeOK);
             
         } andFailure:^(NSError *error) {
@@ -241,6 +241,21 @@ static RDPUser* storedUser;
 }
 
 +(RDPResponseCode)handleError:(NSError*)error {
+    NSHTTPURLResponse *responseErrorData= [[error userInfo] objectForKey:@"com.alamofire.serialization.response.error.response"];
+    NSInteger statusCode=[responseErrorData statusCode];
+    NSDictionary *body=[[error userInfo] objectForKey:@"RDPJSONResponseSerializerWithDataKey"];
+    
+    switch (statusCode) {
+        case 400:
+        if ([[body objectForKey:@"error"] isEqualToString:@"Invalid username"])
+        {
+            return RDPErrorCodeInvalidUsername;
+        }
+        break;
+            
+    }
+    
+    
     return RDPErrorCodeUnknown;
 }
 

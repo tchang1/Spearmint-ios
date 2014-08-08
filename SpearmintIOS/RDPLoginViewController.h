@@ -9,6 +9,7 @@
 #import "RDPViewController.h"
 #import "MBProgressHUD.h"
 #import "RDPHTTPClient.h"
+#import "RDPUITextField.h"
 
 
 
@@ -17,8 +18,8 @@
 MBProgressHUD *HUD;
 }
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet RDPUITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet RDPUITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UILabel *emailStatusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *passwordStatusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *emailFieldIcon;

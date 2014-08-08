@@ -15,6 +15,8 @@ typedef void (^errorBlock)(NSError*);
 typedef void (^goalBlock)(RDPGoalModel*);
 typedef void (^arrayBlock)(NSArray*);
 typedef void (^savingBlock)(RDPSavingEventModel*);
+typedef void (^stringBlock)(NSString*);
+
 
 
 @protocol RDPHTTPClientDelegate;
@@ -51,7 +53,7 @@ typedef void (^savingBlock)(RDPSavingEventModel*);
 -(void)postSavings:(RDPSavingEventModel *)saving;
 
 -(void)getMySavingsWithSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;
--(void)updateMySaving:(RDPSavingEventModel *)saving withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
+-(void)updateMySaving:(RDPSavingEventModel *)saving withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock;
 -(void)postNewSaving:(RDPSavingEventModel *)goal withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
 
 //Notifications
