@@ -11,6 +11,7 @@
 
 typedef void(^userBlock)(RDPUser*);
 typedef void(^responseBlock)(RDPResponseCode);
+typedef void(^responseBlockWithSavingEvent)(RDPResponseCode, RDPSavingEvent*);
 
 @interface RDPUserService : NSObject
 

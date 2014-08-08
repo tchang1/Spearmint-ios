@@ -27,17 +27,22 @@ static RDPUser* storedUser;
     NSMutableArray* savings = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < [savingEventModels count]; i++) {
         RDPSavingEventModel* savingEventModel = (RDPSavingEventModel*)[savingEventModels objectAtIndex:i];
-        unsigned long long result;
-        [[NSScanner scannerWithString:[savingEventModel.savingid substringToIndex:8]] scanHexLongLong:&result];
-        NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:result];
-        RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:savingEventModel.amount andReason:@"reason" andDate:date andLocation:@"" andID:savingEventModel.savingid];
-        [savings addObject:savingEvent];
+        [savings addObject:[RDPUserService savingEventFromSavingEventModel:savingEventModel]];
     }
     
     goal = [[RDPGoal alloc] initWithName:goalModel.goalName andTagetAmount:goalModel.targetAmount andCurrentAmount:goalModel.amountSaved andSavingEvents:[savings copy] andGoalID:goalModel.goalID];
     user = [[RDPUser alloc] initWithUsername:username andPassword:password andGoal:goal];
     
     return user;
+}
+
++(RDPSavingEvent*)savingEventFromSavingEventModel:(RDPSavingEventModel*)savingEventModel
+{
+    unsigned long long result;
+    [[NSScanner scannerWithString:[savingEventModel.savingid substringToIndex:8]] scanHexLongLong:&result];
+    NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:result];
+    RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:savingEventModel.amount andReason:@"reason" andDate:date andLocation:@"" andID:savingEventModel.savingid];
+    return savingEvent;
 }
 
 +(void)constructUserFromUsername:(NSString*)username andPassword:(NSString*)password then:(userBlock)block failure:(responseBlock)fail
@@ -164,7 +169,8 @@ static RDPUser* storedUser;
     }
     
     for (NSInteger i = 0; i < [savingEventsToUpdate count]; i++) {
-        [RDPUserService saveSavingEvent:[savingEventsToUpdate objectAtIndex:i] withGoalID:[user getGoal].goalID withResponse:^(RDPResponseCode responseCode) {
+        [RDPUserService saveSavingEvent:[savingEventsToUpdate objectAtIndex:i] withGoalID:[user getGoal].goalID forUser:user withResponse:^(RDPResponseCode responseCode) {
+            
             [RDPUserService asyncOperationFinishedWithCode:responseCode andTracker:asyncProgressTracker withUser:user andCallbackBlock:response];
         }];
     }
@@ -199,7 +205,7 @@ static RDPUser* storedUser;
     }
 }
 
-+(void)saveSavingEvent:(RDPSavingEvent*)savingEvent withGoalID:(NSString*)goalID withResponse:(responseBlock)response
++(void)saveSavingEvent:(RDPSavingEvent*)savingEvent withGoalID:(NSString*)goalID forUser:(RDPUser*)user withResponse:(responseBlock)response
 {
     RDPSavingEventModel* savingEventModel = [[RDPSavingEventModel alloc] init];
     savingEventModel.amount = [NSDecimalNumber decimalNumberWithDecimal:[[savingEvent getAmount] decimalValue]];
@@ -208,15 +214,6 @@ static RDPUser* storedUser;
     savingEventModel.deleted = (savingEvent.deleted) ? @"T" : @"F";
     if (savingEventModel.savingid) {
         [[RDPHTTPClient sharedRDPHTTPClient] updateMySaving:savingEventModel withSuccess:^(RDPSavingEventModel *savingEventModel) {
-            
-//            NSMutableArray* newSavings = [[NSMutableArray alloc] initWithArray:[[storedUser getGoal] getSavingEvents]];
-//            for (NSInteger i = 0; i < [newSavings count]; i++) {
-//                if ([[[newSavings objectAtIndex:i] savingID] isEqualToString:savingEvent.savingID]) {
-//                    [newSavings insertObject:savingEvent atIndex:i];
-//                    [[storedUser getGoal] setSavingEvents:[newSavings copy]];
-//                    break;
-//                }
-//            }
             response(RDPResponseCodeOK);
             
         } andFailure:^(NSError *error) {
@@ -225,8 +222,17 @@ static RDPUser* storedUser;
     }
     else {
         [[RDPHTTPClient sharedRDPHTTPClient] postNewSaving:savingEventModel withSuccess:^(RDPSavingEventModel *savingEventModel) {
+            NSMutableArray* newSavings = [[NSMutableArray alloc] initWithArray:[[user getGoal] getSavingEvents]];
+            for (NSInteger j = 0; j < [newSavings count]; j++) {
+                if ([newSavings objectAtIndex:j] == savingEvent) {
+                    [newSavings removeObjectAtIndex:j];
+                    [newSavings insertObject:[RDPUserService savingEventFromSavingEventModel:savingEventModel] atIndex:j];
+                    [[user getGoal] setSavingEvents:[newSavings copy]];
+                    break;
+                }
+            }
             response(RDPResponseCodeOK);
-            [[storedUser getGoal] addSavingEvent:savingEvent];
+            
         } andFailure:^(NSError *error) {
             response([RDPUserService handleError:error]);
         }];

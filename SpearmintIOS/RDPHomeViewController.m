@@ -10,6 +10,9 @@
 #import "RDPImageBlur.h"
 #import "RDPHTTPClient.h"
 #import "RDPStrings.h"
+#import "RDPSavingEvent.h"
+#import "RDPUser.h"
+#import "RDPUserService.h"
 
 #define kSuggestionDisplayDuration 4
 #define kShowCongratsDuration 2500
@@ -201,13 +204,13 @@
 }
 
 - (void)createSavingEventForAmount:(NSNumber *)amountSaved
-{
-//    // Create a saving event with the amount saved
-//    RDPSavingEvent *saved = [[RDPSavingEvent alloc] init];
-//    saved.goalid = @"53d2bf28c5fb963e0717d8c8"; //TODO: get actual goal id for user
-//    saved.amount = (NSDecimalNumber*) amountSaved;
-//    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
-//    [client postSavings:saved];
+{    
+    RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:amountSaved andReason:@"" andDate:[NSDate date] andLocation:@"" andID:nil];
+    RDPUser* modifiedUser = [RDPUserService getUser];
+    [[modifiedUser getGoal] addSavingEvent:savingEvent];
+    [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
+        NSLog(@"SavingEvent returned with response %i", response);
+    }];
 }
 
 - (void)transitionImagesWithSaveAmount
