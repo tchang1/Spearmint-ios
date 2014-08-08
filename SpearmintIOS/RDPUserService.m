@@ -30,7 +30,7 @@ static RDPUser* storedUser;
         [savings addObject:[RDPUserService savingEventFromSavingEventModel:savingEventModel]];
     }
     
-    goal = [[RDPGoal alloc] initWithName:goalModel.goalName andTagetAmount:goalModel.targetAmount andCurrentAmount:goalModel.amountSaved andSavingEvents:[savings copy] andGoalID:goalModel.goalID];
+    goal = [RDPUserService goalFromGoalModel:goalModel andSavingEvents:savings];
     user = [[RDPUser alloc] initWithUsername:username andPassword:password andGoal:goal];
     
     return user;
@@ -43,6 +43,11 @@ static RDPUser* storedUser;
     NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:result];
     RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:savingEventModel.amount andReason:@"reason" andDate:date andLocation:@"" andID:savingEventModel.savingid];
     return savingEvent;
+}
+
++(RDPGoal*)goalFromGoalModel:(RDPGoalModel*)goalModel andSavingEvents:(NSArray*)savingEvents{
+    RDPGoal* goal = [[RDPGoal alloc] initWithName:goalModel.goalName andTagetAmount:goalModel.targetAmount andCurrentAmount:goalModel.amountSaved andSavingEvents:[savingEvents copy] andGoalID:goalModel.goalID];
+    return goal;
 }
 
 +(void)constructUserFromUsername:(NSString*)username andPassword:(NSString*)password then:(userBlock)block failure:(responseBlock)fail
@@ -96,11 +101,8 @@ static RDPUser* storedUser;
 
 +(void)logoutWithResponse:(responseBlock)response
 {
-    [[RDPHTTPClient sharedRDPHTTPClient] logoutWithCompletionBlock:^{
-        response(RDPResponseCodeOK);
-    } andFailureBlock:^(NSError *error) {
-        response([RDPUserService handleError:error]);
-    }];
+    storedUser = nil;
+    [[RDPHTTPClient sharedRDPHTTPClient] logout];
 }
 
 +(RDPUser*)getUser
@@ -198,6 +200,7 @@ static RDPUser* storedUser;
     }
     else {
         [[RDPHTTPClient sharedRDPHTTPClient] postNewGoal:goalModel withSuccess:^(RDPGoalModel *goalModel) {
+            [storedUser setGoal:[RDPUserService goalFromGoalModel:goalModel andSavingEvents:@[]]];
             response(RDPResponseCodeOK);
         } andFailure:^(NSError *error) {
             response([RDPUserService handleError:error]);
