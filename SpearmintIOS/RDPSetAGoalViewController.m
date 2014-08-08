@@ -27,6 +27,11 @@
     // create user goal
     self.userGoal = [[RDPGoal alloc] init];
     
+    // setup the suggestion view
+    self.suggestion1.suggestionButton = self.suggestionButton1;
+    self.suggestionsView.innerViews = [NSArray arrayWithObjects:self.suggestion1, self.suggestion2, self.suggestion3, self.suggestion4, nil];
+    
+    
     // setup the cut out view
     self.setAGoalTextField.indentAmount = 10;
     self.cutOutView.innerView = self.setAGoalTextField; 

@@ -23,6 +23,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // setup the suggestion view
+    self.suggestionsView.innerViews = [NSArray arrayWithObjects:self.suggestion1, self.suggestion2, self.suggestion3, self.suggestion4, nil];
+    
     // setup the cut out view
     self.setAmountTextField.indentAmount = 20;
     self.cutOutView.innerView = self.setAmountTextField;

@@ -71,6 +71,10 @@
 		58988FA819942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA619942BF400E05AC5 /* RDPSetAmountViewController.m */; };
 		58988FAB1994344A00E05AC5 /* RDPCutOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAA1994344A00E05AC5 /* RDPCutOutView.m */; };
 		58988FAC1994344A00E05AC5 /* RDPCutOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAA1994344A00E05AC5 /* RDPCutOutView.m */; };
+		58988FAF19953A8E00E05AC5 /* RDPSuggestionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAE19953A8E00E05AC5 /* RDPSuggestionsView.m */; };
+		58988FB019953A8E00E05AC5 /* RDPSuggestionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAE19953A8E00E05AC5 /* RDPSuggestionsView.m */; };
+		58988FB31995411100E05AC5 /* RDPSuggestionSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FB21995411100E05AC5 /* RDPSuggestionSquare.m */; };
+		58988FB41995411100E05AC5 /* RDPSuggestionSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FB21995411100E05AC5 /* RDPSuggestionSquare.m */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -253,6 +257,10 @@
 		58988FA619942BF400E05AC5 /* RDPSetAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSetAmountViewController.m; sourceTree = "<group>"; };
 		58988FA91994344A00E05AC5 /* RDPCutOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPCutOutView.h; sourceTree = "<group>"; };
 		58988FAA1994344A00E05AC5 /* RDPCutOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPCutOutView.m; sourceTree = "<group>"; };
+		58988FAD19953A8E00E05AC5 /* RDPSuggestionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSuggestionsView.h; sourceTree = "<group>"; };
+		58988FAE19953A8E00E05AC5 /* RDPSuggestionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSuggestionsView.m; sourceTree = "<group>"; };
+		58988FB11995411100E05AC5 /* RDPSuggestionSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSuggestionSquare.h; sourceTree = "<group>"; };
+		58988FB21995411100E05AC5 /* RDPSuggestionSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSuggestionSquare.m; sourceTree = "<group>"; };
 		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -561,6 +569,10 @@
 		58F643E2197DAC96001D0236 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				58988FAD19953A8E00E05AC5 /* RDPSuggestionsView.h */,
+				58988FAE19953A8E00E05AC5 /* RDPSuggestionsView.m */,
+				58988FB11995411100E05AC5 /* RDPSuggestionSquare.h */,
+				58988FB21995411100E05AC5 /* RDPSuggestionSquare.m */,
 				58988FA91994344A00E05AC5 /* RDPCutOutView.h */,
 				58988FAA1994344A00E05AC5 /* RDPCutOutView.m */,
 				58F643E7197DAD2F001D0236 /* Main.storyboard */,
@@ -953,6 +965,7 @@
 				5531CA05198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */,
 				F2F1D01C1990992200438A8A /* RDPSavingSuggestions.m in Sources */,
 				F281341F199350D700D7E9EF /* RDPConfig.m in Sources */,
+				58988FB31995411100E05AC5 /* RDPSuggestionSquare.m in Sources */,
 				58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */,
 				F2F1D0041990301500438A8A /* RDPSettingsFeedbackViewController.m in Sources */,
 				F2F1D01A1990992200438A8A /* RDPCongratulations.m in Sources */,
@@ -963,6 +976,7 @@
 				5560B8D1199006AF0023691B /* MBProgressHUD.m in Sources */,
 				58988FA31994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */,
 				58F643EE197F2750001D0236 /* RDPStrings.m in Sources */,
+				58988FAF19953A8E00E05AC5 /* RDPSuggestionsView.m in Sources */,
 				F281342A1993510500D7E9EF /* RDPAsyncProgressTracker.m in Sources */,
 				F2F1CFD6198F016C00438A8A /* UINavigationController+Retro.m in Sources */,
 				F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */,
@@ -1009,6 +1023,7 @@
 				F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
 				58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2F1D0141990420C00438A8A /* RDPSettingsHistoryViewController.m in Sources */,
+				58988FB019953A8E00E05AC5 /* RDPSuggestionsView.m in Sources */,
 				58988FA819942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */,
 				F2F1CFEE198FF6C300438A8A /* RDPSettingsGoalViewController.m in Sources */,
 				F2F1D00119902AD500438A8A /* RDPFonts.m in Sources */,
@@ -1017,6 +1032,7 @@
 				F281342B1993510500D7E9EF /* RDPAsyncProgressTracker.m in Sources */,
 				F28134391993513200D7E9EF /* RDPUserModel.m in Sources */,
 				F2F1CFDB198F103700438A8A /* RDPPushAnimation.m in Sources */,
+				58988FB41995411100E05AC5 /* RDPSuggestionSquare.m in Sources */,
 				F2F1CFFB19900E5200438A8A /* RDPTableViewCellWithToggle.m in Sources */,
 				F2F1CFD7198F016C00438A8A /* UINavigationController+Retro.m in Sources */,
 				F2F1D009199031AD00438A8A /* RDPFeedbackPanel.m in Sources */,
