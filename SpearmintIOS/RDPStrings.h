@@ -60,6 +60,9 @@ typedef enum {
     sBusReleaseScreen,
     sUseKeepInstructions,
     sSetAGoal,
+    sGoalAmount,
+    sIwant,
+    sWillCost, 
 } RDPStringID;
 
 @interface RDPStrings : NSObject

@@ -14,9 +14,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-
+        if (!_indentAmount) {
+            _indentAmount = 10;
+        }
     }
     return self;
+}
+
+- (void)setIndentAmount:(CGFloat)indentAmount
+{
+    _indentAmount = indentAmount;
 }
 
 /*
@@ -28,7 +35,7 @@
 }
 */
 - (CGRect)textRectForBounds:(CGRect)bounds {
-    return CGRectMake(bounds.origin.x + 10, bounds.origin.y + 8,
+    return CGRectMake(bounds.origin.x + self.indentAmount, bounds.origin.y + 8,
                       bounds.size.width - 20, bounds.size.height - 16);
 }
 - (CGRect)editingRectForBounds:(CGRect)bounds {

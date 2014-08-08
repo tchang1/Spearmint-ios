@@ -7,6 +7,11 @@
 //
 
 #import "RDPSetAGoalViewController.h"
+#import "RDPColors.h"
+#import "RDPStrings.h"
+
+#define kStoryboard @"Main"
+#define kSetAmount @"setAmount"
 
 @interface RDPSetAGoalViewController ()
 
@@ -14,19 +19,57 @@
 
 @implementation RDPSetAGoalViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // setup the cut out view
+    self.setAGoalTextField.indentAmount = 10;
+    self.cutOutView.innerView = self.setAGoalTextField; 
+    
+    // Show the navigation bar without the background button
+    [self.navigationItem setHidesBackButton:YES];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+//    [[UINavigationBar appearance] setBackIndicatorImage:nil];
+//    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:nil];
+    
+    [self addNavigationBarButton];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.navigationController.delegate = self;
+    
+    UIView* statusBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 340, 20)];
+    [statusBackground setBackgroundColor:kColor_SettingPanelHeader];
+    [self.navigationController.view insertSubview:statusBackground atIndex:2];
+    
+    // Make the navigation bar look pretty
+    [self.navigationController.navigationBar setBackgroundColor:kColor_SettingPanelHeader];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [RDPFonts fontForID:fNavigationHeaderFont],
+      NSFontAttributeName, nil]];
+    self.navigationItem.title = [RDPStrings stringForID:sSetAGoal];
+    
+    self.setAGoalTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sIwant] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+}
+
+-(void)addNavigationBarButton{
+    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:
+                                  @"Next" style:UIBarButtonItemStylePlain target:
+                                  self action:@selector(nextButtonClicked)];
+    [self.navigationItem setRightBarButtonItem:nextButton];
+}
+
+-(void)nextButtonClicked
+{
+    UIViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                           bundle:NULL] instantiateViewControllerWithIdentifier:kSetAmount];
+
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -67,6 +67,10 @@
 		58988FA01993F57600E05AC5 /* ireland.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9F1993F57600E05AC5 /* ireland.png */; };
 		58988FA31994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */; };
 		58988FA41994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */; };
+		58988FA719942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA619942BF400E05AC5 /* RDPSetAmountViewController.m */; };
+		58988FA819942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA619942BF400E05AC5 /* RDPSetAmountViewController.m */; };
+		58988FAB1994344A00E05AC5 /* RDPCutOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAA1994344A00E05AC5 /* RDPCutOutView.m */; };
+		58988FAC1994344A00E05AC5 /* RDPCutOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAA1994344A00E05AC5 /* RDPCutOutView.m */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -245,6 +249,10 @@
 		58988F9F1993F57600E05AC5 /* ireland.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ireland.png; sourceTree = "<group>"; };
 		58988FA11994078E00E05AC5 /* RDPSetAGoalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSetAGoalViewController.h; sourceTree = "<group>"; };
 		58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSetAGoalViewController.m; sourceTree = "<group>"; };
+		58988FA519942BF400E05AC5 /* RDPSetAmountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSetAmountViewController.h; sourceTree = "<group>"; };
+		58988FA619942BF400E05AC5 /* RDPSetAmountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSetAmountViewController.m; sourceTree = "<group>"; };
+		58988FA91994344A00E05AC5 /* RDPCutOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPCutOutView.h; sourceTree = "<group>"; };
+		58988FAA1994344A00E05AC5 /* RDPCutOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPCutOutView.m; sourceTree = "<group>"; };
 		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -506,6 +514,8 @@
 		58F643E0197DAC89001D0236 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				58988FA519942BF400E05AC5 /* RDPSetAmountViewController.h */,
+				58988FA619942BF400E05AC5 /* RDPSetAmountViewController.m */,
 				F281343A1993514300D7E9EF /* RDPFlipLeftSegue.h */,
 				F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */,
 				5531CA0B198FED900076D8B8 /* RDPLoginViewController.h */,
@@ -551,6 +561,8 @@
 		58F643E2197DAC96001D0236 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				58988FA91994344A00E05AC5 /* RDPCutOutView.h */,
+				58988FAA1994344A00E05AC5 /* RDPCutOutView.m */,
 				58F643E7197DAD2F001D0236 /* Main.storyboard */,
 				F2F1CFE8198FF66A00438A8A /* Cells */,
 				F2F1D006199031AD00438A8A /* RDPFeedbackPanel.h */,
@@ -935,6 +947,8 @@
 				F281343C1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */,
 				558181A81986F83600390741 /* RDPUser.m in Sources */,
 				F2F1CFE0198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */,
+				58988FAB1994344A00E05AC5 /* RDPCutOutView.m in Sources */,
+				58988FA719942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */,
 				F2F1CF72198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
 				5531CA05198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */,
 				F2F1D01C1990992200438A8A /* RDPSavingSuggestions.m in Sources */,
@@ -995,6 +1009,7 @@
 				F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
 				58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2F1D0141990420C00438A8A /* RDPSettingsHistoryViewController.m in Sources */,
+				58988FA819942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */,
 				F2F1CFEE198FF6C300438A8A /* RDPSettingsGoalViewController.m in Sources */,
 				F2F1D00119902AD500438A8A /* RDPFonts.m in Sources */,
 				5531CA0A198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */,
@@ -1019,6 +1034,7 @@
 				F2F1CFE1198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */,
 				F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */,
 				551AA63519941FB60010E65B /* RDPSignupViewController.m in Sources */,
+				58988FAC1994344A00E05AC5 /* RDPCutOutView.m in Sources */,
 				F2F1D01B1990992200438A8A /* RDPCongratulations.m in Sources */,
 				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,
 				F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,

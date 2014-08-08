@@ -141,7 +141,7 @@
         case sPasswordValidation:
             result = @"Passwords must be at least 6 characters";
             break;
-	case sKeepHolding:
+	case sKeepHolding: 
             result = @"Keep holding";
             break;
         case sKeepHolding3:
@@ -167,7 +167,16 @@
             break;
         case sSetAGoal:
             result = @"Set a goal";
-            break;    
+            break;
+        case sGoalAmount:
+            result = @"Goal Amount";
+            break;
+        case sIwant:
+            result = @"I want to...";
+            break;
+        case sWillCost:
+            result = @"This will cost..";
+            break;  
 }
     
     return result;

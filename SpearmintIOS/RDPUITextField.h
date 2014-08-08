@@ -10,4 +10,6 @@
 
 @interface RDPUITextField : UITextField
 
+@property (nonatomic, assign) CGFloat indentAmount;
+
 @end

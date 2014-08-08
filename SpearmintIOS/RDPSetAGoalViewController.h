@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDPViewController.h"
+#import "RDPUITextField.h"
+#import "RDPCutOutView.h"
 
-@interface RDPSetAGoalViewController : UIViewController
+@interface RDPSetAGoalViewController : RDPViewController <UINavigationControllerDelegate>
+
+
+// The text field input 
+@property (weak, nonatomic) IBOutlet RDPCutOutView *cutOutView;
+@property (weak, nonatomic) IBOutlet RDPUITextField *setAGoalTextField;
+
 
 @end
