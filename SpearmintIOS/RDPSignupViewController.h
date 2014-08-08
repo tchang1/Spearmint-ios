@@ -16,6 +16,7 @@
 #import "RDPColors.h"
 #import "RDPStrings.h"
 #import "RDPUITextField.h"
+#import "RDPGoal.h"
 
 @interface RDPSignupViewController : RDPViewController <MBProgressHUDDelegate, RDPHTTPClientDelegate, UITextFieldDelegate> {
 
@@ -29,6 +30,7 @@ MBProgressHUD *HUD;
 @property (weak, nonatomic) IBOutlet UIImageView *emailFieldIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *passwordFieldIcon;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (strong, nonatomic) RDPGoal *userGoal; 
 - (IBAction)signupButtonDown:(id)sender;
 - (IBAction)signupButtonPressed:(id)sender;
 

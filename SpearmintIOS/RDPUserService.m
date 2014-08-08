@@ -73,9 +73,10 @@ static RDPUser* storedUser;
 {
     [[RDPHTTPClient sharedRDPHTTPClient] signupWithUsername:username andPassword:password andCompletionBlock:^{
         NSLog(@"signup to server completed");
+        storedUser=[[RDPUser alloc]initWithUsername:username andPassword:password andGoal:nil];
+
         [RDPUserService saveGoalModel:goal withResponse:^(RDPResponseCode code) {
             NSLog(@"save goal to server completed");
-            storedUser=[[RDPUser alloc]initWithUsername:username andPassword:password andGoal:goal];
             completionBlock([storedUser copy]);
         }];
     } andFailureBlock:^(NSError *error) {

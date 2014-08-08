@@ -7,6 +7,7 @@
 //
 
 #import "RDPSetAmountViewController.h"
+#import "RDPSignupViewController.h"
 
 #define kStoryboard @"Main"
 #define kSignUp @"signUp"
@@ -47,9 +48,15 @@
 
 -(void)nextButtonClicked
 {
-    UIViewController *viewController =
+    NSNumberFormatter *formatter = [RDPConfig numberFormatter];
+    NSNumber *amount = [formatter numberFromString:self.setAmountTextField.text];
+    [self.userGoal setTargetAmount:amount];
+    
+    RDPSignupViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kSignUp];
+    
+    viewController.userGoal = self.userGoal;
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

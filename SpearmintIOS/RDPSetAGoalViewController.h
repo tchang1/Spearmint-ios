@@ -10,13 +10,16 @@
 #import "RDPViewController.h"
 #import "RDPUITextField.h"
 #import "RDPCutOutView.h"
+#import "RDPGoal.h"
 
-@interface RDPSetAGoalViewController : RDPViewController <UINavigationControllerDelegate>
+@interface RDPSetAGoalViewController : RDPViewController 
 
 
 // The text field input 
 @property (weak, nonatomic) IBOutlet RDPCutOutView *cutOutView;
 @property (weak, nonatomic) IBOutlet RDPUITextField *setAGoalTextField;
 
+// The goal
+@property (strong, nonatomic) RDPGoal *userGoal; 
 
 @end

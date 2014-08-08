@@ -9,6 +9,7 @@
 #import "RDPFTUViewController.h"
 #import "RDPImageBlur.h"
 #import "RDPStrings.h"
+#import "RDPPushAnimation.h"
 
 #define kStoryboard @"Main"
 #define kSetGoal @"setGoal"
@@ -22,6 +23,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Make this view the delegate for the navigation controller
+    self.navigationController.delegate = self;
     
     // Initialize the background images
     UIImage *image = [UIImage imageNamed:@"ireland.png"];
@@ -243,6 +247,12 @@
     }
 }
 
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
+    
+    RDPPushAnimation* pushAnimation = [RDPPushAnimation new];
+    pushAnimation.navigationControllerOperation = operation;
+    return pushAnimation;
+}
 
 -(void)setAGoalTapped
 {

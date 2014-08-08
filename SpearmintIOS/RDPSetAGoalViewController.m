@@ -9,6 +9,7 @@
 #import "RDPSetAGoalViewController.h"
 #import "RDPColors.h"
 #import "RDPStrings.h"
+#import "RDPSetAmountViewController.h"
 
 #define kStoryboard @"Main"
 #define kSetAmount @"setAmount"
@@ -23,6 +24,9 @@
 {
     [super viewDidLoad];
     
+    // create user goal
+    self.userGoal = [[RDPGoal alloc] init];
+    
     // setup the cut out view
     self.setAGoalTextField.indentAmount = 10;
     self.cutOutView.innerView = self.setAGoalTextField; 
@@ -30,12 +34,11 @@
     // Show the navigation bar without the background button
     [self.navigationItem setHidesBackButton:YES];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-//    [[UINavigationBar appearance] setBackIndicatorImage:nil];
-//    [[UINavigationBar appearance] setBackIndicatorTransitionMaskImage:nil];
+    [self.navigationController.navigationBar setBackIndicatorImage:[[UIImage alloc]init]];
+    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc]init]];
     
     [self addNavigationBarButton];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    self.navigationController.delegate = self;
     
     UIView* statusBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 340, 20)];
     [statusBackground setBackgroundColor:kColor_SettingPanelHeader];
@@ -65,9 +68,13 @@
 
 -(void)nextButtonClicked
 {
-    UIViewController *viewController =
+    [self.userGoal setGoalName:self.setAGoalTextField.text];
+    
+    RDPSetAmountViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                            bundle:NULL] instantiateViewControllerWithIdentifier:kSetAmount];
+    
+    viewController.userGoal = self.userGoal;
 
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -78,15 +85,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -94,8 +94,10 @@
 
 -(void)trySignupWithUsername:(NSString *)username andPassword:(NSString *)password {
     NSLog(@"trying login");
-    RDPGoal *goal=[[RDPGoal alloc] initWithName:@"testGoal" andTagetAmount:@100 andCurrentAmount:@0 andSavingEvents:nil andGoalID:nil];
-    [RDPUserService createUserWithUsername:username andPassword:password andGoal:goal then:^(RDPUser *user) {
+    
+    [self.userGoal setCurrentAmount:[[NSNumber alloc] initWithInt:0]];
+    
+    [RDPUserService createUserWithUsername:username andPassword:password andGoal:self.userGoal then:^(RDPUser *user) {
         HUD.labelText=@"ClientDidLoginYALL!";
         HUD.mode =MBProgressHUDModeText;
         [HUD hide:YES afterDelay:2];

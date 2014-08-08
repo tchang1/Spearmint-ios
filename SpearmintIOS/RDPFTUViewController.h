@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "CSAnimationView.h"
 #import "RDPCounter.h"
+#import "RDPViewController.h"
 
-@interface RDPFTUViewController : UIViewController
+@interface RDPFTUViewController : RDPViewController <UINavigationControllerDelegate>
 
 // Keep track of the example we are on and if the user has seen "keep holding"
 @property (nonatomic, assign) BOOL onLastExmaple;
@@ -25,7 +26,7 @@
 @property (weak, nonatomic) IBOutlet CSAnimationView *welcomeView;
 @property (weak, nonatomic) IBOutlet UILabel *keepSlogan;
 @property (weak, nonatomic) IBOutlet UIButton *startFTUButton;
-@property (weak, nonatomic) IBOutlet UIButton *goToLoginButton;
+@property (weak, nonatomic) IBOutlet UIButton *goToLoginButton; 
 
 // The example starting view and labels
 @property (weak, nonatomic) IBOutlet CSAnimationView *startExampleView;
