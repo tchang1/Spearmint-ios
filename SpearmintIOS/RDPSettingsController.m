@@ -12,6 +12,7 @@
 #import "UINavigationController+Retro.h"
 #import "RDPPushAnimation.h"
 #import "RDPImageFetcher.h"
+#import "RDPUserService.h"
 
 
 #define kKeyName                    @"name"
@@ -31,6 +32,8 @@
 #define kNotificationsIdentifier    @"settingsNotifications"
 #define kHistoryIdentifier          @"settingsHistory"
 #define kFeedbackIdentifier         @"settingsFeedback"
+
+#define kLogoutSegue                @"logoutSegue"
 
 #define kStatusBarHeight            38
 
@@ -210,8 +213,11 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:kLogoutSegue]) {
+        [RDPUserService logoutWithResponse:^(RDPResponseCode response) {
+            
+        }];
+    }
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
