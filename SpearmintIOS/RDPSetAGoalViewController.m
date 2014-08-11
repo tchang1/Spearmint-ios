@@ -43,18 +43,10 @@
     [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc]init]];
     
     [self addNavigationBarButton];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     
-    UIView* statusBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 340, 20)];
-    [statusBackground setBackgroundColor:kColor_SettingPanelHeader];
-    [self.navigationController.view insertSubview:statusBackground atIndex:2];
+    [self setNavigationBarColor:kColor_SettingPanelHeader];
     
-    // Make the navigation bar look pretty
-    [self.navigationController.navigationBar setBackgroundColor:kColor_SettingPanelHeader];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                                                  forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [RDPFonts fontForID:fNavigationHeaderFont],
