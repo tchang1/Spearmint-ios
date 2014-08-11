@@ -73,7 +73,7 @@
                                             <constraint firstItem="X72-ZG-7Lu" firstAttribute="leading" secondItem="9cE-Wt-CxA" secondAttribute="leading" constant="8" id="kOj-aA-3ie"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Os-cF-hOb" customClass="RDPInputViewWithImage">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Os-cF-hOb">
                                         <rect key="frame" x="0.0" y="75" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -192,10 +192,12 @@
                         <outlet property="emailFieldIcon" destination="X72-ZG-7Lu" id="n3A-93-48d"/>
                         <outlet property="emailStatusLabel" destination="Qhe-2h-4lA" id="Z0X-2b-lnj"/>
                         <outlet property="emailTextField" destination="N9s-7H-w6x" id="fYh-Gf-Oea"/>
+                        <outlet property="emailView" destination="9cE-Wt-CxA" id="WuS-WK-qXN"/>
                         <outlet property="loginButton" destination="WA4-hQ-I6m" id="HB5-tN-b1D"/>
                         <outlet property="passwordFieldIcon" destination="uza-ZS-xcd" id="3Nc-1E-7PD"/>
                         <outlet property="passwordStatusLabel" destination="OXw-dR-o4s" id="pRn-kz-OWT"/>
                         <outlet property="passwordTextField" destination="Bbx-ff-vPT" id="xxq-46-dUL"/>
+                        <outlet property="passwordView" destination="6Os-cF-hOb" id="clP-EL-PuY"/>
                         <segue destination="RLe-TQ-3X4" kind="custom" identifier="loginToHome" id="m5p-NK-Jov"/>
                     </connections>
                 </viewController>
@@ -1159,7 +1161,7 @@
                                             <constraint firstAttribute="trailing" secondItem="TNc-yG-Slq" secondAttribute="trailing" constant="8" id="sGb-51-wJj"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAV-gP-r3Z" customClass="RDPInputViewWithImage">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAV-gP-r3Z">
                                         <rect key="frame" x="0.0" y="75" width="320" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
@@ -1274,10 +1276,12 @@
                         <outlet property="emailFieldIcon" destination="DEG-HH-qYb" id="7wl-Vt-PYs"/>
                         <outlet property="emailStatusLabel" destination="sJF-xg-KhG" id="ijZ-zo-hcU"/>
                         <outlet property="emailTextField" destination="TNc-yG-Slq" id="2BH-do-doF"/>
+                        <outlet property="emailView" destination="OIv-CH-ILW" id="aPP-X7-18G"/>
                         <outlet property="loginButton" destination="reN-eg-RnS" id="6av-xb-Pec"/>
                         <outlet property="passwordFieldIcon" destination="y3Y-HQ-dsS" id="oWP-aL-tJq"/>
                         <outlet property="passwordStatusLabel" destination="6B9-bh-SO6" id="UxR-xV-GA5"/>
                         <outlet property="passwordTextField" destination="dFR-hB-y2v" id="jhK-EJ-72Q"/>
+                        <outlet property="passwordView" destination="eAV-gP-r3Z" id="y5M-ON-8VN"/>
                         <segue destination="RLe-TQ-3X4" kind="custom" identifier="signupToHome" id="i4c-YM-z26"/>
                     </connections>
                 </viewController>

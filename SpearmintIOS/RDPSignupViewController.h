@@ -22,6 +22,8 @@
 
 MBProgressHUD *HUD;
 }
+@property (weak, nonatomic) IBOutlet UIView *emailView;
+@property (weak, nonatomic) IBOutlet UIView *passwordView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet RDPUITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet RDPUITextField *passwordTextField;

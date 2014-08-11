@@ -40,10 +40,14 @@
     self.emailTextField.layer.cornerRadius = 2;
     self.emailTextField.clipsToBounds = YES;
     self.emailTextField.indentAmount=10;
+    self.emailStatusLabel.text=[RDPStrings stringForID:sEmailValidation];
+    self.emailStatusLabel.alpha=0;
     
     self.passwordTextField.layer.cornerRadius = 2;
     self.passwordTextField.clipsToBounds = YES;
     self.passwordTextField.indentAmount=10;
+    self.passwordStatusLabel.text=[RDPStrings stringForID:sPasswordValidation];
+    self.passwordStatusLabel.alpha=0;
 
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 
@@ -63,33 +67,80 @@
 - (IBAction)signupButtonPressed:(id)sender {
     [self.loginButton setAlpha:1];
     BOOL valid=YES;
-    if (![RDPValidationService validateUsername:self.emailTextField.text])
-    {
-        self.emailStatusLabel.text=[RDPStrings stringForID:sEmailValidation];
-        [self.emailFieldIcon setImage:[UIImage imageNamed:@"Envelope_red.png"]];
-        valid=NO;
-    }
-    if (![RDPValidationService validatePassword:self.passwordTextField.text])
-    {
-        self.passwordStatusLabel.text=[RDPStrings stringForID:sPasswordValidation];
-        [self.passwordFieldIcon setImage:[UIImage imageNamed:@"Key_red.png" ]];
-        valid=NO;
-    }
+    valid = [self checkUsername] && [self checkPassword];
     
     if(valid)
     {
-        self.emailStatusLabel.text=@"";
-        self.passwordStatusLabel.text=@"";
-        [self.passwordFieldIcon setImage:[UIImage imageNamed:@"key.png" ]];
-        [self.emailFieldIcon setImage:[UIImage imageNamed:@"Envelope.png"]];
         HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self.view addSubview:HUD];
         HUD.delegate = self;
         [self trySignupWithUsername:self.emailTextField.text andPassword:self.passwordTextField.text];
     }
-    
-    
-    
+}
+
+-(BOOL)checkUsername {
+    if (![RDPValidationService validateUsername:self.emailTextField.text])
+    {
+        
+        UIImage *errorImage=[UIImage imageNamed:@"Envelope_red.png"];
+        [UIView animateWithDuration:0.25f animations:^{
+            self.emailView.alpha=0.25;
+        } completion:^(BOOL finished) {
+            [UIView transitionWithView:self.emailFieldIcon
+                              duration:0.25f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                self.emailFieldIcon.image =errorImage;
+                                self.emailView.alpha=1;
+                                self.emailStatusLabel.alpha=1;
+                            } completion:nil];
+            
+        }];
+        
+        return NO;
+    }
+    else
+    {
+        [UIView transitionWithView:self.emailFieldIcon
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.emailFieldIcon.image =[UIImage imageNamed:@"Envelope.png"];
+                        } completion:nil];
+        self.emailStatusLabel.alpha=0;
+        return YES;
+    }
+}
+
+-(BOOL)checkPassword {
+    if (![RDPValidationService validatePassword:self.passwordTextField.text])
+    {
+        [UIView animateWithDuration:0.25f animations:^{
+            self.passwordView.alpha=0.25;
+        } completion:^(BOOL finished) {
+            [UIView transitionWithView:self.passwordFieldIcon
+                              duration:0.25f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                self.passwordFieldIcon.image =[UIImage imageNamed:@"Key_red.png"];
+                                self.passwordView.alpha=1;
+                                self.passwordStatusLabel.alpha=1;
+                            } completion:nil];
+            
+        }];
+        return NO;
+    }
+    else
+    {
+        [UIView transitionWithView:self.passwordFieldIcon
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.passwordFieldIcon.image =[UIImage imageNamed:@"key.png"];
+                        } completion:nil];
+        self.passwordStatusLabel.alpha=0;
+        return YES;
+    }
 }
 
 -(void)trySignupWithUsername:(NSString *)username andPassword:(NSString *)password {

@@ -36,11 +36,15 @@
     self.emailTextField.layer.cornerRadius = 2;
     self.emailTextField.clipsToBounds = YES;
     self.emailTextField.indentAmount=10;
-
+    self.emailStatusLabel.text=[RDPStrings stringForID:sEmailValidation];
+    self.emailStatusLabel.alpha=0;
     
     self.passwordTextField.layer.cornerRadius = 2;
     self.passwordTextField.clipsToBounds = YES;
     self.passwordTextField.indentAmount=10;
+    self.passwordStatusLabel.text=[RDPStrings stringForID:sPasswordValidation];
+    self.passwordStatusLabel.alpha=0;
+
 
     
     // Do any additional setup after loading the view.
@@ -77,23 +81,68 @@
     BOOL valid=YES;
     if (![RDPValidationService validateUsername:self.emailTextField.text])
     {
-        self.emailStatusLabel.text=[RDPStrings stringForID:sEmailValidation];
-        [self.emailFieldIcon setImage:[UIImage imageNamed:@"Envelope_red.png"]];
+        
+        UIImage *errorImage=[UIImage imageNamed:@"Envelope_red.png"];
+        [UIView animateWithDuration:0.25f animations:^{
+            self.emailView.alpha=0.25;
+        } completion:^(BOOL finished) {
+            [UIView transitionWithView:self.emailFieldIcon
+                              duration:0.25f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                self.emailFieldIcon.image =errorImage;
+                                self.emailView.alpha=1;
+                                self.emailStatusLabel.alpha=1;
+                            } completion:nil];
+
+        }];
+        
         valid=NO;
     }
+    else
+    {
+        [UIView transitionWithView:self.emailFieldIcon
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.emailFieldIcon.image =[UIImage imageNamed:@"Envelope.png"];
+                        } completion:nil];
+        self.emailStatusLabel.alpha=0;
+
+    }
+    
+    
     if (![RDPValidationService validatePassword:self.passwordTextField.text])
     {
-        self.passwordStatusLabel.text=[RDPStrings stringForID:sPasswordValidation];
-        [self.passwordFieldIcon setImage:[UIImage imageNamed:@"Key_red.png" ]];
+                [UIView animateWithDuration:0.25f animations:^{
+            self.passwordView.alpha=0.25;
+        } completion:^(BOOL finished) {
+            [UIView transitionWithView:self.passwordFieldIcon
+                              duration:0.25f
+                               options:UIViewAnimationOptionTransitionCrossDissolve
+                            animations:^{
+                                self.passwordFieldIcon.image =[UIImage imageNamed:@"Key_red.png"];
+                                self.passwordView.alpha=1;
+                                self.passwordStatusLabel.alpha=1;
+                            } completion:nil];
+            
+        }];
         valid=NO;
+    }
+    else
+    {
+        [UIView transitionWithView:self.passwordFieldIcon
+                          duration:0.5f
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            self.passwordFieldIcon.image =[UIImage imageNamed:@"key.png"];
+                        } completion:nil];
+        self.passwordStatusLabel.alpha=0;
+
     }
     
     if(valid)
     {
-        self.emailStatusLabel.text=@"";
-        self.passwordStatusLabel.text=@"";
-        [self.passwordFieldIcon setImage:[UIImage imageNamed:@"key.png" ]];
-        [self.emailFieldIcon setImage:[UIImage imageNamed:@"Envelope.png"]];
         HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [self.view addSubview:HUD];
         HUD.delegate = self;
