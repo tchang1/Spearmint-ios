@@ -12,6 +12,8 @@
 #define kStoryboard @"Main"
 #define kSignUp @"signUp"
 
+#define IS_TALL_SCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+
 @interface RDPSetAmountViewController ()
 
 @end
@@ -23,8 +25,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // setup the suggestion view
-    self.suggestionsView.innerViews = [NSArray arrayWithObjects:self.suggestion1, self.suggestion2, self.suggestion3, self.suggestion4, nil];
+    NSArray *buttons;
+    // See if screen in 3.5 inch
+    if (IS_TALL_SCREEN) {
+        self.suggestionsView.innerViews = [NSArray arrayWithObjects:self.suggestion1, self.suggestion2, self.suggestion3, self.suggestion4,  self.suggestion5, self.suggestion6, nil];
+        buttons = @[self.suggestionButton1, self.suggestionButton2, self.suggestionButton3, self.suggestionButton4, self.suggestionButton5, self.suggestionButton6];
+    } else { // small screen so remove the last 3 views
+        self.suggestionsView.innerViews = [NSArray arrayWithObjects:self.suggestion1, self.suggestion2, self.suggestion3, nil];
+        buttons = @[self.suggestionButton1, self.suggestionButton2, self.suggestionButton3];
+        [self.suggestionButton1 setTitle:@"100" forState:UIControlStateNormal];
+        [self.suggestionButton2 setTitle:@"500" forState:UIControlStateNormal];
+        [self.suggestionButton3 setTitle:@"1000" forState:UIControlStateNormal];
+        self.suggestion4.hidden = YES;
+        self.suggestion5.hidden = YES;
+        self.suggestion6.hidden = YES;
+    }
+    
+    
+    
+    for (UIButton *button in buttons) {
+        [button addTarget:nil action:@selector(addGoalAmount:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
     // setup the cut out view
     self.setAmountTextField.indentAmount = 20;
@@ -40,6 +61,11 @@
     self.navigationItem.title = [RDPStrings stringForID:sGoalAmount];
     
     self.setAmountTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sWillCost] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.setAmountTextField becomeFirstResponder];
 }
 
 -(void)addNavigationBarButton{
@@ -68,6 +94,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addGoalAmount:(UIButton *)button
+{
+    self.setAmountTextField.text = button.titleLabel.text;
 }
 
 /*

@@ -26,7 +26,16 @@
 @property (weak, nonatomic) IBOutlet RDPSuggestionSquare *suggestion2;
 @property (weak, nonatomic) IBOutlet RDPSuggestionSquare *suggestion3;
 @property (weak, nonatomic) IBOutlet RDPSuggestionSquare *suggestion4;
+@property (weak, nonatomic) IBOutlet RDPSuggestionSquare *suggestion5;
+@property (weak, nonatomic) IBOutlet RDPSuggestionSquare *suggestion6;
 
+@property (weak, nonatomic) IBOutlet UIButton *suggestionButton1;
+@property (weak, nonatomic) IBOutlet UIButton *suggestionButton2;
+@property (weak, nonatomic) IBOutlet UIButton *suggestionButton3;
+
+@property (weak, nonatomic) IBOutlet UIButton *suggestionButton4;
+@property (weak, nonatomic) IBOutlet UIButton *suggestionButton5;
+@property (weak, nonatomic) IBOutlet UIButton *suggestionButton6;
 
 // The user goal
 @property (strong, nonatomic) RDPGoal *userGoal;

@@ -22,21 +22,15 @@
 
 
 - (void)drawRect:(CGRect)rect {
-    // Start by filling the area with the
-    [self.backgroundColor setFill];
+    [kColor_Transparent setFill];
     UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:10];
+    path.lineWidth = 1.0f;
+    
+    UIColor *color = [UIColor colorWithWhite:0.0 alpha:0.3];
+    
+    [color setStroke];
+    [path stroke];
     [path fill];
-    
-    self.layer.borderColor = [UIColor orangeColor].CGColor;
-    self.layer.borderWidth = 0.5f;
-    
-//    self.suggestionButton =  [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [self.suggestionButton addTarget:self
-//               action:@selector(aMethod:)
-//     forControlEvents:UIControlEventTouchUpInside];
-//    [self.suggestionButton setTitle:@"Show View" forState:UIControlStateNormal];
-//    self.suggestionButton.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
-//    [self addSubview:self.suggestionButton];
 
 }
 

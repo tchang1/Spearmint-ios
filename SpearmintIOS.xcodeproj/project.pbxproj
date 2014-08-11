@@ -90,6 +90,18 @@
 		58F643E8197DAD2F001D0236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F643E7197DAD2F001D0236 /* Main.storyboard */; };
 		58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643EA197F16C1001D0236 /* RDPGoal.m */; };
 		58F643EE197F2750001D0236 /* RDPStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643ED197F2750001D0236 /* RDPStrings.m */; };
+		58F9C886199939E800E325A2 /* Checkbook.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C880199939E800E325A2 /* Checkbook.png */; };
+		58F9C887199939E800E325A2 /* Checkbook.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C880199939E800E325A2 /* Checkbook.png */; };
+		58F9C888199939E800E325A2 /* Computer.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C881199939E800E325A2 /* Computer.png */; };
+		58F9C889199939E800E325A2 /* Computer.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C881199939E800E325A2 /* Computer.png */; };
+		58F9C88A199939E800E325A2 /* Palm.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C882199939E800E325A2 /* Palm.png */; };
+		58F9C88B199939E800E325A2 /* Palm.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C882199939E800E325A2 /* Palm.png */; };
+		58F9C88C199939E800E325A2 /* Tuition.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C883199939E800E325A2 /* Tuition.png */; };
+		58F9C88D199939E800E325A2 /* Tuition.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C883199939E800E325A2 /* Tuition.png */; };
+		58F9C88E199939E800E325A2 /* Umbrella.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C884199939E800E325A2 /* Umbrella.png */; };
+		58F9C88F199939E800E325A2 /* Umbrella.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C884199939E800E325A2 /* Umbrella.png */; };
+		58F9C890199939E800E325A2 /* Weekend Away.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C885199939E800E325A2 /* Weekend Away.png */; };
+		58F9C891199939E800E325A2 /* Weekend Away.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C885199939E800E325A2 /* Weekend Away.png */; };
 		F2208C661989B0A200EDD6CF /* RDPCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2208C651989B0A200EDD6CF /* RDPCounter.m */; };
 		F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2208C651989B0A200EDD6CF /* RDPCounter.m */; };
 		F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
@@ -282,6 +294,12 @@
 		58F643EA197F16C1001D0236 /* RDPGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPGoal.m; sourceTree = "<group>"; };
 		58F643EC197F2750001D0236 /* RDPStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPStrings.h; sourceTree = "<group>"; };
 		58F643ED197F2750001D0236 /* RDPStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPStrings.m; sourceTree = "<group>"; };
+		58F9C880199939E800E325A2 /* Checkbook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkbook.png; sourceTree = "<group>"; };
+		58F9C881199939E800E325A2 /* Computer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Computer.png; sourceTree = "<group>"; };
+		58F9C882199939E800E325A2 /* Palm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Palm.png; sourceTree = "<group>"; };
+		58F9C883199939E800E325A2 /* Tuition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tuition.png; sourceTree = "<group>"; };
+		58F9C884199939E800E325A2 /* Umbrella.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Umbrella.png; sourceTree = "<group>"; };
+		58F9C885199939E800E325A2 /* Weekend Away.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Weekend Away.png"; sourceTree = "<group>"; };
 		C1A66A01DDAC4711864FBE10 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2208C641989B0A200EDD6CF /* RDPCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPCounter.h; sourceTree = "<group>"; };
 		F2208C651989B0A200EDD6CF /* RDPCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPCounter.m; sourceTree = "<group>"; };
@@ -623,6 +641,12 @@
 		58F643E5197DACCC001D0236 /* Assets  */ = {
 			isa = PBXGroup;
 			children = (
+				58F9C880199939E800E325A2 /* Checkbook.png */,
+				58F9C881199939E800E325A2 /* Computer.png */,
+				58F9C882199939E800E325A2 /* Palm.png */,
+				58F9C883199939E800E325A2 /* Tuition.png */,
+				58F9C884199939E800E325A2 /* Umbrella.png */,
+				58F9C885199939E800E325A2 /* Weekend Away.png */,
 				F2F1D01E1990993900438A8A /* Fingerprint.png */,
 				551AA62C1993FC4C0010E65B /* Email_Ridge.png */,
 				551AA6261993F2590010E65B /* Envelope_Red.png */,
@@ -852,16 +876,20 @@
 				58F643E8197DAD2F001D0236 /* Main.storyboard in Resources */,
 				5560B8E0199098F80023691B /* (null) in Resources */,
 				551AA6281993F2590010E65B /* Envelope_Red.png in Resources */,
+				58F9C88A199939E800E325A2 /* Palm.png in Resources */,
 				F2F1D0221990993900438A8A /* Settings.png in Resources */,
 				F2F1CFA0198EC2AA00438A8A /* 2.jpg in Resources */,
 				5560B8D719906C410023691B /* Keep_Alone.png in Resources */,
 				F2F1CFA4198EC2AA00438A8A /* 3.jpg in Resources */,
+				58F9C888199939E800E325A2 /* Computer.png in Resources */,
 				F2F1CFB4198EC2AA00438A8A /* 7.jpg in Resources */,
 				F2F1D0201990993900438A8A /* Fingerprint.png in Resources */,
 				58F643BC197DA5F6001D0236 /* InfoPlist.strings in Resources */,
+				58F9C88C199939E800E325A2 /* Tuition.png in Resources */,
 				58988FA01993F57600E05AC5 /* ireland.png in Resources */,
 				F2F1CFE2198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */,
 				58F643C4197DA5F6001D0236 /* Images.xcassets in Resources */,
+				58F9C890199939E800E325A2 /* Weekend Away.png in Resources */,
 				58988F9E1993F56A00E05AC5 /* ridge.png in Resources */,
 				F2F1CF9C198EC2AA00438A8A /* 1.jpg in Resources */,
 				F2F1D00F19903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
@@ -869,9 +897,11 @@
 				551AA62A1993F2590010E65B /* Key_Red.png in Resources */,
 				F2813423199350D700D7E9EF /* settings.plist in Resources */,
 				551AA6241992C7220010E65B /* key.png in Resources */,
+				58F9C88E199939E800E325A2 /* Umbrella.png in Resources */,
 				F2F1CFAC198EC2AA00438A8A /* 5.jpg in Resources */,
 				58988F941992D0E300E05AC5 /* (null) in Resources */,
 				F2F1CFFC19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */,
+				58F9C886199939E800E325A2 /* Checkbook.png in Resources */,
 				551AA6181992AE390010E65B /* RDPInputViewWithImage.xib in Resources */,
 				551AA6301993FDC10010E65B /* Background_password.png in Resources */,
 				F2F1CFBC198EC2AA00438A8A /* 9.jpg in Resources */,
@@ -888,9 +918,13 @@
 				F2F1CFE3198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */,
 				551AA6251992C7220010E65B /* key.png in Resources */,
 				551AA62E1993FC4C0010E65B /* Email_Ridge.png in Resources */,
+				58F9C88B199939E800E325A2 /* Palm.png in Resources */,
+				58F9C889199939E800E325A2 /* Computer.png in Resources */,
+				58F9C88F199939E800E325A2 /* Umbrella.png in Resources */,
 				F2F1D0231990993900438A8A /* Settings.png in Resources */,
 				58988F951992D0E300E05AC5 /* (null) in Resources */,
 				58988F9C1993114500E05AC5 /* Keep.png in Resources */,
+				58F9C891199939E800E325A2 /* Weekend Away.png in Resources */,
 				F2F1CFA9198EC2AA00438A8A /* 4.jpg in Resources */,
 				F2F1D0211990993900438A8A /* Fingerprint.png in Resources */,
 				551AA6291993F2590010E65B /* Envelope_Red.png in Resources */,
@@ -898,6 +932,7 @@
 				F2F1D01019903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
 				5560B8D819906C410023691B /* Keep_Alone.png in Resources */,
 				F2F1CF99198EC2AA00438A8A /* 0.jpg in Resources */,
+				58F9C887199939E800E325A2 /* Checkbook.png in Resources */,
 				551AA62B1993F2590010E65B /* Key_Red.png in Resources */,
 				F2F1CF9D198EC2AA00438A8A /* 1.jpg in Resources */,
 				551AA6311993FDC10010E65B /* Background_password.png in Resources */,
@@ -911,6 +946,7 @@
 				F2F1CFA1198EC2AA00438A8A /* 2.jpg in Resources */,
 				F2F1CFB5198EC2AA00438A8A /* 7.jpg in Resources */,
 				551AA6221992C6910010E65B /* Envelope.png in Resources */,
+				58F9C88D199939E800E325A2 /* Tuition.png in Resources */,
 				F2F1CF7E198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,6 @@
 
 @interface RDPSuggestionSquare : UIView
 
-@property (nonatomic, strong) UIButton *suggestionButton;
+//@property (nonatomic, strong) UIButton *suggestionButton;
 
 @end
