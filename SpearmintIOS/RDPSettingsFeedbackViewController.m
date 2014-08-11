@@ -35,13 +35,13 @@
     [self.feedbackHeader setText:[RDPStrings stringForID:sFeedback]];
     [self.feedbackContainer setBackgroundColor:kColor_PanelColor];
     [self.feedbackTextView setBackgroundColor:kColor_InputFieldColor];
-//    self.feedbackTextView.text = [RDPStrings stringForID:sTypeFeedbackHere];
-//    self.feedbackTextView.textColor = kColor_PlaceholderText; //optional
+
     [self.submitButton.titleLabel setTextColor:kColor_DarkText];
     [self.submitButton setTintColor:kColor_DarkText];
     [self.submitButton.titleLabel setFont:[RDPFonts fontForID:fMenuFont]];
     [self.submitButton setBackgroundColor:kColor_PanelColor];
     self.feedbackTextView.delegate = self;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
 

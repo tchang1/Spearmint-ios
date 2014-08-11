@@ -24,7 +24,7 @@
     [self.backgroundColor setFill];
     UIRectFill( rect );
         
-    int numViews = [self.innerViews count];
+    NSUInteger numViews = [self.innerViews count];
     for (int i=0; i < numViews; i++) {
         UIView *view = self.innerViews[i];
         //UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:view.bounds cornerRadius:10];

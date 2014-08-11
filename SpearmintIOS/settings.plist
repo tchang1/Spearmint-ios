@@ -5,7 +5,7 @@
 	<key>maximumPasswordLength</key>
 	<integer>32</integer>
 	<key>emailRegex</key>
-	<string>@&quot;^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$&quot;</string>
+	<string>@&quot;^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$&quot;</string>
 	<key>minimumGoalNameLength</key>
 	<integer>3</integer>
 	<key>maximumGoalNameLength</key>

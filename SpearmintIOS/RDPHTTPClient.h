@@ -36,7 +36,7 @@ typedef void (^stringBlock)(NSString*);
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 -(void)signupWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 -(void)logout;
--(void)logoutWithCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
+//-(void)logoutWithCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 
 //Goals
 -(void)getMyGoal;
@@ -57,14 +57,14 @@ typedef void (^stringBlock)(NSString*);
 -(void)postNewSaving:(RDPSavingEventModel *)goal withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
 
 //Notifications
--(void)getMyNotifications;
+//-(void)getMyNotifications;
 -(void)updateNotifications:(NSDictionary *)params;
 
--(void)getMyNotificationsWithSuccess;
+//-(void)getMyNotificationsWithSuccess;
 
 //Images
 -(void)getNextImage;
--(void)getNextImageWithSuccess:(arrayBlock)imageURLs andFailure:(errorBlock)errorBlock;
+//-(void)getNextImageWithSuccess:(arrayBlock)imageURLs andFailure:(errorBlock)errorBlock;
 
 //Messages
 -(void)getSuggestions:(NSNumber *)limit withSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;

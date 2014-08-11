@@ -15,8 +15,6 @@ typedef void(^responseBlockWithSavingEvent)(RDPResponseCode, RDPSavingEvent*);
 
 @interface RDPUserService : NSObject
 
-+(void)createUserWithUsername:(NSString*)username andPassword:(NSString*)password then:(userBlock)completionBlock failure:(responseBlock)fail;
-
 +(void)createUserWithUsername:(NSString*)username andPassword:(NSString*)password andGoal:(RDPGoal*)goal then:(userBlock)completionBlock failure:(responseBlock)fail;
 
 +(void)loginWithUsername:(NSString*)username andPassword:(NSString*)password then:(userBlock)completionBlock failure:(responseBlock)fail;

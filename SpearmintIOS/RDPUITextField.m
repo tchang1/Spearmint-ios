@@ -38,11 +38,11 @@
 - (void)drawRect:(CGRect)rect
 {
     if (0 < self.borderRadius && self.parentColor) {
-        CGBlendMode blendMode = kCGBlendModeScreen;
+        CGBlendMode blendMode = kCGBlendModeNormal;
         CGFloat alpha = CGColorGetAlpha(self.parentColor.CGColor);
         
         //TODO remove
-        alpha = 0.85;
+//        alpha = 0.85;
         
         [self.parentColor setFill];
         

@@ -24,7 +24,6 @@
 			userInfo[RDPJSONResponseSerializerKey] = [NSData data];
 		} else {
             //			// NOTE: You might want to convert data to a string here too, up to you.
-            NSError *error;
             userInfo[RDPJSONResponseSerializerWithDataKey] = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
 			userInfo[RDPJSONResponseSerializerKey] = data;
 		}
