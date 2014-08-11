@@ -10,4 +10,6 @@
 
 @interface RDPViewController : UIViewController
 
+-(void)setNavigationBarColor:(UIColor*)color;
+
 @end
