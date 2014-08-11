@@ -11,5 +11,7 @@
 @interface RDPUITextField : UITextField
 
 @property (nonatomic, assign) CGFloat indentAmount;
+@property (nonatomic, assign) CGFloat borderRadius;
+@property (nonatomic, strong) UIColor* parentColor;
 
 @end
