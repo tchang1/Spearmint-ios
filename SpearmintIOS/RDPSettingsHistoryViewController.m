@@ -48,10 +48,7 @@
     self.tableView.dataSource = self;
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
-    UIView* statusBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 340, 20)];
-    [statusBackground setBackgroundColor:kColor_SettingPanelHeader];
-    [self.view addSubview:statusBackground];
-    [[[self.navigationController.view subviews] objectAtIndex:1] setHidden:YES];
+//    [[[self.navigationController.view subviews] objectAtIndex:1] setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,7 +59,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [[[self.navigationController.view subviews] objectAtIndex:1] setHidden:NO];
+//    [[[self.navigationController.view subviews] objectAtIndex:1] setHidden:NO];
 }
 
 - (NSArray*) getSavings

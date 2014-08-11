@@ -7,8 +7,11 @@
 //
 
 #import "RDPViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface RDPViewController ()
+
+@property (nonatomic, strong)UIView* statusBarBackground;
 
 @end
 
@@ -33,6 +36,24 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)setNavigationBarColor:(UIColor*)color
+{
+    if (!self.statusBarBackground) {
+        [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                      forBarMetrics:UIBarMetricsDefault];
+        self.navigationController.navigationBar.shadowImage = [UIImage new];
+        self.navigationController.navigationBar.translucent = YES;
+        
+        self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 340, 20)];
+
+        [self.navigationController.view addSubview:self.statusBarBackground];
+        self.statusBarBackground.layer.zPosition = MAXFLOAT;
+    }
+    
+    [self.statusBarBackground setBackgroundColor:color];
+    [self.navigationController.navigationBar setBackgroundColor:color];
 }
 
 /*

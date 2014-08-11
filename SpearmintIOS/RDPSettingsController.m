@@ -88,11 +88,8 @@
                                  self.navigationController.view.frame.size.height);
     imageView.contentMode = UIViewContentModeScaleToFill;
     
-    UIView* statusBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 340, 20)];
-    [statusBackground setBackgroundColor:kColor_SettingPanelHeader];
-    [self.navigationController.view insertSubview:statusBackground atIndex:1];
+    [self setNavigationBarColor:kColor_SettingPanelHeader];
     
-    [self.navigationController.navigationBar setBackgroundColor:kColor_SettingPanelHeader];
     [self.logoutButton setTitle:[RDPStrings stringForID:sLogout] forState:UIControlStateNormal];
     [self.logoutButton setBackgroundColor:kColor_LogoutButtonPanelColor];
     [self.logoutButton setTintColor:kColor_LightText];
@@ -103,10 +100,7 @@
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
     [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
-                             forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
+    
     [self.navigationController.navigationBar setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [RDPFonts fontForID:fNavigationHeaderFont],
