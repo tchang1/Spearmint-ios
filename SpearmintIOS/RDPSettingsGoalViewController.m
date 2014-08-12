@@ -116,10 +116,13 @@
     [cell.inputView.label setTextColor:kColor_DarkText];
     cell.backgroundColor = kColor_Transparent;
     [cell.inputView setBackgroundColor:kColor_PanelColor];
-    [cell.inputView.input setBackgroundColor:kColor_InputFieldColor];
+    [cell.inputView.input setBackgroundColor:kColor_Transparent];
+    cell.inputView.input.textFieldColor = kColor_InputFieldColor;
     cell.inputView.input.borderRadius = 4;
     cell.inputView.input.parentColor = kColor_PanelColor;
+    cell.inputView.input.indentAmount = 10;
     [cell.inputView.input setPlaceholder:[goalInfo objectForKey:kPlaceholderKey]];
+    [cell.inputView.input setTextColor:kColor_WhiteText];
     [cell.contentView setBackgroundColor:kColor_Transparent];
     [cell.inputView.input addTarget:self
                   action:@selector(textFieldDidChange:)

@@ -34,10 +34,7 @@
 
     if (0 < self.borderRadius && self.parentColor) {
         CGBlendMode blendMode = kCGBlendModeNormal;
-        CGFloat alpha = CGColorGetAlpha(self.parentColor.CGColor);
-        
-        //TODO remove
-        alpha = 0.85;
+        CGFloat alpha = 1;
         
         [self.parentColor setFill];
         
@@ -110,7 +107,7 @@
                                                                    self.bounds.size.width - (self.borderWidth *2),
                                                                    self.bounds.size.height - (self.borderWidth * 2))
                                            cornerRadius:self.borderRadius];
-        [aPath fillWithBlendMode:blendMode alpha:CGColorGetAlpha(self.backgroundColor.CGColor)];
+        [aPath fillWithBlendMode:blendMode alpha:alpha];
     }
 
 

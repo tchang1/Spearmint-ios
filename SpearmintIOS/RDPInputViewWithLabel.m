@@ -14,11 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        CGRect inputRectInner = CGRectMake(self.input.frame.origin.x,
-                                           self.input.frame.origin.y,
-                                           self.input.frame.size.width,
-                                           self.input.frame.size.height);
-        [self.input setFrame:inputRectInner];
+
     }
     return self;
 }

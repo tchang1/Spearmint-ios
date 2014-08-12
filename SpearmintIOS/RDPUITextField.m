@@ -39,10 +39,7 @@
 {
     if (0 < self.borderRadius && self.parentColor) {
         CGBlendMode blendMode = kCGBlendModeNormal;
-        CGFloat alpha = CGColorGetAlpha(self.parentColor.CGColor);
-        
-        //TODO remove
-//        alpha = 0.85;
+        CGFloat alpha = 1;
         
         [self.parentColor setFill];
         
@@ -109,9 +106,11 @@
         [aPath removeAllPoints];
         
         //draw background
-        [self.backgroundColor setFill];
-        aPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.borderRadius];
-        [aPath fillWithBlendMode:blendMode alpha:CGColorGetAlpha(self.backgroundColor.CGColor)];
+        if (self.textFieldColor) {
+            [self.textFieldColor setFill];
+            aPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.borderRadius];
+            [aPath fillWithBlendMode:blendMode alpha:alpha];
+        }
     }
 }
 

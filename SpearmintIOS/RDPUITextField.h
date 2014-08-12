@@ -13,5 +13,6 @@
 @property (nonatomic, assign) CGFloat indentAmount;
 @property (nonatomic, assign) CGFloat borderRadius;
 @property (nonatomic, strong) UIColor* parentColor;
+@property (nonatomic, strong) UIColor* textFieldColor;
 
 @end
