@@ -45,6 +45,8 @@
 		5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5569A7D919808617001FC14C /* RDPHTTPClient.m */; };
 		558181A81986F83600390741 /* RDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181A71986F83600390741 /* RDPUser.m */; };
 		558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181AA1987009F00390741 /* RDPSavingEvent.m */; };
+		55DCE1A619994AFF003EA30D /* RDPNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */; };
+		55DCE1A719994AFF003EA30D /* RDPNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */; };
 		58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
 		58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
 		58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
@@ -246,6 +248,8 @@
 		558181A71986F83600390741 /* RDPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUser.m; sourceTree = "<group>"; };
 		558181A91987009F00390741 /* RDPSavingEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSavingEvent.h; sourceTree = "<group>"; };
 		558181AA1987009F00390741 /* RDPSavingEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSavingEvent.m; sourceTree = "<group>"; };
+		55DCE1A419994AFF003EA30D /* RDPNotificationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPNotificationsManager.h; sourceTree = "<group>"; };
+		55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPNotificationsManager.m; sourceTree = "<group>"; };
 		58988F231987065200E05AC5 /* RDPImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcher.h; sourceTree = "<group>"; };
 		58988F241987065200E05AC5 /* RDPImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageFetcher.m; sourceTree = "<group>"; };
 		58988F2A198814D200E05AC5 /* RDPImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageBlur.h; sourceTree = "<group>"; };
@@ -701,6 +705,8 @@
 			children = (
 				F28134261993510500D7E9EF /* RDPAsyncProgressTracker.h */,
 				F28134271993510500D7E9EF /* RDPAsyncProgressTracker.m */,
+				55DCE1A419994AFF003EA30D /* RDPNotificationsManager.h */,
+				55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */,
 				F28134281993510500D7E9EF /* RDPUserService.h */,
 				F28134291993510500D7E9EF /* RDPUserService.m */,
 				551AA636199427430010E65B /* RDPValidationService.h */,
@@ -1042,6 +1048,7 @@
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
 				58988F981992D68A00E05AC5 /* RDPFTUViewController.m in Sources */,
 				F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */,
+				55DCE1A619994AFF003EA30D /* RDPNotificationsManager.m in Sources */,
 				F2FD6F5A19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
 				F2F1CFFA19900E5200438A8A /* RDPTableViewCellWithToggle.m in Sources */,
 				F2F1D0131990420C00438A8A /* RDPSettingsHistoryViewController.m in Sources */,
@@ -1058,6 +1065,7 @@
 				5531CA06198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */,
 				58988FA41994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */,
 				F2F1D0051990301500438A8A /* RDPSettingsFeedbackViewController.m in Sources */,
+				55DCE1A719994AFF003EA30D /* RDPNotificationsManager.m in Sources */,
 				F281343D1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */,
 				F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
 				58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */,

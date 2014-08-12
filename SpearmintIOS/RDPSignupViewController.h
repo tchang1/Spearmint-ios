@@ -17,6 +17,7 @@
 #import "RDPStrings.h"
 #import "RDPUITextField.h"
 #import "RDPGoal.h"
+#import "Mixpanel.h"
 
 @interface RDPSignupViewController : RDPViewController <MBProgressHUDDelegate, RDPHTTPClientDelegate, UITextFieldDelegate> {
 

@@ -93,6 +93,8 @@
 
 - (IBAction)pressAndHold:(UIGestureRecognizer *)recognizer
 {
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    
     switch (recognizer.state)
     {
         case UIGestureRecognizerStateBegan:
@@ -127,6 +129,8 @@
             
             NSNumber *amountSaved = self.counterView.currencyValue;
             BOOL amountHasBeenSaved = ![amountSaved isEqualToNumber:[NSNumber numberWithInt:0]];
+            [mixpanel track:@"User saved" properties:@{@"amount" : amountSaved}];
+
             
             self.settingsButtonView.hidden = NO;
             self.settingsButtonView.duration = 0.75;
@@ -171,6 +175,7 @@
                                  if (amountHasBeenSaved) {
                                      [self createSavingEventForAmount:amountSaved];
                                      [self showCongratsMessage];
+                                     
                                  } else {
                                      self.pressAndHoldGestureRecognizer.enabled = YES;
                                  }

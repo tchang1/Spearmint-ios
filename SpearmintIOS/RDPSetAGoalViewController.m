@@ -45,15 +45,13 @@
         self.suggestion5.hidden = YES;
         self.suggestion6.hidden = YES;
     }
-    
-    
+       
     
     for (RDPSuggestionSquare *square in self.suggestionsView.innerViews) {
         square.parentColor = self.suggestionsView.backgroundColor;
         square.borderWidth = 10;
         square.borderRadius = 5 ;
     }
-    
     
     for (UIButton *button in buttons) {
         // setup the suggestion view
@@ -111,6 +109,9 @@
 
 -(void)nextButtonClicked
 {
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Saved goal in FTU" properties:@{@"name" : self.setAGoalTextField.text}];
+    
     [self.userGoal setGoalName:self.setAGoalTextField.text];
     
     RDPSetAmountViewController *viewController =
@@ -118,13 +119,15 @@
                            bundle:NULL] instantiateViewControllerWithIdentifier:kSetAmount];
     
     viewController.userGoal = self.userGoal;
-
+    
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)addGoalTitle:(UIButton *)button
 {
     self.setAGoalTextField.text = [button.titleLabel.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Chose default goal" properties:@{@"name" : self.setAGoalTextField.text}];
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,6 +14,7 @@
 #import "RDPCongratulations.h"
 #import "RDPSavingSuggestions.h"
 #import "RDPTimerManager.h"
+#import "Mixpanel.h"
 
 @interface RDPHomeViewController : RDPViewController
 
