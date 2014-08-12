@@ -130,6 +130,8 @@
 		F28134391993513200D7E9EF /* RDPUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134331993513200D7E9EF /* RDPUserModel.m */; };
 		F281343C1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */; };
 		F281343D1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */; };
+		F2ACC0D4199AA93B00303C5B /* RDPUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */; };
+		F2ACC0D5199AA93B00303C5B /* RDPUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */; };
 		F2F1CF72198E9E7B00438A8A /* RDPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */; };
 		F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */; };
 		F2F1CF7B198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF79198EB39000438A8A /* RDPTableViewCellWithName.m */; };
@@ -331,6 +333,8 @@
 		F28134331993513200D7E9EF /* RDPUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUserModel.m; sourceTree = "<group>"; };
 		F281343A1993514300D7E9EF /* RDPFlipLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPFlipLeftSegue.h; sourceTree = "<group>"; };
 		F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPFlipLeftSegue.m; sourceTree = "<group>"; };
+		F2ACC0D2199AA93B00303C5B /* RDPUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUITextView.h; sourceTree = "<group>"; };
+		F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUITextView.m; sourceTree = "<group>"; };
 		F2F1CF70198E9E7B00438A8A /* RDPSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSettingsController.h; sourceTree = "<group>"; };
 		F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSettingsController.m; sourceTree = "<group>"; };
 		F2F1CF78198EB39000438A8A /* RDPTableViewCellWithName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTableViewCellWithName.h; sourceTree = "<group>"; };
@@ -606,6 +610,8 @@
 				551AA60C1990B20C0010E65B /* RDPUITextField.h */,
 				551AA60D1990B20C0010E65B /* RDPUITextField.m */,
 				F2F1D007199031AD00438A8A /* RDPFeedbackPanel.m */,
+				F2ACC0D2199AA93B00303C5B /* RDPUITextView.h */,
+				F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1041,6 +1047,7 @@
 				F2F1CFED198FF6C300438A8A /* RDPSettingsGoalViewController.m in Sources */,
 				F2F1D00019902AD500438A8A /* RDPFonts.m in Sources */,
 				F2F1D00D19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */,
+				F2ACC0D4199AA93B00303C5B /* RDPUITextView.m in Sources */,
 				F2F1CFE6198FF18D00438A8A /* RDPInputViewWithLabel.m in Sources */,
 				551AA60E1990B20C0010E65B /* RDPUITextField.m in Sources */,
 				5531CA09198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */,
@@ -1097,6 +1104,7 @@
 				F2F1CFE1198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */,
 				F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */,
 				551AA63519941FB60010E65B /* RDPSignupViewController.m in Sources */,
+				F2ACC0D5199AA93B00303C5B /* RDPUITextView.m in Sources */,
 				58988FAC1994344A00E05AC5 /* RDPCutOutView.m in Sources */,
 				F2F1D01B1990992200438A8A /* RDPCongratulations.m in Sources */,
 				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,

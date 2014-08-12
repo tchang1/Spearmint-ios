@@ -124,6 +124,7 @@
     [cell.inputView.input setPlaceholder:[goalInfo objectForKey:kPlaceholderKey]];
     [cell.inputView.input setTextColor:kColor_WhiteText];
     [cell.contentView setBackgroundColor:kColor_Transparent];
+    cell.inputView.input.delegate = self;
     [cell.inputView.input addTarget:self
                   action:@selector(textFieldDidChange:)
         forControlEvents:UIControlEventEditingChanged];
@@ -144,6 +145,36 @@
     }
     
     return cell;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    RDPResponseCode status;
+    BOOL dirty = NO;
+    BOOL valid = YES;
+    
+    if (kGoalNameTag == textField.tag) {
+        if (![[[[RDPUserService getUser] getGoal] getGoalName] isEqualToString:textField.text]) {
+            dirty = YES;
+            status = [[self.modifiedUser getGoal] setGoalName:textField.text];
+            if (RDPResponseCodeOK != status) {
+                valid = NO;
+            }
+        }
+    }
+    
+    if (dirty && valid) {
+        [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
+            if (RDPResponseCodeOK == response) {
+                self.modifiedUser = [RDPUserService getUser];
+                [self hideSaveButton];
+            }
+        }];
+    }
+    if (valid) {
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
 }
 
 - (BOOL)textFieldDidChange:(UITextField *)textField

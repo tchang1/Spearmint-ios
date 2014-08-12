@@ -8,6 +8,6 @@
 
 #import "RDPViewController.h"
 
-@interface RDPSettingsGoalViewController : RDPViewController <UITableViewDelegate, UITableViewDataSource>
+@interface RDPSettingsGoalViewController : RDPViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @end

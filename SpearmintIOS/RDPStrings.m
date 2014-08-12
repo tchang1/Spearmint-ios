@@ -94,7 +94,7 @@
             result = @"PUSH NOTIFICATIONS";
             break;
         case sFeedback:
-            result = @"Feedback";
+            result = @"FEEDBACK";
             break;
         case sTypeFeedbackHere:
             result = @"Type feedback here...";

@@ -7,11 +7,12 @@
 //
 
 #import "RDPSettingsFeedbackViewController.h"
+#import "RDPUITextView.h"
 
 @interface RDPSettingsFeedbackViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *feedbackHeader;
 @property (weak, nonatomic) IBOutlet UIView *feedbackContainer;
-@property (weak, nonatomic) IBOutlet UITextView *feedbackTextView;
+@property (weak, nonatomic) IBOutlet RDPUITextView *feedbackTextView;
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 
 @end
@@ -34,15 +35,19 @@
     [self.feedbackHeader setTextColor:kColor_DarkText];
     [self.feedbackHeader setText:[RDPStrings stringForID:sFeedback]];
     [self.feedbackContainer setBackgroundColor:kColor_PanelColor];
-    [self.feedbackTextView setBackgroundColor:kColor_InputFieldColor];
 
     [self.submitButton.titleLabel setTextColor:kColor_DarkText];
     [self.submitButton setTintColor:kColor_DarkText];
     [self.submitButton.titleLabel setFont:[RDPFonts fontForID:fMenuFont]];
     [self.submitButton setBackgroundColor:kColor_PanelColor];
     self.feedbackTextView.delegate = self;
+    self.feedbackTextView.textColor = kColor_WhiteText;
+    self.feedbackTextView.parentColor = kColor_PanelColor;
+    self.feedbackTextView.borderRadius = 4;
+    self.feedbackTextView.borderWidth = 0;
+    self.feedbackTextView.backgroundColor = kColor_Transparent;
+    self.feedbackTextView.textFieldColor = kColor_InputFieldColor;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
