@@ -10,8 +10,9 @@
 #import "RDPTimerManager.h"
 #import "RDPHTTPClient.h"
 #import "RDPGoal.h"
-#import "Mixpanel.h"
 #import "RDPNotificationsManager.h"
+#import "RDPAnalyticsModule.h"
+#import "RDPMixpanelAnalyticsProvider.h"
 
 @implementation RDPAppDelegate
 
@@ -34,9 +35,9 @@
 //    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
 //    shadow.shadowColor = [UIColor whiteColor];
     
-    [Mixpanel sharedInstanceWithToken:@"b133e5346052531eec04852182e9ad0f"];
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"App opened" properties:@{@"method" : @"launch" } ];
+    RDPMixpanelAnalyticsProvider *mixpanel= [[RDPMixpanelAnalyticsProvider alloc] init];
+    [RDPAnalyticsModule initializeAnalyticsProviders:@[mixpanel]];
+    [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"launch" } ];
     
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
      setTitleTextAttributes:

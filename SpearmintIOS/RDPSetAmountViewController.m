@@ -8,6 +8,7 @@
 
 #import "RDPSetAmountViewController.h"
 #import "RDPSignupViewController.h"
+#import "RDPAnalyticsModule.h"
 
 #define kStoryboard @"Main"
 #define kSignUp @"signUp"
@@ -81,8 +82,7 @@
 
 -(void)nextButtonClicked
 {
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Saved goal amount in FTU" properties:@{@"amount" : self.setAmountTextField.text}];
+    [RDPAnalyticsModule track:@"Saved goal amount in FTU" properties:@{@"amount" : self.setAmountTextField.text}];
     
     NSNumberFormatter *formatter = [RDPConfig numberFormatter];
     NSNumber *amount = [formatter numberFromString:self.setAmountTextField.text];
@@ -106,8 +106,7 @@
 - (void)addGoalAmount:(UIButton *)button
 {
     self.setAmountTextField.text = button.titleLabel.text;
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Chose default amount" properties:@{@"name" : self.setAmountTextField.text}];
+    [RDPAnalyticsModule track:@"Chose default amount" properties:@{@"name" : self.setAmountTextField.text}];
 }
 
 /*

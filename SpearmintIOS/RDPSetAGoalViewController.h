@@ -13,7 +13,6 @@
 #import "RDPGoal.h"
 #import "RDPSuggestionsView.h"
 #import "RDPSuggestionSquare.h"
-#import "Mixpanel.h"
 
 @interface RDPSetAGoalViewController : RDPViewController 
 

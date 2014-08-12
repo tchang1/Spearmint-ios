@@ -13,6 +13,7 @@
 #import "RDPColors.h"
 #import "RDPStrings.h"
 #import "RDPValidationService.h"
+#import "RDPAnalyticsModule.h"
 
 @interface RDPLoginViewController ()
 
@@ -159,6 +160,10 @@
         HUD.labelText=@"ClientDidLoginYALL!";
         HUD.mode =MBProgressHUDModeText;
         [HUD hide:YES afterDelay:2];
+
+        [RDPAnalyticsModule track:@"Logged In" properties:@{@"username" : username } ];
+        [RDPAnalyticsModule identifyProfile];
+        [RDPAnalyticsModule setProfile:@{@"$email" : self.emailTextField.text}];
         
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -168,6 +173,7 @@
     } failure:^(RDPResponseCode errorCode) {
         HUD.labelText=@"Something bad happened";
         HUD.mode =MBProgressHUDModeText;
+        [RDPAnalyticsModule track:@"Login failed" properties:@{@"username" : username,@"reason" : HUD.labelText } ];
         [HUD hide:YES afterDelay:2];
     }];
 }

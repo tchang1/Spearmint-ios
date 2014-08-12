@@ -10,7 +10,6 @@
 #import "CSAnimationView.h"
 #import "RDPCounter.h"
 #import "RDPViewController.h"
-#import "Mixpanel.h"
 
 @interface RDPFTUViewController : RDPViewController <UINavigationControllerDelegate>
 

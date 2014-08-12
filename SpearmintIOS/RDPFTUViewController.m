@@ -10,6 +10,7 @@
 #import "RDPImageBlur.h"
 #import "RDPStrings.h"
 #import "RDPPushAnimation.h"
+#import "RDPAnalyticsModule.h"
 
 #define kStoryboard @"Main"
 #define kSetGoal @"setGoal"
@@ -93,8 +94,7 @@
 
 - (IBAction)startFTU:(id)sender
 {
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"FTU Started"];
+    [RDPAnalyticsModule track:@"FTU Started"];
     // Fade out the welcome screen
     self.welcomeView.duration = 0.75;
     self.welcomeView.type     = CSAnimationTypeFadeOut;
@@ -259,8 +259,7 @@
 
 -(void)setAGoalTapped
 {
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Set a goal tapped"];
+    [RDPAnalyticsModule track:@"Set a goal tapped"];
     UIViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kSetGoal];

@@ -8,6 +8,7 @@
 
 #import "RDPSignupViewController.h"
 #import "RDPValidationService.h"
+#import "RDPAnalyticsModule.h"
 
 @interface RDPSignupViewController ()
 
@@ -65,8 +66,7 @@
 }
 
 - (IBAction)signupButtonPressed:(id)sender {
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Tried to sign up" properties:@{@"username" : self.emailTextField.text}];
+    [RDPAnalyticsModule track:@"Tried to sign up" properties:@{@"username" : self.emailTextField.text}];
     
     [self.loginButton setAlpha:1];
     BOOL valid=YES;
@@ -156,10 +156,9 @@
         HUD.mode =MBProgressHUDModeText;
         [HUD hide:YES afterDelay:2];
         
-        Mixpanel *mixpanel = [Mixpanel sharedInstance];
-        [mixpanel track:@"Signed up" properties:@{@"username" : self.emailTextField.text}];
-        [mixpanel identify:mixpanel.distinctId];
-        [mixpanel.people set:@{@"Goal Name" : self.userGoal.getGoalName, @"$email" : self.emailTextField.text, @"Goal target amount": self.userGoal.getTargetAmount}];
+        [RDPAnalyticsModule track:@"Signed up" properties:@{@"username" : self.emailTextField.text}];
+        [RDPAnalyticsModule identifyProfile];
+        [RDPAnalyticsModule setProfile:@{@"Goal Name" : self.userGoal.getGoalName, @"$email" : self.emailTextField.text, @"Goal target amount": self.userGoal.getTargetAmount}];
         
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -174,8 +173,7 @@
             HUD.labelText=@"Something bad happened";
         }
         
-        Mixpanel *mixpanel = [Mixpanel sharedInstance];
-        [mixpanel track:@"Signup failed" properties:@{@"username" : self.emailTextField.text, @"reason" : HUD.labelText}];
+        [RDPAnalyticsModule track:@"Signup failed" properties:@{@"username" : self.emailTextField.text, @"reason" : HUD.labelText}];
         
         HUD.mode =MBProgressHUDModeText;
         [HUD hide:YES afterDelay:2];

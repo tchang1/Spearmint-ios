@@ -10,6 +10,7 @@
 #import "RDPColors.h"
 #import "RDPStrings.h"
 #import "RDPSetAmountViewController.h"
+#import "RDPAnalyticsModule.h"
 
 #define kStoryboard @"Main"
 #define kSetAmount @"setAmount"
@@ -109,8 +110,7 @@
 
 -(void)nextButtonClicked
 {
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Saved goal in FTU" properties:@{@"name" : self.setAGoalTextField.text}];
+    [RDPAnalyticsModule track:@"Saved goal in FTU" properties:@{@"name" : self.setAGoalTextField.text}];
     
     [self.userGoal setGoalName:self.setAGoalTextField.text];
     
@@ -126,8 +126,7 @@
 - (void)addGoalTitle:(UIButton *)button
 {
     self.setAGoalTextField.text = [button.titleLabel.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Chose default goal" properties:@{@"name" : self.setAGoalTextField.text}];
+    [RDPAnalyticsModule track:@"Chose default goal" properties:@{@"name" : self.setAGoalTextField.text}];
 }
 
 - (void)didReceiveMemoryWarning

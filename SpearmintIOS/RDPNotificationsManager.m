@@ -23,6 +23,8 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
 
+
+
 +(void)enableDailyNotificationsAtHour:(int)hour{
     
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];

@@ -13,6 +13,7 @@
 #import "RDPPushAnimation.h"
 #import "RDPImageFetcher.h"
 #import "RDPUserService.h"
+#import "RDPAnalyticsModule.h"
 
 
 #define kKeyName                    @"name"
@@ -209,7 +210,7 @@
 {
     if ([segue.identifier isEqualToString:kLogoutSegue]) {
         [RDPUserService logoutWithResponse:^(RDPResponseCode response) {
-            
+            [RDPAnalyticsModule track:@"Logged Out"];
         }];
     }
 }

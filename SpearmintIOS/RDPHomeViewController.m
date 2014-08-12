@@ -13,6 +13,7 @@
 #import "RDPSavingEvent.h"
 #import "RDPUser.h"
 #import "RDPUserService.h"
+#import "RDPAnalyticsModule.h"
 
 #define kSuggestionDisplayDuration 4
 #define kShowCongratsDuration 2500
@@ -93,8 +94,6 @@
 
 - (IBAction)pressAndHold:(UIGestureRecognizer *)recognizer
 {
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    
     switch (recognizer.state)
     {
         case UIGestureRecognizerStateBegan:
@@ -128,8 +127,9 @@
             self.pressAndHoldGestureRecognizer.enabled = NO;
             
             NSNumber *amountSaved = self.counterView.currencyValue;
+            NSLog(@"GestureStateEnded amount: %@",amountSaved);
             BOOL amountHasBeenSaved = ![amountSaved isEqualToNumber:[NSNumber numberWithInt:0]];
-            [mixpanel track:@"User saved" properties:@{@"amount" : amountSaved}];
+            [RDPAnalyticsModule track:@"User saved" properties:@{@"amount" : amountSaved}];
 
             
             self.settingsButtonView.hidden = NO;
