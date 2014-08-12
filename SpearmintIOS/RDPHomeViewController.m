@@ -208,6 +208,9 @@
     RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:amountSaved andReason:@"" andDate:[NSDate date] andLocation:@"" andID:nil];
     RDPUser* modifiedUser = [RDPUserService getUser];
     [[modifiedUser getGoal] addSavingEvent:savingEvent];
+    double amountSavedDouble = [amountSaved doubleValue];
+    double currentAmountDouble = [[[modifiedUser getGoal] getCurrentAmount] doubleValue];
+    [[modifiedUser getGoal] setCurrentAmount:[NSNumber numberWithDouble:(amountSavedDouble + currentAmountDouble)]];
     [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
         NSLog(@"SavingEvent returned with response %i", response);
     }];

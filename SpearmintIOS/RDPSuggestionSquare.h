@@ -11,5 +11,7 @@
 @interface RDPSuggestionSquare : UIView
 
 //@property (nonatomic, strong) UIButton *suggestionButton;
-
+@property (nonatomic, assign) CGFloat borderRadius;
+@property (nonatomic, strong) UIColor* parentColor;
+@property (nonatomic, assign) CGFloat borderWidth; 
 @end

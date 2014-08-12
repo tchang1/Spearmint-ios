@@ -36,7 +36,7 @@
     if (IS_TALL_SCREEN) {
         self.suggestionsView.innerViews = [NSArray arrayWithObjects:self.suggestion1, self.suggestion2, self.suggestion3, self.suggestion4,  self.suggestion5, self.suggestion6, nil];
         buttons = @[self.suggestionButton1, self.suggestionButton2, self.suggestionButton3, self.suggestionButton4, self.suggestionButton5, self.suggestionButton6];
-        buttonTitles = [NSArray arrayWithObjects:@"Go on\n vacation", @"Make extra\n payment", @"Rainy day\n fund", @"Buy a\n computer", @"Weekend\n away", @"Save for\n school", nil];
+        buttonTitles = [NSArray arrayWithObjects:@"Go on\n vacation", @"Pay off\n debt", @"Rainy day\n fund", @"Buy a\n computer", @"Weekend\n away", @"Save for\n school", nil];
     } else { // small screen so remove the last 3 views
         self.suggestionsView.innerViews = [NSArray arrayWithObjects:self.suggestion1, self.suggestion2, self.suggestion3, nil];
         buttons = @[self.suggestionButton1, self.suggestionButton2, self.suggestionButton3];
@@ -46,6 +46,13 @@
         self.suggestion6.hidden = YES;
     }
     
+    
+    
+    for (RDPSuggestionSquare *square in self.suggestionsView.innerViews) {
+        square.parentColor = self.suggestionsView.backgroundColor;
+        square.borderWidth = 10;
+        square.borderRadius = 5 ;
+    }
     
     
     for (UIButton *button in buttons) {

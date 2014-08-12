@@ -41,7 +41,11 @@
         self.suggestion6.hidden = YES;
     }
     
-    
+    for (RDPSuggestionSquare *square in self.suggestionsView.innerViews) {
+        square.parentColor = self.suggestionsView.backgroundColor;
+        square.borderWidth = 10;
+        square.borderRadius = 5 ;
+    }
     
     for (UIButton *button in buttons) {
         [button addTarget:nil action:@selector(addGoalAmount:) forControlEvents:UIControlEventTouchUpInside];

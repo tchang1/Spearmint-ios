@@ -71,7 +71,7 @@
     
     // Set the max value for the first example to 3
     self.counterView.maxValue = 3;
-    self.counterView.rotationsPerSecond = 10; //TODO: delete me
+    self.counterView.rotationsPerSecond = 10; // TODO: remove me
 }
 
 - (void)didReceiveMemoryWarning
@@ -131,6 +131,7 @@
     
     // Set the max value for the first example to 8
     self.counterView.maxValue = 8;
+    //self.counterView.rotationsPerSecond = 1.5;
     
     // Change all the labels
     self.tapAndHoldLabel.text = [RDPStrings stringForID:sBusTapAndHold];
