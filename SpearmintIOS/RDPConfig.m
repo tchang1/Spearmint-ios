@@ -64,7 +64,7 @@ static NSNumberFormatter* numberFormatter;
 {
     if (!numberFormatter) {
         numberFormatter = [[NSNumberFormatter alloc] init];
-        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     }
     return numberFormatter;
 }

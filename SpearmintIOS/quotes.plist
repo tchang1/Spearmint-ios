@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>quote</key>
+		<string>Action is the foundational key to all success.</string>
+		<key>author</key>
+		<string>Pablo Picasso</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>I’m a slow walker, but I never walk back.</string>
+		<key>author</key>
+		<string>Abraham Lincoln</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Life is like riding a bicycle. To keep your balance you must keep moving.</string>
+		<key>author</key>
+		<string>Albert Einstein</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Change your thoughts and you change your world.</string>
+		<key>author</key>
+		<string>Norman Vincent Peale</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Just keep going. Everybody gets better if they keep at it.</string>
+		<key>author</key>
+		<string>Ted Williams</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Choosing a goal and sticking to it changes everything.</string>
+		<key>author</key>
+		<string>Scott Reed</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>The creation of a thousand forests is in one acorn.</string>
+		<key>author</key>
+		<string>Ralph Waldo Emerson</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>The most valuable thing you can make is a mistake – you can’t learn anything from being perfect.</string>
+		<key>author</key>
+		<string>Adam Osborne</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>My best friend is the one who brings out the best in me.</string>
+		<key>author</key>
+		<string>Henry Ford</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Tough times never last, but tough people do.</string>
+		<key>author</key>
+		<string>Dr. Robert Schuller</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>There is only one success: to be able to spend your life in your own way.</string>
+		<key>author</key>
+		<string>Christopher Morley</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>The best time to plant a tree is twenty years ago. The second best time is now.</string>
+		<key>author</key>
+		<string>Chinese Proverb</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>All our dreams can come true if we have the courage to pursue them.</string>
+		<key>author</key>
+		<string>Walt Disney</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Champions keep playing until they get it right.</string>
+		<key>author</key>
+		<string>Billie Jean King</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>I will go anywhere as long as it is forward.</string>
+		<key>author</key>
+		<string>David Livingston</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>The best way out is always through.</string>
+		<key>author</key>
+		<string>Robert Frost</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Every strike brings me closer to the next home run.</string>
+		<key>author</key>
+		<string>Babe Ruth</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Don’t wait. The time will never be just right.</string>
+		<key>author</key>
+		<string>Napoleon Hill</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Everything you’ve ever wanted is on the other side of fear.</string>
+		<key>author</key>
+		<string>George Addair</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>It is never too late to be what you might have been.</string>
+		<key>author</key>
+		<string>George Eliot</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>There are no traffic jams along the extra mile.</string>
+		<key>author</key>
+		<string>Roger Staubach</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Do what you can, where you are, with what you have.</string>
+		<key>author</key>
+		<string>Teddy Roosevelt</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>If there is no struggle, there is no progress.</string>
+		<key>author</key>
+		<string>Frederick Douglass</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Your imagination is your preview of life’s coming attractions.</string>
+		<key>author</key>
+		<string>Albert Einstein</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Even if you fall on your face, you’re still moving forward.</string>
+		<key>author</key>
+		<string>Victor Kiam</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>There are no short cuts to any place worth going.</string>
+		<key>author</key>
+		<string>Beverly Sills</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Very often a change of self is needed more than a change of scene.</string>
+		<key>author</key>
+		<string>Arthur Christopher Benson</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>The power of imagination makes us infinite.</string>
+		<key>author</key>
+		<string>John Muir</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>The best dreams happen when you’re awake.</string>
+		<key>author</key>
+		<string>Cherie Gilderbloom</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Once you choose hope, anything’s possible.</string>
+		<key>author</key>
+		<string>Christopher Reeve</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Believe and act as if it were impossible to fail.</string>
+		<key>author</key>
+		<string>Charles Kettering</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>It wasn’t raining when Noah built the ark.</string>
+		<key>author</key>
+		<string>Howard Ruff</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>The man who moves a mountain begins by carrying away small stones.</string>
+		<key>author</key>
+		<string>Confucious</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>The difference between ordinary and extraordinary is that little extra.</string>
+		<key>author</key>
+		<string>Jimmy Johnson</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Make each day your masterpiece.</string>
+		<key>author</key>
+		<string>John Wooden</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Keep your face to the sunshine and you can never see the shadow.</string>
+		<key>author</key>
+		<string>Helen Keller</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Dream big and dare to fail.</string>
+		<key>author</key>
+		<string>Narman Vaughan</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Seize the day.</string>
+		<key>author</key>
+		<string>Horace</string>
+	</dict>
+	<dict>
+		<key>quote</key>
+		<string>Keep looking forward.</string>
+		<key>author</key>
+		<string>TJ Rohlf</string>
+	</dict>
+</array>
+</plist>

@@ -51,6 +51,10 @@
 		55DCE1AE199AB653003EA30D /* RDPAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1AC199AB653003EA30D /* RDPAnalyticsModule.m */; };
 		55DCE1B1199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B0199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m */; };
 		55DCE1B2199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B0199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m */; };
+		55DCE1B5199C041D003EA30D /* RDPQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B4199C041D003EA30D /* RDPQuotes.m */; };
+		55DCE1B6199C041D003EA30D /* RDPQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B4199C041D003EA30D /* RDPQuotes.m */; };
+		55DCE1B8199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
+		55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
 		58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
 		58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
 		58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
@@ -260,6 +264,9 @@
 		55DCE1AC199AB653003EA30D /* RDPAnalyticsModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPAnalyticsModule.m; sourceTree = "<group>"; };
 		55DCE1AF199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPMixpanelAnalyticsProvider.h; sourceTree = "<group>"; };
 		55DCE1B0199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPMixpanelAnalyticsProvider.m; sourceTree = "<group>"; };
+		55DCE1B3199C041D003EA30D /* RDPQuotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPQuotes.h; sourceTree = "<group>"; };
+		55DCE1B4199C041D003EA30D /* RDPQuotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPQuotes.m; sourceTree = "<group>"; };
+		55DCE1B7199C09B3003EA30D /* quotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quotes.plist; sourceTree = "<group>"; };
 		58988F231987065200E05AC5 /* RDPImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcher.h; sourceTree = "<group>"; };
 		58988F241987065200E05AC5 /* RDPImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageFetcher.m; sourceTree = "<group>"; };
 		58988F2A198814D200E05AC5 /* RDPImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageBlur.h; sourceTree = "<group>"; };
@@ -722,6 +729,9 @@
 				F2208C691989B0BB00EDD6CF /* RDPColors.h */,
 				F2F1CFFE19902AD500438A8A /* RDPFonts.h */,
 				F2F1CFFF19902AD500438A8A /* RDPFonts.m */,
+				55DCE1B7199C09B3003EA30D /* quotes.plist */,
+				55DCE1B3199C041D003EA30D /* RDPQuotes.h */,
+				55DCE1B4199C041D003EA30D /* RDPQuotes.m */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -869,7 +879,7 @@
 				ORGANIZATIONNAME = Spearmint;
 				TargetAttributes = {
 					58F643AD197DA5F6001D0236 = {
-						DevelopmentTeam = YFU53K9D3B;
+						DevelopmentTeam = F6DWWXWEX6;
 					};
 					58F643C8197DA5F6001D0236 = {
 						TestTargetID = 58F643AD197DA5F6001D0236;
@@ -938,6 +948,7 @@
 				551AA6301993FDC10010E65B /* Background_password.png in Resources */,
 				F2F1CFBC198EC2AA00438A8A /* 9.jpg in Resources */,
 				F2F1CF7D198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */,
+				55DCE1B8199C09B3003EA30D /* quotes.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -956,6 +967,7 @@
 				F2F1D0231990993900438A8A /* Settings.png in Resources */,
 				58988F951992D0E300E05AC5 /* (null) in Resources */,
 				58988F9C1993114500E05AC5 /* Keep.png in Resources */,
+				55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */,
 				58F9C891199939E800E325A2 /* Weekend Away.png in Resources */,
 				F2F1CFA9198EC2AA00438A8A /* 4.jpg in Resources */,
 				F2F1D0211990993900438A8A /* Fingerprint.png in Resources */,
@@ -1074,6 +1086,7 @@
 				5531CA09198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */,
 				55DCE1AD199AB653003EA30D /* RDPAnalyticsModule.m in Sources */,
 				F2F1CF7B198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
+				55DCE1B5199C041D003EA30D /* RDPQuotes.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
 				58988F981992D68A00E05AC5 /* RDPFTUViewController.m in Sources */,
 				F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */,
@@ -1128,6 +1141,7 @@
 				F2F1CFE1198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */,
 				F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */,
 				551AA63519941FB60010E65B /* RDPSignupViewController.m in Sources */,
+				55DCE1B6199C041D003EA30D /* RDPQuotes.m in Sources */,
 				F2ACC0D5199AA93B00303C5B /* RDPUITextView.m in Sources */,
 				58988FAC1994344A00E05AC5 /* RDPCutOutView.m in Sources */,
 				F2F1D01B1990992200438A8A /* RDPCongratulations.m in Sources */,

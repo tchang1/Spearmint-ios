@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RDPUser.h"
 
 @interface RDPNotificationsManager : NSObject
 
 +(void)scheduleTestNotificationWithMessage:(NSString*)message after:(int)seconds;
 +(void)clearLocalNotifications;
 +(void)enableLocalNotifications;
-+(void)enableDailyNotificationsAtHour:(int)hour;
++(void)enableNotificationsAtHour:(int)hour;
++(void)scheduleNotificationsBasedOnUser:(RDPUser *)user;
 
 @end
