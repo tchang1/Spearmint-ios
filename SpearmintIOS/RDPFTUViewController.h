@@ -47,6 +47,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
 @property (weak, nonatomic) IBOutlet UILabel *instructionsLabel;
 
+// The release screen view and label
+@property (weak, nonatomic) IBOutlet CSAnimationView *releaseScreenView;
+@property (weak, nonatomic) IBOutlet UILabel *releaseScreenLabel;
+
 // The gesture recognizer
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *pressAndHoldGestureRecognizer;
 

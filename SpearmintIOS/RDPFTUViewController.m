@@ -11,9 +11,29 @@
 #import "RDPStrings.h"
 #import "RDPPushAnimation.h"
 #import "RDPAnalyticsModule.h"
+#import "RDPTimerManager.h"
 
 #define kStoryboard @"Main"
 #define kSetGoal @"setGoal"
+
+#define kFirstExampleImage @"ireland.png"
+#define kSecondExampleImage @"ridge.png"
+
+#define kMinimumPressDuration 0.1
+
+#define kMaxAmountFirstExample 3
+#define kMaxAmountSecondExample 8
+
+#define kFirstExampleSpeed 1
+#define kSecondExampleSpeed 1.5
+#define kTestingSpeed 10
+
+#define kFadeLabelsTime 0.75
+#define kFadeImagesTime 0.75
+
+#define kImageTransitionTime 2.5f
+
+#define kReleaseMessageUpdateBlockName     @"releaseMessageUpdateBlock"
 
 @interface RDPFTUViewController ()
 
@@ -25,11 +45,14 @@
 {
     [super viewDidLoad];
     
+    // Initialize the minimum press duration to be short so it seems more responsive
+    self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
+    
     // Make this view the delegate for the navigation controller
     self.navigationController.delegate = self;
     
     // Initialize the background images
-    UIImage *image = [UIImage imageNamed:@"ireland.png"];
+    UIImage *image = [UIImage imageNamed:kFirstExampleImage];
     self.clearImageView = [[UIImageView alloc] initWithImage:image];
     self.blurredImageView = [[UIImageView alloc] initWithImage:[RDPImageBlur applyBlurOnFTUImage:image]];
     
@@ -52,6 +75,7 @@
     self.counterAndTextView.hidden = YES;
     self.keepHoldingView.hidden = YES;
     self.endExampleView.hidden = YES;
+    self.releaseScreenView.hidden = YES; 
     
     // Set the text for the labels to be the first example
     self.keepSlogan.text = [RDPStrings stringForID:sSlogan];
@@ -60,6 +84,7 @@
     self.counterLabel.text = [RDPStrings stringForID:sCoffeeCounterLabel];
     self.keepHoldingLabel.text = [RDPStrings stringForID:sKeepHolding];
     self.instructionsLabel.text = [RDPStrings stringForID:sAddToGoalInstructions];
+    self.releaseScreenLabel.text = [RDPStrings stringForID:sReleaseMessage1];
     [self.continueButton setTitle:[RDPStrings stringForID:sContinue] forState:UIControlStateNormal];
     
     // Disable the gesture recognizer at first
@@ -71,8 +96,9 @@
     self.hasReachedTargetAmount = NO;
     
     // Set the max value for the first example to 3
-    self.counterView.maxValue = 3;
-    self.counterView.rotationsPerSecond = 10; // TODO: remove me
+    self.counterView.maxValue = kMaxAmountFirstExample;
+    self.counterView.rotationsPerSecond = kTestingSpeed;
+    //self.counterView.rotationsPerSecond = kFirstExampleSpeed;
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,23 +118,52 @@
 }
 */
 
+
+- (void)showReleaseMessage
+{
+    if (!self.onLastExmaple) {
+        if ([self.counterView.currencyValue intValue] == kMaxAmountFirstExample) {
+            self.releaseScreenView.hidden = NO;
+            self.releaseScreenView.duration = kFadeLabelsTime;
+            self.releaseScreenView.type = CSAnimationTypeFadeIn;
+            [self.releaseScreenView startCanvasAnimation];
+            
+            [RDPTimerManager clearUpdateBlockWithName:kReleaseMessageUpdateBlockName];
+        }
+    } else {// we are on the last example
+        if ([self.counterView.currencyValue intValue] == (kMaxAmountSecondExample-3)) {
+            self.releaseScreenView.hidden = NO;
+            self.releaseScreenView.duration = kFadeLabelsTime;
+            self.releaseScreenView.type = CSAnimationTypeFadeIn;
+            [self.releaseScreenView startCanvasAnimation];
+            
+            [RDPTimerManager clearUpdateBlockWithName:kReleaseMessageUpdateBlockName];
+        }
+    }
+}
+
 - (IBAction)startFTU:(id)sender
 {
     [RDPAnalyticsModule track:@"FTU Started"];
     // Fade out the welcome screen
-    self.welcomeView.duration = 0.75;
+    self.welcomeView.duration = kFadeLabelsTime;
     self.welcomeView.type     = CSAnimationTypeFadeOut;
     [self.welcomeView startCanvasAnimation];
     
     // Fade in the first FTU screen
     self.startExampleView.hidden = NO;
-    self.startExampleView.duration = 0.75;
+    self.startExampleView.duration = kFadeLabelsTime;
     self.startExampleView.type = CSAnimationTypeFadeIn;
     self.startExampleView.delay = 1.0;
     [self.startExampleView startCanvasAnimation];
     
     // Enable the gesture recognizer
     self.pressAndHoldGestureRecognizer.enabled = YES;
+    
+    [RDPTimerManager registerUpdateBlock:^(NSInteger milliseconds){
+        [self showReleaseMessage];
+    }
+                                withName:kReleaseMessageUpdateBlockName];
 }
 
 - (IBAction)continueFTU:(id)sender
@@ -122,7 +177,7 @@
     
     // Fade out the first FTU screen
     self.endExampleView.hidden = NO;
-    self.endExampleView.duration = 0.75;
+    self.endExampleView.duration = kFadeLabelsTime;
     self.endExampleView.type = CSAnimationTypeFadeOut;
     [self.endExampleView startCanvasAnimation];
     
@@ -132,27 +187,29 @@
     self.onLastExmaple = YES;
     
     // Set the max value for the first example to 8
-    self.counterView.maxValue = 8;
-    //self.counterView.rotationsPerSecond = 1.5;
+    self.counterView.maxValue = kMaxAmountSecondExample;
+    self.counterView.rotationsPerSecond = kTestingSpeed;
+    //self.counterView.rotationsPerSecond = kSecondExampleSpeed;
     
     // Change all the labels
     self.tapAndHoldLabel.text = [RDPStrings stringForID:sBusTapAndHold];
     self.savingsExampleLabel.text = [RDPStrings stringForID:sBusExmapleHeader];
     self.counterLabel.text = [RDPStrings stringForID:sBusCounterLabel];
     self.keepHoldingLabel.text = [RDPStrings stringForID:sKeepHolding];
+    self.releaseScreenLabel.text = [RDPStrings stringForID:sReleaseMessage2];
     
     self.startExampleView.hidden = NO;
-    self.startExampleView.duration = 0.75;
+    self.startExampleView.duration = kFadeLabelsTime;
     self.startExampleView.delay = 2;
     self.startExampleView.type     = CSAnimationTypeFadeIn;
     [self.startExampleView startCanvasAnimation];
     
     // Slowly transition to the next blurred image
-    UIImage *image = [UIImage imageNamed:@"ridge.png"];
+    UIImage *image = [UIImage imageNamed:kSecondExampleImage];
     self.clearImageView.image = image;
     UIImage *toImage = [RDPImageBlur applyBlurOnFTUImage:image];
     [UIView transitionWithView:self.blurredImageView
-                      duration:2.5f
+                      duration:kImageTransitionTime
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         self.blurredImageView.image = toImage;
@@ -164,6 +221,11 @@
                         
                         self.pressAndHoldGestureRecognizer.enabled = YES;
                     }];
+    
+    [RDPTimerManager registerUpdateBlock:^(NSInteger milliseconds){
+        [self showReleaseMessage];
+    }
+                                withName:kReleaseMessageUpdateBlockName];
 }
 
 - (IBAction)pressAndHold:(UIGestureRecognizer *)recognizer
@@ -172,7 +234,7 @@
     {
         case UIGestureRecognizerStateBegan:
         {
-            [UIView animateWithDuration:0.75 animations:^{
+            [UIView animateWithDuration:kFadeImagesTime animations:^{
                 
                 self.blurredImageView.alpha = 0.0;
                 
@@ -196,10 +258,10 @@
             NSNumber *amountSaved = self.counterView.currencyValue;
             
             if (!self.onLastExmaple) {
-                self.hasReachedTargetAmount = [amountSaved isEqualToNumber:[NSNumber numberWithInt:3]];
+                self.hasReachedTargetAmount = [amountSaved isEqualToNumber:[NSNumber numberWithInt:kMaxAmountFirstExample]];
             }
             else {
-                self.hasReachedTargetAmount = [amountSaved isEqualToNumber:[NSNumber numberWithInt:8]];
+                self.hasReachedTargetAmount = [amountSaved isEqualToNumber:[NSNumber numberWithInt:kMaxAmountSecondExample]];
             }
             
             if (!self.hasReachedTargetAmount) {
@@ -214,14 +276,14 @@
                 }
                 
                 self.keepHoldingView.hidden = NO;
-                self.keepHoldingView.duration = 0.75;
+                self.keepHoldingView.duration = kFadeLabelsTime;
                 self.keepHoldingView.type     = CSAnimationTypeFadeIn;
                 [self.keepHoldingView startCanvasAnimation];
                 
                 self.hasSeenKeepHoldingOnce = YES;
             } else {
                 self.endExampleView.hidden = NO;
-                self.endExampleView.duration = 0.75;
+                self.endExampleView.duration = kFadeLabelsTime;
                 self.endExampleView.type     = CSAnimationTypeFadeIn;
                 [self.endExampleView startCanvasAnimation];
             }
@@ -232,7 +294,9 @@
             [self.counterView stop];
             self.counterAndTextView.hidden = YES;
             
-            [UIView animateWithDuration:0.75 animations:^{
+            self.releaseScreenView.hidden = YES; 
+            
+            [UIView animateWithDuration:kFadeImagesTime animations:^{
                 
                 self.blurredImageView.alpha = 1.0;
             }

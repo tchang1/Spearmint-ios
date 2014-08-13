@@ -17,6 +17,7 @@ typedef enum {
     sSubmitFeedbackAlertText,
     sSubmitFeedbackAlertDismissButton,
     sBack,
+    sNext, 
     sMyGoal,
     sNotificationSettings,
     sSubmitFeedback,
@@ -62,7 +63,15 @@ typedef enum {
     sSetAGoal,
     sGoalAmount,
     sIwant,
-    sWillCost, 
+    sWillCost,
+    sVacation,
+    sDebt,
+    sRainy,
+    sComputer,
+    sWeekend,
+    sSchool,
+    sReleaseMessage1, 
+    sReleaseMessage2
 } RDPStringID;
 
 @interface RDPStrings : NSObject

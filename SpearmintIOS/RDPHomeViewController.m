@@ -18,11 +18,21 @@
 #define kSuggestionDisplayDuration 4
 #define kShowCongratsDuration 2500
 
+#define kMinimumPressDuration 0.2
+
+#define kFadeLabelsTime 0.75
+#define kFadeImagesTime 0.75
+
+#define kImageTransitionTime 3.0f
+
 @implementation RDPHomeViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Initialize the minimum press duration to be short so it seems more responsive
+    self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
     
     // Get the clear and blurred image from the image fetcher
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
@@ -71,12 +81,12 @@
     
     void (^fadeInBlock)(void) = ^{
         // animate the new label into view
-        [UIView animateWithDuration:0.75 animations:^{
+        [UIView animateWithDuration:kFadeLabelsTime animations:^{
             self.suggestionLabel.alpha = 1.0;
         }];
     };
     
-    [UIView animateWithDuration:0.75 animations:^{
+    [UIView animateWithDuration:kFadeLabelsTime animations:^{
         self.suggestionLabel.alpha = 0.0;
     }
                      completion:^(BOOL finished){
@@ -98,7 +108,7 @@
     {
         case UIGestureRecognizerStateBegan:
         {
-            [UIView animateWithDuration:0.75 animations:^{
+            [UIView animateWithDuration:kFadeImagesTime animations:^{
                 
                 self.blurredImageView.alpha = 0.0;
                 
@@ -133,7 +143,7 @@
 
             
             self.settingsButtonView.hidden = NO;
-            self.settingsButtonView.duration = 0.75;
+            self.settingsButtonView.duration = kFadeLabelsTime;
             self.settingsButtonView.type     = CSAnimationTypeFadeIn;
             
             // Kick start the animation immediately
@@ -141,13 +151,13 @@
             
             if (!amountHasBeenSaved) {
                 self.pressAndHoldView.hidden = NO;
-                self.pressAndHoldView.duration = 0.75;
+                self.pressAndHoldView.duration = kFadeLabelsTime;
                 self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                 [self.pressAndHoldView startCanvasAnimation];
                 
                 // Show suggestions
                 self.suggestionView.hidden = NO;
-                self.suggestionView.duration = 0.75;
+                self.suggestionView.duration = kFadeLabelsTime;
                 self.suggestionView.type     = CSAnimationTypeFadeIn;
                 [self.suggestionView startCanvasAnimation];
                 [self startSuggestionsTimer];
@@ -162,12 +172,12 @@
                 
                 self.congratsView.hidden = NO;
                 
-                self.congratsView.duration = 0.75;
+                self.congratsView.duration = kFadeLabelsTime;
                 self.congratsView.type     = CSAnimationTypeFadeIn;
                 [self.congratsView startCanvasAnimation];
             }
             
-            [UIView animateWithDuration:0.75 animations:^{
+            [UIView animateWithDuration:kFadeImagesTime animations:^{
                 
                 self.blurredImageView.alpha = 1.0;
             }
@@ -230,19 +240,19 @@
     // Slowly transition to the next blurred image
     UIImage * toImage = self.imageFetcher.blurredImagesArray[nextIndex];
     [UIView transitionWithView:self.blurredImageView
-                      duration:3.0f
+                      duration:kImageTransitionTime
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
                         self.blurredImageView.image = toImage;
                     } completion:^(BOOL finished){
                         self.pressAndHoldView.hidden = NO;
-                        self.pressAndHoldView.duration = 0.75;
+                        self.pressAndHoldView.duration = kFadeLabelsTime;
                         self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                         [self.pressAndHoldView startCanvasAnimation];
                         
                         // Show suggestions
                         self.suggestionView.hidden = NO;
-                        self.suggestionView.duration = 0.75;
+                        self.suggestionView.duration = kFadeLabelsTime;
                         self.suggestionView.type     = CSAnimationTypeFadeIn;
                         [self.suggestionView startCanvasAnimation];
                         [self startSuggestionsTimer];

@@ -39,6 +39,9 @@
         case sBack:
             result = @"Back";
             break;
+        case sNext:
+            result = @"Next";
+            break;
         case sHistory:
             result = @"History";
             break;
@@ -176,7 +179,31 @@
             break;
         case sWillCost:
             result = @"This will cost..";
-            break;  
+            break;
+        case sVacation:
+            result = @"Go on\n vacation";
+            break;
+        case sDebt:
+            result = @"Pay off\n debt";
+            break;
+        case sRainy:
+            result = @"Rainy day\n fund";
+            break;
+        case sComputer:
+            result = @"Buy a\n computer";
+            break;
+        case sWeekend:
+            result = @"Weekend\n away";
+            break;
+        case sSchool:
+            result = @"Textbooks";
+            break;
+        case sReleaseMessage1:
+            result = @"Release the screen";
+            break;
+        case sReleaseMessage2:
+            result = @"When the timer reaches\n the amount you Kept\n release the screen";
+            break;
 }
     
     return result;

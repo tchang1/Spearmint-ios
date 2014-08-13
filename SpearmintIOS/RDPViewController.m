@@ -9,6 +9,8 @@
 #import "RDPViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define kStatusBarViewTag 4357
+
 @interface RDPViewController ()
 
 @property (nonatomic, strong)UIView* statusBarBackground;
@@ -50,12 +52,19 @@
 
         [self.navigationController.view addSubview:self.statusBarBackground];
         self.statusBarBackground.layer.zPosition = MAXFLOAT;
+        self.statusBarBackground.tag = kStatusBarViewTag;
     }
     
     [self.statusBarBackground setBackgroundColor:color];
     [self.navigationController.navigationBar setBackgroundColor:color];
 }
 
+-(void)removeStatusBar
+{
+    UIView *statusBarBackground = [self.navigationController.view viewWithTag:kStatusBarViewTag];
+    [statusBarBackground removeFromSuperview];
+
+}
 /*
 #pragma mark - Navigation
 

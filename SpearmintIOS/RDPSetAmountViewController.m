@@ -12,6 +12,12 @@
 
 #define kStoryboard @"Main"
 #define kSignUp @"signUp"
+#define kIndentAmount 20
+#define kBorderWidth 1
+#define kBorderRadius 5
+#define k100 @"100"
+#define k500 @"500"
+#define k1000 @"1000"
 
 #define IS_TALL_SCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
@@ -34,9 +40,9 @@
     } else { // small screen so remove the last 3 views
         self.suggestionsView.innerViews = [NSArray arrayWithObjects:self.suggestion1, self.suggestion2, self.suggestion3, nil];
         buttons = @[self.suggestionButton1, self.suggestionButton2, self.suggestionButton3];
-        [self.suggestionButton1 setTitle:@"100" forState:UIControlStateNormal];
-        [self.suggestionButton2 setTitle:@"500" forState:UIControlStateNormal];
-        [self.suggestionButton3 setTitle:@"1000" forState:UIControlStateNormal];
+        [self.suggestionButton1 setTitle:k100 forState:UIControlStateNormal];
+        [self.suggestionButton2 setTitle:k500 forState:UIControlStateNormal];
+        [self.suggestionButton3 setTitle:k1000 forState:UIControlStateNormal];
         self.suggestion4.hidden = YES;
         self.suggestion5.hidden = YES;
         self.suggestion6.hidden = YES;
@@ -44,8 +50,8 @@
     
     for (RDPSuggestionSquare *square in self.suggestionsView.innerViews) {
         square.parentColor = self.suggestionsView.backgroundColor;
-        square.borderWidth = 10;
-        square.borderRadius = 5 ;
+        square.borderWidth = kBorderWidth;
+        square.borderRadius = kBorderRadius;
     }
     
     for (UIButton *button in buttons) {
@@ -53,13 +59,13 @@
     }
     
     // setup the cut out view
-    self.setAmountTextField.indentAmount = 20;
+    self.setAmountTextField.indentAmount = kIndentAmount;
     self.cutOutView.innerView = self.setAmountTextField;
+    self.setAmountTextField.borderRadius = kBorderRadius;
+    self.setAmountTextField.parentColor = self.cutOutView.backgroundColor;
     
     // Show the navigation bar with the back button
     [self.navigationItem setHidesBackButton:NO];
-    
-    
     [self addNavigationBarButton];
     
 
@@ -75,7 +81,7 @@
 
 -(void)addNavigationBarButton{
     UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:
-                                   @"Next" style:UIBarButtonItemStylePlain target:
+                                   [RDPStrings stringForID:sNext] style:UIBarButtonItemStylePlain target:
                                    self action:@selector(nextButtonClicked)];
     [self.navigationItem setRightBarButtonItem:nextButton];
 }

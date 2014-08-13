@@ -51,6 +51,8 @@
     self.passwordStatusLabel.alpha=0;
 
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    [self removeStatusBar];
 
     
 }
@@ -184,6 +186,11 @@
 	// Remove HUD from screen when the HUD was hidded
 	[HUD removeFromSuperview];
 	HUD = nil;
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 /*
