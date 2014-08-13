@@ -14,6 +14,15 @@
 #import "RDPUser.h"
 #import "RDPUserService.h"
 #import "RDPAnalyticsModule.h"
+#import "RDPProgressHeader.h"
+
+#define kScreenHeight  [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth 320
+#define kTextInputHeight 60
+#define kContentHeight  (kScreenHeight * 2) + kTextInputHeight
+
+#define kIndentAmount 10
+#define kBorderRadius 5
 
 #define kSuggestionDisplayDuration 4
 #define kShowCongratsDuration 2500
@@ -39,6 +48,41 @@
     int index = self.imageFetcher.indexOfImageArray;
     self.clearImageView.image = self.imageFetcher.clearImagesArray[index];
     self.blurredImageView.image = self.imageFetcher.blurredImagesArray[index];
+    
+    // Setup the scroll view
+    [self.scrollView setScrollEnabled:YES];
+    [self.scrollView setContentSize:CGSizeMake(kScreenWidth, kContentHeight)];
+    CGPoint point = CGPointMake(0, kTextInputHeight);
+    [self.scrollView setContentOffset:point];
+    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    self.screenMode = OnSaveScreen;
+    self.scrollView.delegate = self;
+    
+    // Setup the cut out view with text field
+    self.savingsTextField.indentAmount = kIndentAmount;
+    self.cutOutView.innerView = self.savingsTextField;
+    self.savingsTextField.borderRadius = kBorderRadius;
+    self.savingsTextField.parentColor = self.cutOutView.backgroundColor;
+    NSString *savedBy = @"I saved by...";
+    self.savingsTextField.attributedPlaceholder = [[NSAttributedString alloc]
+                                                   initWithString:savedBy
+                                                   attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
+                                                                NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+    
+    // Setup the progress view within scroll view
+    CGRect  viewRect = CGRectMake(0, kScreenHeight+kTextInputHeight, kScreenWidth, 100);
+    UIView *containerView = [[UIView alloc] initWithFrame:viewRect];
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"RDPProgressHeader" owner:self options:nil];
+    RDPProgressHeader *progressHeader = [topLevelObjects objectAtIndex:0];
+    progressHeader.goalTitleLabel.text = [[[RDPUserService getUser] getGoal] getGoalName];
+    
+    NSString *targetAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getTargetAmount]];
+    NSString *keptAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getCurrentAmount]];
+    progressHeader.goalAmountLabel.text = [@"GOAL " stringByAppendingString:targetAmount];
+    progressHeader.keptAmountLabel.text = [@"KEPT " stringByAppendingString:keptAmount];
+    
+    [containerView addSubview:progressHeader];
+    [self.scrollView addSubview:containerView];
     
     // Hide the counter
     self.counterView.hidden = YES;
@@ -96,10 +140,75 @@
     
 }
 
-- (void)didReceiveMemoryWarning
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self scrollToNextPoint];
+}
+
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        [self scrollToNextPoint];
+    }
+}
+
+- (void)scrollToNextPoint
+{
+    CGFloat breakPointTop = kTextInputHeight - 10;
+    CGFloat breakPointMiddle = kTextInputHeight + (kScreenHeight/4);
+    CGFloat breakPointBottom = kTextInputHeight + (3*kScreenHeight/4);
+    
+    if (self.screenMode == OnRecordScreen && self.scrollView.contentOffset.y > 0) { // At record view any scroll should take us to saving screen
+        [self goToSaveView];
+    }
+    else if (self.screenMode == OnSaveScreen) {
+        if (self.scrollView.contentOffset.y < breakPointTop) {
+            [self goToRecordView];
+        }
+        else if (self.scrollView.contentOffset.y > breakPointTop && self.scrollView.contentOffset.y < breakPointMiddle) {
+            [self goToSaveView];
+        }
+        else {
+            [self goToRecordView];
+        }
+    }
+    else if (self.screenMode == OnProgressView) {
+        if (self.scrollView.contentOffset.y < breakPointBottom) {
+            [self goToSaveView];
+        }
+        else {
+            [self goToProgressView];
+        }
+    }
+}
+
+- (void)goToSaveView
+{
+    self.pressAndHoldGestureRecognizer.enabled = YES;
+    [self.scrollView setContentOffset:CGPointMake(0, kTextInputHeight) animated:YES];
+    [self.savingsTextField resignFirstResponder];
+    if (self.suggestionTimer == nil) {
+        [self startSuggestionsTimer];
+    }
+    self.settingsButtonView.hidden = NO;
+    self.screenMode = OnSaveScreen;
+}
+
+- (void)goToRecordView
+{
+    self.pressAndHoldGestureRecognizer.enabled = NO;
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
+    [self.savingsTextField becomeFirstResponder];
+    [self stopSuggestionsTimer];
+    self.settingsButtonView.hidden = YES;
+    self.screenMode = OnRecordScreen;
+}
+
+- (void)goToProgressView
+{
+    self.pressAndHoldGestureRecognizer.enabled = NO;
+    [self.scrollView setContentOffset:CGPointMake(0, kScreenHeight + kTextInputHeight) animated:YES];
+    self.screenMode = OnProgressView;
 }
 
 - (IBAction)pressAndHold:(UIGestureRecognizer *)recognizer
@@ -187,12 +296,14 @@
                                      [self showCongratsMessage];
                                      
                                  } else {
-                                     self.pressAndHoldGestureRecognizer.enabled = YES;
+                                     if (self.screenMode == OnSaveScreen) {
+                                         self.pressAndHoldGestureRecognizer.enabled = YES;
+                                     }
                                  }
                              }];
             
             [self.counterView stop];
-            [self.counterView hide];
+            self.counterView.hidden = YES;
             // Reset the counter
             [self.counterView reset];
             
@@ -257,7 +368,9 @@
                         [self.suggestionView startCanvasAnimation];
                         [self startSuggestionsTimer];
                         
-                        self.pressAndHoldGestureRecognizer.enabled = YES;
+                        if (self.screenMode == OnSaveScreen) {
+                            self.pressAndHoldGestureRecognizer.enabled = YES;
+                        }
                     }];
     
     // Update the index for the images array
@@ -271,6 +384,12 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 /*

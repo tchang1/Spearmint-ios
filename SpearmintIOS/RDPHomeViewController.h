@@ -14,13 +14,29 @@
 #import "RDPCongratulations.h"
 #import "RDPSavingSuggestions.h"
 #import "RDPTimerManager.h"
+#import "RDPCutOutView.h"
+#import "RDPUITextField.h"
 
-@interface RDPHomeViewController : RDPViewController
+
+typedef enum HomeScreenMode {
+    OnRecordScreen,
+    OnSaveScreen,
+    OnProgressView,
+} HomeScreenMode;
+
+@interface RDPHomeViewController : RDPViewController <UIScrollViewDelegate>
 
 // The image views that contain the clear and blurred version of
 // the image to display to users on the home screen.
 @property (weak, nonatomic) IBOutlet UIImageView *clearImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *blurredImageView;
+
+// The scroll view that contains all the content except the images
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+// The input field to record why you saved
+@property (weak, nonatomic) IBOutlet RDPCutOutView *cutOutView;
+@property (weak, nonatomic) IBOutlet RDPUITextField *savingsTextField;
 
 // Press and hold to save view and label
 @property (weak, nonatomic) IBOutlet CSAnimationView *pressAndHoldView;
@@ -55,6 +71,9 @@
 @property (strong, nonatomic) RDPSavingSuggestions *suggestions;
 @property (nonatomic, assign) int suggestionIndex;
 @property (nonatomic, strong) NSTimer *suggestionTimer;
+
+// Keep track of the view
+@property HomeScreenMode screenMode; 
 
 /**
  Fades our the blurred image to reveal the clear image when a user holds the screen

@@ -55,6 +55,10 @@
 		55DCE1B6199C041D003EA30D /* RDPQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B4199C041D003EA30D /* RDPQuotes.m */; };
 		55DCE1B8199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
 		55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
+		5849BC76199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
+		5849BC77199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
+		5849BC7A199C1E91008BAEBF /* RDPProgressHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */; };
+		5849BC7B199C1E91008BAEBF /* RDPProgressHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */; };
 		58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
 		58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
 		58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
@@ -267,6 +271,9 @@
 		55DCE1B3199C041D003EA30D /* RDPQuotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPQuotes.h; sourceTree = "<group>"; };
 		55DCE1B4199C041D003EA30D /* RDPQuotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPQuotes.m; sourceTree = "<group>"; };
 		55DCE1B7199C09B3003EA30D /* quotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quotes.plist; sourceTree = "<group>"; };
+		5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPProgressHeader.xib; sourceTree = "<group>"; };
+		5849BC78199C1E91008BAEBF /* RDPProgressHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProgressHeader.h; sourceTree = "<group>"; };
+		5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProgressHeader.m; sourceTree = "<group>"; };
 		58988F231987065200E05AC5 /* RDPImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcher.h; sourceTree = "<group>"; };
 		58988F241987065200E05AC5 /* RDPImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageFetcher.m; sourceTree = "<group>"; };
 		58988F2A198814D200E05AC5 /* RDPImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageBlur.h; sourceTree = "<group>"; };
@@ -416,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58988F81198EF2BD00E05AC5 /* Accelerate.framework in Frameworks */,
+				5849BC73199BE5B2008BAEBF /* Reveal.framework in Frameworks */,
 				58988F4619881C1300E05AC5 /* QuartzCore.framework in Frameworks */,
 				58988F4419881C0000E05AC5 /* AVFoundation.framework in Frameworks */,
 				58988F4219881BF300E05AC5 /* OpenGLES.framework in Frameworks */,
@@ -435,6 +443,7 @@
 				58F643CB197DA5F6001D0236 /* XCTest.framework in Frameworks */,
 				58F643CD197DA5F6001D0236 /* UIKit.framework in Frameworks */,
 				58F643CC197DA5F6001D0236 /* Foundation.framework in Frameworks */,
+				5849BC74199BE5B2008BAEBF /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +517,7 @@
 		58F643B0197DA5F6001D0236 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5849BC72199BE5B2008BAEBF /* Reveal.framework */,
 				58988F80198EF2BD00E05AC5 /* Accelerate.framework */,
 				58988F4519881C1300E05AC5 /* QuartzCore.framework */,
 				58988F4319881C0000E05AC5 /* AVFoundation.framework */,
@@ -638,6 +648,9 @@
 				F2F1D007199031AD00438A8A /* RDPFeedbackPanel.m */,
 				F2ACC0D2199AA93B00303C5B /* RDPUITextView.h */,
 				F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */,
+				5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */,
+				5849BC78199C1E91008BAEBF /* RDPProgressHeader.h */,
+				5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -943,6 +956,7 @@
 				F2F1CFAC198EC2AA00438A8A /* 5.jpg in Resources */,
 				58988F941992D0E300E05AC5 /* (null) in Resources */,
 				F2F1CFFC19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */,
+				5849BC76199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */,
 				58F9C886199939E800E325A2 /* Checkbook.png in Resources */,
 				551AA6181992AE390010E65B /* RDPInputViewWithImage.xib in Resources */,
 				551AA6301993FDC10010E65B /* Background_password.png in Resources */,
@@ -983,6 +997,7 @@
 				F2F1CFA5198EC2AA00438A8A /* 3.jpg in Resources */,
 				5560B8E1199098F80023691B /* (null) in Resources */,
 				58F643D5197DA5F6001D0236 /* InfoPlist.strings in Resources */,
+				5849BC77199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */,
 				F2F1CFBD198EC2AA00438A8A /* 9.jpg in Resources */,
 				F2F1CFB1198EC2AA00438A8A /* 6.jpg in Resources */,
 				F2F1CFFD19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */,
@@ -1037,6 +1052,7 @@
 			files = (
 				F2813421199350D700D7E9EF /* RDPErrorCodes.m in Sources */,
 				58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */,
+				5849BC7A199C1E91008BAEBF /* RDPProgressHeader.m in Sources */,
 				58F643BE197DA5F6001D0236 /* main.m in Sources */,
 				F281342C1993510500D7E9EF /* RDPUserService.m in Sources */,
 				F281343C1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */,
@@ -1155,6 +1171,7 @@
 				F2F1D01D1990992200438A8A /* RDPSavingSuggestions.m in Sources */,
 				F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
 				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
+				5849BC7B199C1E91008BAEBF /* RDPProgressHeader.m in Sources */,
 				58988F991992D68A00E05AC5 /* RDPFTUViewController.m in Sources */,
 				F2F1CFE7198FF18D00438A8A /* RDPInputViewWithLabel.m in Sources */,
 				F2F1D00E19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */,
@@ -1329,6 +1346,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
@@ -1351,6 +1369,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";

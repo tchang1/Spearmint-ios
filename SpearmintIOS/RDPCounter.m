@@ -34,7 +34,6 @@
 
 @interface RDPCounter()
 
-@property CGRect frame;
 @property (nonatomic, readonly) UIColor* currentColor;
 @property (nonatomic, readonly) UIColor* previousColor;
 @property (nonatomic) NSInteger currentColorIndex;
@@ -60,11 +59,6 @@
     return self;
 }
 
-- (id)init
-{
-    return [self initWithFrame:CGRectMake(300.0f,300.0f,kDefaultWidth, kDefaultHeight)];
-}
-
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -79,7 +73,6 @@
     self.lineWidth = kDefaultLineWidth;
     self.padding = kDefaultPadding;
     self.incrementAmount = kDefaultIncrementAmount;
-    self.backgroundColor = [UIColor redColor];
     self.rotationsPerSecond = kDefaultRevsPerSec;
     self.backgroundColor = [UIColor clearColor];
     self.font = [UIFont fontWithName:kDefaultFontName size:kDefaultFontSize];
@@ -139,7 +132,7 @@
 
 - (void)calculateSize
 {
-    self.radius = (self.frame.size.height / 2) - self.padding - (self.lineWidth/2);
+    self.radius = (self.bounds.size.height / 2) - self.padding - (self.lineWidth/2);
 }
 
 - (void)setPadding:(double)padding
@@ -240,7 +233,7 @@
         CGMutablePathRef path = CGPathCreateMutable();
         CGContextSetLineWidth(context, self.lineWidth);
         
-        CGPathAddArc(path, NULL, self.frame.size.width/2, self.frame.size.height/2, self.radius + self.lineWidth/2, self.startAngle, self.startAngle - 0.0001, 0);
+        CGPathAddArc(path, NULL, self.bounds.size.width/2, self.bounds.size.height/2, self.radius + self.lineWidth/2, self.startAngle, self.startAngle - 0.0001, 0);
         CGContextAddPath(context, path);
         CGContextFillPath(context);
         CGPathRelease(path);
@@ -267,7 +260,7 @@
     CGMutablePathRef path = CGPathCreateMutable();
     CGContextSetLineWidth(context, self.lineWidth);
     
-    CGPathAddArc(path, NULL, self.frame.size.width/2, self.frame.size.height/2, self.radius, start, end, 0);
+    CGPathAddArc(path, NULL, self.bounds.size.width/2, self.bounds.size.height/2, self.radius, start, end, 0);
     CGContextAddPath(context, path);
     CGContextStrokePath(context);
     CGPathRelease(path);
@@ -282,8 +275,8 @@
                          @{NSFontAttributeName: self.font}];
     CGSize symbolSize = [self.currencySymbol sizeWithAttributes:
                          @{NSFontAttributeName: self.currencySymbolFont}];
-    NSInteger currencySymbolXPos = self.frame.size.width / 2 - ((numberSize.width + symbolSize.width + kNumberOffsetX) / 2) + kTextOffsetX;
-    NSInteger currencySymbolYPos = self.frame.size.height / 2 - (numberSize.height / 2) + kTextOffsetY;
+    NSInteger currencySymbolXPos = self.bounds.size.width / 2 - ((numberSize.width + symbolSize.width + kNumberOffsetX) / 2) + kTextOffsetX;
+    NSInteger currencySymbolYPos = self.bounds.size.height / 2 - (numberSize.height / 2) + kTextOffsetY;
     
     NSInteger numberXPos = currencySymbolXPos + kNumberOffsetX;
     NSInteger numberYPos = currencySymbolYPos + kNumberOffsetY;
