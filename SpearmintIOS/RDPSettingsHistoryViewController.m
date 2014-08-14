@@ -78,35 +78,40 @@
 - (NSArray*) savings
 {
     if (!_savings) {
-        NSMutableArray* savings = [[NSMutableArray alloc] init];
-        NSArray* savingEventsModelBackwards = [[[RDPUserService getUser] getGoal] getSavingEvents];
-        NSMutableArray* savingEventsModel = [[NSMutableArray alloc] init];
-        for (NSInteger i = [savingEventsModelBackwards count] - 1; i >= 0; i--) {
-            [savingEventsModel addObject:[savingEventsModelBackwards objectAtIndex:i]];
-        }
-        for (NSInteger i = 0; i < [savingEventsModel count]; i++) {
-            RDPSavingEvent* savingEvent = [savingEventsModel objectAtIndex:i];
-            if (!savingEvent.deleted) {
-                NSMutableArray* savingEventsForDay = [[NSMutableArray alloc] init];
-                NSMutableDictionary* savingSection = [NSMutableDictionary dictionaryWithDictionary:
-                                                      @{kSectionTitleKey: [self stringForDate:savingEvent.date]}
-                                                      ];
-                [savingEventsForDay addObject:[self savingDictionaryFromSavingEvent:savingEvent andTag:i]];
-                while (i+1 < [savingEventsModel count] && [savingEvent.date isEqualToDateIgnoringTime:[[savingEventsModel objectAtIndex:(i+1)] date]]) {
-                    savingEvent = [savingEventsModel objectAtIndex:(i+1)];
-                    if (!savingEvent.deleted) {
-                        [savingEventsForDay addObject:[self savingDictionaryFromSavingEvent:savingEvent andTag:i]];
-                    }
-                    i++;
-                }
-                [savingSection setObject:[savingEventsForDay copy] forKey:kSavingsEventsKey];
-                [savings addObject:savingSection];
-            }
-        }
-        _savings = [savings copy];
+        [self loadSavings];
     }
     
     return _savings;
+}
+
+-(void)loadSavings
+{
+    NSMutableArray* savings = [[NSMutableArray alloc] init];
+    NSArray* savingEventsModelBackwards = [[[RDPUserService getUser] getGoal] getSavingEvents];
+    NSMutableArray* savingEventsModel = [[NSMutableArray alloc] init];
+    for (NSInteger i = [savingEventsModelBackwards count] - 1; i >= 0; i--) {
+        [savingEventsModel addObject:[savingEventsModelBackwards objectAtIndex:i]];
+    }
+    for (NSInteger i = 0; i < [savingEventsModel count]; i++) {
+        RDPSavingEvent* savingEvent = [savingEventsModel objectAtIndex:i];
+        if (!savingEvent.deleted) {
+            NSMutableArray* savingEventsForDay = [[NSMutableArray alloc] init];
+            NSMutableDictionary* savingSection = [NSMutableDictionary dictionaryWithDictionary:
+                                                  @{kSectionTitleKey: [self stringForDate:savingEvent.date]}
+                                                  ];
+            [savingEventsForDay addObject:[self savingDictionaryFromSavingEvent:savingEvent andTag:i]];
+            while (i+1 < [savingEventsModel count] && [savingEvent.date isEqualToDateIgnoringTime:[[savingEventsModel objectAtIndex:(i+1)] date]]) {
+                savingEvent = [savingEventsModel objectAtIndex:(i+1)];
+                if (!savingEvent.deleted) {
+                    [savingEventsForDay addObject:[self savingDictionaryFromSavingEvent:savingEvent andTag:i]];
+                }
+                i++;
+            }
+            [savingSection setObject:[savingEventsForDay copy] forKey:kSavingsEventsKey];
+            [savings addObject:savingSection];
+        }
+    }
+    _savings = [savings copy];
 }
 
 -(NSDictionary*) savingDictionaryFromSavingEvent:(RDPSavingEvent*)savingEvent andTag:(NSInteger)tag
@@ -315,7 +320,7 @@
         NSArray* savingsArray = [[self.savings objectAtIndex:i] objectForKey:kSavingsEventsKey];
         for (NSInteger j = 0; j < [savingsArray count]; j++) {
             if (textField.tag == [[[savingsArray objectAtIndex:j] objectForKey:kSavingTagKey] integerValue]) {
-                [self updatingSavingEventWithID:[savingsArray objectAtIndex:j] withNewReason:textField.text];
+                [self updatingSavingEventWithID:[[savingsArray objectAtIndex:j] objectForKey:kSavingIDKey] withNewReason:textField.text];
                 break;
             }
         }
@@ -331,11 +336,17 @@
             RDPUser* updatedUser = [RDPUserService getUser];
             [[updatedUser getGoal] setSavingEvents:[newSavings copy]];
             [RDPUserService saveUser:updatedUser withResponse:^(RDPResponseCode response) {
-                
+                [self loadSavings];
             }];
             break;
         }
     }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField

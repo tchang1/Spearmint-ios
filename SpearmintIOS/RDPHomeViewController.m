@@ -15,10 +15,39 @@
 #import "RDPUserService.h"
 #import "RDPAnalyticsModule.h"
 #import "RDPProgressHeader.h"
+#import "NSDate+Utilities.h"
+#import "RDPTableViewSavingsCell.h"
+
+#define kCellXibName                    @"RDPTableViewSavingsCell"
+#define kCellReusableIdentifier         @"SavingsCell"
+
+#define kSectionTitleKey                @"title"
+#define kEarliestDateKey                @"earliestDate"
+#define kLatestDateKey                  @"latestDate"
+#define kSavingsEventsKey               @"savingEvents"
+
+#define kAmountKey                      @"amount"
+#define kReasonKey                      @"reason"
+#define kTimeAndPlaceKey                @"timeAndPlaceKey"
+#define kSavingIDKey                    @"savingID"
+#define kSavingTagKey                   @"tag"
+
+#define kSavingCellHeight               50
+#define kHeaderSectionHeight            40
+#define kUndoButtonIndex                1
+#define kCancelButtonIndex              0
+#define kHeaderSectionLabelMarginX      20
+#define kHeaderSectionLabelMarginY      0
+#define kHeaderSectionMargin            0
+#define kHeaderBorderBottomWidth        2
+#define kCellBorderBottomWidth          1
+#define kHeaderBorderMargin             10
+#define kCellBorderMargin               20
 
 #define kScreenHeight  [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth 320
 #define kTextInputHeight 60
+#define kProgressHeaderHeight 80
 #define kContentHeight  (kScreenHeight * 2) + kTextInputHeight
 
 #define kArrowImage @"DownArrow.png"
@@ -36,6 +65,17 @@
 #define kFadeImagesTime 0.75
 
 #define kImageTransitionTime 3.0f
+
+@interface RDPHomeViewController ()
+@property (strong, nonatomic) UITableView *tableView;
+@property (weak, nonatomic) NSString* currentSavingID;
+@property (strong, nonatomic)NSArray* sortingKey;
+@property (nonatomic, strong)NSArray* savings;
+@property (nonatomic, weak)UITextField* currentTextField;
+
+//@property (strong, nonatomic) NSArray* savings;
+
+@end
 
 @implementation RDPHomeViewController
 
@@ -99,6 +139,18 @@
     [progressHeader setFrame:viewRect];
     [self.scrollView addSubview:progressHeader];
     
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                   kScreenHeight + kTextInputHeight + kProgressHeaderHeight,
+                                                                   kScreenWidth,
+                                                                   kScreenHeight - kProgressHeaderHeight)];
+    [self.scrollView addSubview:self.tableView];
+    [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView setBackgroundColor:kColor_Transparent];
+    self.tableView.alwaysBounceVertical = NO;
+    
     // Hide the counter
     self.counterView.hidden = YES;
     
@@ -116,6 +168,89 @@
     [self.suggestions getNextSuggestionMessages];
     self.suggestionLabel.text = self.suggestions.suggestionMessages[self.suggestionIndex];
     [self startSuggestionsTimer];
+}
+
+- (NSArray*) savings
+{
+    if (!_savings) {
+        [self loadSavings];
+    }
+    
+    return _savings;
+}
+
+-(void)loadSavings
+{
+    NSMutableArray* savings = [[NSMutableArray alloc] init];
+    NSArray* savingEventsModelBackwards = [[[RDPUserService getUser] getGoal] getSavingEvents];
+    NSMutableArray* savingEventsModel = [[NSMutableArray alloc] init];
+    for (NSInteger i = [savingEventsModelBackwards count] - 1; i >= 0; i--) {
+        [savingEventsModel addObject:[savingEventsModelBackwards objectAtIndex:i]];
+    }
+    for (NSInteger i = 0; i < [savingEventsModel count]; i++) {
+        RDPSavingEvent* savingEvent = [savingEventsModel objectAtIndex:i];
+        if (!savingEvent.deleted) {
+            NSMutableArray* savingEventsForDay = [[NSMutableArray alloc] init];
+            NSMutableDictionary* savingSection = [NSMutableDictionary dictionaryWithDictionary:
+                                                  @{kSectionTitleKey: [self stringForDate:savingEvent.date]}
+                                                  ];
+            [savingEventsForDay addObject:[self savingDictionaryFromSavingEvent:savingEvent andTag:i]];
+            while (i+1 < [savingEventsModel count] && [savingEvent.date isEqualToDateIgnoringTime:[[savingEventsModel objectAtIndex:(i+1)] date]]) {
+                savingEvent = [savingEventsModel objectAtIndex:(i+1)];
+                if (!savingEvent.deleted) {
+                    [savingEventsForDay addObject:[self savingDictionaryFromSavingEvent:savingEvent andTag:i]];
+                }
+                i++;
+            }
+            [savingSection setObject:[savingEventsForDay copy] forKey:kSavingsEventsKey];
+            [savings addObject:savingSection];
+        }
+    }
+    _savings = [savings copy];
+}
+
+-(NSDictionary*) savingDictionaryFromSavingEvent:(RDPSavingEvent*)savingEvent andTag:(NSInteger)tag
+{
+    return @{kAmountKey: [[RDPConfig numberFormatter] stringFromNumber:[savingEvent getAmount]],
+             kReasonKey: [savingEvent getReason],
+             kTimeAndPlaceKey: [savingEvent.date shortTimeString],
+             kSavingIDKey: savingEvent.savingID,
+             kSavingTagKey: [NSNumber numberWithInteger:tag]};
+}
+
+- (NSString*)stringForDate:(NSDate*)date
+{
+    NSString* dayString;
+    if ([date isToday]) {
+        dayString = [RDPStrings stringForID:sToday];
+    }
+    else if ([date isYesterday]) {
+        dayString = [RDPStrings stringForID:sYesterday];
+    }
+    else {
+        dayString = [date longDateString];
+        NSString* append;
+        dayString = [dayString substringWithRange:NSMakeRange(0, dayString.length - 6)];
+        NSInteger daySingleDigit = date.day % 10;
+        
+        if (daySingleDigit == 1) {
+            append = @"st";
+        }
+        else if (daySingleDigit == 2) {
+            append = @"nd";
+        }
+        else if (daySingleDigit == 3) {
+            append = @"rd";
+        }
+        else {
+            append = @"th";
+        }
+        if (date.day == 11 || date.day == 12 || date.day == 13) {
+            append = @"th";
+        }
+        dayString = [dayString stringByAppendingString:append];
+    }
+    return dayString;
 }
 
 # pragma mark - Suggestion Timer
@@ -162,15 +297,115 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    [self scrollToNextPoint];
+    if (self.tableView != scrollView) {
+        [self scrollToNextPoint];
+    }
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (!decelerate) {
-        [self scrollToNextPoint];
+    if (scrollView != self.tableView) {
+        if (!decelerate) {
+            [self scrollToNextPoint];
+        }
     }
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView == self.tableView) {
+        if (self.currentTextField) {
+            [self.currentTextField resignFirstResponder];
+        }
+        CGFloat sectionHeaderHeight = kHeaderSectionHeight;
+        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+        }
+    }
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self.savings count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[[self.savings objectAtIndex:section] objectForKey:kSavingsEventsKey] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    return [[self.savings objectAtIndex:section] objectForKey:kSectionTitleKey];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return kHeaderSectionHeight;
+}
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, kHeaderSectionHeight)];
+    [headerView setBackgroundColor:kColor_Transparent];
+    
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(kHeaderSectionLabelMarginX,
+                                                               kHeaderSectionLabelMarginY,
+                                                               headerView.frame.size.width - kHeaderSectionLabelMarginX * 2,
+                                                               kHeaderSectionHeight - kHeaderSectionLabelMarginY * 2)];
+    [label setText:[[self.savings objectAtIndex:section] objectForKey:kSectionTitleKey]];
+    [label setTextColor:kColor_WhiteText];
+    [label setFont: [RDPFonts fontForID:fSectionHeaderFont]];
+    
+    UIView* borderBottom = [[UIView alloc] initWithFrame:CGRectMake(kHeaderBorderMargin, kHeaderSectionHeight - kHeaderBorderBottomWidth, tableView.bounds.size.width - (kHeaderBorderMargin * 2), kHeaderBorderBottomWidth)];
+    borderBottom.backgroundColor = kColor_TableViewSeparatorColor;
+    
+    [headerView addSubview:label];
+    [headerView addSubview:borderBottom];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kSavingCellHeight;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RDPTableViewSavingsCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellReusableIdentifier forIndexPath:indexPath];
+    
+    if (!cell) {
+        cell = [[RDPTableViewSavingsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellReusableIdentifier];
+    }
+    
+    NSDictionary* cellData = [[[self.savings objectAtIndex:indexPath.section] objectForKey:kSavingsEventsKey] objectAtIndex:indexPath.row];
+    
+    [cell.container setBackgroundColor:kColor_Transparent];
+    cell.amountLabel.text = [cellData objectForKey:kAmountKey];
+    [cell.amountLabel setFont:[RDPFonts fontForID:fCurrencyFont]];
+    [cell.amountLabel setTextColor: kColor_WhiteText];
+    cell.reasonInput.text = [cellData objectForKey:kReasonKey];
+    [cell.reasonInput setFont:[RDPFonts fontForID:fLoginFont]];
+    [cell.reasonInput setTextColor:kColor_WhiteText];
+    cell.timeAndLocationLabel.text = [cellData objectForKey:kTimeAndPlaceKey];
+    [cell.timeAndLocationLabel setFont:[RDPFonts fontForID:fSmallText]];
+    [cell.timeAndLocationLabel setTextColor:kColor_WhiteText];
+    cell.delegate = self;
+    cell.reasonInput.delegate = self;
+    cell.reasonInput.tag = [[cellData objectForKey:kSavingTagKey] integerValue];
+    cell.savingID = [cellData objectForKey:kSavingIDKey];
+    
+    UIView* borderBottom = [[UIView alloc] initWithFrame:CGRectMake(cell.frame.origin.x + kCellBorderMargin, cell.frame.size.height - kCellBorderBottomWidth, cell.frame.size.width - (kCellBorderMargin * 2), kCellBorderBottomWidth)];
+    borderBottom.backgroundColor = kColor_TableViewSeparatorColor;
+    [cell addSubview:borderBottom];
+    
+    return cell;
+}
+
 
 # pragma mark - Display a View
 
@@ -426,29 +661,66 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
-        self.congratsView.duration = 1;
-        self.congratsView.type     = CSAnimationTypeFadeOut;
-        [self.congratsView startCanvasAnimation];
-        
-        [self transitionImagesWithSaveAmount];
+    if (textField == self.currentTextField) {
+        for (NSInteger i = 0; i < [self.savings count]; i++) {
+            NSArray* savingsArray = [[self.savings objectAtIndex:i] objectForKey:kSavingsEventsKey];
+            for (NSInteger j = 0; j < [savingsArray count]; j++) {
+                if (textField.tag == [[[savingsArray objectAtIndex:j] objectForKey:kSavingTagKey] integerValue]) {
+                    [self updatingSavingEventWithID:[[savingsArray objectAtIndex:j] objectForKey:kSavingIDKey] withNewReason:textField.text];
+                    break;
+                }
+            }
+        }
+    }
+    else if (textField == self.savingsTextField) {
+        if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
+            self.congratsView.duration = 1;
+            self.congratsView.type     = CSAnimationTypeFadeOut;
+            [self.congratsView startCanvasAnimation];
+            
+            [self transitionImagesWithSaveAmount];
+        }
     }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (![self.savingsTextField.text isEqualToString:@""]) {
-        NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
-        RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];
-        [mostRecentEvent setReason:self.savingsTextField.text];
-        self.savingsTextField.text = @"";
+    [textField resignFirstResponder];
+    if (self.savingsTextField == textField) {
+        if (![self.savingsTextField.text isEqualToString:@""]) {
+            NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
+            RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];
+//            [mostRecentEvent setReason:self.savingsTextField.text];
+            [self updatingSavingEventWithID:mostRecentEvent.savingID withNewReason:self.savingsTextField.text];
+            self.savingsTextField.text = @"";
+        }
+        [self goToSaveView];
     }
     
-    [textField resignFirstResponder];
-    [self goToSaveView];
-    
-    
     return YES;
+}
+
+-(void)updatingSavingEventWithID:(NSString*)savingID withNewReason:(NSString*)reason
+{
+    NSMutableArray* newSavings = [NSMutableArray arrayWithArray:[[[RDPUserService getUser] getGoal] getSavingEvents]];
+    for (RDPSavingEvent* savingEvent in newSavings) {
+        if ([savingEvent.savingID isEqualToString:savingID]) {
+            [savingEvent setReason:reason];
+            RDPUser* updatedUser = [RDPUserService getUser];
+            [[updatedUser getGoal] setSavingEvents:[newSavings copy]];
+            [RDPUserService saveUser:updatedUser withResponse:^(RDPResponseCode response) {
+                [self loadSavings];
+            }];
+            break;
+        }
+    }
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if (textField != self.savingsTextField) {
+        self.currentTextField = textField;
+    }
 }
 
 # pragma mark - Status Bar

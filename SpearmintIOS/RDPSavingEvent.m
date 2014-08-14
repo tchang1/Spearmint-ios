@@ -29,7 +29,8 @@
         _location = location;
         _date = date;
         _savingReason = @"";
-        [self setSavingAmount:amount];
+        _savingAmount = [NSNumber numberWithInteger:0];
+        [self setAmount:amount];
         [self setReason:reason];
     }
     
