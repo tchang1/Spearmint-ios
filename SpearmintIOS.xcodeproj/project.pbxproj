@@ -122,8 +122,8 @@
 		58F9C891199939E800E325A2 /* Weekend Away.png in Resources */ = {isa = PBXBuildFile; fileRef = 58F9C885199939E800E325A2 /* Weekend Away.png */; };
 		F2208C661989B0A200EDD6CF /* RDPCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2208C651989B0A200EDD6CF /* RDPCounter.m */; };
 		F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2208C651989B0A200EDD6CF /* RDPCounter.m */; };
-		F23DEA94199C273A00689242 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F23DEA93199C273A00689242 /* NSDate+Utilities.m */; };
-		F23DEA95199C273A00689242 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F23DEA93199C273A00689242 /* NSDate+Utilities.m */; };
+		F24556E7199D5EA800D07BDD /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F24556E6199D5EA800D07BDD /* NSDate+Utilities.m */; };
+		F24556E8199D5EA800D07BDD /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F24556E6199D5EA800D07BDD /* NSDate+Utilities.m */; };
 		F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
 		F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
 		F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A9197DC05F00A14D94 /* RDPTimerManager.m */; };
@@ -340,8 +340,8 @@
 		F2208C641989B0A200EDD6CF /* RDPCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPCounter.h; sourceTree = "<group>"; };
 		F2208C651989B0A200EDD6CF /* RDPCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPCounter.m; sourceTree = "<group>"; };
 		F2208C691989B0BB00EDD6CF /* RDPColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPColors.h; sourceTree = "<group>"; };
-		F23DEA92199C273A00689242 /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Utilities.h"; path = "../../../Downloads/NSDate-Extensions-master/NSDate+Utilities.h"; sourceTree = "<group>"; };
-		F23DEA93199C273A00689242 /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Utilities.m"; path = "../../../Downloads/NSDate-Extensions-master/NSDate+Utilities.m"; sourceTree = "<group>"; };
+		F24556E5199D5EA800D07BDD /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		F24556E6199D5EA800D07BDD /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		F26756A3197DB60300A14D94 /* RDPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPViewController.h; sourceTree = "<group>"; };
 		F26756A4197DB60300A14D94 /* RDPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPViewController.m; sourceTree = "<group>"; };
 		F26756A8197DC05F00A14D94 /* RDPTimerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTimerManager.h; sourceTree = "<group>"; };
@@ -762,8 +762,8 @@
 		F23DEA91199C271B00689242 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				F23DEA92199C273A00689242 /* NSDate+Utilities.h */,
-				F23DEA93199C273A00689242 /* NSDate+Utilities.m */,
+				F24556E5199D5EA800D07BDD /* NSDate+Utilities.h */,
+				F24556E6199D5EA800D07BDD /* NSDate+Utilities.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -1105,7 +1105,6 @@
 				F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F2F1D0261990A49600438A8A /* RDPSettingsNavigationController.m in Sources */,
 				5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */,
-				F23DEA94199C273A00689242 /* NSDate+Utilities.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
 				551AA6121992A5630010E65B /* RDPInputViewWithImage.m in Sources */,
 				58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */,
@@ -1125,6 +1124,7 @@
 				551AA60E1990B20C0010E65B /* RDPUITextField.m in Sources */,
 				5531CA09198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */,
 				55DCE1AD199AB653003EA30D /* RDPAnalyticsModule.m in Sources */,
+				F24556E7199D5EA800D07BDD /* NSDate+Utilities.m in Sources */,
 				F2F1CF7B198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
 				55DCE1B5199C041D003EA30D /* RDPQuotes.m in Sources */,
 				58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */,
@@ -1171,7 +1171,6 @@
 				F2813422199350D700D7E9EF /* RDPErrorCodes.m in Sources */,
 				F2813420199350D700D7E9EF /* RDPConfig.m in Sources */,
 				F281342D1993510500D7E9EF /* RDPUserService.m in Sources */,
-				F23DEA95199C273A00689242 /* NSDate+Utilities.m in Sources */,
 				5560B8D2199006AF0023691B /* MBProgressHUD.m in Sources */,
 				55DCE1B2199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m in Sources */,
 				F28134351993513200D7E9EF /* RDPGoalModel.m in Sources */,
@@ -1192,6 +1191,7 @@
 				551AA60F1990B20C0010E65B /* RDPUITextField.m in Sources */,
 				58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */,
 				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
+				F24556E8199D5EA800D07BDD /* NSDate+Utilities.m in Sources */,
 				551AA6131992A5630010E65B /* RDPInputViewWithImage.m in Sources */,
 				F2F1D01D1990992200438A8A /* RDPSavingSuggestions.m in Sources */,
 				F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,

@@ -215,6 +215,7 @@ static RDPUser* storedUser;
     savingEventModel.amount = [NSDecimalNumber decimalNumberWithDecimal:[[savingEvent getAmount] decimalValue]];
     savingEventModel.goalid = goalID;
     savingEventModel.savingid = savingEvent.savingID;
+    savingEventModel.reason = [savingEvent getReason];
     savingEventModel.deleted = (savingEvent.deleted) ? @"T" : @"F";
     if (savingEventModel.savingid) {
         [[RDPHTTPClient sharedRDPHTTPClient] updateMySaving:savingEventModel withSuccess:^(void) {
