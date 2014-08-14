@@ -154,7 +154,7 @@
 
 - (void)scrollToNextPoint
 {
-    CGFloat breakPointTop = kTextInputHeight - 10;
+    CGFloat breakPointTop = 0;
     CGFloat breakPointMiddle = kTextInputHeight + (kScreenHeight/4);
     CGFloat breakPointBottom = kTextInputHeight + (3*kScreenHeight/4);
     
@@ -162,14 +162,14 @@
         [self goToSaveView];
     }
     else if (self.screenMode == OnSaveScreen) {
-        if (self.scrollView.contentOffset.y < breakPointTop) {
+        if (self.scrollView.contentOffset.y <= breakPointTop) {
             [self goToRecordView];
         }
         else if (self.scrollView.contentOffset.y > breakPointTop && self.scrollView.contentOffset.y < breakPointMiddle) {
             [self goToSaveView];
         }
         else {
-            [self goToRecordView];
+            [self goToProgressView];
         }
     }
     else if (self.screenMode == OnProgressView) {
