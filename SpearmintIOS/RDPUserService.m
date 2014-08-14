@@ -41,7 +41,7 @@ static RDPUser* storedUser;
     unsigned long long result;
     [[NSScanner scannerWithString:[savingEventModel.savingid substringToIndex:8]] scanHexLongLong:&result];
     NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:result];
-    RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:savingEventModel.amount andReason:@"reason" andDate:date andLocation:@"" andID:savingEventModel.savingid];
+    RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:savingEventModel.amount andReason:savingEventModel.reason andDate:date andLocation:@"" andID:savingEventModel.savingid];
     return savingEvent;
 }
 

@@ -9,6 +9,6 @@
 #import "RDPViewController.h"
 #import "RDPTableViewSavingsCell.h"
 
-@interface RDPSettingsHistoryViewController : RDPViewController <UITableViewDelegate, UITableViewDataSource, SavingCellDelegate, UIAlertViewDelegate>
+@interface RDPSettingsHistoryViewController : RDPViewController <UITableViewDelegate, UITableViewDataSource, SavingCellDelegate, UIAlertViewDelegate, UIScrollViewDelegate, UITextFieldDelegate>
 
 @end

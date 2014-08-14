@@ -28,6 +28,7 @@
         _savingID = savingID;
         _location = location;
         _date = date;
+        _savingReason = @"";
         [self setSavingAmount:amount];
         [self setReason:reason];
     }
@@ -63,16 +64,11 @@
 
 -(RDPResponseCode)setReason:(NSString*)reason
 {
-    RDPResponseCode responseCode = RDPResponseCodeOK;
-    
-    if (!reason) {
-        responseCode = RDPErrorCodeNilObject;
-    }
-    else {
+    if (reason) {
         self.savingReason = reason;
     }
     
-    return responseCode;
+    return RDPResponseCodeOK;
 }
 
 -(void)deleteSavingEvent
