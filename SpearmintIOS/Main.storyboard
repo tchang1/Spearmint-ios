@@ -43,7 +43,7 @@
                                                 <rect key="frame" x="41" y="5" width="271" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits" keyboardAppearance="light"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Envelope.png" id="X72-ZG-7Lu">
                                                 <rect key="frame" x="8" y="18" width="25" height="19"/>
@@ -64,7 +64,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="0.5" colorSpace="calibratedWhite"/>
                                                 <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits" keyboardAppearance="light" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                 <connections>
                                                     <action selector="passwordEditingBegan:" destination="0o8-qi-gHo" eventType="editingDidBegin" id="Kra-sa-j0b"/>
                                                 </connections>
@@ -166,7 +166,7 @@
                                         </connections>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3Xx-JQ-1Y0">
-                                        <rect key="frame" x="0.0" y="0.0" width="360" height="588"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="588"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="2JH-s5-c12" customClass="RDPCounter">
@@ -178,61 +178,29 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="I saved by..." minimumFontSize="17" clearButtonMode="whileEditing" id="PcJ-Ib-pkC" customClass="RDPUITextField">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="PcJ-Ib-pkC" customClass="RDPUITextField">
                                                         <rect key="frame" x="8" y="5" width="304" height="50"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="cSb-6w-1SC" customClass="CSAnimationView">
-                                                <rect key="frame" x="20" y="246" width="280" height="150"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap and hold" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" id="bhR-OA-0G6">
-                                                        <rect key="frame" x="20" y="58" width="240" height="75"/>
+                                                        <rect key="frame" x="40" y="300" width="240" height="75"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Fingerprint.png" id="zdj-VK-E3V">
-                                                        <rect key="frame" x="115" y="0.0" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" id="nfm-3L-FtG" customClass="CSAnimationView">
-                                                <rect key="frame" x="10" y="253" width="300" height="122"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YEv-io-ZWm">
-                                                        <rect key="frame" x="20" y="20" width="260" height="27"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You just kept" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7T6-h7-ZKy">
-                                                        <rect key="frame" x="20" y="75" width="260" height="27"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" id="Ckd-ZR-NJn" customClass="CSAnimationView">
-                                                <rect key="frame" x="245" y="68" width="65" height="65"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Hqn-yP-ZdT">
-                                                        <rect key="frame" x="20" y="20" width="25" height="25"/>
+                                                        <rect key="frame" x="275" y="80" width="25" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <inset key="contentEdgeInsets" minX="-10" minY="-10" maxX="0.0" maxY="-10"/>
@@ -244,6 +212,42 @@
                                                             <segue destination="1me-PV-P89" kind="modal" modalTransitionStyle="flipHorizontal" id="qDW-gb-Sri"/>
                                                         </connections>
                                                     </button>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Fingerprint.png" id="zdj-VK-E3V">
+                                                        <rect key="frame" x="135" y="240" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="nfm-3L-FtG" customClass="CSAnimationView">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YEv-io-ZWm">
+                                                        <rect key="frame" x="30" y="270" width="260" height="27"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You just kept" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7T6-h7-ZKy">
+                                                        <rect key="frame" x="30" y="325" width="260" height="27"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n2x-Qi-Ue8">
+                                                        <rect key="frame" x="60" y="75" width="200" height="22"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="DownArrow.png" id="D4j-FV-6s7">
+                                                        <rect key="frame" x="145" y="105" width="30" height="15"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
@@ -287,9 +291,10 @@
                         <outlet property="pressAndHoldGestureRecognizer" destination="6p7-Gz-es9" id="O55-TO-A9p"/>
                         <outlet property="pressAndHoldLabel" destination="bhR-OA-0G6" id="27E-nv-ARL"/>
                         <outlet property="pressAndHoldView" destination="cSb-6w-1SC" id="j23-aj-e69"/>
+                        <outlet property="recordLabel" destination="n2x-Qi-Ue8" id="Mjo-cf-D9l"/>
                         <outlet property="savingsTextField" destination="PcJ-Ib-pkC" id="7ee-tz-u7d"/>
                         <outlet property="scrollView" destination="3Xx-JQ-1Y0" id="eeE-PV-gfL"/>
-                        <outlet property="settingsButtonView" destination="Ckd-ZR-NJn" id="4bP-KF-e4E"/>
+                        <outlet property="settingsButton" destination="Hqn-yP-ZdT" id="XZn-xj-y4g"/>
                         <outlet property="suggestionLabel" destination="gI3-wh-5QS" id="4V9-JY-Mv5"/>
                         <outlet property="suggestionView" destination="q4a-9m-o0x" id="hxT-Kc-7BB"/>
                     </connections>
@@ -1125,7 +1130,7 @@
                                                 <rect key="frame" x="41" y="5" width="271" height="45"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="light"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="light" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Envelope.png" id="DEG-HH-qYb">
                                                 <rect key="frame" x="8" y="18" width="25" height="19"/>
@@ -1146,7 +1151,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                                 <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits" keyboardAppearance="light" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key.png" id="y3Y-HQ-dsS">
                                                 <rect key="frame" x="8" y="15" width="25" height="25"/>
@@ -1227,6 +1232,7 @@
         <image name="Background_password.png" width="541" height="90"/>
         <image name="Checkbook.png" width="37" height="29"/>
         <image name="Computer.png" width="29" height="37"/>
+        <image name="DownArrow.png" width="24" height="15"/>
         <image name="Email_Ridge.png" width="541" height="90"/>
         <image name="Envelope.png" width="50" height="36"/>
         <image name="Fingerprint.png" width="81" height="82"/>
@@ -1246,7 +1252,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="m5p-NK-Jov"/>
-        <segue reference="yHg-sm-Cwz"/>
+        <segue reference="i4c-YM-z26"/>
+        <segue reference="IdQ-DB-Vha"/>
     </inferredMetricsTieBreakers>
 </document>

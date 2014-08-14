@@ -21,6 +21,9 @@
 #define kTextInputHeight 60
 #define kContentHeight  (kScreenHeight * 2) + kTextInputHeight
 
+#define kArrowImage @"DownArrow.png"
+#define kProgressHeaderNib @"RDPProgressHeader"
+
 #define kIndentAmount 10
 #define kBorderRadius 5
 
@@ -59,30 +62,46 @@
     self.scrollView.delegate = self;
     
     // Setup the cut out view with text field
+    self.hasJustSaved = NO; // TODO: get this from the persisted data
+    //self.amountJustSaved = get this from persisted data
+    self.savingsTextField.delegate = self;
     self.savingsTextField.indentAmount = kIndentAmount;
     self.cutOutView.innerView = self.savingsTextField;
     self.savingsTextField.borderRadius = kBorderRadius;
     self.savingsTextField.parentColor = self.cutOutView.backgroundColor;
-    NSString *savedBy = @"I saved by...";
-    self.savingsTextField.attributedPlaceholder = [[NSAttributedString alloc]
+    if (self.hasJustSaved) {
+        [self updatePlaceHolderForTextField];
+    }
+    else {
+        NSString *savedBy = [RDPStrings stringForID:sSaveSome];
+        self.savingsTextField.attributedPlaceholder = [[NSAttributedString alloc]
                                                    initWithString:savedBy
                                                    attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
                                                                 NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+    }
+    
+    // Add the down arrow to the bottom of the screen
+    UIImage *arrowImage = [UIImage imageNamed:kArrowImage];
+    UIImageView *downArrowView = [[UIImageView alloc] initWithImage:arrowImage];
+    [downArrowView setContentMode:UIViewContentModeCenter];
+    CGRect  arrowViewRect = CGRectMake(0, kScreenHeight+kTextInputHeight - downArrowView.bounds.size.height - 10, kScreenWidth, downArrowView.bounds.size.height);
+    [downArrowView setFrame:arrowViewRect];
+    
+    [self.pressAndHoldView addSubview:downArrowView];
     
     // Setup the progress view within scroll view
-    CGRect  viewRect = CGRectMake(0, kScreenHeight+kTextInputHeight, kScreenWidth, 100);
-    UIView *containerView = [[UIView alloc] initWithFrame:viewRect];
-    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"RDPProgressHeader" owner:self options:nil];
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kProgressHeaderNib owner:self options:nil];
     RDPProgressHeader *progressHeader = [topLevelObjects objectAtIndex:0];
     progressHeader.goalTitleLabel.text = [[[RDPUserService getUser] getGoal] getGoalName];
     
     NSString *targetAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getTargetAmount]];
     NSString *keptAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getCurrentAmount]];
-    progressHeader.goalAmountLabel.text = [@"GOAL " stringByAppendingString:targetAmount];
-    progressHeader.keptAmountLabel.text = [@"KEPT " stringByAppendingString:keptAmount];
+    progressHeader.goalAmountLabel.text = [[RDPStrings stringForID:sGoalCaps] stringByAppendingString:targetAmount];
+    progressHeader.keptAmountLabel.text = [[RDPStrings stringForID:sKeptCaps] stringByAppendingString:keptAmount];
     
-    [containerView addSubview:progressHeader];
-    [self.scrollView addSubview:containerView];
+    CGRect  viewRect = CGRectMake(0, kScreenHeight, kScreenWidth, progressHeader.bounds.size.height);
+    [progressHeader setFrame:viewRect];
+    [self.scrollView addSubview:progressHeader];
     
     // Hide the counter
     self.counterView.hidden = YES;
@@ -94,6 +113,7 @@
     [self.congratulations getNextCongratsMessage];
     self.congratsLabel.text = self.congratulations.congratsMessage;
     self.congratsView.hidden = YES;
+    self.recordLabel.text = [RDPStrings stringForID:sRecord];
     
     self.suggestionIndex = 0;
     self.suggestions = [[RDPSavingSuggestions alloc] init];
@@ -162,10 +182,10 @@
         [self goToSaveView];
     }
     else if (self.screenMode == OnSaveScreen) {
-        if (self.scrollView.contentOffset.y <= breakPointTop) {
+        if (self.scrollView.contentOffset.y <= breakPointTop && self.hasJustSaved) {
             [self goToRecordView];
         }
-        else if (self.scrollView.contentOffset.y > breakPointTop && self.scrollView.contentOffset.y < breakPointMiddle) {
+        else if (self.scrollView.contentOffset.y < breakPointMiddle) {
             [self goToSaveView];
         }
         else {
@@ -190,7 +210,7 @@
     if (self.suggestionTimer == nil) {
         [self startSuggestionsTimer];
     }
-    self.settingsButtonView.hidden = NO;
+    self.settingsButton.hidden = NO;
     self.screenMode = OnSaveScreen;
 }
 
@@ -200,7 +220,7 @@
     [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     [self.savingsTextField becomeFirstResponder];
     [self stopSuggestionsTimer];
-    self.settingsButtonView.hidden = YES;
+    self.settingsButton.hidden = YES;
     self.screenMode = OnRecordScreen;
 }
 
@@ -229,7 +249,6 @@
             [self stopSuggestionsTimer];
             
             self.pressAndHoldView.hidden = YES;
-            self.settingsButtonView.hidden = YES;
             self.suggestionView.hidden = YES;
         }
             break;
@@ -249,14 +268,6 @@
             NSLog(@"GestureStateEnded amount: %@",amountSaved);
             BOOL amountHasBeenSaved = ![amountSaved isEqualToNumber:[NSNumber numberWithInt:0]];
             [RDPAnalyticsModule track:@"User saved" properties:@{@"amount" : amountSaved}];
-
-            
-            self.settingsButtonView.hidden = NO;
-            self.settingsButtonView.duration = kFadeLabelsTime;
-            self.settingsButtonView.type     = CSAnimationTypeFadeIn;
-            
-            // Kick start the animation immediately
-            [self.settingsButtonView startCanvasAnimation];
             
             if (!amountHasBeenSaved) {
                 self.pressAndHoldView.hidden = NO;
@@ -269,7 +280,9 @@
                 self.suggestionView.duration = kFadeLabelsTime;
                 self.suggestionView.type     = CSAnimationTypeFadeIn;
                 [self.suggestionView startCanvasAnimation];
-                [self startSuggestionsTimer];
+                if (self.screenMode == OnSaveScreen) {
+                    [self startSuggestionsTimer];
+                }
             } else {
                 NSString *symbol = self.counterView.currencySymbol;
                 NSString *justKept = [RDPStrings stringForID:sJustKept];
@@ -284,6 +297,10 @@
                 self.congratsView.duration = kFadeLabelsTime;
                 self.congratsView.type     = CSAnimationTypeFadeIn;
                 [self.congratsView startCanvasAnimation];
+                
+                self.amountJustSaved = amountSaved;
+                self.hasJustSaved = YES;
+                [self updatePlaceHolderForTextField];
             }
             
             [UIView animateWithDuration:kFadeImagesTime animations:^{
@@ -316,17 +333,58 @@
     }
 }
 
-- (void)showCongratsMessage
+- (void)updatePlaceHolderForTextField
 {
-    void (^transitionBlock)(void) = ^{
+    NSString *justSavedAmount = [[RDPConfig numberFormatter] stringFromNumber:self.amountJustSaved];
+    NSString *savedBy = [NSString stringWithFormat:[RDPStrings stringForID:sSavedBy], justSavedAmount];
+    self.savingsTextField.attributedPlaceholder = [[NSAttributedString alloc]
+                                                   initWithString:savedBy
+                                                   attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
+                                                                NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
         self.congratsView.duration = 1;
         self.congratsView.type     = CSAnimationTypeFadeOut;
         [self.congratsView startCanvasAnimation];
         
         [self transitionImagesWithSaveAmount];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (![self.savingsTextField.text isEqualToString:@""]) {
+        NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
+        RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];
+        [mostRecentEvent setReason:self.savingsTextField.text];
+        self.savingsTextField.text = @"";
+    }
+
+    [textField resignFirstResponder];
+    [self goToSaveView];
+
+    
+    return YES;
+}
+
+- (void)showCongratsMessage
+{
+    void (^transitionBlock)(void) = ^{
+        if (self.screenMode == OnSaveScreen) {
+            self.congratsView.duration = 1;
+            self.congratsView.type     = CSAnimationTypeFadeOut;
+            [self.congratsView startCanvasAnimation];
+            
+            [self transitionImagesWithSaveAmount];
+        }
     };
     
+
     [RDPTimerManager pauseFor:kShowCongratsDuration millisecondsThen:transitionBlock];
+
 }
 
 - (void)createSavingEventForAmount:(NSNumber *)amountSaved
@@ -366,10 +424,10 @@
                         self.suggestionView.duration = kFadeLabelsTime;
                         self.suggestionView.type     = CSAnimationTypeFadeIn;
                         [self.suggestionView startCanvasAnimation];
-                        [self startSuggestionsTimer];
                         
                         if (self.screenMode == OnSaveScreen) {
                             self.pressAndHoldGestureRecognizer.enabled = YES;
+                            [self startSuggestionsTimer];
                         }
                     }];
     

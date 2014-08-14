@@ -24,7 +24,7 @@ typedef enum HomeScreenMode {
     OnProgressView,
 } HomeScreenMode;
 
-@interface RDPHomeViewController : RDPViewController <UIScrollViewDelegate>
+@interface RDPHomeViewController : RDPViewController <UIScrollViewDelegate, UITextFieldDelegate>
 
 // The image views that contain the clear and blurred version of
 // the image to display to users on the home screen.
@@ -46,13 +46,14 @@ typedef enum HomeScreenMode {
 @property (weak, nonatomic) IBOutlet CSAnimationView *congratsView;
 @property (weak, nonatomic) IBOutlet UILabel *congratsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountKeptLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recordLabel;
+
+// Settings button
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 // Savings suggestion view and label
 @property (weak, nonatomic) IBOutlet CSAnimationView *suggestionView;
 @property (weak, nonatomic) IBOutlet UILabel *suggestionLabel;
-
-// The settings button view
-@property (weak, nonatomic) IBOutlet CSAnimationView *settingsButtonView;
 
 // The counter view
 @property (weak, nonatomic) IBOutlet RDPCounter *counterView;
@@ -71,6 +72,10 @@ typedef enum HomeScreenMode {
 @property (strong, nonatomic) RDPSavingSuggestions *suggestions;
 @property (nonatomic, assign) int suggestionIndex;
 @property (nonatomic, strong) NSTimer *suggestionTimer;
+
+// Bool and amount for whether user has saved recently in the app
+@property (nonatomic, assign) BOOL hasJustSaved;
+@property (nonatomic, strong) NSNumber *amountJustSaved; 
 
 // Keep track of the view
 @property HomeScreenMode screenMode; 

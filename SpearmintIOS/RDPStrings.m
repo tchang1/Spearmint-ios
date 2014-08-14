@@ -204,6 +204,21 @@
         case sReleaseMessage2:
             result = @"When the timer reaches\n the amount you Kept\n release the screen";
             break;
+        case sGoalCaps:
+            result = @"GOAL ";
+            break;
+        case sKeptCaps:
+            result = @"KEPT ";
+            break;
+        case sSavedBy:
+            result = @"I saved %@ by...";
+            break;
+        case sSaveSome:
+            result = @"It's your money, keep it!";
+            break;
+        case sRecord:
+            result = @"Record what you kept";
+            break;
 }
     
     return result;

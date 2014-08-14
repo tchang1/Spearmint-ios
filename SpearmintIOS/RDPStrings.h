@@ -71,7 +71,12 @@ typedef enum {
     sWeekend,
     sSchool,
     sReleaseMessage1, 
-    sReleaseMessage2
+    sReleaseMessage2,
+    sGoalCaps,
+    sKeptCaps,
+    sSavedBy,
+    sSaveSome,
+    sRecord
 } RDPStringID;
 
 @interface RDPStrings : NSObject
