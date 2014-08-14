@@ -63,8 +63,6 @@
 		5849BC7E199D1AC3008BAEBF /* DownArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC7C199D1AC3008BAEBF /* DownArrow.png */; };
 		585F1588199D229800992AE3 /* Gradient_Fade.png in Resources */ = {isa = PBXBuildFile; fileRef = 585F1587199D229800992AE3 /* Gradient_Fade.png */; };
 		585F1589199D229800992AE3 /* Gradient_Fade.png in Resources */ = {isa = PBXBuildFile; fileRef = 585F1587199D229800992AE3 /* Gradient_Fade.png */; };
-		585F158B199D263000992AE3 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585F158A199D263000992AE3 /* Reveal.framework */; };
-		585F158C199D263000992AE3 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 585F158A199D263000992AE3 /* Reveal.framework */; };
 		58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
 		58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
 		58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
@@ -282,7 +280,6 @@
 		5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProgressHeader.m; sourceTree = "<group>"; };
 		5849BC7C199D1AC3008BAEBF /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownArrow.png; sourceTree = "<group>"; };
 		585F1587199D229800992AE3 /* Gradient_Fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gradient_Fade.png; sourceTree = "<group>"; };
-		585F158A199D263000992AE3 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		58988F231987065200E05AC5 /* RDPImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcher.h; sourceTree = "<group>"; };
 		58988F241987065200E05AC5 /* RDPImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageFetcher.m; sourceTree = "<group>"; };
 		58988F2A198814D200E05AC5 /* RDPImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageBlur.h; sourceTree = "<group>"; };
@@ -432,7 +429,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				58988F81198EF2BD00E05AC5 /* Accelerate.framework in Frameworks */,
-				585F158B199D263000992AE3 /* Reveal.framework in Frameworks */,
 				58988F4619881C1300E05AC5 /* QuartzCore.framework in Frameworks */,
 				58988F4419881C0000E05AC5 /* AVFoundation.framework in Frameworks */,
 				58988F4219881BF300E05AC5 /* OpenGLES.framework in Frameworks */,
@@ -452,7 +448,6 @@
 				58F643CB197DA5F6001D0236 /* XCTest.framework in Frameworks */,
 				58F643CD197DA5F6001D0236 /* UIKit.framework in Frameworks */,
 				58F643CC197DA5F6001D0236 /* Foundation.framework in Frameworks */,
-				585F158C199D263000992AE3 /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,7 +521,6 @@
 		58F643B0197DA5F6001D0236 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				585F158A199D263000992AE3 /* Reveal.framework */,
 				58988F80198EF2BD00E05AC5 /* Accelerate.framework */,
 				58988F4519881C1300E05AC5 /* QuartzCore.framework */,
 				58988F4319881C0000E05AC5 /* AVFoundation.framework */,
