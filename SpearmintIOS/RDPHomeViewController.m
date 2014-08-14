@@ -73,11 +73,7 @@
         [self updatePlaceHolderForTextField];
     }
     else {
-        NSString *savedBy = [RDPStrings stringForID:sSaveSome];
-        self.savingsTextField.attributedPlaceholder = [[NSAttributedString alloc]
-                                                   initWithString:savedBy
-                                                   attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
-                                                                NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+        self.cutOutView.hidden = YES;
     }
     
     // Add the down arrow to the bottom of the screen
@@ -122,6 +118,8 @@
     [self startSuggestionsTimer];
 }
 
+# pragma mark - Suggestion Timer
+
 - (void)startSuggestionsTimer
 {
     self.suggestionTimer = [NSTimer scheduledTimerWithTimeInterval:kSuggestionDisplayDuration target:self selector:@selector(displayNextSuggestion) userInfo:nil repeats:YES];
@@ -160,6 +158,8 @@
     
 }
 
+# pragma mark - Scroll View Delegate
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self scrollToNextPoint];
@@ -171,6 +171,8 @@
         [self scrollToNextPoint];
     }
 }
+
+# pragma mark - Display a View
 
 - (void)scrollToNextPoint
 {
@@ -231,12 +233,16 @@
     self.screenMode = OnProgressView;
 }
 
+# pragma mark - Press and Hold
+
 - (IBAction)pressAndHold:(UIGestureRecognizer *)recognizer
 {
     switch (recognizer.state)
     {
         case UIGestureRecognizerStateBegan:
         {
+            self.scrollView.scrollEnabled = NO;
+            
             [UIView animateWithDuration:kFadeImagesTime animations:^{
                 
                 self.blurredImageView.alpha = 0.0;
@@ -261,6 +267,8 @@
             
         case UIGestureRecognizerStateEnded:
         {
+            self.scrollView.scrollEnabled = YES;
+            
             // disable the gesture recognizer while animations and transitions occur
             self.pressAndHoldGestureRecognizer.enabled = NO;
             
@@ -298,6 +306,8 @@
                 self.congratsView.type     = CSAnimationTypeFadeIn;
                 [self.congratsView startCanvasAnimation];
                 
+                self.cutOutView.hidden = NO;
+                self.easterEgg.hidden = YES;
                 self.amountJustSaved = amountSaved;
                 self.hasJustSaved = YES;
                 [self updatePlaceHolderForTextField];
@@ -333,41 +343,17 @@
     }
 }
 
-- (void)updatePlaceHolderForTextField
+- (void)createSavingEventForAmount:(NSNumber *)amountSaved
 {
-    NSString *justSavedAmount = [[RDPConfig numberFormatter] stringFromNumber:self.amountJustSaved];
-    NSString *savedBy = [NSString stringWithFormat:[RDPStrings stringForID:sSavedBy], justSavedAmount];
-    self.savingsTextField.attributedPlaceholder = [[NSAttributedString alloc]
-                                                   initWithString:savedBy
-                                                   attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
-                                                                NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-    if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
-        self.congratsView.duration = 1;
-        self.congratsView.type     = CSAnimationTypeFadeOut;
-        [self.congratsView startCanvasAnimation];
-        
-        [self transitionImagesWithSaveAmount];
-    }
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (![self.savingsTextField.text isEqualToString:@""]) {
-        NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
-        RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];
-        [mostRecentEvent setReason:self.savingsTextField.text];
-        self.savingsTextField.text = @"";
-    }
-
-    [textField resignFirstResponder];
-    [self goToSaveView];
-
-    
-    return YES;
+    RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:amountSaved andReason:@"" andDate:[NSDate date] andLocation:@"" andID:nil];
+    RDPUser* modifiedUser = [RDPUserService getUser];
+    [[modifiedUser getGoal] addSavingEvent:savingEvent];
+    double amountSavedDouble = [amountSaved doubleValue];
+    double currentAmountDouble = [[[modifiedUser getGoal] getCurrentAmount] doubleValue];
+    [[modifiedUser getGoal] setCurrentAmount:[NSNumber numberWithDouble:(amountSavedDouble + currentAmountDouble)]];
+    [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
+        NSLog(@"SavingEvent returned with response %i", response);
+    }];
 }
 
 - (void)showCongratsMessage
@@ -385,19 +371,6 @@
 
     [RDPTimerManager pauseFor:kShowCongratsDuration millisecondsThen:transitionBlock];
 
-}
-
-- (void)createSavingEventForAmount:(NSNumber *)amountSaved
-{    
-    RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:amountSaved andReason:@"" andDate:[NSDate date] andLocation:@"" andID:nil];
-    RDPUser* modifiedUser = [RDPUserService getUser];
-    [[modifiedUser getGoal] addSavingEvent:savingEvent];
-    double amountSavedDouble = [amountSaved doubleValue];
-    double currentAmountDouble = [[[modifiedUser getGoal] getCurrentAmount] doubleValue];
-    [[modifiedUser getGoal] setCurrentAmount:[NSNumber numberWithDouble:(amountSavedDouble + currentAmountDouble)]];
-    [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
-        NSLog(@"SavingEvent returned with response %i", response);
-    }];
 }
 
 - (void)transitionImagesWithSaveAmount
@@ -438,6 +411,47 @@
     [self.imageFetcher nextImage];
 
 }
+
+# pragma mark - Record Savings Text Field
+
+- (void)updatePlaceHolderForTextField
+{
+    NSString *justSavedAmount = [[RDPConfig numberFormatter] stringFromNumber:self.amountJustSaved];
+    NSString *savedBy = [NSString stringWithFormat:[RDPStrings stringForID:sSavedBy], justSavedAmount];
+    self.savingsTextField.attributedPlaceholder = [[NSAttributedString alloc]
+                                                   initWithString:savedBy
+                                                   attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
+                                                                NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
+        self.congratsView.duration = 1;
+        self.congratsView.type     = CSAnimationTypeFadeOut;
+        [self.congratsView startCanvasAnimation];
+        
+        [self transitionImagesWithSaveAmount];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (![self.savingsTextField.text isEqualToString:@""]) {
+        NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
+        RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];
+        [mostRecentEvent setReason:self.savingsTextField.text];
+        self.savingsTextField.text = @"";
+    }
+    
+    [textField resignFirstResponder];
+    [self goToSaveView];
+    
+    
+    return YES;
+}
+
+# pragma mark - Status Bar
 
 - (BOOL)prefersStatusBarHidden
 {

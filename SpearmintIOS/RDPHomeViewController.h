@@ -37,6 +37,8 @@ typedef enum HomeScreenMode {
 // The input field to record why you saved
 @property (weak, nonatomic) IBOutlet RDPCutOutView *cutOutView;
 @property (weak, nonatomic) IBOutlet RDPUITextField *savingsTextField;
+@property (weak, nonatomic) IBOutlet UIImageView *easterEgg;
+
 
 // Press and hold to save view and label
 @property (weak, nonatomic) IBOutlet CSAnimationView *pressAndHoldView;

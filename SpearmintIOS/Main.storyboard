@@ -169,6 +169,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="588"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youRock.png" id="HtT-Yc-dct">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                             <view contentMode="scaleToFill" id="2JH-s5-c12" customClass="RDPCounter">
                                                 <rect key="frame" x="20" y="80" width="65" height="65"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -288,6 +292,7 @@
                         <outlet property="congratsView" destination="nfm-3L-FtG" id="MmP-KO-5Qp"/>
                         <outlet property="counterView" destination="2JH-s5-c12" id="aOG-Jz-OIb"/>
                         <outlet property="cutOutView" destination="hVX-L1-HrM" id="cXC-Jn-Ao9"/>
+                        <outlet property="easterEgg" destination="HtT-Yc-dct" id="as8-Sr-vb9"/>
                         <outlet property="pressAndHoldGestureRecognizer" destination="6p7-Gz-es9" id="O55-TO-A9p"/>
                         <outlet property="pressAndHoldLabel" destination="bhR-OA-0G6" id="27E-nv-ARL"/>
                         <outlet property="pressAndHoldView" destination="cSb-6w-1SC" id="j23-aj-e69"/>
@@ -1245,6 +1250,7 @@
         <image name="Weekend Away.png" width="35" height="32"/>
         <image name="key.png" width="50" height="50"/>
         <image name="ridge.png" width="640" height="1136"/>
+        <image name="youRock.png" width="529" height="143"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
