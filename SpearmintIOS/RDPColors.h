@@ -17,7 +17,7 @@
 #define kColor_CounterText                  [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1]
 #define kColor_DarkText                     [UIColor colorWithRed:0 green:0 blue:0 alpha:0.75]
 #define kColor_LightText                    [UIColor colorWithRed:1 green:1 blue:1 alpha:0.75]
-#define kColor_TableViewSeparatorColor      [UIColor colorWithRed:0 green:0 blue:0 alpha:0]
+#define kColor_TableViewSeparatorColor      [UIColor colorWithRed:1 green:1 blue:1 alpha:0.75]
 #define kColor_Transparent                  [UIColor colorWithRed:0 green:0 blue:0 alpha:0]
 #define kColor_LogoutButtonPanelColor       [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]
 #define kColor_PlaceholderText              [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]

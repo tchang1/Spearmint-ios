@@ -18,7 +18,8 @@
              @"amount" : @"savingsAmount",
              @"goalid" : @"goalid",
              @"savingid" : @"_id",
-             @"deleted" : @"softDeleted"
+             @"deleted" : @"softDeleted",
+             @"reason" : @"reason"
              };
 }
 
@@ -42,6 +43,16 @@
     }
     else {
         _amount = amount;
+    }
+}
+
+-(void)setReason:(NSString *)reason
+{
+    if (!reason) {
+        _reason = @"";
+    }
+    else {
+        _reason = reason;
     }
 }
 

@@ -45,6 +45,87 @@
         case sHistory:
             result = @"History";
             break;
+        case sToday:
+            result = @"Today";
+            break;
+        case sYesterday:
+            result = @"Yesterday";
+            break;
+        case sMonday:
+            result = @"Monday";
+            break;
+        case sTuesday:
+            result = @"Tuesday";
+            break;
+        case sWednesday:
+            result = @"Wednesday";
+            break;
+        case sThursday:
+            result = @"Thursday";
+            break;
+        case sFriday:
+            result = @"Friday";
+            break;
+        case sSaturday:
+            result = @"Saturday";
+            break;
+        case sSunday:
+            result = @"Sunday";
+            break;
+        case sLastWeek:
+            result = @"Last Week";
+            break;
+        case sTwoWeeksAgo:
+            result = @"Two Weeks Ago";
+            break;
+        case sThreeWeeksAgo:
+            result = @"Three Weeks Ago";
+            break;
+        case sLastMonth:
+            result = @"Last Month";
+            break;
+        case sJanuary:
+            result = @"January";
+            break;
+        case sFebruary:
+            result = @"February";
+            break;
+        case sMarch:
+            result = @"History";
+            break;
+        case sApril:
+            result = @"History";
+            break;
+        case sMay:
+            result = @"History";
+            break;
+        case sJune:
+            result = @"History";
+            break;
+        case sJuly:
+            result = @"History";
+            break;
+        case sAugust:
+            result = @"History";
+            break;
+        case sSeptember:
+            result = @"History";
+            break;
+        case sOctober:
+            result = @"History";
+            break;
+        case sNovember:
+            result = @"History";
+            break;
+        case sDecember:
+            result = @"History";
+            break;
+        case sLastYear:
+            result = @"History";
+            break;
+        case sOlder:
+            result = @"History";
+            break;
         case sLogout:
             result = @"Logout";
             break;

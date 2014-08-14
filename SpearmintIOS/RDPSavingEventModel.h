@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) NSString *deleted;
 
-//@property (nonatomic, strong) NSString *reason;
+@property (nonatomic, strong) NSString *reason;
 //
 //@property (nonatomic, strong) NSDate *savingDate;
 
