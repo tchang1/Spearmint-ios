@@ -58,6 +58,7 @@
 
 #define kSuggestionDisplayDuration 4
 #define kShowCongratsDuration 2500
+#define kWaitTimeToHideTextField 1000
 
 #define kMinimumPressDuration 0.2
 
@@ -92,6 +93,9 @@
     // Initialize the minimum press duration to be short so it seems more responsive
     self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
     
+    // Disable the tap gesture recognizer
+    self.tapGestureRecognizer.enabled = NO;
+    
     // Get the clear and blurred image from the image fetcher
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
     int index = self.imageFetcher.indexOfImageArray;
@@ -103,11 +107,13 @@
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth, kContentHeight)];
     CGPoint point = CGPointMake(0, kTextInputHeight);
     [self.scrollView setContentOffset:point];
-    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    self.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     self.screenMode = OnSaveScreen;
     self.scrollView.delegate = self;
     
     // Setup the cut out view with text field
+    self.serverHasUpdatedSavingsEvents = YES;
+    self.savingReason = @""; 
     self.hasJustSaved = NO; // TODO: get this from the persisted data
     //self.amountJustSaved = get this from persisted data
     self.savingsTextField.delegate = self;
@@ -162,15 +168,17 @@
     // Hide the counter
     self.counterView.hidden = YES;
     
+    // Set the "tap and hold to save" label
     self.pressAndHoldLabel.text = [RDPStrings stringForID:sPressAndHold];
     
     // Prepare the congratulations message
     self.congratulations = [[RDPCongratulations alloc] init];
     [self.congratulations getNextCongratsMessage];
     self.congratsLabel.text = self.congratulations.congratsMessage;
+    self.recordButton.titleLabel.text = [RDPStrings stringForID:sRecord];
     self.congratsView.hidden = YES;
-    self.recordLabel.text = [RDPStrings stringForID:sRecord];
     
+    // Setup the saving suggestion messages
     self.suggestionIndex = 0;
     self.suggestions = [[RDPSavingSuggestions alloc] init];
     [self.suggestions getNextSuggestionMessages];
@@ -493,6 +501,18 @@
     }
 }
 
+- (IBAction)recordReason:(id)sender
+{
+    [self goToRecordView];
+}
+
+- (IBAction)homeViewTapped:(UITapGestureRecognizer *)tapGesture
+{
+    [self enterSavingReason];
+    self.tapGestureRecognizer.enabled = NO;
+}
+
+
 - (void)goToSaveView
 {
     self.pressAndHoldGestureRecognizer.enabled = YES;
@@ -510,6 +530,8 @@
     self.pressAndHoldGestureRecognizer.enabled = NO;
     [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     [self.savingsTextField becomeFirstResponder];
+    self.tapGestureRecognizer.enabled = YES;
+    self.scrollView.scrollEnabled = NO;
     [self stopSuggestionsTimer];
     self.settingsButton.hidden = YES;
     self.screenMode = OnRecordScreen;
@@ -578,7 +600,9 @@
                 self.suggestionView.type     = CSAnimationTypeFadeIn;
                 [self.suggestionView startCanvasAnimation];
                 if (self.screenMode == OnSaveScreen) {
-                    [self startSuggestionsTimer];
+                    if (self.suggestionTimer == nil) {
+                        [self startSuggestionsTimer];
+                    }
                 }
             } else {
                 NSString *symbol = self.counterView.currencySymbol;
@@ -634,6 +658,8 @@
 
 - (void)createSavingEventForAmount:(NSNumber *)amountSaved
 {
+    self.serverHasUpdatedSavingsEvents = NO;
+    
     RDPSavingEvent* savingEvent = [[RDPSavingEvent alloc] initWithAmount:amountSaved andReason:@"" andDate:[NSDate date] andLocation:@"" andID:nil];
     RDPUser* modifiedUser = [RDPUserService getUser];
     [[modifiedUser getGoal] addSavingEvent:savingEvent];
@@ -643,6 +669,14 @@
     [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
         [self loadSavings];
         NSLog(@"SavingEvent returned with response %i", response);
+        self.serverHasUpdatedSavingsEvents = YES;
+        
+        if (![self.savingReason isEqualToString:@""]) {
+            NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
+            RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];
+            [self updatingSavingEventWithID:mostRecentEvent.savingID withNewReason:self.savingReason];
+            self.savingReason = @""; // clear the saving reason 
+        }
     }];
 }
 
@@ -690,7 +724,9 @@
                         
                         if (self.screenMode == OnSaveScreen) {
                             self.pressAndHoldGestureRecognizer.enabled = YES;
-                            [self startSuggestionsTimer];
+                            if (self.suggestionTimer == nil) {
+                                [self startSuggestionsTimer];
+                            }
                         }
                     }];
     
@@ -730,33 +766,66 @@
             }
         }
     }
-    else if (textField == self.savingsTextField) {
-        if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
-            self.congratsView.duration = 1;
-            self.congratsView.type     = CSAnimationTypeFadeOut;
-            [self.congratsView startCanvasAnimation];
-            
-            [self transitionImagesWithSaveAmount];
-        }
-    }
+//    else if (textField == self.savingsTextField) {
+//        [self enterSavingReason];
+//        if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
+//            self.congratsView.duration = 1;
+//            self.congratsView.type     = CSAnimationTypeFadeOut;
+//            [self.congratsView startCanvasAnimation];
+//            
+//            [self transitionImagesWithSaveAmount];
+//        }
+//    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     if (self.savingsTextField == textField) {
-        if (![self.savingsTextField.text isEqualToString:@""]) {
-            NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
-            RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];
-//            [mostRecentEvent setReason:self.savingsTextField.text];
-            [self updatingSavingEventWithID:mostRecentEvent.savingID withNewReason:self.savingsTextField.text];
-            self.savingsTextField.text = @"";
-        }
-        [self goToSaveView];
+        [self enterSavingReason];
     }
     
     return YES;
 }
+
+- (void)enterSavingReason
+{
+    if (![self.savingsTextField.text isEqualToString:@""]) {
+        
+        if (self.serverHasUpdatedSavingsEvents) {
+            NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
+            RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];
+            [self updatingSavingEventWithID:mostRecentEvent.savingID withNewReason:self.savingsTextField.text];
+        }
+        else {
+            self.savingReason = self.savingsTextField.text;
+        }
+        
+        
+        self.hasJustSaved = NO;
+        
+        void (^transitionBlock)(void) = ^{
+            self.cutOutView.hidden = YES;
+            self.easterEgg.hidden = NO;
+            self.savingsTextField.text = @"";
+        };
+        
+        
+        [RDPTimerManager pauseFor:kWaitTimeToHideTextField millisecondsThen:transitionBlock];
+    }
+    
+    if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
+        self.congratsView.duration = 1;
+        self.congratsView.type     = CSAnimationTypeFadeOut;
+        [self.congratsView startCanvasAnimation];
+        
+        [self transitionImagesWithSaveAmount];
+    }
+    
+    self.scrollView.scrollEnabled = YES;
+    [self goToSaveView];
+}
+
 
 -(void)updatingSavingEventWithID:(NSString*)savingID withNewReason:(NSString*)reason
 {

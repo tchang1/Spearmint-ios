@@ -48,7 +48,7 @@ typedef enum HomeScreenMode {
 @property (weak, nonatomic) IBOutlet CSAnimationView *congratsView;
 @property (weak, nonatomic) IBOutlet UILabel *congratsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountKeptLabel;
-@property (weak, nonatomic) IBOutlet UILabel *recordLabel;
+@property (weak, nonatomic) IBOutlet UIButton *recordButton;
 
 // Settings button
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
@@ -64,6 +64,12 @@ typedef enum HomeScreenMode {
 // down anywhere on the screen
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *pressAndHoldGestureRecognizer;
 
+// The gesture recognizer to tap out of entering a reason. Only enabled
+// when the user is on the record view
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
+
+@property (weak, nonatomic) IBOutlet UIView *gestureRecognizerView;
+
 // The image fetcher to get our next image 
 @property (strong, nonatomic) RDPImageFetcher *imageFetcher;
 
@@ -77,7 +83,11 @@ typedef enum HomeScreenMode {
 
 // Bool and amount for whether user has saved recently in the app
 @property (nonatomic, assign) BOOL hasJustSaved;
-@property (nonatomic, strong) NSNumber *amountJustSaved; 
+@property (nonatomic, strong) NSNumber *amountJustSaved;
+
+// Properties to ensure the reason gets saved to the correct saving event
+@property (nonatomic, assign) BOOL serverHasUpdatedSavingsEvents;
+@property (nonatomic, strong) NSString *savingReason; 
 
 // Keep track of the view
 @property HomeScreenMode screenMode; 
@@ -88,5 +98,10 @@ typedef enum HomeScreenMode {
  @param recognizer : the gesture recognizer being fired 
  */
 - (IBAction)pressAndHold:(UIGestureRecognizer *)recognizer;
+
+- (IBAction)recordReason:(id)sender;
+
+- (IBAction)homeViewTapped:(UITapGestureRecognizer *)tapGesture;
+
 
 @end

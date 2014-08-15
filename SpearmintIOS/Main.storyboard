@@ -161,9 +161,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="nKH-Dy-cCl"/>
-                                        </connections>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3Xx-JQ-1Y0">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="588"/>
@@ -177,20 +174,6 @@
                                                 <rect key="frame" x="20" y="80" width="65" height="65"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" id="hVX-L1-HrM" customClass="RDPCutOutView">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="PcJ-Ib-pkC" customClass="RDPUITextField">
-                                                        <rect key="frame" x="8" y="5" width="304" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                                    </textField>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="cSb-6w-1SC" customClass="CSAnimationView">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
@@ -241,17 +224,22 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n2x-Qi-Ue8">
-                                                        <rect key="frame" x="60" y="75" width="200" height="22"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
-                                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="DownArrow.png" id="D4j-FV-6s7">
                                                         <rect key="frame" x="145" y="105" width="30" height="15"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="3KE-kU-db9">
+                                                        <rect key="frame" x="30" y="67" width="260" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
+                                                        <state key="normal" title="Record">
+                                                            <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="recordReason:" destination="RLe-TQ-3X4" eventType="touchUpInside" id="ZIB-jt-3Uz"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
@@ -269,6 +257,29 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
+                                            <view contentMode="scaleToFill" id="hVX-L1-HrM" customClass="RDPCutOutView">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="PcJ-Ib-pkC" customClass="RDPUITextField">
+                                                        <rect key="frame" x="8" y="5" width="304" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="GP4-xk-EXX">
+                                                <rect key="frame" x="0.0" y="60" width="320" height="568"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="MNp-lb-WgT"/>
+                                                    <outletCollection property="gestureRecognizers" destination="42K-Rd-GnE" appends="YES" id="6dN-fS-uWn"/>
+                                                </connections>
+                                            </view>
                                         </subviews>
                                         <connections>
                                             <outlet property="delegate" destination="RLe-TQ-3X4" id="bdF-H5-eDe"/>
@@ -279,9 +290,6 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="dqT-vz-diN"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="0Yq-gI-8k1"/>
                     <connections>
@@ -293,15 +301,17 @@
                         <outlet property="counterView" destination="2JH-s5-c12" id="aOG-Jz-OIb"/>
                         <outlet property="cutOutView" destination="hVX-L1-HrM" id="cXC-Jn-Ao9"/>
                         <outlet property="easterEgg" destination="HtT-Yc-dct" id="as8-Sr-vb9"/>
+                        <outlet property="gestureRecognizerView" destination="GP4-xk-EXX" id="pyK-VS-rR3"/>
                         <outlet property="pressAndHoldGestureRecognizer" destination="6p7-Gz-es9" id="O55-TO-A9p"/>
                         <outlet property="pressAndHoldLabel" destination="bhR-OA-0G6" id="27E-nv-ARL"/>
                         <outlet property="pressAndHoldView" destination="cSb-6w-1SC" id="j23-aj-e69"/>
-                        <outlet property="recordLabel" destination="n2x-Qi-Ue8" id="Mjo-cf-D9l"/>
+                        <outlet property="recordButton" destination="3KE-kU-db9" id="PMF-s2-Ou0"/>
                         <outlet property="savingsTextField" destination="PcJ-Ib-pkC" id="7ee-tz-u7d"/>
                         <outlet property="scrollView" destination="3Xx-JQ-1Y0" id="eeE-PV-gfL"/>
                         <outlet property="settingsButton" destination="Hqn-yP-ZdT" id="XZn-xj-y4g"/>
                         <outlet property="suggestionLabel" destination="gI3-wh-5QS" id="4V9-JY-Mv5"/>
                         <outlet property="suggestionView" destination="q4a-9m-o0x" id="hxT-Kc-7BB"/>
+                        <outlet property="tapGestureRecognizer" destination="42K-Rd-GnE" id="3Ve-v0-M6q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khc-m4-GGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -310,6 +320,11 @@
                         <action selector="pressAndHold:" destination="RLe-TQ-3X4" id="gF6-Or-rZj"/>
                     </connections>
                 </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="42K-Rd-GnE">
+                    <connections>
+                        <action selector="homeViewTapped:" destination="RLe-TQ-3X4" id="fn6-U4-Idr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="917" y="-591"/>
         </scene>

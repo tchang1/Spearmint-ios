@@ -67,6 +67,8 @@
 		585F1589199D229800992AE3 /* Gradient_Fade.png in Resources */ = {isa = PBXBuildFile; fileRef = 585F1587199D229800992AE3 /* Gradient_Fade.png */; };
 		585F158E199D69A600992AE3 /* youRock.png in Resources */ = {isa = PBXBuildFile; fileRef = 585F158D199D69A600992AE3 /* youRock.png */; };
 		585F158F199D69A600992AE3 /* youRock.png in Resources */ = {isa = PBXBuildFile; fileRef = 585F158D199D69A600992AE3 /* youRock.png */; };
+		585F1592199D79F100992AE3 /* RDPDataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 585F1591199D79F100992AE3 /* RDPDataHolder.m */; };
+		585F1593199D79F100992AE3 /* RDPDataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 585F1591199D79F100992AE3 /* RDPDataHolder.m */; };
 		58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
 		58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
 		58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
@@ -288,6 +290,8 @@
 		5849BC7C199D1AC3008BAEBF /* DownArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DownArrow.png; sourceTree = "<group>"; };
 		585F1587199D229800992AE3 /* Gradient_Fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gradient_Fade.png; sourceTree = "<group>"; };
 		585F158D199D69A600992AE3 /* youRock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youRock.png; sourceTree = "<group>"; };
+		585F1590199D79F100992AE3 /* RDPDataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPDataHolder.h; sourceTree = "<group>"; };
+		585F1591199D79F100992AE3 /* RDPDataHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPDataHolder.m; sourceTree = "<group>"; };
 		58988F231987065200E05AC5 /* RDPImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcher.h; sourceTree = "<group>"; };
 		58988F241987065200E05AC5 /* RDPImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPImageFetcher.m; sourceTree = "<group>"; };
 		58988F2A198814D200E05AC5 /* RDPImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageBlur.h; sourceTree = "<group>"; };
@@ -497,6 +501,15 @@
 			name = Analytics;
 			sourceTree = "<group>";
 		};
+		585F1595199D7A0200992AE3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				585F1590199D79F100992AE3 /* RDPDataHolder.h */,
+				585F1591199D79F100992AE3 /* RDPDataHolder.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		58988F221987060300E05AC5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,6 +697,7 @@
 				58988F221987060300E05AC5 /* Images */,
 				F2FD6F1B1980646E0035ED06 /* Interpolations */,
 				F2FD6F1A1980645E0035ED06 /* Timer */,
+				585F1595199D7A0200992AE3 /* Data */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -882,7 +896,6 @@
 				58F643AB197DA5F6001D0236 /* Frameworks */,
 				58F643AC197DA5F6001D0236 /* Resources */,
 				66C255A1333A40159BE76363 /* Copy Pods Resources */,
-				55DCE1BA199E7904003EA30D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1049,19 +1062,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		55DCE1BA199E7904003EA30D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Crashlytics.framework/run 2e5bc380686d78611d360d2a169c82892bc19922 af51a2b6cf02246c603755dedcba83b95b139673db55e7249bd6dabfd38c6bc6";
-		};
 		66C255A1333A40159BE76363 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1162,6 +1162,7 @@
 				F2F1D0131990420C00438A8A /* RDPSettingsHistoryViewController.m in Sources */,
 				551AA638199427430010E65B /* RDPValidationService.m in Sources */,
 				558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */,
+				585F1592199D79F100992AE3 /* RDPDataHolder.m in Sources */,
 				F28134381993513200D7E9EF /* RDPUserModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1228,6 +1229,7 @@
 				F2F1D00E19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */,
 				58988F2F1988153200E05AC5 /* RDPImageBlur.m in Sources */,
 				F2F1D0271990A49600438A8A /* RDPSettingsNavigationController.m in Sources */,
+				585F1593199D79F100992AE3 /* RDPDataHolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
