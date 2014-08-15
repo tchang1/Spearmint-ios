@@ -68,10 +68,12 @@
 
 @interface RDPHomeViewController ()
 @property (strong, nonatomic) UITableView *tableView;
-@property (weak, nonatomic) NSString* currentSavingID;
 @property (strong, nonatomic)NSArray* sortingKey;
 @property (nonatomic, strong)NSArray* savings;
 @property (nonatomic, weak)UITextField* currentTextField;
+@property (nonatomic, weak)RDPProgressHeader* progressHeader;
+@property (nonatomic, assign)CGFloat keyboardHeight;
+@property (nonatomic, assign)BOOL shouldDismissKeyboardWhenScrolling;
 
 //@property (strong, nonatomic) NSArray* savings;
 
@@ -83,6 +85,10 @@
 {
     [super viewDidLoad];
     
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    self.keyboardHeight = 216;
+    self.shouldDismissKeyboardWhenScrolling = YES;
+    [center addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
     // Initialize the minimum press duration to be short so it seems more responsive
     self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
     
@@ -127,17 +133,17 @@
     
     // Setup the progress view within scroll view
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kProgressHeaderNib owner:self options:nil];
-    RDPProgressHeader *progressHeader = [topLevelObjects objectAtIndex:0];
-    progressHeader.goalTitleLabel.text = [[[RDPUserService getUser] getGoal] getGoalName];
+    self.progressHeader = [topLevelObjects objectAtIndex:0];
+    self.progressHeader.goalTitleLabel.text = [[[RDPUserService getUser] getGoal] getGoalName];
     
     NSString *targetAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getTargetAmount]];
     NSString *keptAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getCurrentAmount]];
-    progressHeader.goalAmountLabel.text = [[RDPStrings stringForID:sGoalCaps] stringByAppendingString:targetAmount];
-    progressHeader.keptAmountLabel.text = [[RDPStrings stringForID:sKeptCaps] stringByAppendingString:keptAmount];
+    self.progressHeader.goalAmountLabel.text = [[RDPStrings stringForID:sGoalCaps] stringByAppendingString:targetAmount];
+    self.progressHeader.keptAmountLabel.text = [[RDPStrings stringForID:sKeptCaps] stringByAppendingString:keptAmount];
     
-    CGRect  viewRect = CGRectMake(0, kScreenHeight, kScreenWidth, progressHeader.bounds.size.height);
-    [progressHeader setFrame:viewRect];
-    [self.scrollView addSubview:progressHeader];
+    CGRect  viewRect = CGRectMake(0, kScreenHeight, kScreenWidth, self.progressHeader.bounds.size.height);
+    [self.progressHeader setFrame:viewRect];
+    [self.scrollView addSubview:self.progressHeader];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
                                                                    kScreenHeight + kTextInputHeight + kProgressHeaderHeight,
@@ -150,6 +156,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.tableView.allowsSelection = NO;
     
     // Hide the counter
     self.counterView.hidden = YES;
@@ -168,6 +176,17 @@
     [self.suggestions getNextSuggestionMessages];
     self.suggestionLabel.text = self.suggestions.suggestionMessages[self.suggestionIndex];
     [self startSuggestionsTimer];
+}
+
+-(void)keyboardOnScreen:(NSNotification *)notification
+{
+    NSDictionary *info  = notification.userInfo;
+    NSValue      *value = info[UIKeyboardFrameEndUserInfoKey];
+    
+    CGRect rawFrame      = [value CGRectValue];
+    CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
+    
+    self.keyboardHeight = keyboardFrame.size.height;
 }
 
 - (NSArray*) savings
@@ -297,6 +316,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    self.shouldDismissKeyboardWhenScrolling = YES;
     if (self.tableView != scrollView) {
         [self scrollToNextPoint];
     }
@@ -304,6 +324,7 @@
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
+    self.shouldDismissKeyboardWhenScrolling = YES;
     if (scrollView != self.tableView) {
         if (!decelerate) {
             [self scrollToNextPoint];
@@ -314,7 +335,9 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.tableView) {
         if (self.currentTextField) {
-            [self.currentTextField resignFirstResponder];
+            if (self.shouldDismissKeyboardWhenScrolling) {
+                [self.currentTextField resignFirstResponder];
+            }
         }
         CGFloat sectionHeaderHeight = kHeaderSectionHeight;
         if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
@@ -326,6 +349,37 @@
 }
 
 #pragma mark - Table view data source
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSString* savingID = [[[[self.savings objectAtIndex:indexPath.section] objectForKey:kSavingsEventsKey] objectAtIndex:indexPath.row] objectForKey:kSavingIDKey];
+        RDPUser* editedUser = [RDPUserService getUser];
+        for (NSInteger i = 0; i < [[[editedUser getGoal] getSavingEvents] count]; i++) {
+            if ([savingID isEqualToString:[[[[editedUser getGoal] getSavingEvents] objectAtIndex:i] savingID]]) {
+                RDPSavingEvent* savingEvent = [[[editedUser getGoal] getSavingEvents] objectAtIndex:i];
+                if (!savingEvent.deleted) {
+                    NSNumber* newNumber = [[editedUser getGoal] getCurrentAmount];
+                    newNumber = [NSNumber numberWithDouble:[newNumber doubleValue] - [[savingEvent getAmount] doubleValue]];
+                    [[editedUser getGoal] setCurrentAmount:newNumber];
+                }
+                [savingEvent deleteSavingEvent];
+                [RDPUserService saveUser:editedUser withResponse:^(RDPResponseCode response) {
+                    [self loadSavings];
+                    [self.tableView reloadData];
+                    NSString *keptAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getCurrentAmount]];
+                    self.progressHeader.keptAmountLabel.text = [[RDPStrings stringForID:sKeptCaps] stringByAppendingString:keptAmount];
+                }];
+                break;
+            }
+        }
+    }
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -587,6 +641,7 @@
     double currentAmountDouble = [[[modifiedUser getGoal] getCurrentAmount] doubleValue];
     [[modifiedUser getGoal] setCurrentAmount:[NSNumber numberWithDouble:(amountSavedDouble + currentAmountDouble)]];
     [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
+        [self loadSavings];
         NSLog(@"SavingEvent returned with response %i", response);
     }];
 }
@@ -662,6 +717,9 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField == self.currentTextField) {
+        UITableViewCell* cell = (UITableViewCell *) textField.superview.superview.superview.superview;
+//        [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        [self.tableView scrollRectToVisible:CGRectMake(cell.frame.origin.x, cell.frame.origin.y -1, cell.frame.size.width, cell.frame.size.height) animated:YES];
         for (NSInteger i = 0; i < [self.savings count]; i++) {
             NSArray* savingsArray = [[self.savings objectAtIndex:i] objectForKey:kSavingsEventsKey];
             for (NSInteger j = 0; j < [savingsArray count]; j++) {
@@ -720,6 +778,24 @@
 {
     if (textField != self.savingsTextField) {
         self.currentTextField = textField;
+        UITableViewCell* cell = (UITableViewCell *) textField.superview.superview.superview.superview;
+        CGFloat scrollHeight = 0;
+        if (cell.frame.origin.x + cell.frame.size.height > kScreenHeight - self.keyboardHeight) {
+            scrollHeight = (cell.frame.origin.x + cell.frame.size.height) - self.keyboardHeight;
+        }
+        self.shouldDismissKeyboardWhenScrolling = NO;
+        CGFloat sectionHeaderHeight = kHeaderSectionHeight;
+        if (self.tableView.contentOffset.y<=sectionHeaderHeight&&self.tableView.contentOffset.y>=0) {
+            self.tableView.contentInset = UIEdgeInsetsMake(-self.tableView.contentOffset.y, 0, self.keyboardHeight + kSavingCellHeight, 0);
+        } else if (self.tableView.contentOffset.y>=sectionHeaderHeight) {
+            self.tableView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, self.keyboardHeight + kSavingCellHeight, 0);
+        }
+        else {
+            self.tableView.contentInset =  UIEdgeInsetsMake(0, 0, self.keyboardHeight + kSavingCellHeight, 0);
+        }
+//        [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+//        self.tableView.contentInset =  UIEdgeInsetsMake(0, 0, self.keyboardHeight + kSavingCellHeight, 0);
+        
     }
 }
 

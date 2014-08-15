@@ -65,6 +65,7 @@ static NSNumberFormatter* numberFormatter;
     if (!numberFormatter) {
         numberFormatter = [[NSNumberFormatter alloc] init];
         [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setMaximumFractionDigits:0];
     }
     return numberFormatter;
 }
