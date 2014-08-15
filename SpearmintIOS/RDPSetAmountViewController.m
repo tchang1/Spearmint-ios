@@ -72,7 +72,7 @@
     self.navigationItem.title = [RDPStrings stringForID:sGoalAmount];
     
     self.setAmountTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sWillCost] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
-    self.setAmountTextField.delegate=self;as
+    self.setAmountTextField.delegate=self;
 }
 
 -(void)viewDidAppear:(BOOL)animated
