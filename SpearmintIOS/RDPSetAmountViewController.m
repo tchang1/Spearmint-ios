@@ -72,6 +72,7 @@
     self.navigationItem.title = [RDPStrings stringForID:sGoalAmount];
     
     self.setAmountTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sWillCost] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+    self.setAmountTextField.delegate=self;as
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -90,7 +91,8 @@
 {
     [RDPAnalyticsModule track:@"Saved goal amount in FTU" properties:@{@"amount" : self.setAmountTextField.text}];
     
-    NSNumberFormatter *formatter = [RDPConfig numberFormatter];
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     NSNumber *amount = [formatter numberFromString:self.setAmountTextField.text];
     [self.userGoal setTargetAmount:amount];
     
@@ -113,6 +115,13 @@
 {
     self.setAmountTextField.text = button.titleLabel.text;
     [RDPAnalyticsModule track:@"Chose default amount" properties:@{@"name" : self.setAmountTextField.text}];
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string  {
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    return (([string isEqualToString:filtered])&&(newLength <= 7));
 }
 
 /*

@@ -14,6 +14,7 @@
 #import "RDPAnalyticsModule.h"
 #import "RDPMixpanelAnalyticsProvider.h"
 #import "RDPUserService.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation RDPAppDelegate
 
@@ -82,6 +83,8 @@
 //    }
     
 //   [RDPImageFetcher getImageFetcher];
+    
+    [Crashlytics startWithAPIKey:@"2e5bc380686d78611d360d2a169c82892bc19922"];
     
     return YES;
 }

@@ -55,6 +55,8 @@
 		55DCE1B6199C041D003EA30D /* RDPQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B4199C041D003EA30D /* RDPQuotes.m */; };
 		55DCE1B8199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
 		55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
+		55DCE1BC199E792E003EA30D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DCE1BB199E792E003EA30D /* Crashlytics.framework */; };
+		55DCE1BD199E792E003EA30D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DCE1BB199E792E003EA30D /* Crashlytics.framework */; };
 		5849BC76199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
 		5849BC77199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
 		5849BC7A199C1E91008BAEBF /* RDPProgressHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */; };
@@ -279,6 +281,7 @@
 		55DCE1B3199C041D003EA30D /* RDPQuotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPQuotes.h; sourceTree = "<group>"; };
 		55DCE1B4199C041D003EA30D /* RDPQuotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPQuotes.m; sourceTree = "<group>"; };
 		55DCE1B7199C09B3003EA30D /* quotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quotes.plist; sourceTree = "<group>"; };
+		55DCE1BB199E792E003EA30D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPProgressHeader.xib; sourceTree = "<group>"; };
 		5849BC78199C1E91008BAEBF /* RDPProgressHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProgressHeader.h; sourceTree = "<group>"; };
 		5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProgressHeader.m; sourceTree = "<group>"; };
@@ -445,6 +448,7 @@
 				58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */,
 				58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */,
 				3DA685B260D1443591BE91E6 /* libPods.a in Frameworks */,
+				55DCE1BC199E792E003EA30D /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +458,7 @@
 			files = (
 				58F643CB197DA5F6001D0236 /* XCTest.framework in Frameworks */,
 				58F643CD197DA5F6001D0236 /* UIKit.framework in Frameworks */,
+				55DCE1BD199E792E003EA30D /* Crashlytics.framework in Frameworks */,
 				58F643CC197DA5F6001D0236 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +533,7 @@
 		58F643B0197DA5F6001D0236 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				55DCE1BB199E792E003EA30D /* Crashlytics.framework */,
 				58988F80198EF2BD00E05AC5 /* Accelerate.framework */,
 				58988F4519881C1300E05AC5 /* QuartzCore.framework */,
 				58988F4319881C0000E05AC5 /* AVFoundation.framework */,
@@ -876,6 +882,7 @@
 				58F643AB197DA5F6001D0236 /* Frameworks */,
 				58F643AC197DA5F6001D0236 /* Resources */,
 				66C255A1333A40159BE76363 /* Copy Pods Resources */,
+				55DCE1BA199E7904003EA30D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1042,6 +1049,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		55DCE1BA199E7904003EA30D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 2e5bc380686d78611d360d2a169c82892bc19922 af51a2b6cf02246c603755dedcba83b95b139673db55e7249bd6dabfd38c6bc6";
+		};
 		66C255A1333A40159BE76363 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
