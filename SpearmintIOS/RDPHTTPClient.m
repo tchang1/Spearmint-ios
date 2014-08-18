@@ -12,6 +12,8 @@
 
 static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
 static NSString* const notificationsKey = @"notifications";
+static NSString* const feedbackURL = @"/feedback";
+static NSString* const feedbackKey = @"feedback";
 
 @implementation RDPHTTPClient
 
@@ -348,6 +350,23 @@ andFailureBlock:(errorBlock)errorBlock
 {
     NSDictionary* params = @{notificationsKey : preference};
     [self PUT:@"notifications/me" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSLog( @"%@", response );
+        block();
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        errorBlock(error);
+    }];
+}
+
+#pragma mark - FEEDBACK
+
+-(void)postFeedback:(NSString*)feedback withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock
+{
+    feedback = (!feedback) ? @"" : feedback;
+    NSDictionary* params = @{feedbackKey : feedback};
+    [self POST:feedbackURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSLog( @"%@", response );
         block();

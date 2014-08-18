@@ -158,6 +158,8 @@
 		F28134391993513200D7E9EF /* RDPUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134331993513200D7E9EF /* RDPUserModel.m */; };
 		F281343C1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */; };
 		F281343D1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */; };
+		F2892FE019A2B6E40028CC29 /* RDPFeedbackService.m in Sources */ = {isa = PBXBuildFile; fileRef = F2892FDF19A2B6E40028CC29 /* RDPFeedbackService.m */; };
+		F2892FE119A2B6E40028CC29 /* RDPFeedbackService.m in Sources */ = {isa = PBXBuildFile; fileRef = F2892FDF19A2B6E40028CC29 /* RDPFeedbackService.m */; };
 		F2ACC0D4199AA93B00303C5B /* RDPUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */; };
 		F2ACC0D5199AA93B00303C5B /* RDPUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */; };
 		F2F1CF72198E9E7B00438A8A /* RDPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */; };
@@ -379,6 +381,8 @@
 		F28134331993513200D7E9EF /* RDPUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUserModel.m; sourceTree = "<group>"; };
 		F281343A1993514300D7E9EF /* RDPFlipLeftSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPFlipLeftSegue.h; sourceTree = "<group>"; };
 		F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPFlipLeftSegue.m; sourceTree = "<group>"; };
+		F2892FDE19A2B6E40028CC29 /* RDPFeedbackService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPFeedbackService.h; sourceTree = "<group>"; };
+		F2892FDF19A2B6E40028CC29 /* RDPFeedbackService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPFeedbackService.m; sourceTree = "<group>"; };
 		F2ACC0D2199AA93B00303C5B /* RDPUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUITextView.h; sourceTree = "<group>"; };
 		F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUITextView.m; sourceTree = "<group>"; };
 		F2F1CF70198E9E7B00438A8A /* RDPSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSettingsController.h; sourceTree = "<group>"; };
@@ -807,6 +811,8 @@
 				F28134291993510500D7E9EF /* RDPUserService.m */,
 				551AA636199427430010E65B /* RDPValidationService.h */,
 				551AA637199427430010E65B /* RDPValidationService.m */,
+				F2892FDE19A2B6E40028CC29 /* RDPFeedbackService.h */,
+				F2892FDF19A2B6E40028CC29 /* RDPFeedbackService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1138,6 +1144,7 @@
 				F2F1D0261990A49600438A8A /* RDPSettingsNavigationController.m in Sources */,
 				5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */,
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
+				F2892FE019A2B6E40028CC29 /* RDPFeedbackService.m in Sources */,
 				551AA6121992A5630010E65B /* RDPInputViewWithImage.m in Sources */,
 				58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */,
 				F28134341993513200D7E9EF /* RDPGoalModel.m in Sources */,
@@ -1210,6 +1217,7 @@
 				F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
 				55DCE1AE199AB653003EA30D /* RDPAnalyticsModule.m in Sources */,
 				F2F1CFE1198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */,
+				F2892FE119A2B6E40028CC29 /* RDPFeedbackService.m in Sources */,
 				F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */,
 				551AA63519941FB60010E65B /* RDPSignupViewController.m in Sources */,
 				55DCE1B6199C041D003EA30D /* RDPQuotes.m in Sources */,

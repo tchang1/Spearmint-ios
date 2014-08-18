@@ -103,7 +103,7 @@ typedef enum {
     sKeptCaps,
     sSavedBy,
     sSaveSome,
-    sRecord
+    sRecord,
 } RDPStringID;
 
 @interface RDPStrings : NSObject

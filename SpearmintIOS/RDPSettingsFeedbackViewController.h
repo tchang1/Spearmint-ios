@@ -8,6 +8,6 @@
 
 #import "RDPViewController.h"
 
-@interface RDPSettingsFeedbackViewController : RDPViewController <UITextViewDelegate>
+@interface RDPSettingsFeedbackViewController : RDPViewController <UITextViewDelegate, UIAlertViewDelegate>
 
 @end

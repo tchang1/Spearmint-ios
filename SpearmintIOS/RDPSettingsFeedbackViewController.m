@@ -8,6 +8,7 @@
 
 #import "RDPSettingsFeedbackViewController.h"
 #import "RDPUITextView.h"
+#import "RDPFeedbackService.h"
 
 @interface RDPSettingsFeedbackViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *feedbackHeader;
@@ -63,6 +64,23 @@
 
 - (IBAction)backPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)submitPressed:(id)sender {
+    if (self.feedbackTextView.text && ![self.feedbackTextView.text isEqualToString:@""]) {
+        [RDPFeedbackService postFeedback:self.feedbackTextView.text];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[RDPStrings stringForID:sSubmitFeedback]
+                                                        message:[RDPStrings stringForID:sSubmitFeedbackAlertText]
+                                                       delegate:self
+                                              cancelButtonTitle:[RDPStrings stringForID:sSubmitFeedbackAlertDismissButton]
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.feedbackTextView setText:@""];
 }
 
 /*

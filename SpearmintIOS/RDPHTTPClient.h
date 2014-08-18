@@ -71,6 +71,9 @@ typedef void (^stringBlock)(NSString*);
 -(void)getSuggestions:(NSNumber *)limit withSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;
 -(void)getCongratulations:(NSNumber *)limit withSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;
 
+//Feedback
+-(void)postFeedback:(NSString*)feedback withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock;
+
 
 
 @end
