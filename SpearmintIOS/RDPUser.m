@@ -13,18 +13,20 @@
 @property (strong, nonatomic) NSString* userUsername;
 @property (strong, nonatomic) NSString* userPassword;
 @property (strong, nonatomic) RDPGoal* userGoal;
+@property (nonatomic, assign) BOOL notifications;
 
 @end
 
 @implementation RDPUser
 
--(id)initWithUsername:(NSString*)username andPassword:(NSString*)password andGoal:(RDPGoal*)goal
+-(id)initWithUsername:(NSString*)username andPassword:(NSString*)password andGoal:(RDPGoal*)goal andNotificationsEnabled:(BOOL)notificationsEnabled
 {
     self = [super init];
     if (self) {
         [self setUserUsername:username];
         [self setPassword:password];
         [self setGoal:goal];
+        [self setNotificationsEnabled:notificationsEnabled];
     }
     return self;
 }
@@ -92,11 +94,40 @@
     return responseCode;
 }
 
+-(BOOL) isNotificationsEnabled
+{
+    return self.notifications;
+}
+
+-(RDPResponseCode) setNotificationsEnabled:(BOOL)enabled
+{
+    self.notifications = enabled;
+    return RDPResponseCodeOK;
+}
+
+-(BOOL)isEqualToUser:(RDPUser*)other
+{
+    BOOL equal = YES;
+    
+    if (![self.userUsername isEqualToString:[other getUsername]]) {
+        equal = NO;
+    }
+    if (![self.userPassword isEqualToString:[other userPassword]]) {
+        equal = NO;
+    }
+    if (self.notifications != [other isNotificationsEnabled]) {
+        equal = NO;
+    }
+    
+    return equal;
+}
+
 -(RDPUser*)copy
 {
     return [[RDPUser alloc] initWithUsername:[self.userUsername copy]
                                  andPassword:[self.userPassword copy]
-                                     andGoal:[self.userGoal copy]];
+                                     andGoal:[self.userGoal copy]
+                     andNotificationsEnabled:self.notifications];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "AFHTTPSessionManager.h"
 #import "RDPGoalModel.h"
 #import "RDPSavingEventModel.h"
+#import "RDPUserModel.h"
 
 typedef void (^completionBlock)(void);
 typedef void (^errorBlock)(NSError*);
@@ -57,8 +58,8 @@ typedef void (^stringBlock)(NSString*);
 -(void)postNewSaving:(RDPSavingEventModel *)goal withSuccess:(savingBlock)block andFailure:(errorBlock)errorBlock;
 
 //Notifications
-//-(void)getMyNotifications;
--(void)updateNotifications:(NSDictionary *)params;
+-(void)getMyNotificationsWithSuccess:(stringBlock)block andFailure:(errorBlock)errorBlock;
+-(void)updateNotificationsWithPreference:(NSString*)preference withSuccess:(completionBlock)block andFailure:(errorBlock)error;
 
 //-(void)getMyNotificationsWithSuccess;
 

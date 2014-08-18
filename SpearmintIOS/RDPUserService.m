@@ -20,7 +20,7 @@ static RDPUser* storedUser;
 
 @implementation RDPUserService
 
-+(RDPUser*)createUserObjectWithUsername:(NSString*)username andPassword:(NSString*)password andGoalModel:(RDPGoalModel*)goalModel andSavingEvents:(NSArray*)savingEventModels
++(RDPUser*)createUserObjectWithUsername:(NSString*)username andPassword:(NSString*)password andGoalModel:(RDPGoalModel*)goalModel andSavingEvents:(NSArray*)savingEventModels andNotifications:(BOOL)notifications
 {
     RDPUser* user;
     RDPGoal* goal;
@@ -31,7 +31,7 @@ static RDPUser* storedUser;
     }
     
     goal = [RDPUserService goalFromGoalModel:goalModel andSavingEvents:savings];
-    user = [[RDPUser alloc] initWithUsername:username andPassword:password andGoal:goal];
+    user = [[RDPUser alloc] initWithUsername:username andPassword:password andGoal:goal andNotificationsEnabled:notifications];
     
     return user;
 }
@@ -58,7 +58,15 @@ static RDPUser* storedUser;
                 savingsModels = [[NSArray alloc] init];
             }
             
-            block([RDPUserService createUserObjectWithUsername:username andPassword:password andGoalModel:goalModel andSavingEvents:savingsModels]);
+            [[RDPHTTPClient sharedRDPHTTPClient] getMyNotificationsWithSuccess:^(NSString *notifications) {
+                BOOL notificationsEnabled = NO;
+                if ([notifications isEqualToString:@"Y"]) {
+                    notificationsEnabled = YES;
+                }
+                block([RDPUserService createUserObjectWithUsername:username andPassword:password andGoalModel:goalModel andSavingEvents:savingsModels andNotifications:notificationsEnabled]);
+            } andFailure:^(NSError *error) {
+                fail([RDPUserService handleError:error]);
+            }];
         }
         andFailure:^(NSError* error) {
             fail([RDPUserService handleError:error]);
@@ -73,7 +81,7 @@ static RDPUser* storedUser;
 {
     [[RDPHTTPClient sharedRDPHTTPClient] signupWithUsername:username andPassword:password andCompletionBlock:^{
         NSLog(@"signup to server completed");
-        storedUser=[[RDPUser alloc]initWithUsername:username andPassword:password andGoal:nil];
+        storedUser=[[RDPUser alloc]initWithUsername:username andPassword:password andGoal:nil andNotificationsEnabled:YES];
 
         [RDPUserService saveGoalModel:goal withResponse:^(RDPResponseCode code) {
             NSLog(@"save goal to server completed");
@@ -133,7 +141,11 @@ static RDPUser* storedUser;
     RDPAsyncProgressTracker* asyncProgressTracker = [[RDPAsyncProgressTracker alloc] init];
     asyncProgressTracker.response = RDPResponseCodeOK;
     
+    if (![user isEqualToUser:storedUser]) {
+        userNeedsUpdating = YES;
+    }
     if (userNeedsUpdating) {
+        [asyncProgressTracker addOperation];
         [RDPUserService saveUserModel:user withResponse:^(RDPResponseCode responseCode) {
             [RDPUserService asyncOperationFinishedWithCode:responseCode andTracker:asyncProgressTracker withUser:user andCallbackBlock:response];
         }];
@@ -179,8 +191,13 @@ static RDPUser* storedUser;
     }
 }
 
-+(void)saveUserModel:(RDPUser*)user withResponse:(responseBlock)respose
++(void)saveUserModel:(RDPUser*)user withResponse:(responseBlock)response
 {
+    [[RDPHTTPClient sharedRDPHTTPClient] updateNotificationsWithPreference:([user isNotificationsEnabled]) ? @"Y" : @"N" withSuccess:^{
+        response(RDPResponseCodeOK);
+    } andFailure:^(NSError *error) {
+        response([self handleError:error]);
+    }];
     
 }
 

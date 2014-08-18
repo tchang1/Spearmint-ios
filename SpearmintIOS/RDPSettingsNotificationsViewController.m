@@ -8,6 +8,7 @@
 
 #import "RDPSettingsNotificationsViewController.h"
 #import "RDPTableViewCellWithToggle.h"
+#import "RDPUserService.h"
 
 #define kCellXibName                    @"RDPTableViewCellWithToggle"
 #define kCellReusableIdentifier         @"ToggleCell"
@@ -66,29 +67,8 @@
 - (NSArray*)sections
 {
     if (!_sections) {
-        _sections = @[@{kSectionHeaderKey : [RDPStrings stringForID:sEmail],
-                        kOptionArrayKey : @[@{kNameKey : [RDPStrings stringForID:sDaily],
-                                              kIdentifierKey : kEmailDailyIdentifier
-                                              },
-                                            @{kNameKey : [RDPStrings stringForID:sWeeklyReport],
-                                              kIdentifierKey : kEmailWeeklyIdentifier
-                                              },
-                                            @{kNameKey : [RDPStrings stringForID:sWhenIReachMyGoal],
-                                              kIdentifierKey : kEmailReachGoalIdentifier
-                                              }
-                                            ]},
-                      @{kSectionHeaderKey : [RDPStrings stringForID:sPushNotifications],
-                        kOptionArrayKey : @[@{kNameKey : [RDPStrings stringForID:sDaily],
-                                              kIdentifierKey : kNotificationDaily
-                                              },
-                                            @{kNameKey : [RDPStrings stringForID:sWeekly],
-                                              kIdentifierKey : kNotificationWeekly
-                                              },
-                                            @{kNameKey : [RDPStrings stringForID:sWhenIDontSaveForThreeDays],
-                                              kIdentifierKey : kNotificationInactive3Days
-                                              }
-                                            ]}
-                      ];
+        _sections = @[@{kNameKey : [RDPStrings stringForID:sDaily],
+                                        kIdentifierKey : kNotificationDaily}];
     }
     
     return _sections;
@@ -100,14 +80,14 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [self.sections count];
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return [self.sections count];
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[self.sections objectAtIndex:section] objectForKey:kOptionArrayKey] count];
+    return [self.sections count];
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,33 +95,33 @@
 //    return kCellHeight;
 //}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return kHeaderSectionHeight;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return kHeaderSectionHeight;
+//}
 
-- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, kHeaderSectionHeight)];
-    [headerView setBackgroundColor:kColor_Transparent];
-    UIView *headerInnerView = [[UIView alloc] initWithFrame:CGRectMake(headerView.frame.origin.x,
-                                                                       kHeaderSectionMargin,
-                                                                       headerView.frame.size.width,
-                                                                       headerView.frame.size.height - kHeaderSectionMargin)];
-    [headerInnerView setBackgroundColor:kColor_PanelColor];
-    
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(kHeaderSectionLabelMarginX,
-                                                               kHeaderSectionLabelMarginY,
-                                                               headerView.frame.size.width - kHeaderSectionLabelMarginX * 2,
-                                                               kHeaderSectionHeight - kHeaderSectionLabelMarginY * 2)];
-    [label setText:[[self.sections objectAtIndex:section] objectForKey:kSectionHeaderKey]];
-    [label setTextColor:kColor_DarkText];
-    [label setFont: [RDPFonts fontForID:fSectionHeaderFont]];
-    
-    [headerInnerView addSubview:label];
-    [headerView addSubview:headerInnerView];
-    return headerView;
-}
+//- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, kHeaderSectionHeight)];
+//    [headerView setBackgroundColor:kColor_Transparent];
+//    UIView *headerInnerView = [[UIView alloc] initWithFrame:CGRectMake(headerView.frame.origin.x,
+//                                                                       kHeaderSectionMargin,
+//                                                                       headerView.frame.size.width,
+//                                                                       headerView.frame.size.height - kHeaderSectionMargin)];
+//    [headerInnerView setBackgroundColor:kColor_PanelColor];
+//    
+//    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(kHeaderSectionLabelMarginX,
+//                                                               kHeaderSectionLabelMarginY,
+//                                                               headerView.frame.size.width - kHeaderSectionLabelMarginX * 2,
+//                                                               kHeaderSectionHeight - kHeaderSectionLabelMarginY * 2)];
+//    [label setText:[[self.sections objectAtIndex:section] objectForKey:kSectionHeaderKey]];
+//    [label setTextColor:kColor_DarkText];
+//    [label setFont: [RDPFonts fontForID:fSectionHeaderFont]];
+//    
+//    [headerInnerView addSubview:label];
+//    [headerView addSubview:headerInnerView];
+//    return headerView;
+//}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -152,17 +132,28 @@
         cell = [[RDPTableViewCellWithToggle alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellReusableIdentifier];
     }
     
-    NSDictionary* cellInfo = [[[self.sections objectAtIndex:indexPath.section] objectForKey:kOptionArrayKey] objectAtIndex:indexPath.row];
+    NSDictionary* cellInfo = [self.sections objectAtIndex:indexPath.row];
     
     [cell.label setText:[cellInfo objectForKey:kNameKey]];
     [cell.label setFont:[RDPFonts fontForID:fMenuFont]];
     [cell.label setTextColor:kColor_DarkText];
-    [cell.innerContent setBackgroundColor:kColor_PanelColor];
+    [cell.innerContent setBackgroundColor:kColor_Transparent];
     [cell.contentView setBackgroundColor:kColor_PanelColor];
-    
+    [cell.toggle setOn:[[RDPUserService getUser] isNotificationsEnabled] animated:NO];
+    [cell.toggle addTarget:self action:@selector(updateNotificationPreference:) forControlEvents:UIControlEventValueChanged];
+
     return cell;
 }
 
+- (void)updateNotificationPreference:(id)sender
+{
+    BOOL preference = [sender isOn];
+    RDPUser* modifiedUser = [RDPUserService getUser];
+    [modifiedUser setNotificationsEnabled:preference];
+    [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
+        //
+    }];
+}
 
 /*
 #pragma mark - Navigation

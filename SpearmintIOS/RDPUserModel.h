@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) NSString *password;
 
-@property (nonatomic, strong) NSNumber *notifications;
+@property (nonatomic, strong) NSString *notifications;
 
 
 - (id)initWithName:(NSString *)username andPassword:(NSString *)password;

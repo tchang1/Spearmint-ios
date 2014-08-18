@@ -91,40 +91,40 @@
             result = @"February";
             break;
         case sMarch:
-            result = @"History";
+            result = @"March";
             break;
         case sApril:
-            result = @"History";
+            result = @"April";
             break;
         case sMay:
-            result = @"History";
+            result = @"May";
             break;
         case sJune:
-            result = @"History";
+            result = @"June";
             break;
         case sJuly:
-            result = @"History";
+            result = @"July";
             break;
         case sAugust:
-            result = @"History";
+            result = @"August";
             break;
         case sSeptember:
-            result = @"History";
+            result = @"September";
             break;
         case sOctober:
-            result = @"History";
+            result = @"October";
             break;
         case sNovember:
-            result = @"History";
+            result = @"November";
             break;
         case sDecember:
-            result = @"History";
+            result = @"December";
             break;
         case sLastYear:
-            result = @"History";
+            result = @"Last Year";
             break;
         case sOlder:
-            result = @"History";
+            result = @"Older";
             break;
         case sLogout:
             result = @"Logout";
@@ -157,7 +157,7 @@
             result = @"I want to...";
             break;
         case sDaily:
-            result = @"Daily";
+            result = @"Daily Notifications";
             break;
         case sWeekly:
             result = @"Weekly";

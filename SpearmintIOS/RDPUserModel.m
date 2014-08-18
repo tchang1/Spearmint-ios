@@ -26,7 +26,7 @@
     if (self) {
         self.username = @"";
         self.password = @"";
-        self.notifications = @YES ;
+        self.notifications = @"Y" ;
     }
     return self;
 }
@@ -37,7 +37,7 @@
     if (self) {
         self.username = username;
         self.password = password;
-        self.notifications = @YES;
+        self.notifications = @"Y";
     }
     return self;
 }

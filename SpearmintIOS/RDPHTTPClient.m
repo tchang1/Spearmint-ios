@@ -11,6 +11,7 @@
 #import "RDPJSONResponseSerializer.h"
 
 static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
+static NSString* const notificationsKey = @"notifications";
 
 @implementation RDPHTTPClient
 
@@ -343,15 +344,17 @@ andFailureBlock:(errorBlock)errorBlock
     
 }
 
--(void)updateNotifications:(NSDictionary *)params
+-(void)updateNotificationsWithPreference:(NSString*)preference withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock
 {
+    NSDictionary* params = @{notificationsKey : preference};
     [self PUT:@"notifications/me" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSLog( @"%@", response );
+        block();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
-        
+        errorBlock(error);
     }];
 }
 

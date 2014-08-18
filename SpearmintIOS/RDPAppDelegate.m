@@ -112,7 +112,9 @@
         NSLog(@"No user");
         return;
     }
-    [RDPNotificationsManager scheduleNotificationsBasedOnUser:userCopy];
+    if ([userCopy isNotificationsEnabled]) {
+        [RDPNotificationsManager scheduleNotificationsBasedOnUser:userCopy];
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
