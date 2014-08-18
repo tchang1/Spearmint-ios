@@ -32,6 +32,7 @@
 @property (strong, nonatomic) NSArray* goalOptions;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) RDPUser* modifiedUser;
+@property (strong, nonatomic) NSNumberFormatter* numberFormatter;
 
 @end
 
@@ -55,6 +56,7 @@
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
     self.modifiedUser = [RDPUserService getUser];
+    self.numberFormatter = [[NSNumberFormatter alloc] init];
     // Get the reference to the current toolbar buttons
     [self hideSaveButton];
 }
@@ -199,7 +201,7 @@
             if ([value isEqualToString:@""]) {
                 value = @"0";
             }
-            status = [[self.modifiedUser getGoal] setTargetAmount:[[RDPConfig numberFormatter] numberFromString:value]];
+            status = [[self.modifiedUser getGoal] setTargetAmount:[self.numberFormatter numberFromString:value]];
             if (RDPResponseCodeOK != status) {
                 valid = NO;
             }
@@ -211,7 +213,7 @@
             if ([value isEqualToString:@""]) {
                 value = @"0";
             }
-            status = [[self.modifiedUser getGoal] setCurrentAmount:[[RDPConfig numberFormatter] numberFromString:textField.text]];
+            status = [[self.modifiedUser getGoal] setCurrentAmount:[self.numberFormatter numberFromString:textField.text]];
             if (RDPResponseCodeOK != status) {
                 valid = NO;
             }
