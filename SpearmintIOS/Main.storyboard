@@ -175,37 +175,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" id="cSb-6w-1SC" customClass="CSAnimationView">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap and hold" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" id="bhR-OA-0G6">
-                                                        <rect key="frame" x="40" y="300" width="240" height="75"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Hqn-yP-ZdT">
-                                                        <rect key="frame" x="275" y="80" width="25" height="25"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <inset key="contentEdgeInsets" minX="-10" minY="-10" maxX="0.0" maxY="-10"/>
-                                                        <inset key="imageEdgeInsets" minX="50" minY="50" maxX="50" maxY="50"/>
-                                                        <state key="normal" backgroundImage="Settings.png">
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <segue destination="1me-PV-P89" kind="modal" modalTransitionStyle="flipHorizontal" id="qDW-gb-Sri"/>
-                                                        </connections>
-                                                    </button>
-                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Fingerprint.png" id="zdj-VK-E3V">
-                                                        <rect key="frame" x="135" y="240" width="50" height="50"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                    </imageView>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </view>
                                             <view contentMode="scaleToFill" id="nfm-3L-FtG" customClass="CSAnimationView">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -271,14 +240,45 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <view contentMode="scaleToFill" id="GP4-xk-EXX">
-                                                <rect key="frame" x="0.0" y="60" width="320" height="568"/>
+                                            <view contentMode="scaleToFill" id="cSb-6w-1SC" customClass="CSAnimationView">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap and hold" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" id="bhR-OA-0G6">
+                                                        <rect key="frame" x="40" y="300" width="240" height="75"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Fingerprint.png" id="zdj-VK-E3V">
+                                                        <rect key="frame" x="135" y="240" width="50" height="50"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </imageView>
+                                                    <view contentMode="scaleToFill" id="GP4-xk-EXX">
+                                                        <rect key="frame" x="0.0" y="60" width="320" height="568"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="MNp-lb-WgT"/>
+                                                            <outletCollection property="gestureRecognizers" destination="42K-Rd-GnE" appends="YES" id="6dN-fS-uWn"/>
+                                                        </connections>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Hqn-yP-ZdT">
+                                                        <rect key="frame" x="275" y="80" width="25" height="25"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <inset key="contentEdgeInsets" minX="-10" minY="-10" maxX="0.0" maxY="-10"/>
+                                                        <inset key="imageEdgeInsets" minX="50" minY="50" maxX="50" maxY="50"/>
+                                                        <state key="normal" backgroundImage="Settings.png">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <segue destination="1me-PV-P89" kind="modal" modalTransitionStyle="flipHorizontal" id="qDW-gb-Sri"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="MNp-lb-WgT"/>
-                                                    <outletCollection property="gestureRecognizers" destination="42K-Rd-GnE" appends="YES" id="6dN-fS-uWn"/>
-                                                </connections>
                                             </view>
                                         </subviews>
                                         <connections>

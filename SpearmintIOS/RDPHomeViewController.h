@@ -24,7 +24,7 @@ typedef enum HomeScreenMode {
     OnProgressView,
 } HomeScreenMode;
 
-@interface RDPHomeViewController : RDPViewController <UIScrollViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
+@interface RDPHomeViewController : RDPViewController <UIScrollViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, UIGestureRecognizerDelegate>
 
 // The image views that contain the clear and blurred version of
 // the image to display to users on the home screen.

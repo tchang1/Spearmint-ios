@@ -97,8 +97,8 @@
     
     // Set the max value for the first example to 3
     self.counterView.maxValue = kMaxAmountFirstExample;
-    self.counterView.rotationsPerSecond = kTestingSpeed;
-    //self.counterView.rotationsPerSecond = kFirstExampleSpeed;
+    //self.counterView.rotationsPerSecond = kTestingSpeed;
+    self.counterView.rotationsPerSecond = kFirstExampleSpeed;
 }
 
 - (void)didReceiveMemoryWarning
@@ -188,8 +188,8 @@
     
     // Set the max value for the first example to 8
     self.counterView.maxValue = kMaxAmountSecondExample;
-    self.counterView.rotationsPerSecond = kTestingSpeed;
-    //self.counterView.rotationsPerSecond = kSecondExampleSpeed;
+    //self.counterView.rotationsPerSecond = kTestingSpeed;
+    self.counterView.rotationsPerSecond = kSecondExampleSpeed;
     
     // Change all the labels
     self.tapAndHoldLabel.text = [RDPStrings stringForID:sBusTapAndHold];

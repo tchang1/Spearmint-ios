@@ -16,9 +16,9 @@ typedef void(^ImageBlock)(UIImage*);
 @property (nonatomic, strong) NSMutableArray *clearImagesArray;
 @property (nonatomic, strong) NSMutableArray *blurredImagesArray;
 
-@property (atomic, assign) int indexOfImageFile;
-@property (atomic, assign) int indexOfImageArray; 
-@property (atomic, assign) int numImages;
+@property (nonatomic, assign) int indexOfImageFile;
+@property (nonatomic, assign) int indexOfImageArray;
+@property (nonatomic, assign) int numImages;
 
 + (RDPImageFetcher *)getImageFetcher;
 

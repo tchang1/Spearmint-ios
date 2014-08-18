@@ -95,6 +95,7 @@
     
     // Disable the tap gesture recognizer
     self.tapGestureRecognizer.enabled = NO;
+    //self.tapGestureRecognizer.delegate = self;
     
     // Get the clear and blurred image from the image fetcher
     self.imageFetcher = [RDPImageFetcher getImageFetcher];
@@ -175,7 +176,7 @@
     self.congratulations = [[RDPCongratulations alloc] init];
     [self.congratulations getNextCongratsMessage];
     self.congratsLabel.text = self.congratulations.congratsMessage;
-    self.recordButton.titleLabel.text = [RDPStrings stringForID:sRecord];
+    [self.recordButton setTitle:[RDPStrings stringForID:sRecord] forState:UIControlStateNormal];
     self.congratsView.hidden = YES;
     
     // Setup the saving suggestion messages
@@ -506,12 +507,6 @@
     [self goToRecordView];
 }
 
-- (IBAction)homeViewTapped:(UITapGestureRecognizer *)tapGesture
-{
-    [self enterSavingReason];
-    self.tapGestureRecognizer.enabled = NO;
-}
-
 
 - (void)goToSaveView
 {
@@ -544,7 +539,14 @@
     self.screenMode = OnProgressView;
 }
 
-# pragma mark - Press and Hold
+# pragma mark - Gesture Recognizers 
+
+- (IBAction)homeViewTapped:(UITapGestureRecognizer *)tapGesture
+{
+    [self enterSavingReason];
+    self.tapGestureRecognizer.enabled = NO;
+}
+
 
 - (IBAction)pressAndHold:(UIGestureRecognizer *)recognizer
 {
