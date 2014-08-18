@@ -30,5 +30,6 @@ MBProgressHUD *HUD;
 - (IBAction)loginButtonDown:(id)sender;
 - (IBAction)loginButtonPressed:(id)sender;
 - (IBAction)passwordEditingBegan:(id)sender;
+- (IBAction)forgotPasswordPressed:(id)sender;
 
 @end
