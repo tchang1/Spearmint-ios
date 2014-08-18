@@ -172,8 +172,8 @@ static RDPUser* storedUser;
     }
     
     for (NSInteger i = 0; i < [savingEventsToUpdate count]; i++) {
+        [asyncProgressTracker addOperation];
         [RDPUserService saveSavingEvent:[savingEventsToUpdate objectAtIndex:i] withGoalID:[user getGoal].goalID forUser:user withResponse:^(RDPResponseCode responseCode) {
-            
             [RDPUserService asyncOperationFinishedWithCode:responseCode andTracker:asyncProgressTracker withUser:user andCallbackBlock:response];
         }];
     }

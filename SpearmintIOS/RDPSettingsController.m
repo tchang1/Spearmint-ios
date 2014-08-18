@@ -31,7 +31,6 @@
 
 #define kMyGoalIdentifier           @"settingsMyGoal"
 #define kNotificationsIdentifier    @"settingsNotifications"
-#define kHistoryIdentifier          @"settingsHistory"
 #define kFeedbackIdentifier         @"settingsFeedback"
 
 #define kLogoutSegue                @"logoutSegue"
@@ -56,9 +55,6 @@
                          },
                        @{kKeyName : [RDPStrings stringForID:sNotificationSettings],
                          kKeySelector : NSStringFromSelector(@selector(notificationsTapped))
-                         },
-                       @{kKeyName : [RDPStrings stringForID:sHistory],
-                         kKeySelector : NSStringFromSelector(@selector(historyTapped))
                          },
                        @{kKeyName : [RDPStrings stringForID:sSubmitFeedback],
                          kKeySelector : NSStringFromSelector(@selector(feedbackTapped))
@@ -238,15 +234,6 @@
     UIViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kNotificationsIdentifier];
-    
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
--(void)historyTapped
-{
-    UIViewController *viewController =
-    [[UIStoryboard storyboardWithName:kStoryboard
-                               bundle:NULL] instantiateViewControllerWithIdentifier:kHistoryIdentifier];
     
     [self.navigationController pushViewController:viewController animated:YES];
 }

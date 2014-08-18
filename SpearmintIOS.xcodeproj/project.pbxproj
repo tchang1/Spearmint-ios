@@ -210,8 +210,6 @@
 		F2F1D00E19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D00B19903CAE00438A8A /* RDPTableViewSavingsCell.m */; };
 		F2F1D00F19903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1D00C19903CAE00438A8A /* RDPTableViewSavingsCell.xib */; };
 		F2F1D01019903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1D00C19903CAE00438A8A /* RDPTableViewSavingsCell.xib */; };
-		F2F1D0131990420C00438A8A /* RDPSettingsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0121990420C00438A8A /* RDPSettingsHistoryViewController.m */; };
-		F2F1D0141990420C00438A8A /* RDPSettingsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0121990420C00438A8A /* RDPSettingsHistoryViewController.m */; };
 		F2F1D01A1990992200438A8A /* RDPCongratulations.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0171990992200438A8A /* RDPCongratulations.m */; };
 		F2F1D01B1990992200438A8A /* RDPCongratulations.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0171990992200438A8A /* RDPCongratulations.m */; };
 		F2F1D01C1990992200438A8A /* RDPSavingSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0191990992200438A8A /* RDPSavingSuggestions.m */; };
@@ -417,8 +415,6 @@
 		F2F1D00A19903CAE00438A8A /* RDPTableViewSavingsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPTableViewSavingsCell.h; sourceTree = "<group>"; };
 		F2F1D00B19903CAE00438A8A /* RDPTableViewSavingsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPTableViewSavingsCell.m; sourceTree = "<group>"; };
 		F2F1D00C19903CAE00438A8A /* RDPTableViewSavingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPTableViewSavingsCell.xib; sourceTree = "<group>"; };
-		F2F1D0111990420C00438A8A /* RDPSettingsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSettingsHistoryViewController.h; sourceTree = "<group>"; };
-		F2F1D0121990420C00438A8A /* RDPSettingsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSettingsHistoryViewController.m; sourceTree = "<group>"; };
 		F2F1D0161990992200438A8A /* RDPCongratulations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPCongratulations.h; sourceTree = "<group>"; };
 		F2F1D0171990992200438A8A /* RDPCongratulations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPCongratulations.m; sourceTree = "<group>"; };
 		F2F1D0181990992200438A8A /* RDPSavingSuggestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSavingSuggestions.h; sourceTree = "<group>"; };
@@ -839,8 +835,6 @@
 				F2F1CFF019900DAC00438A8A /* RDPSettingsNotificationsViewController.m */,
 				F2F1D0021990301500438A8A /* RDPSettingsFeedbackViewController.h */,
 				F2F1D0031990301500438A8A /* RDPSettingsFeedbackViewController.m */,
-				F2F1D0111990420C00438A8A /* RDPSettingsHistoryViewController.h */,
-				F2F1D0121990420C00438A8A /* RDPSettingsHistoryViewController.m */,
 				F2F1D0241990A49600438A8A /* RDPSettingsNavigationController.h */,
 				F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */,
 			);
@@ -1159,7 +1153,6 @@
 				55DCE1A619994AFF003EA30D /* RDPNotificationsManager.m in Sources */,
 				F2FD6F5A19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
 				F2F1CFFA19900E5200438A8A /* RDPTableViewCellWithToggle.m in Sources */,
-				F2F1D0131990420C00438A8A /* RDPSettingsHistoryViewController.m in Sources */,
 				551AA638199427430010E65B /* RDPValidationService.m in Sources */,
 				558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */,
 				585F1592199D79F100992AE3 /* RDPDataHolder.m in Sources */,
@@ -1178,7 +1171,6 @@
 				F281343D1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */,
 				F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
 				58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */,
-				F2F1D0141990420C00438A8A /* RDPSettingsHistoryViewController.m in Sources */,
 				58988FB019953A8E00E05AC5 /* RDPSuggestionsView.m in Sources */,
 				58988FA819942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */,
 				F2F1CFEE198FF6C300438A8A /* RDPSettingsGoalViewController.m in Sources */,

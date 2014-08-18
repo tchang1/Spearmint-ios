@@ -374,7 +374,11 @@
                 RDPSavingEvent* savingEvent = [[[editedUser getGoal] getSavingEvents] objectAtIndex:i];
                 if (!savingEvent.deleted) {
                     NSNumber* newNumber = [[editedUser getGoal] getCurrentAmount];
-                    newNumber = [NSNumber numberWithDouble:[newNumber doubleValue] - [[savingEvent getAmount] doubleValue]];
+                    double newValue = [newNumber doubleValue] - [[savingEvent getAmount] doubleValue];
+                    if (newValue < 0) {
+                        newValue = 0;
+                    }
+                    newNumber = [NSNumber numberWithDouble:newValue];
                     [[editedUser getGoal] setCurrentAmount:newNumber];
                 }
                 [savingEvent deleteSavingEvent];
@@ -460,6 +464,7 @@
     cell.delegate = self;
     cell.reasonInput.delegate = self;
     cell.reasonInput.tag = [[cellData objectForKey:kSavingTagKey] integerValue];
+    cell.reasonInput.tintColor = kColor_WhiteText;
     cell.savingID = [cellData objectForKey:kSavingIDKey];
     
     UIView* borderBottom = [[UIView alloc] initWithFrame:CGRectMake(cell.frame.origin.x + kCellBorderMargin, cell.frame.size.height - kCellBorderBottomWidth, cell.frame.size.width - (kCellBorderMargin * 2), kCellBorderBottomWidth)];
