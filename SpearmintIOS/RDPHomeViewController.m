@@ -65,6 +65,8 @@
 #define kFadeLabelsTime 0.75
 #define kFadeImagesTime 0.75
 
+#define kBlackOverlayTime 0.5
+
 #define kImageTransitionTime 3.0f
 
 @interface RDPHomeViewController ()
@@ -150,7 +152,8 @@
     
     CGRect  viewRect = CGRectMake(0, kScreenHeight, kScreenWidth, self.progressHeader.bounds.size.height);
     [self.progressHeader setFrame:viewRect];
-    [self.scrollView addSubview:self.progressHeader];
+    [self.scrollView insertSubview:self.progressHeader belowSubview:self.gestureRecognizerView];
+//    [self.scrollView addSubview:self.progressHeader];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
                                                                    kScreenHeight + kTextInputHeight + kProgressHeaderHeight,
@@ -178,6 +181,7 @@
     self.congratsLabel.text = self.congratulations.congratsMessage;
     [self.recordButton setTitle:[RDPStrings stringForID:sRecord] forState:UIControlStateNormal];
     self.congratsView.hidden = YES;
+    self.recordButtonView.hidden = YES;
     
     // Setup the saving suggestion messages
     self.suggestionIndex = 0;
@@ -515,25 +519,35 @@
 
 - (void)goToSaveView
 {
+    [UIView animateWithDuration:kBlackOverlayTime animations:^{
+        
+        self.gestureRecognizerView.backgroundColor = [UIColor clearColor];
+    }];
+    
     self.pressAndHoldGestureRecognizer.enabled = YES;
     [self.scrollView setContentOffset:CGPointMake(0, kTextInputHeight) animated:YES];
     [self.savingsTextField resignFirstResponder];
     if (self.suggestionTimer == nil) {
         [self startSuggestionsTimer];
     }
-    self.settingsButton.hidden = NO;
+    self.settingsView.hidden = NO;
     self.screenMode = OnSaveScreen;
 }
 
 - (void)goToRecordView
 {
+    [UIView animateWithDuration:kBlackOverlayTime animations:^{
+        
+        self.gestureRecognizerView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.25];
+    }];
+    
     self.pressAndHoldGestureRecognizer.enabled = NO;
     [self.scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
     [self.savingsTextField becomeFirstResponder];
     self.tapGestureRecognizer.enabled = YES;
     self.scrollView.scrollEnabled = NO;
     [self stopSuggestionsTimer];
-    self.settingsButton.hidden = YES;
+    self.settingsView.hidden = YES;
     self.screenMode = OnRecordScreen;
 }
 
@@ -573,6 +587,7 @@
             [self stopSuggestionsTimer];
             
             self.pressAndHoldView.hidden = YES;
+            self.settingsView.hidden = YES;
             self.suggestionView.hidden = YES;
         }
             break;
@@ -601,6 +616,11 @@
                 self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                 [self.pressAndHoldView startCanvasAnimation];
                 
+                self.settingsView.hidden = NO;
+                self.settingsView.duration = kFadeLabelsTime;
+                self.settingsView.type     = CSAnimationTypeFadeIn;
+                [self.settingsView startCanvasAnimation];
+                
                 // Show suggestions
                 self.suggestionView.hidden = NO;
                 self.suggestionView.duration = kFadeLabelsTime;
@@ -625,6 +645,12 @@
                 self.congratsView.duration = kFadeLabelsTime;
                 self.congratsView.type     = CSAnimationTypeFadeIn;
                 [self.congratsView startCanvasAnimation];
+                
+                self.recordButtonView.hidden = NO;
+                
+                self.recordButtonView.duration = kFadeLabelsTime;
+                self.recordButtonView.type     = CSAnimationTypeFadeIn;
+                [self.recordButtonView startCanvasAnimation];
                 
                 self.cutOutView.hidden = NO;
                 self.easterEgg.hidden = YES;
@@ -695,6 +721,10 @@
             self.congratsView.type     = CSAnimationTypeFadeOut;
             [self.congratsView startCanvasAnimation];
             
+            self.recordButtonView.duration = 1;
+            self.recordButtonView.type     = CSAnimationTypeFadeOut;
+            [self.recordButtonView startCanvasAnimation];
+            
             [self transitionImagesWithSaveAmount];
         }
     };
@@ -722,6 +752,11 @@
                         self.pressAndHoldView.duration = kFadeLabelsTime;
                         self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                         [self.pressAndHoldView startCanvasAnimation];
+                        
+                        self.settingsView.hidden = NO;
+                        self.settingsView.duration = kFadeLabelsTime;
+                        self.settingsView.type     = CSAnimationTypeFadeIn;
+                        [self.settingsView startCanvasAnimation];
                         
                         // Show suggestions
                         self.suggestionView.hidden = NO;
@@ -825,6 +860,11 @@
         self.congratsView.duration = 1;
         self.congratsView.type     = CSAnimationTypeFadeOut;
         [self.congratsView startCanvasAnimation];
+        
+        self.recordButtonView.duration = 1;
+        self.recordButtonView.type     = CSAnimationTypeFadeOut;
+        [self.recordButtonView startCanvasAnimation];
+
         
         [self transitionImagesWithSaveAmount];
     }

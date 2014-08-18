@@ -212,18 +212,6 @@
                                                         <rect key="frame" x="145" y="105" width="30" height="15"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="3KE-kU-db9">
-                                                        <rect key="frame" x="30" y="67" width="260" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
-                                                        <state key="normal" title="Record">
-                                                            <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="recordReason:" destination="RLe-TQ-3X4" eventType="touchUpInside" id="ZIB-jt-3Uz"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
@@ -270,17 +258,24 @@
                                                         <rect key="frame" x="135" y="240" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </imageView>
-                                                    <view contentMode="scaleToFill" id="GP4-xk-EXX">
-                                                        <rect key="frame" x="0.0" y="60" width="320" height="568"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="MNp-lb-WgT"/>
-                                                            <outletCollection property="gestureRecognizers" destination="42K-Rd-GnE" appends="YES" id="6dN-fS-uWn"/>
-                                                        </connections>
-                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="GP4-xk-EXX">
+                                                <rect key="frame" x="0.0" y="60" width="320" height="568"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="6p7-Gz-es9" appends="YES" id="MNp-lb-WgT"/>
+                                                    <outletCollection property="gestureRecognizers" destination="42K-Rd-GnE" appends="YES" id="6dN-fS-uWn"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="vUv-fF-gLE" customClass="CSAnimationView">
+                                                <rect key="frame" x="250" y="70" width="65" height="65"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Hqn-yP-ZdT">
-                                                        <rect key="frame" x="275" y="80" width="25" height="25"/>
+                                                        <rect key="frame" x="20" y="20" width="25" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <inset key="contentEdgeInsets" minX="-10" minY="-10" maxX="0.0" maxY="-10"/>
@@ -290,6 +285,25 @@
                                                         </state>
                                                         <connections>
                                                             <segue destination="1me-PV-P89" kind="modal" modalTransitionStyle="flipHorizontal" id="qDW-gb-Sri"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="SeK-Ss-cFo" customClass="CSAnimationView">
+                                                <rect key="frame" x="10" y="67" width="300" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="3KE-kU-db9">
+                                                        <rect key="frame" x="20" y="0.0" width="260" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="18"/>
+                                                        <state key="normal" title="Record">
+                                                            <color key="titleColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="recordReason:" destination="RLe-TQ-3X4" eventType="touchUpInside" id="ZIB-jt-3Uz"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -321,9 +335,11 @@
                         <outlet property="pressAndHoldLabel" destination="bhR-OA-0G6" id="27E-nv-ARL"/>
                         <outlet property="pressAndHoldView" destination="cSb-6w-1SC" id="j23-aj-e69"/>
                         <outlet property="recordButton" destination="3KE-kU-db9" id="PMF-s2-Ou0"/>
+                        <outlet property="recordButtonView" destination="SeK-Ss-cFo" id="Ya1-1n-IwH"/>
                         <outlet property="savingsTextField" destination="PcJ-Ib-pkC" id="7ee-tz-u7d"/>
                         <outlet property="scrollView" destination="3Xx-JQ-1Y0" id="eeE-PV-gfL"/>
                         <outlet property="settingsButton" destination="Hqn-yP-ZdT" id="XZn-xj-y4g"/>
+                        <outlet property="settingsView" destination="vUv-fF-gLE" id="uhj-rd-9bB"/>
                         <outlet property="suggestionLabel" destination="gI3-wh-5QS" id="4V9-JY-Mv5"/>
                         <outlet property="suggestionView" destination="q4a-9m-o0x" id="hxT-Kc-7BB"/>
                         <outlet property="tapGestureRecognizer" destination="42K-Rd-GnE" id="3Ve-v0-M6q"/>

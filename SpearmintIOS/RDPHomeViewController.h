@@ -39,7 +39,6 @@ typedef enum HomeScreenMode {
 @property (weak, nonatomic) IBOutlet RDPUITextField *savingsTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *easterEgg;
 
-
 // Press and hold to save view and label
 @property (weak, nonatomic) IBOutlet CSAnimationView *pressAndHoldView;
 @property (weak, nonatomic) IBOutlet UILabel *pressAndHoldLabel;
@@ -48,9 +47,11 @@ typedef enum HomeScreenMode {
 @property (weak, nonatomic) IBOutlet CSAnimationView *congratsView;
 @property (weak, nonatomic) IBOutlet UILabel *congratsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountKeptLabel;
+@property (weak, nonatomic) IBOutlet CSAnimationView *recordButtonView;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 
 // Settings button
+@property (weak, nonatomic) IBOutlet CSAnimationView *settingsView;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 // Savings suggestion view and label
