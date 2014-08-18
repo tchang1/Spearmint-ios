@@ -63,13 +63,21 @@
     self.cutOutView.innerView = self.setAmountTextField;
     self.setAmountTextField.borderRadius = kBorderRadius;
     self.setAmountTextField.parentColor = self.cutOutView.backgroundColor;
+    self.setAmountTextField.delegate=self;
     
     // Show the navigation bar with the back button
     [self.navigationItem setHidesBackButton:NO];
     [self addNavigationBarButton];
     
+    if ([self.userGoal.getGoalName length]<16)
+    {
+        self.navigationItem.title = self.userGoal.getGoalName;
 
-    self.navigationItem.title = [RDPStrings stringForID:sGoalAmount];
+    }
+    else
+    {
+        self.navigationItem.title = [RDPStrings stringForID:sGoalAmount];
+    }
     
     self.setAmountTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sWillCost] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
     self.setAmountTextField.delegate=self;
@@ -115,6 +123,9 @@
 {
     self.setAmountTextField.text = button.titleLabel.text;
     [RDPAnalyticsModule track:@"Chose default amount" properties:@{@"name" : self.setAmountTextField.text}];
+    
+    [self nextButtonClicked];
+
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string  {
@@ -122,6 +133,15 @@
     NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
     NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
     return (([string isEqualToString:filtered])&&(newLength <= 7));
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField==self.setAmountTextField)
+    {
+        [self nextButtonClicked];
+    }
+    return YES;
 }
 
 /*

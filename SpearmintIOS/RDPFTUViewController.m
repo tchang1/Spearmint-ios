@@ -75,7 +75,9 @@
     self.counterAndTextView.hidden = YES;
     self.keepHoldingView.hidden = YES;
     self.endExampleView.hidden = YES;
-    self.releaseScreenView.hidden = YES; 
+    self.releaseScreenView.hidden = YES;
+    self.welcomeView.hidden=YES;
+    
     
     // Set the text for the labels to be the first example
     self.keepSlogan.text = [RDPStrings stringForID:sSlogan];
@@ -99,6 +101,24 @@
     self.counterView.maxValue = kMaxAmountFirstExample;
     //self.counterView.rotationsPerSecond = kTestingSpeed;
     self.counterView.rotationsPerSecond = kFirstExampleSpeed;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    CGRect newFrame = self.keepLogo.frame;
+    newFrame.origin.y -= 100;    // shift up by 100
+    
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         self.keepLogo.frame = newFrame;
+                     }
+                     completion:^(BOOL finished) {
+                            self.welcomeView.hidden=NO;
+                            self.welcomeView.duration = kFadeLabelsTime;
+                            self.welcomeView.type     = CSAnimationTypeFadeIn;
+                            [self.welcomeView startCanvasAnimation];
+                        }];
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -145,6 +165,13 @@
 - (IBAction)startFTU:(id)sender
 {
     [RDPAnalyticsModule track:@"FTU Started"];
+    
+    //Reposition frame based on welcomeView before adding as a subview prior to fadeout.
+    CGRect newFrame = self.keepLogo.frame;
+    newFrame.origin.y -= self.welcomeView.frame.origin.y;
+    self.keepLogo.frame=newFrame;
+    [self.welcomeView insertSubview:self.keepLogo atIndex:0];
+    
     // Fade out the welcome screen
     self.welcomeView.duration = kFadeLabelsTime;
     self.welcomeView.type     = CSAnimationTypeFadeOut;

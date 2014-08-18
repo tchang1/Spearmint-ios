@@ -81,6 +81,7 @@
     self.cutOutView.innerView = self.setAGoalTextField;
     self.setAGoalTextField.borderRadius = kBorderRadius;
     self.setAGoalTextField.parentColor = self.cutOutView.backgroundColor;
+    self.setAGoalTextField.delegate=self;
     
     // Show the navigation bar without the background button
     [self.navigationItem setHidesBackButton:YES];
@@ -133,12 +134,24 @@
 {
     self.setAGoalTextField.text = [button.titleLabel.text stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     [RDPAnalyticsModule track:@"Chose default goal" properties:@{@"name" : self.setAGoalTextField.text}];
+    
+    [self nextButtonClicked];
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.setAGoalTextField)
+    {
+        [self nextButtonClicked];
+    }
+    return YES;
 }
 
 

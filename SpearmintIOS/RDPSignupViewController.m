@@ -49,6 +49,9 @@
     self.passwordTextField.indentAmount=10;
     self.passwordStatusLabel.text=[RDPStrings stringForID:sPasswordValidation];
     self.passwordStatusLabel.alpha=0;
+    
+    self.emailTextField.delegate=self;
+    self.passwordTextField.delegate=self;
 
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
@@ -187,6 +190,20 @@
 	[HUD removeFromSuperview];
 	HUD = nil;
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField==self.emailTextField)
+    {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    else if (textField== self.passwordTextField)
+    {
+        [self signupButtonPressed:self];
+    }
+    return YES;
+}
+
 
 - (BOOL)prefersStatusBarHidden
 {

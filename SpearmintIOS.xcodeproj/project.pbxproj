@@ -57,6 +57,10 @@
 		55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
 		55DCE1BC199E792E003EA30D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DCE1BB199E792E003EA30D /* Crashlytics.framework */; };
 		55DCE1BD199E792E003EA30D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DCE1BB199E792E003EA30D /* Crashlytics.framework */; };
+		55DCE1BF199EBD5E003EA30D /* Keep_Circle@.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1BE199EBD5E003EA30D /* Keep_Circle@.5.png */; };
+		55DCE1C0199EBD5E003EA30D /* Keep_Circle@.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1BE199EBD5E003EA30D /* Keep_Circle@.5.png */; };
+		55DCE1C2199ED079003EA30D /* Keep_Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1C1199ED079003EA30D /* Keep_Text.png */; };
+		55DCE1C3199ED079003EA30D /* Keep_Text.png in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1C1199ED079003EA30D /* Keep_Text.png */; };
 		5849BC76199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
 		5849BC77199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
 		5849BC7A199C1E91008BAEBF /* RDPProgressHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */; };
@@ -282,6 +286,8 @@
 		55DCE1B4199C041D003EA30D /* RDPQuotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPQuotes.m; sourceTree = "<group>"; };
 		55DCE1B7199C09B3003EA30D /* quotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quotes.plist; sourceTree = "<group>"; };
 		55DCE1BB199E792E003EA30D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		55DCE1BE199EBD5E003EA30D /* Keep_Circle@.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Keep_Circle@.5.png"; sourceTree = "<group>"; };
+		55DCE1C1199ED079003EA30D /* Keep_Text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Keep_Text.png; sourceTree = "<group>"; };
 		5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPProgressHeader.xib; sourceTree = "<group>"; };
 		5849BC78199C1E91008BAEBF /* RDPProgressHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProgressHeader.h; sourceTree = "<group>"; };
 		5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProgressHeader.m; sourceTree = "<group>"; };
@@ -719,6 +725,7 @@
 			isa = PBXGroup;
 			children = (
 				585F158D199D69A600992AE3 /* youRock.png */,
+				55DCE1BE199EBD5E003EA30D /* Keep_Circle@.5.png */,
 				585F1587199D229800992AE3 /* Gradient_Fade.png */,
 				5849BC7C199D1AC3008BAEBF /* DownArrow.png */,
 				58F9C880199939E800E325A2 /* Checkbook.png */,
@@ -733,6 +740,7 @@
 				551AA62F1993FDC10010E65B /* Background_password.png */,
 				551AA6271993F2590010E65B /* Key_Red.png */,
 				F2F1D01F1990993900438A8A /* Settings.png */,
+				55DCE1C1199ED079003EA30D /* Keep_Text.png */,
 				551AA6201992C6910010E65B /* Envelope.png */,
 				5560B8D619906C410023691B /* Keep_Alone.png */,
 				551AA6231992C7220010E65B /* key.png */,
@@ -962,6 +970,7 @@
 				551AA62D1993FC4C0010E65B /* Email_Ridge.png in Resources */,
 				5849BC7D199D1AC3008BAEBF /* DownArrow.png in Resources */,
 				58988F9B1993114500E05AC5 /* Keep.png in Resources */,
+				55DCE1C2199ED079003EA30D /* Keep_Text.png in Resources */,
 				F2F1CFB8198EC2AA00438A8A /* 8.jpg in Resources */,
 				585F1588199D229800992AE3 /* Gradient_Fade.png in Resources */,
 				551AA6211992C6910010E65B /* Envelope.png in Resources */,
@@ -977,6 +986,7 @@
 				F2F1CFA4198EC2AA00438A8A /* 3.jpg in Resources */,
 				58F9C888199939E800E325A2 /* Computer.png in Resources */,
 				F2F1CFB4198EC2AA00438A8A /* 7.jpg in Resources */,
+				55DCE1BF199EBD5E003EA30D /* Keep_Circle@.5.png in Resources */,
 				F2F1D0201990993900438A8A /* Fingerprint.png in Resources */,
 				58F643BC197DA5F6001D0236 /* InfoPlist.strings in Resources */,
 				58F9C88C199939E800E325A2 /* Tuition.png in Resources */,
@@ -1047,6 +1057,8 @@
 				585F158F199D69A600992AE3 /* youRock.png in Resources */,
 				F2F1CFB5198EC2AA00438A8A /* 7.jpg in Resources */,
 				551AA6221992C6910010E65B /* Envelope.png in Resources */,
+				55DCE1C3199ED079003EA30D /* Keep_Text.png in Resources */,
+				55DCE1C0199EBD5E003EA30D /* Keep_Circle@.5.png in Resources */,
 				5849BC7E199D1AC3008BAEBF /* DownArrow.png in Resources */,
 				58F9C88D199939E800E325A2 /* Tuition.png in Resources */,
 				F2F1CF7E198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */,

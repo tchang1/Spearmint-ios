@@ -34,6 +34,10 @@
     self.emailTextField.attributedText = [[NSAttributedString alloc] initWithString:@"iostest@trykeep.com" attributes:@{NSForegroundColorAttributeName: kColor_WhiteText, NSFontAttributeName : [RDPFonts fontForID:fLoginFont]}];
     self.passwordTextField.attributedText = [[NSAttributedString alloc] initWithString:@"test" attributes:@{NSForegroundColorAttributeName: kColor_WhiteText, NSFontAttributeName : [RDPFonts fontForID:fLoginFont]}];
     
+    self.emailTextField.delegate=self;
+    self.passwordTextField.delegate=self;
+
+    
     self.emailTextField.layer.cornerRadius = 2;
     self.emailTextField.clipsToBounds = YES;
     self.emailTextField.indentAmount=10;
@@ -159,13 +163,13 @@
     [RDPUserService loginWithUsername:username andPassword:password then:^(RDPUser *user) {
         HUD.labelText=@"ClientDidLoginYALL!";
         HUD.mode =MBProgressHUDModeText;
-        [HUD hide:YES afterDelay:2];
+        [HUD hide:YES afterDelay:0.5];
 
         [RDPAnalyticsModule track:@"Logged In" properties:@{@"username" : username } ];
         [RDPAnalyticsModule identifyProfile];
         [RDPAnalyticsModule setProfile:@{@"$email" : self.emailTextField.text}];
         
-        double delayInSeconds = 2.0;
+        double delayInSeconds = 0.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self performSegueWithIdentifier:@"loginToHome" sender:self];
@@ -183,6 +187,20 @@
 	[HUD removeFromSuperview];
 	HUD = nil;
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField==self.emailTextField)
+    {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    else if (textField== self.passwordTextField)
+    {
+        [self loginButtonPressed:self];
+    }
+    return YES;
+}
+
 
 
 - (IBAction)passwordEditingBegan:(id)sender {

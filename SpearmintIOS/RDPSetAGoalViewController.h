@@ -14,7 +14,7 @@
 #import "RDPSuggestionsView.h"
 #import "RDPSuggestionSquare.h"
 
-@interface RDPSetAGoalViewController : RDPViewController 
+@interface RDPSetAGoalViewController : RDPViewController <UITextFieldDelegate>
 
 
 // The text field input 
