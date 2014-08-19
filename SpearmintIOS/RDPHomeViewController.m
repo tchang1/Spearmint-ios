@@ -196,19 +196,19 @@
     [self startSuggestionsTimer];
 }
 
-//- (void)updateViewConstraints
-//{
-//    [super updateViewConstraints];
-//    
-//    [self.containerView setTranslatesAutoresizingMaskIntoConstraints:NO];
-//    [self.containerView addConstraint:[NSLayoutConstraint constraintWithItem:self.scrollView
-//                                                       attribute:NSLayoutAttributeHeight
-//                                                       relatedBy:NSLayoutRelationEqual
-//                                                          toItem:nil
-//                                                       attribute:NSLayoutAttributeNotAnAttribute
-//                                                      multiplier:1.0
-//                                                        constant:kContentHeight]];
-//}
+- (void)updateViewConstraints
+{
+    [super updateViewConstraints];
+    
+    // resize the container view to be the correct size dependent on the screen height
+    [self.containerView addConstraint:[NSLayoutConstraint constraintWithItem:self.containerView
+                                                       attribute:NSLayoutAttributeHeight
+                                                       relatedBy:NSLayoutRelationEqual
+                                                          toItem:nil
+                                                       attribute:NSLayoutAttributeNotAnAttribute
+                                                      multiplier:1.0
+                                                        constant:kContentHeight]];
+}
 
 -(void)keyboardOnScreen:(NSNotification *)notification
 {

@@ -528,8 +528,7 @@
                             <constraint firstItem="vLI-x4-jmI" firstAttribute="leading" secondItem="cuD-Vs-Y0Q" secondAttribute="leading" id="Gez-lL-Xr3"/>
                             <constraint firstItem="aIL-EJ-bRb" firstAttribute="top" secondItem="vLI-x4-jmI" secondAttribute="bottom" id="NVX-bL-WOZ"/>
                             <constraint firstItem="vLI-x4-jmI" firstAttribute="trailing" secondItem="aIe-jk-axh" secondAttribute="trailing" id="XYD-yr-MGz"/>
-                            <constraint firstItem="aIe-jk-axh" firstAttribute="top" secondItem="RVo-pW-RXY" secondAttribute="bottom" constant="2" id="f1T-xJ-6IG"/>
-                            <constraint firstItem="aIe-jk-axh" firstAttribute="top" secondItem="RVo-pW-RXY" secondAttribute="bottom" constant="2" id="p1N-Lb-VJ2"/>
+                            <constraint firstItem="aIe-jk-axh" firstAttribute="top" secondItem="RVo-pW-RXY" secondAttribute="bottom" constant="2" id="ldn-b7-hB0"/>
                             <constraint firstAttribute="trailing" secondItem="vLI-x4-jmI" secondAttribute="trailing" id="p3I-mO-1I9"/>
                             <constraint firstItem="vLI-x4-jmI" firstAttribute="top" secondItem="aIe-jk-axh" secondAttribute="bottom" constant="7" id="xb9-UE-3Ft"/>
                         </constraints>
@@ -737,7 +736,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="GOC-C4-VMU">
-                                        <rect key="frame" x="30" y="100" width="260" height="150"/>
+                                        <rect key="frame" x="30" y="110" width="260" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="hBb-hV-rhb"/>
@@ -760,7 +759,7 @@
                                     <constraint firstAttribute="trailing" secondItem="7oy-83-WK3" secondAttribute="trailing" id="5nI-vv-LtG"/>
                                     <constraint firstItem="GOC-C4-VMU" firstAttribute="leading" secondItem="aD2-14-RzB" secondAttribute="leading" constant="30" id="AVl-hU-ISX"/>
                                     <constraint firstItem="aWH-f0-bLS" firstAttribute="leading" secondItem="aD2-14-RzB" secondAttribute="leading" constant="20" symbolic="YES" id="Hfs-lD-ykv"/>
-                                    <constraint firstItem="7oy-83-WK3" firstAttribute="top" secondItem="GOC-C4-VMU" secondAttribute="bottom" constant="90" id="Jlz-Ar-bhz"/>
+                                    <constraint firstItem="7oy-83-WK3" firstAttribute="top" secondItem="GOC-C4-VMU" secondAttribute="bottom" constant="80" id="Jlz-Ar-bhz"/>
                                     <constraint firstItem="GOC-C4-VMU" firstAttribute="centerX" secondItem="7oy-83-WK3" secondAttribute="centerX" id="RGB-yV-JqM"/>
                                     <constraint firstItem="aWH-f0-bLS" firstAttribute="centerX" secondItem="7oy-83-WK3" secondAttribute="centerX" id="ZB1-VW-LOZ"/>
                                     <constraint firstItem="aWH-f0-bLS" firstAttribute="top" secondItem="7oy-83-WK3" secondAttribute="bottom" constant="8" symbolic="YES" id="anb-C2-Jmk"/>
@@ -772,7 +771,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap and hold" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="GMu-zf-ZTn">
-                                        <rect key="frame" x="20" y="220" width="240" height="100"/>
+                                        <rect key="frame" x="30" y="220" width="240" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -859,7 +858,7 @@
                                 <rect key="frame" x="40" y="172" width="240" height="173"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Fingerprint" translatesAutoresizingMaskIntoConstraints="NO" id="gH1-hK-0N3">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Fingerprint_Large" translatesAutoresizingMaskIntoConstraints="NO" id="gH1-hK-0N3">
                                         <rect key="frame" x="79" y="10" width="81" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
@@ -877,7 +876,7 @@
                                 <rect key="frame" x="40" y="200" width="240" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="release screen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-uh-aa8">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="release screen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="4SQ-uh-aa8">
                                         <rect key="frame" x="20" y="10" width="200" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -886,16 +885,21 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4SQ-uh-aa8" secondAttribute="trailing" constant="20" symbolic="YES" id="AWL-qB-mKs"/>
+                                    <constraint firstItem="4SQ-uh-aa8" firstAttribute="leading" secondItem="Cmb-9h-en3" secondAttribute="leading" constant="20" symbolic="YES" id="XQU-gv-YLF"/>
+                                    <constraint firstItem="4SQ-uh-aa8" firstAttribute="centerY" secondItem="Cmb-9h-en3" secondAttribute="centerY" id="zDs-iv-Vh6"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4SQ-uh-aa8" firstAttribute="top" secondItem="iMA-82-yrS" secondAttribute="bottom" constant="105" id="1vt-WA-T54"/>
                             <constraint firstItem="p6X-Bk-MiE" firstAttribute="centerX" secondItem="5ZI-wp-Bp8" secondAttribute="centerX" id="2C5-BY-4wt"/>
                             <constraint firstItem="p6X-Bk-MiE" firstAttribute="top" secondItem="Cmb-9h-en3" secondAttribute="top" id="3dG-mc-W01"/>
                             <constraint firstItem="aD2-14-RzB" firstAttribute="top" secondItem="iMA-82-yrS" secondAttribute="bottom" constant="15" id="89H-ae-YmU"/>
                             <constraint firstItem="5ZI-wp-Bp8" firstAttribute="centerX" secondItem="qjU-5Q-LOl" secondAttribute="centerX" id="8vm-6m-IxS"/>
                             <constraint firstItem="p6X-Bk-MiE" firstAttribute="centerX" secondItem="qjU-5Q-LOl" secondAttribute="centerX" id="Bxl-WS-Drl"/>
-                            <constraint firstItem="A2C-BN-LuP" firstAttribute="centerY" secondItem="fCw-5a-fPg" secondAttribute="centerY" id="CzC-l8-D7p"/>
                             <constraint firstItem="qjU-5Q-LOl" firstAttribute="leading" secondItem="fCw-5a-fPg" secondAttribute="leading" constant="10" id="IJy-hT-Hcp"/>
                             <constraint firstItem="wmf-fa-enP" firstAttribute="top" secondItem="qjU-5Q-LOl" secondAttribute="bottom" constant="208" id="L7J-n3-sa3"/>
                             <constraint firstItem="p6X-Bk-MiE" firstAttribute="leading" secondItem="fCw-5a-fPg" secondAttribute="leading" id="Lop-Yp-Gjs"/>
@@ -1412,6 +1416,7 @@
         <image name="Email_Ridge" width="541" height="90"/>
         <image name="Envelope" width="50" height="36"/>
         <image name="Fingerprint" width="81" height="82"/>
+        <image name="Fingerprint_Large" width="81" height="82"/>
         <image name="Keep_Circle" width="121" height="120"/>
         <image name="Keep_Text" width="180" height="52"/>
         <image name="Palm" width="35" height="35"/>
@@ -1430,7 +1435,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="eHT-iJ-sJ8"/>
-        <segue reference="IdQ-DB-Vha"/>
+        <segue reference="yHg-sm-Cwz"/>
         <segue reference="TuY-Lm-9nY"/>
     </inferredMetricsTieBreakers>
 </document>

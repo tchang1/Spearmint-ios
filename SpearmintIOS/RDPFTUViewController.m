@@ -18,6 +18,10 @@
 #define kSetGoal @"setGoal"
 #define kHome @"home"
 
+#define IS_TALL_SCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define kCircleShiftTallScreen 100
+#define kCircleShiftShortScreen 170
+
 #define kFirstExampleImage @"ireland.png"
 #define kSecondExampleImage @"ridge.png"
 
@@ -150,7 +154,12 @@
                         [RDPAnalyticsModule track:@"Error with existing login"];
 
                         CGRect newFrame = self.keepLogo.frame;
-                        newFrame.origin.y -= 100;    // shift up by 100
+                        if IS_TALL_SCREEN {
+                            newFrame.origin.y -= kCircleShiftTallScreen;
+                        }
+                        else {
+                            newFrame.origin.y -= kCircleShiftShortScreen;
+                        }
                         
                         [UIView animateWithDuration:1.0
                                          animations:^{
@@ -169,7 +178,12 @@
     else
     {
     CGRect newFrame = self.keepLogo.frame;
-    newFrame.origin.y -= 100;    // shift up by 100
+    if IS_TALL_SCREEN {
+        newFrame.origin.y -= kCircleShiftTallScreen;
+    }
+    else {
+        newFrame.origin.y -= kCircleShiftShortScreen;
+    }
     
     [UIView animateWithDuration:1.0
                      animations:^{
