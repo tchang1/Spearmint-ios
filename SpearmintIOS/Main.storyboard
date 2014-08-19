@@ -562,16 +562,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOn-y1-bc9" customClass="RDPFeedbackPanel">
-                                <rect key="frame" x="0.0" y="67" width="320" height="239"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h65-I8-wcr" customClass="RDPUITextView">
-                                        <rect key="frame" x="5" y="20" width="310" height="185"/>
+                                        <rect key="frame" x="5" y="20" width="310" height="213"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" priority="500" constant="185" id="A5M-eV-re3"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" priority="500" constant="213" id="A5M-eV-re3"/>
                                             <constraint firstAttribute="width" constant="310" id="ohI-Kl-u4x"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -590,10 +590,10 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="D5B-Jh-Ifl" firstAttribute="top" secondItem="QOn-y1-bc9" secondAttribute="top" id="4Z7-qn-ALG"/>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="600" constant="239" id="Bj1-nY-P0j"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="600" constant="240" id="Bj1-nY-P0j"/>
                                     <constraint firstAttribute="trailing" secondItem="D5B-Jh-Ifl" secondAttribute="trailing" constant="35" id="ESN-qf-bIY"/>
                                     <constraint firstItem="h65-I8-wcr" firstAttribute="leading" secondItem="D5B-Jh-Ifl" secondAttribute="leading" id="Fmd-y8-63t"/>
-                                    <constraint firstAttribute="bottom" secondItem="h65-I8-wcr" secondAttribute="bottom" constant="34" id="Yk1-Uo-YMt"/>
+                                    <constraint firstAttribute="bottom" secondItem="h65-I8-wcr" secondAttribute="bottom" constant="7" id="Yk1-Uo-YMt"/>
                                     <constraint firstItem="h65-I8-wcr" firstAttribute="top" secondItem="QOn-y1-bc9" secondAttribute="top" constant="20" symbolic="YES" id="bFd-G9-Gep"/>
                                     <constraint firstItem="h65-I8-wcr" firstAttribute="leading" secondItem="QOn-y1-bc9" secondAttribute="leading" constant="5" id="omQ-Oy-fuw"/>
                                     <constraint firstItem="h65-I8-wcr" firstAttribute="centerX" secondItem="QOn-y1-bc9" secondAttribute="centerX" id="rUs-7b-AoW"/>
@@ -621,9 +621,8 @@
                         <constraints>
                             <constraint firstItem="yiP-AP-npZ" firstAttribute="top" secondItem="K2w-Ke-Ifb" secondAttribute="bottom" constant="217" id="137-2Q-Wcn"/>
                             <constraint firstItem="QOn-y1-bc9" firstAttribute="trailing" secondItem="K2w-Ke-Ifb" secondAttribute="trailing" id="LBz-aD-aYu"/>
-                            <constraint firstItem="QOn-y1-bc9" firstAttribute="top" secondItem="hqF-Pz-PYc" secondAttribute="top" constant="67" id="QM9-Cm-vaN"/>
+                            <constraint firstItem="QOn-y1-bc9" firstAttribute="top" secondItem="hqF-Pz-PYc" secondAttribute="top" constant="66" id="QM9-Cm-vaN"/>
                             <constraint firstItem="QOn-y1-bc9" firstAttribute="leading" secondItem="hqF-Pz-PYc" secondAttribute="leading" id="bj4-pd-S4N"/>
-                            <constraint firstItem="QOn-y1-bc9" firstAttribute="top" secondItem="ela-RE-Z48" secondAttribute="bottom" constant="3" id="fjB-85-gTs"/>
                             <constraint firstItem="K2w-Ke-Ifb" firstAttribute="top" secondItem="QOn-y1-bc9" secondAttribute="bottom" constant="1" id="iUg-ml-tVP"/>
                             <constraint firstItem="QOn-y1-bc9" firstAttribute="leading" secondItem="K2w-Ke-Ifb" secondAttribute="leading" id="mZM-th-biC"/>
                             <constraint firstAttribute="trailing" secondItem="QOn-y1-bc9" secondAttribute="trailing" id="pfY-MI-Hyt"/>
