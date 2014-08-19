@@ -50,7 +50,7 @@
 #define kProgressHeaderHeight 80
 #define kContentHeight  (kScreenHeight * 2) + kTextInputHeight
 
-#define kArrowImage @"Up Arrow.png"
+#define kArrowImage @"Up Arrow"
 #define kProgressHeaderNib @"RDPProgressHeader"
 
 #define kIndentAmount 10
