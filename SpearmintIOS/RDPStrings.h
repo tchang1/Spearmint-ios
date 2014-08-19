@@ -104,6 +104,7 @@ typedef enum {
     sSavedBy,
     sSaveSome,
     sRecord,
+    sLoading
 } RDPStringID;
 
 @interface RDPStrings : NSObject

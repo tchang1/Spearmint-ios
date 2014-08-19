@@ -159,7 +159,7 @@
         <!--Home View Controller-->
         <scene sceneID="RTd-wf-3x1">
             <objects>
-                <viewController id="RLe-TQ-3X4" customClass="RDPHomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" id="RLe-TQ-3X4" customClass="RDPHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZLi-VT-dQS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -619,6 +619,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q0s-rz-Qz3">
+                                <rect key="frame" x="122" y="360" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Keep_Circle@.5.png" id="A2C-BN-LuP">
                                 <rect key="frame" x="100" y="224" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -793,6 +800,7 @@
                         <outlet property="keepHoldingView" destination="5ZI-wp-Bp8" id="G5v-20-g93"/>
                         <outlet property="keepLogo" destination="A2C-BN-LuP" id="ZbS-JV-YOL"/>
                         <outlet property="keepSlogan" destination="GOC-C4-VMU" id="AgC-dC-VBl"/>
+                        <outlet property="loadingLabel" destination="Q0s-rz-Qz3" id="R0G-HR-LOW"/>
                         <outlet property="pressAndHoldGestureRecognizer" destination="K0V-e8-jpL" id="EIP-SM-rBE"/>
                         <outlet property="releaseScreenLabel" destination="4SQ-uh-aa8" id="N5Y-F9-aoW"/>
                         <outlet property="releaseScreenView" destination="Cmb-9h-en3" id="JV0-4E-sJN"/>
@@ -1275,7 +1283,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="m5p-NK-Jov"/>
-        <segue reference="IdQ-DB-Vha"/>
+        <segue reference="yHg-sm-Cwz"/>
         <segue reference="eHT-iJ-sJ8"/>
     </inferredMetricsTieBreakers>
 </document>

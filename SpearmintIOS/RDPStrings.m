@@ -300,6 +300,9 @@
         case sRecord:
             result = @"Record what you kept";
             break;
+        case sLoading:
+            result = @"Verifying User...";
+            break;
 }
     
     return result;

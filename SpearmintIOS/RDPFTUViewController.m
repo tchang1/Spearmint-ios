@@ -12,9 +12,11 @@
 #import "RDPPushAnimation.h"
 #import "RDPAnalyticsModule.h"
 #import "RDPTimerManager.h"
+#import "RDPUserService.h"
 
 #define kStoryboard @"Main"
 #define kSetGoal @"setGoal"
+#define kHome @"home"
 
 #define kFirstExampleImage @"ireland.png"
 #define kSecondExampleImage @"ridge.png"
@@ -77,6 +79,7 @@
     self.endExampleView.hidden = YES;
     self.releaseScreenView.hidden = YES;
     self.welcomeView.hidden=YES;
+    self.loadingLabel.hidden=YES;
     
     
     // Set the text for the labels to be the first example
@@ -87,6 +90,7 @@
     self.keepHoldingLabel.text = [RDPStrings stringForID:sKeepHolding];
     self.instructionsLabel.text = [RDPStrings stringForID:sAddToGoalInstructions];
     self.releaseScreenLabel.text = [RDPStrings stringForID:sReleaseMessage1];
+    self.loadingLabel.text= [RDPStrings stringForID:sLoading];
     [self.continueButton setTitle:[RDPStrings stringForID:sContinue] forState:UIControlStateNormal];
     
     // Disable the gesture recognizer at first
@@ -103,8 +107,67 @@
     self.counterView.rotationsPerSecond = kFirstExampleSpeed;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+   
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
+    //Check if logged in
+    NSArray *cookies=[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    if ([cookies count]>0)
+    {
+        self.loadingLabel.hidden=NO;
+        //Assume logged in, try the cookie.
+        [RDPUserService loginWithCookie:^(RDPUser *user) {
+            
+            [RDPAnalyticsModule track:@"Logged in with existing" properties:@{@"username" : [user getUsername] } ];
+            [RDPAnalyticsModule identifyProfile];
+            [RDPAnalyticsModule setProfile:@{@"$email" : [user getUsername]}];
+            
+            //Login successful, animate to home view
+            [UIView animateWithDuration:0.5
+                             animations:^{
+                                 self.keepLogo.layer.opacity = 0;
+                                 self.loadingLabel.layer.opacity=0;
+                             }
+                             completion:^(BOOL finished) {
+                                 UIViewController *viewController =
+                                 [[UIStoryboard storyboardWithName:kStoryboard
+                                                            bundle:NULL] instantiateViewControllerWithIdentifier:kHome];
+                                 CATransition *transition = [CATransition animation];
+                                 transition.duration = 0.5f;
+                                 transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+                                 transition.type = kCATransitionFade;
+                                 [self.navigationController.view.layer addAnimation:transition forKey:nil];
+                                 [self.navigationController pushViewController:viewController animated:NO];
+                             }];
+
+            
+                    } failure:^(RDPResponseCode code) {
+                        NSLog(@"autologin failed");
+                        [RDPAnalyticsModule track:@"Error with existing login"];
+
+                        CGRect newFrame = self.keepLogo.frame;
+                        newFrame.origin.y -= 100;    // shift up by 100
+                        
+                        [UIView animateWithDuration:1.0
+                                         animations:^{
+                                             self.keepLogo.frame = newFrame;
+                                         }
+                                         completion:^(BOOL finished) {
+                                             self.welcomeView.hidden=NO;
+                                             self.welcomeView.duration = kFadeLabelsTime;
+                                             self.welcomeView.type     = CSAnimationTypeFadeIn;
+                                             [self.welcomeView startCanvasAnimation];
+                                         }];
+        }];
+
+    }
+    //not logged in, show welcome FTU
+    else
+    {
     CGRect newFrame = self.keepLogo.frame;
     newFrame.origin.y -= 100;    // shift up by 100
     
@@ -118,8 +181,14 @@
                             self.welcomeView.type     = CSAnimationTypeFadeIn;
                             [self.welcomeView startCanvasAnimation];
                         }];
+    }
    
 }
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.view.hidden = NO;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -8,6 +8,7 @@
 
 #import "RDPHTTPClient.h"
 #import "RDPGoalModel.h"
+#import "RDPUserModel.h"
 #import "RDPJSONResponseSerializer.h"
 
 static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
@@ -130,15 +131,32 @@ andFailureBlock:(errorBlock)errorBlock
     }];
 }
 
--(void)logout
+-(void)getMyUserWithSuccess:(userModelBlock)block andFailure:(errorBlock)errorBlock
+{
+    [self GET:@"users/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *response=(NSDictionary *) responseObject;
+        NSError *error=nil;
+        RDPUserModel *user=[MTLJSONAdapter modelOfClass:RDPUserModel.class fromJSONDictionary:response error:&error];
+        
+        block(user);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        errorBlock(error);
+        
+    }];
+    
+}
+
+
+-(void)logoutWithCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock
 {
 
     [self GET:@"logoutWithoutRedirect" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        if ([self.delegate respondsToSelector:@selector(RDPHTTPClientDidLogOut)]) {
-            [self.delegate RDPHTTPClientDidLogOut];
-        }
+        block();
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
+        errorBlock(error);
     }
 
     ];
@@ -381,7 +399,6 @@ andFailureBlock:(errorBlock)errorBlock
 
 -(void)getNextImage
 {
-    [self testPOSTHTTPRequest:@""];
     NSDictionary *params = @{@"goalid":@"53d2bf28c5fb963e0717d8c8", @"categoryid":@"0"};
     [self GET:@"images/me" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *responseArray= responseObject;

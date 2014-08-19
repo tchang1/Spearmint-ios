@@ -49,6 +49,7 @@
     self.passwordTextField.indentAmount=10;
     self.passwordStatusLabel.text=[RDPStrings stringForID:sPasswordValidation];
     self.passwordStatusLabel.alpha=0;
+    
 
 
     
@@ -164,7 +165,6 @@
         HUD.labelText=@"ClientDidLoginYALL!";
         HUD.mode =MBProgressHUDModeText;
         [HUD hide:YES afterDelay:0.5];
-
         [RDPAnalyticsModule track:@"Logged In" properties:@{@"username" : username } ];
         [RDPAnalyticsModule identifyProfile];
         [RDPAnalyticsModule setProfile:@{@"$email" : self.emailTextField.text}];

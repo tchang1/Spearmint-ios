@@ -206,7 +206,18 @@
 {
     if ([segue.identifier isEqualToString:kLogoutSegue]) {
         [RDPUserService logoutWithResponse:^(RDPResponseCode response) {
-            [RDPAnalyticsModule track:@"Logged Out"];
+            if (response==RDPResponseCodeOK)
+            {
+                NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+                for (NSHTTPCookie *each in cookieStorage.cookies) {
+                    [cookieStorage deleteCookie:each];
+                }
+                [RDPAnalyticsModule track:@"Logged Out"];
+            }
+            else
+            {
+                [RDPAnalyticsModule track:@"Error logging out"];
+            }
         }];
     }
 }

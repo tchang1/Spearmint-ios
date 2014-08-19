@@ -108,10 +108,28 @@ static RDPUser* storedUser;
     }];
 }
 
++(void)loginWithCookie:(userBlock)completionBlock failure:(responseBlock)fail
+{
+    [[RDPHTTPClient sharedRDPHTTPClient] getMyUserWithSuccess:^(RDPUserModel *userModel) {
+        [RDPUserService constructUserFromUsername:userModel.username andPassword:userModel.password then:^(RDPUser *user) {
+            storedUser=user;
+            completionBlock([user copy]);
+        } failure:^(RDPResponseCode failCode) {
+            fail(failCode);
+        }];
+    } andFailure:^(NSError *error) {
+        fail([RDPUserService handleError:error]);
+    }];
+}
+
 +(void)logoutWithResponse:(responseBlock)response
 {
     storedUser = nil;
-    [[RDPHTTPClient sharedRDPHTTPClient] logout];
+    [[RDPHTTPClient sharedRDPHTTPClient] logoutWithCompletionBlock:^{
+        response(RDPResponseCodeOK);
+    } andFailureBlock:^(NSError *error) {
+        response(RDPErrorCodeUnknown);
+    }];
 }
 
 +(RDPUser*)getUser

@@ -192,7 +192,7 @@ static RDPImageFetcher *imageFetcher = nil;
         int nextIndex = (imageFetcher.indexOfImageFile + 1) % imageFetcher.numImages;
         imageFetcher.indexOfImageFile = nextIndex;
     
-        NSLog(@"index: %d", index);
+        NSLog(@"ImageUrl: %@ saved to index: %d", nextImageURL, index);
     
         // Save the clear image to our documents
         NSString *fileName = [[NSString stringWithFormat:@"%d", index] stringByAppendingString:@".jpg"];

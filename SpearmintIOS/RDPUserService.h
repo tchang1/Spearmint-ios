@@ -19,6 +19,8 @@ typedef void(^responseBlockWithSavingEvent)(RDPResponseCode, RDPSavingEvent*);
 
 +(void)loginWithUsername:(NSString*)username andPassword:(NSString*)password then:(userBlock)completionBlock failure:(responseBlock)fail;
 
++(void)loginWithCookie:(userBlock)completionBlock failure:(responseBlock)fail;
+
 +(void)logoutWithResponse:(responseBlock)response;
 
 +(RDPUser*)getUser;
