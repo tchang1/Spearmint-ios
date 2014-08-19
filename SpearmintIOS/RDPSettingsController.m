@@ -36,6 +36,7 @@
 #define kLogoutSegue                @"logoutSegue"
 
 #define kStatusBarHeight            38
+#define kCellHeight                 55
 
 @interface RDPSettingsController ()
 
@@ -129,6 +130,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.menuItems count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kCellHeight;
 }
 
 
