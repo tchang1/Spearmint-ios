@@ -752,7 +752,7 @@
 - (void)showCongratsMessage
 {
     void (^transitionBlock)(void) = ^{
-        if (self.screenMode == OnSaveScreen) {
+        if (self.screenMode == OnSaveScreen || self.screenMode == OnProgressView) {
             self.congratsView.duration = 1;
             self.congratsView.type     = CSAnimationTypeFadeOut;
             [self.congratsView startCanvasAnimation];
@@ -848,6 +848,7 @@
             for (NSInteger j = 0; j < [savingsArray count]; j++) {
                 if (textField.tag == [[[savingsArray objectAtIndex:j] objectForKey:kSavingTagKey] integerValue]) {
                     [self updatingSavingEventWithID:[[savingsArray objectAtIndex:j] objectForKey:kSavingIDKey] withNewReason:textField.text];
+                    
                     break;
                 }
             }
@@ -927,6 +928,17 @@
     NSMutableArray* newSavings = [NSMutableArray arrayWithArray:[[[RDPUserService getUser] getGoal] getSavingEvents]];
     for (RDPSavingEvent* savingEvent in newSavings) {
         if ([savingEvent.savingID isEqualToString:savingID]) {
+            
+            // Remove the record view if the savings event is the most recent 
+            RDPSavingEvent *mostRecentEvent = [newSavings objectAtIndex:(newSavings.count - 1)];
+            if ([mostRecentEvent.savingID isEqualToString:savingEvent.savingID]) {
+                self.savingData.hasJustSaved = NO;
+                self.cutOutView.hidden = YES;
+                self.easterEgg.hidden = NO;
+                self.savingsTextField.text = @"";
+            }
+            
+            
             [savingEvent setReason:reason];
             RDPUser* updatedUser = [RDPUserService getUser];
             [[updatedUser getGoal] setSavingEvents:[newSavings copy]];

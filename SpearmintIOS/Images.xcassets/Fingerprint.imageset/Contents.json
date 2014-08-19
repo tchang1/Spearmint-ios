@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Fingerprint.png"
+      "filename" : "fingerprint@0.5x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Fingerprint-1.png"
+      "filename" : "fingerprint.png"
     }
   ],
   "info" : {

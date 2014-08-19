@@ -122,7 +122,7 @@
     NSArray *cookies=[[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
     if ([cookies count]>0)
     {
-        self.loadingLabel.hidden=NO;
+        self.loadingLabel.hidden=YES;
         //Assume logged in, try the cookie.
         [RDPUserService loginWithCookie:^(RDPUser *user) {
             
@@ -151,6 +151,7 @@
             
                     } failure:^(RDPResponseCode code) {
                         NSLog(@"autologin failed");
+                        self.loadingLabel.hidden = YES;
                         [RDPAnalyticsModule track:@"Error with existing login"];
 
                         CGRect newFrame = self.keepLogo.frame;
@@ -173,29 +174,31 @@
                                          }];
         }];
 
-    }
-    //not logged in, show welcome FTU
-    else
-    {
-    CGRect newFrame = self.keepLogo.frame;
-    if IS_TALL_SCREEN {
-        newFrame.origin.y -= kCircleShiftTallScreen;
-    }
-    else {
-        newFrame.origin.y -= kCircleShiftShortScreen;
-    }
-    
-    [UIView animateWithDuration:1.0
-                     animations:^{
-                         self.keepLogo.frame = newFrame;
-                     }
-                     completion:^(BOOL finished) {
-                            self.welcomeView.hidden=NO;
-                            self.welcomeView.duration = kFadeLabelsTime;
-                            self.welcomeView.type     = CSAnimationTypeFadeIn;
-                            [self.welcomeView startCanvasAnimation];
-                        }];
-    }
+        }
+        //not logged in, show welcome FTU
+        else
+        {
+        CGRect newFrame = self.keepLogo.frame;
+        if IS_TALL_SCREEN {
+            newFrame.origin.y -= kCircleShiftTallScreen;
+        }
+        else {
+            newFrame.origin.y -= kCircleShiftShortScreen;
+        }
+            
+        self.loadingLabel.hidden = YES;
+        
+        [UIView animateWithDuration:1.0
+                         animations:^{
+                             self.keepLogo.frame = newFrame;
+                         }
+                         completion:^(BOOL finished) {
+                                self.welcomeView.hidden=NO;
+                                self.welcomeView.duration = kFadeLabelsTime;
+                                self.welcomeView.type     = CSAnimationTypeFadeIn;
+                                [self.welcomeView startCanvasAnimation];
+                            }];
+        }
    
 }
 -(void)viewDidDisappear:(BOOL)animated
