@@ -59,12 +59,21 @@
     [RDPTimerManager registerUpdateBlock:^(NSInteger milliseconds) {
         if (0 == self.animationRepeatCount || self.numberOfLoops < self.animationRepeatCount) {
             self.currentIndex++;
+            if (self.currentIndex >= numberOfImages) {
+                self.currentIndex = 0;
+                self.numberOfLoops++;
+            }
+            self.image = [self.images objectAtIndex:self.currentIndex];
         }
-        if (self.currentIndex >= numberOfImages) {
-            self.currentIndex = 0;
-            self.numberOfLoops++;
+        else {
+            if (self.alpha > 0) {
+                self.alpha -= 0.02;
+            }
+            else {
+                [RDPTimerManager clearUpdateBlockWithName:kUpdateBlockName];
+            }
         }
-        self.image = [self.images objectAtIndex:self.currentIndex];
+        
         [self setNeedsDisplay];
     } withName:kUpdateBlockName];
 }

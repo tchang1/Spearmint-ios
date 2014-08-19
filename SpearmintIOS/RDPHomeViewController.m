@@ -46,6 +46,7 @@
 #define kCellBorderMargin               20
 #define kAnimagedArrowWidgh             24
 #define kAnimatedArrowHeight            33
+#define kAnimatedArrowAlpha             0.5f
 
 #define kScreenHeight  [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth 320
@@ -150,7 +151,7 @@
     [self.progressButton setFrame:arrowViewRect];
     
     [self.containerView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
-    self.arrow.alpha = 0.5f;
+    self.arrow.alpha = kAnimatedArrowAlpha;
     [self.containerView insertSubview:self.arrow aboveSubview:self.gestureRecognizerView];
     
     // Setup the progress view within scroll view
@@ -664,6 +665,7 @@
                 
                 self.progressButton.hidden = NO;
                 self.arrow.hidden = NO;
+                self.arrow.alpha = kAnimatedArrowAlpha;
                 [self.arrow startAnimating];
                 [UIView animateWithDuration:kFadeLabelsTime animations:^{
                     self.progressButton.alpha = 1.0;
@@ -811,6 +813,7 @@
                         self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                         [self.pressAndHoldView startCanvasAnimation];
                         self.arrow.hidden = NO;
+                        self.arrow.alpha = kAnimatedArrowAlpha;
                         [self.arrow startAnimating];
                         self.progressButton.hidden = NO;
                         [UIView animateWithDuration:kFadeLabelsTime animations:^{
