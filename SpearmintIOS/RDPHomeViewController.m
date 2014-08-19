@@ -736,6 +736,7 @@
     [[modifiedUser getGoal] setCurrentAmount:[NSNumber numberWithDouble:(amountSavedDouble + currentAmountDouble)]];
     [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
         [self loadSavings];
+        [self.tableView reloadData];
         NSLog(@"SavingEvent returned with response %i", response);
         self.serverHasUpdatedSavingsEvents = YES;
         
@@ -776,6 +777,7 @@
     self.clearImageView.image = self.imageFetcher.clearImagesArray[nextIndex];
     
     // Slowly transition to the next blurred image
+    NSLog(@"trasitioning to index %d",nextIndex);
     UIImage * toImage = self.imageFetcher.blurredImagesArray[nextIndex];
     [UIView transitionWithView:self.blurredImageView
                       duration:kImageTransitionTime
@@ -818,6 +820,7 @@
     self.imageFetcher.indexOfImageArray = nextIndex;
     
     // Get new images from the server
+
     [self.imageFetcher nextImage];
 
 }
@@ -929,6 +932,7 @@
             [[updatedUser getGoal] setSavingEvents:[newSavings copy]];
             [RDPUserService saveUser:updatedUser withResponse:^(RDPResponseCode response) {
                 [self loadSavings];
+                [self.tableView reloadData];
             }];
             break;
         }

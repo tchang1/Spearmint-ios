@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *startFTUButton;
 @property (weak, nonatomic) IBOutlet UIButton *goToLoginButton; 
 @property (weak, nonatomic) IBOutlet UIImageView *keepLogo;
+@property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
 
 // The example starting view and labels
 @property (weak, nonatomic) IBOutlet CSAnimationView *startExampleView;

@@ -36,7 +36,7 @@
 //    NSShadow *shadow = [[NSShadow alloc] init];
 //    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
 //    shadow.shadowColor = [UIColor whiteColor];
-    
+
     RDPMixpanelAnalyticsProvider *mixpanel= [[RDPMixpanelAnalyticsProvider alloc] init];
     [RDPAnalyticsModule initializeAnalyticsProviders:@[mixpanel]];
     [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"launch" } ];
@@ -58,6 +58,7 @@
         [alert show];
     }
     application.applicationIconBadgeNumber = 0;
+    
     
     [RDPNotificationsManager clearLocalNotifications];
 //    [RDPNotificationsManager scheduleTestNotificationWithMessage:@"test" after:5];

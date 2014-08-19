@@ -8,12 +8,14 @@
 
 #import "AFHTTPSessionManager.h"
 #import "RDPGoalModel.h"
+#import "RDPUserModel.h"
 #import "RDPSavingEventModel.h"
 #import "RDPUserModel.h"
 
 typedef void (^completionBlock)(void);
 typedef void (^errorBlock)(NSError*);
 typedef void (^goalBlock)(RDPGoalModel*);
+typedef void (^userModelBlock)(RDPUserModel*);
 typedef void (^arrayBlock)(NSArray*);
 typedef void (^savingBlock)(RDPSavingEventModel*);
 typedef void (^stringBlock)(NSString*);
@@ -36,8 +38,8 @@ typedef void (^stringBlock)(NSString*);
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 -(void)signupWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
--(void)logout;
-//-(void)logoutWithCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
+-(void)getMyUserWithSuccess:(userModelBlock)block andFailure:(errorBlock)errorBlock;
+-(void)logoutWithCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 
 //Goals
 -(void)getMyGoal;
@@ -81,7 +83,6 @@ typedef void (^stringBlock)(NSString*);
 @protocol RDPHTTPClientDelegate <NSObject>
 
 @optional
--(void)RDPHTTPClientDidLogOut;
 -(void)RDPHTTPClientDidLogIn;
 
 
