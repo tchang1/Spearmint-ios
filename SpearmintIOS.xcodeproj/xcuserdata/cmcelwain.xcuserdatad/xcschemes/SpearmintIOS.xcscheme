@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "58F643AD197DA5F6001D0236"
-               BuildableName = "SpearmintIOS.app"
+               BuildableName = "Keep.app"
                BlueprintName = "SpearmintIOS"
                ReferencedContainer = "container:SpearmintIOS.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58F643AD197DA5F6001D0236"
-            BuildableName = "SpearmintIOS.app"
+            BuildableName = "Keep.app"
             BlueprintName = "SpearmintIOS"
             ReferencedContainer = "container:SpearmintIOS.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58F643AD197DA5F6001D0236"
-            BuildableName = "SpearmintIOS.app"
+            BuildableName = "Keep.app"
             BlueprintName = "SpearmintIOS"
             ReferencedContainer = "container:SpearmintIOS.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "58F643AD197DA5F6001D0236"
-            BuildableName = "SpearmintIOS.app"
+            BuildableName = "Keep.app"
             BlueprintName = "SpearmintIOS"
             ReferencedContainer = "container:SpearmintIOS.xcodeproj">
          </BuildableReference>

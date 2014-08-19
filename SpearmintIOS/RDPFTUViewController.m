@@ -19,8 +19,9 @@
 #define kHome @"home"
 
 #define IS_TALL_SCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define kScreenHeight  [UIScreen mainScreen].bounds.size.height
 #define kCircleShiftTallScreen 100
-#define kCircleShiftShortScreen 170
+#define kCircleShiftShortScreen 150
 
 #define kFirstExampleImage @"ireland.png"
 #define kSecondExampleImage @"ridge.png"
@@ -50,6 +51,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //
+    CGRect newFrame = self.keepLogo.frame;
+    newFrame.origin.y = (kScreenHeight - self.keepLogo.frame.size.height)/2;
+    self.keepLogo.frame = newFrame;
     
     // Initialize the minimum press duration to be short so it seems more responsive
     self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
@@ -110,6 +116,20 @@
     //self.counterView.rotationsPerSecond = kTestingSpeed;
     self.counterView.rotationsPerSecond = kFirstExampleSpeed;
 }
+
+//- (void)updateViewConstraints
+//{
+//    [super updateViewConstraints];
+//    
+//    // resize the container view to be the correct size dependent on the screen height
+//    [self.keepLogo addConstraint:[NSLayoutConstraint constraintWithItem:self.view
+//                                                                   attribute:NSLayoutAttributeHeight
+//                                                                   relatedBy:NSLayoutRelationEqual
+//                                                                      toItem:nil
+//                                                                   attribute:NSLayoutAttributeNotAnAttribute
+//                                                                  multiplier:1.0
+//                                                                    constant:kContentHeight]];
+//}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -174,10 +194,9 @@
                                          }];
         }];
 
-        }
-        //not logged in, show welcome FTU
-        else
-        {
+    }
+    //not logged in, show welcome FTU
+    else {
         CGRect newFrame = self.keepLogo.frame;
         if IS_TALL_SCREEN {
             newFrame.origin.y -= kCircleShiftTallScreen;
@@ -198,7 +217,7 @@
                                 self.welcomeView.type     = CSAnimationTypeFadeIn;
                                 [self.welcomeView startCanvasAnimation];
                             }];
-        }
+    }
    
 }
 -(void)viewDidDisappear:(BOOL)animated

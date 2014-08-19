@@ -413,7 +413,7 @@
 		58988FAE19953A8E00E05AC5 /* RDPSuggestionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSuggestionsView.m; sourceTree = "<group>"; };
 		58988FB11995411100E05AC5 /* RDPSuggestionSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSuggestionSquare.h; sourceTree = "<group>"; };
 		58988FB21995411100E05AC5 /* RDPSuggestionSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSuggestionSquare.m; sourceTree = "<group>"; };
-		58F643AE197DA5F6001D0236 /* SpearmintIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpearmintIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F643AE197DA5F6001D0236 /* Keep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643B1197DA5F6001D0236 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F643B3197DA5F6001D0236 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		58F643B5197DA5F6001D0236 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -694,7 +694,7 @@
 		58F643AF197DA5F6001D0236 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				58F643AE197DA5F6001D0236 /* SpearmintIOS.app */,
+				58F643AE197DA5F6001D0236 /* Keep.app */,
 				58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */,
 			);
 			name = Products;
@@ -1121,7 +1121,7 @@
 			);
 			name = SpearmintIOS;
 			productName = SpearmintIOS;
-			productReference = 58F643AE197DA5F6001D0236 /* SpearmintIOS.app */;
+			productReference = 58F643AE197DA5F6001D0236 /* Keep.app */;
 			productType = "com.apple.product-type.application";
 		};
 		58F643C8197DA5F6001D0236 /* SpearmintIOSTests */ = {
@@ -1678,7 +1678,7 @@
 					"\"${PODS_ROOT}/Headers/pop\"",
 				);
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
-				PRODUCT_NAME = SpearmintIOS;
+				PRODUCT_NAME = Keep;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1708,7 +1708,7 @@
 					"\"${PODS_ROOT}/Headers/pop\"",
 				);
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
-				PRODUCT_NAME = SpearmintIOS;
+				PRODUCT_NAME = Keep;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
