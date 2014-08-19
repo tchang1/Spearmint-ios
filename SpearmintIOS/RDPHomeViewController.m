@@ -117,16 +117,16 @@
     
     // Setup the cut out view with text field
     self.serverHasUpdatedSavingsEvents = YES;
-    self.savingReason = @""; 
-    self.hasJustSaved = NO; // TODO: get this from the persisted data
-    //self.amountJustSaved = get this from persisted data
+    self.savingData = [RDPDataHolder getDataHolder];
+    self.savingReason = @"";
     self.savingsTextField.delegate = self;
     self.savingsTextField.indentAmount = kIndentAmount;
     self.cutOutView.innerView = self.savingsTextField;
     self.savingsTextField.borderRadius = kBorderRadius;
     self.savingsTextField.parentColor = self.cutOutView.backgroundColor;
-    if (self.hasJustSaved) {
+    if (self.savingData.hasJustSaved) {
         [self updatePlaceHolderForTextField];
+        self.easterEgg.hidden = YES;
     }
     else {
         self.cutOutView.hidden = YES;
@@ -495,7 +495,7 @@
         [self goToSaveView];
     }
     else if (self.screenMode == OnSaveScreen) {
-        if (self.scrollView.contentOffset.y <= breakPointTop && self.hasJustSaved) {
+        if (self.scrollView.contentOffset.y <= breakPointTop && self.savingData.hasJustSaved) {
             [self goToRecordView];
         }
         else if (self.scrollView.contentOffset.y < breakPointMiddle) {
@@ -674,8 +674,8 @@
                 
                 self.cutOutView.hidden = NO;
                 self.easterEgg.hidden = YES;
-                self.amountJustSaved = amountSaved;
-                self.hasJustSaved = YES;
+                self.savingData.amountJustSaved = amountSaved;
+                self.savingData.hasJustSaved = YES;
                 [self updatePlaceHolderForTextField];
             }
             
@@ -811,7 +811,7 @@
 
 - (void)updatePlaceHolderForTextField
 {
-    NSString *justSavedAmount = [[RDPConfig numberFormatter] stringFromNumber:self.amountJustSaved];
+    NSString *justSavedAmount = [[RDPConfig numberFormatter] stringFromNumber:self.savingData.amountJustSaved];
     NSString *savedBy = [NSString stringWithFormat:[RDPStrings stringForID:sSavedBy], justSavedAmount];
     self.savingsTextField.attributedPlaceholder = [[NSAttributedString alloc]
                                                    initWithString:savedBy
@@ -871,7 +871,7 @@
         }
         
         
-        self.hasJustSaved = NO;
+        self.savingData.hasJustSaved = NO;
         
         void (^transitionBlock)(void) = ^{
             self.cutOutView.hidden = YES;
@@ -883,7 +883,7 @@
         [RDPTimerManager pauseFor:kWaitTimeToHideTextField millisecondsThen:transitionBlock];
     }
     
-    if (self.congratsView.alpha == 1.0) { // if we are still on congrats view
+    if (self.congratsView.alpha == 1.0 && self.congratsView.hidden == NO) { // if we are still on congrats view
         self.congratsView.duration = 1;
         self.congratsView.type     = CSAnimationTypeFadeOut;
         [self.congratsView startCanvasAnimation];

@@ -16,6 +16,7 @@
 #import "RDPTimerManager.h"
 #import "RDPCutOutView.h"
 #import "RDPUITextField.h"
+#import "RDPDataHolder.h"
 
 
 typedef enum HomeScreenMode {
@@ -86,8 +87,7 @@ typedef enum HomeScreenMode {
 @property (nonatomic, strong) NSTimer *suggestionTimer;
 
 // Bool and amount for whether user has saved recently in the app
-@property (nonatomic, assign) BOOL hasJustSaved;
-@property (nonatomic, strong) NSNumber *amountJustSaved;
+@property (nonatomic, strong) RDPDataHolder *savingData; 
 
 // Properties to ensure the reason gets saved to the correct saving event
 @property (nonatomic, assign) BOOL serverHasUpdatedSavingsEvents;

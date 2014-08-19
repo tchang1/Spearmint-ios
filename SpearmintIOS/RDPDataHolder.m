@@ -10,25 +10,26 @@
 
 @implementation RDPDataHolder
 
-static RDPDataHolder *dataHolder = nil;
+static RDPDataHolder *savingData = nil;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-
+        self.hasJustSaved = NO;
+        self.amountJustSaved = [NSNumber numberWithInt:-1];
     }
     return self;
 }
 
 + (RDPDataHolder *)getDataHolder
 {
-    if (dataHolder) {
-        return dataHolder;
+    if (savingData) {
+        return savingData;
     }
     
-    dataHolder = [[self alloc] init];
-    return dataHolder;
+    savingData = [[self alloc] init];
+    return savingData;
 }
 
 //- (id)getObjectForKey(NSString *)key
