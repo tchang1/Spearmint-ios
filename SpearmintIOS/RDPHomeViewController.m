@@ -365,12 +365,13 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView == self.tableView) {
-        if (self.currentTextField) {
-            if (self.shouldDismissKeyboardWhenScrolling) {
-                [self.currentTextField resignFirstResponder];
-            }
+    if (self.currentTextField) {
+        if (self.shouldDismissKeyboardWhenScrolling) {
+            [self.currentTextField resignFirstResponder];
         }
+    }
+    
+    if (scrollView == self.tableView) {
         CGFloat sectionHeaderHeight = kHeaderSectionHeight;
         if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
             scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
