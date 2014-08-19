@@ -10,6 +10,9 @@
 #import "RDPValidationService.h"
 #import "RDPAnalyticsModule.h"
 
+#define kStoryboard @"Main"
+#define kHome @"home"
+
 @interface RDPSignupViewController ()
 
 @end
@@ -157,18 +160,23 @@
     [self.userGoal setCurrentAmount:[[NSNumber alloc] initWithInt:0]];
     
     [RDPUserService createUserWithUsername:username andPassword:password andGoal:self.userGoal then:^(RDPUser *user) {
-        HUD.labelText=@"ClientDidLoginYALL!";
-        HUD.mode =MBProgressHUDModeText;
-        [HUD hide:YES afterDelay:2];
         
         [RDPAnalyticsModule track:@"Signed up" properties:@{@"username" : self.emailTextField.text}];
         [RDPAnalyticsModule identifyProfile];
         [RDPAnalyticsModule setProfile:@{@"Goal Name" : self.userGoal.getGoalName, @"$email" : self.emailTextField.text, @"Goal target amount": self.userGoal.getTargetAmount}];
         
-        double delayInSeconds = 2.0;
+        double delayInSeconds = 0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self performSegueWithIdentifier:@"signupToHome" sender:self];
+            UIViewController *viewController =
+            [[UIStoryboard storyboardWithName:kStoryboard
+                                       bundle:NULL] instantiateViewControllerWithIdentifier:kHome];
+            CATransition *transition = [CATransition animation];
+            transition.duration = 0.5f;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            transition.type = kCATransitionFade;
+            [self.navigationController.view.layer addAnimation:transition forKey:nil];
+            [self.navigationController pushViewController:viewController animated:NO];
         });
     } failure:^(RDPResponseCode errorCode) {
         if (errorCode==RDPErrorCodeInvalidUsername) {

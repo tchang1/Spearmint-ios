@@ -15,6 +15,9 @@
 #import "RDPValidationService.h"
 #import "RDPAnalyticsModule.h"
 
+#define kStoryboard @"Main"
+#define kHome @"home"
+
 @interface RDPLoginViewController ()
 
 @end
@@ -162,17 +165,22 @@
 -(void)tryLoginWithUsername:(NSString *)username andPassword:(NSString *)password {
     NSLog(@"trying login");
     [RDPUserService loginWithUsername:username andPassword:password then:^(RDPUser *user) {
-        HUD.labelText=@"ClientDidLoginYALL!";
-        HUD.mode =MBProgressHUDModeText;
-        [HUD hide:YES afterDelay:0.5];
         [RDPAnalyticsModule track:@"Logged In" properties:@{@"username" : username } ];
         [RDPAnalyticsModule identifyProfile];
         [RDPAnalyticsModule setProfile:@{@"$email" : self.emailTextField.text}];
         
-        double delayInSeconds = 0.5;
+        double delayInSeconds = 0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [self performSegueWithIdentifier:@"loginToHome" sender:self];
+            UIViewController *viewController =
+            [[UIStoryboard storyboardWithName:kStoryboard
+                                       bundle:NULL] instantiateViewControllerWithIdentifier:kHome];
+            CATransition *transition = [CATransition animation];
+            transition.duration = 0.5f;
+            transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            transition.type = kCATransitionFade;
+            [self.navigationController.view.layer addAnimation:transition forKey:nil];
+            [self.navigationController pushViewController:viewController animated:NO];
         });
     } failure:^(RDPResponseCode errorCode) {
         HUD.labelText=@"Something bad happened";
@@ -183,7 +191,7 @@
 }
 
 - (void)hudWasHidden:(MBProgressHUD *)hud {
-	// Remove HUD from screen when the HUD was hidded
+	// Remove HUD from screen when the HUD was hidden
 	[HUD removeFromSuperview];
 	HUD = nil;
 }
