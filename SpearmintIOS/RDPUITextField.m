@@ -22,6 +22,12 @@
     return self;
 }
 
+- (void)clearTextField:(id)sender
+{
+    self.text = @"";
+}
+
+
 - (void)setIndentAmount:(CGFloat)indentAmount
 {
     _indentAmount = indentAmount;
@@ -37,6 +43,17 @@
 
 - (void)drawRect:(CGRect)rect
 {
+    UIButton *clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *img = [UIImage imageNamed:@"X.png"];
+    CGRect frame = CGRectMake(0, 0, img.size.width + 10, img.size.height);
+    [clearButton setFrame:frame];
+    [clearButton setImage:img forState:UIControlStateNormal];
+    [clearButton addTarget:self action:@selector(clearTextField:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.rightViewMode = UITextFieldViewModeWhileEditing;
+    [self setRightView:clearButton];
+    
+    
     if (0 < self.borderRadius && self.parentColor) {
         CGBlendMode blendMode = kCGBlendModeNormal;
         CGFloat alpha = 1;

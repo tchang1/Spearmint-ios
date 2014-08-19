@@ -50,7 +50,7 @@
 #define kProgressHeaderHeight 80
 #define kContentHeight  (kScreenHeight * 2) + kTextInputHeight
 
-#define kArrowImage @"DownArrow.png"
+#define kArrowImage @"Up Arrow.png"
 #define kProgressHeaderNib @"RDPProgressHeader"
 
 #define kIndentAmount 10
@@ -87,6 +87,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     self.keyboardHeight = 216;
@@ -133,12 +134,15 @@
     
     // Add the down arrow to the bottom of the screen
     UIImage *arrowImage = [UIImage imageNamed:kArrowImage];
-    UIImageView *downArrowView = [[UIImageView alloc] initWithImage:arrowImage];
-    [downArrowView setContentMode:UIViewContentModeCenter];
-    CGRect  arrowViewRect = CGRectMake(0, kScreenHeight+kTextInputHeight - downArrowView.bounds.size.height - 10, kScreenWidth, downArrowView.bounds.size.height);
-    [downArrowView setFrame:arrowViewRect];
+//    int parentViewOffset = self.pressAndHoldView.frame.origin.y + 10;
+    CGRect  arrowViewRect = CGRectMake((kScreenWidth - arrowImage.size.width - 10)/2, kScreenHeight+kTextInputHeight - arrowImage.size.height - 10, arrowImage.size.width + 10, arrowImage.size.height + 10);
+    self.progressButton = [[UIButton alloc] initWithFrame:arrowViewRect];
+    [self.progressButton setImage:arrowImage forState:UIControlStateNormal];
+    [self.progressButton addTarget:nil action:@selector(displayProgress:) forControlEvents:UIControlEventTouchUpInside];
+    [self.progressButton setContentMode:UIViewContentModeCenter];
+    [self.progressButton setFrame:arrowViewRect];
     
-    [self.pressAndHoldView addSubview:downArrowView];
+    [self.scrollView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
     
     // Setup the progress view within scroll view
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kProgressHeaderNib owner:self options:nil];
@@ -516,6 +520,15 @@
     [self goToRecordView];
 }
 
+- (void)displayProgress:(id)sender
+{
+    [UIView animateWithDuration:0.25 animations:^{
+        self.scrollView.contentOffset = CGPointMake(0, kTextInputHeight + 30);
+    } completion:^(BOOL finished) {
+        [self goToSaveView];
+    }];
+
+}
 
 - (void)goToSaveView
 {
@@ -530,7 +543,6 @@
     if (self.suggestionTimer == nil) {
         [self startSuggestionsTimer];
     }
-    self.settingsView.hidden = NO;
     self.screenMode = OnSaveScreen;
 }
 
@@ -587,6 +599,8 @@
             [self stopSuggestionsTimer];
             
             self.pressAndHoldView.hidden = YES;
+            self.progressButton.hidden = YES;
+            self.progressButton.alpha = 0.0;
             self.settingsView.hidden = YES;
             self.suggestionView.hidden = YES;
         }
@@ -615,6 +629,12 @@
                 self.pressAndHoldView.duration = kFadeLabelsTime;
                 self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                 [self.pressAndHoldView startCanvasAnimation];
+                
+                self.progressButton.hidden = NO;
+                [UIView animateWithDuration:kFadeLabelsTime animations:^{
+                    self.progressButton.alpha = 1.0;
+                }];
+                
                 
                 self.settingsView.hidden = NO;
                 self.settingsView.duration = kFadeLabelsTime;
@@ -748,10 +768,17 @@
                     animations:^{
                         self.blurredImageView.image = toImage;
                     } completion:^(BOOL finished){
+                        
+                        
                         self.pressAndHoldView.hidden = NO;
                         self.pressAndHoldView.duration = kFadeLabelsTime;
                         self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                         [self.pressAndHoldView startCanvasAnimation];
+                        
+                        self.progressButton.hidden = NO;
+                        [UIView animateWithDuration:kFadeLabelsTime animations:^{
+                            self.progressButton.alpha = 1.0;
+                        }];
                         
                         self.settingsView.hidden = NO;
                         self.settingsView.duration = kFadeLabelsTime;
@@ -867,6 +894,9 @@
 
         
         [self transitionImagesWithSaveAmount];
+    }
+    else {
+        self.settingsView.hidden = NO;
     }
     
     self.scrollView.scrollEnabled = YES;

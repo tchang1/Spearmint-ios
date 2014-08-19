@@ -71,6 +71,9 @@ typedef enum HomeScreenMode {
 
 @property (weak, nonatomic) IBOutlet UIView *gestureRecognizerView;
 
+// Button for the progress view
+@property (strong, nonatomic) UIButton *progressButton; 
+
 // The image fetcher to get our next image 
 @property (strong, nonatomic) RDPImageFetcher *imageFetcher;
 
