@@ -17,6 +17,7 @@
 #import "RDPProgressHeader.h"
 #import "NSDate+Utilities.h"
 #import "RDPTableViewSavingsCell.h"
+#import "RDPArrowAnimation.h"
 
 #define kCellXibName                    @"RDPTableViewSavingsCell"
 #define kCellReusableIdentifier         @"SavingsCell"
@@ -43,6 +44,8 @@
 #define kCellBorderBottomWidth          1
 #define kHeaderBorderMargin             10
 #define kCellBorderMargin               20
+#define kAnimagedArrowWidgh             24
+#define kAnimatedArrowHeight            33
 
 #define kScreenHeight  [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth 320
@@ -77,6 +80,7 @@
 @property (nonatomic, weak)RDPProgressHeader* progressHeader;
 @property (nonatomic, assign)CGFloat keyboardHeight;
 @property (nonatomic, assign)BOOL shouldDismissKeyboardWhenScrolling;
+@property (nonatomic, strong)RDPArrowAnimation* arrow;
 
 //@property (strong, nonatomic) NSArray* savings;
 
@@ -134,16 +138,20 @@
     }
     
     // Add the down arrow to the bottom of the screen
-    UIImage *arrowImage = [UIImage imageNamed:kArrowImage];
+//    UIImage *arrowImage = [UIImage imageNamed:kArrowImage];
 //    int parentViewOffset = self.pressAndHoldView.frame.origin.y + 10;
-    CGRect  arrowViewRect = CGRectMake((kScreenWidth - arrowImage.size.width - 10)/2, kScreenHeight+kTextInputHeight - arrowImage.size.height - 10, arrowImage.size.width + 10, arrowImage.size.height + 10);
+//    CGRect  arrowViewRect = CGRectMake((kScreenWidth - arrowImage.size.width - 10)/2, kScreenHeight+kTextInputHeight - arrowImage.size.height - 10, arrowImage.size.width + 10, arrowImage.size.height + 10);
+    CGRect  arrowViewRect = CGRectMake((kScreenWidth - kAnimagedArrowWidgh - 10)/2, kScreenHeight + 45 - kAnimatedArrowHeight, kAnimagedArrowWidgh + 10, kAnimatedArrowHeight + 10);
+    self.arrow = [[RDPArrowAnimation alloc] initWithFrame:arrowViewRect];
     self.progressButton = [[UIButton alloc] initWithFrame:arrowViewRect];
-    [self.progressButton setImage:arrowImage forState:UIControlStateNormal];
+//    [self.progressButton setImage:arrowImage forState:UIControlStateNormal];
     [self.progressButton addTarget:nil action:@selector(displayProgress:) forControlEvents:UIControlEventTouchUpInside];
     [self.progressButton setContentMode:UIViewContentModeCenter];
     [self.progressButton setFrame:arrowViewRect];
     
     [self.containerView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
+    self.arrow.alpha = 0.5f;
+    [self.containerView insertSubview:self.arrow aboveSubview:self.gestureRecognizerView];
     
     // Setup the progress view within scroll view
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kProgressHeaderNib owner:self options:nil];
@@ -194,6 +202,13 @@
     [self.suggestions getNextSuggestionMessages];
     self.suggestionLabel.text = self.suggestions.suggestionMessages[self.suggestionIndex];
     [self startSuggestionsTimer];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.arrow startAnimating];
+    NSLog(@"animation starting");
 }
 
 - (void)updateViewConstraints
@@ -616,6 +631,7 @@
             
             self.pressAndHoldView.hidden = YES;
             self.progressButton.hidden = YES;
+            self.arrow.hidden = YES;
             self.progressButton.alpha = 0.0;
             self.settingsView.hidden = YES;
             self.suggestionView.hidden = YES;
@@ -647,6 +663,8 @@
                 [self.pressAndHoldView startCanvasAnimation];
                 
                 self.progressButton.hidden = NO;
+                self.arrow.hidden = NO;
+                [self.arrow startAnimating];
                 [UIView animateWithDuration:kFadeLabelsTime animations:^{
                     self.progressButton.alpha = 1.0;
                 }];
@@ -792,7 +810,8 @@
                         self.pressAndHoldView.duration = kFadeLabelsTime;
                         self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                         [self.pressAndHoldView startCanvasAnimation];
-                        
+                        self.arrow.hidden = NO;
+                        [self.arrow startAnimating];
                         self.progressButton.hidden = NO;
                         [UIView animateWithDuration:kFadeLabelsTime animations:^{
                             self.progressButton.alpha = 1.0;
