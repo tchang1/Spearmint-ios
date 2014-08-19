@@ -34,6 +34,7 @@ typedef enum HomeScreenMode {
 
 // The scroll view that contains all the content except the images
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 // The input field to record why you saved
 @property (weak, nonatomic) IBOutlet RDPCutOutView *cutOutView;

@@ -109,6 +109,7 @@
     // Setup the scroll view
     [self.scrollView setScrollEnabled:YES];
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth, kContentHeight)];
+    [self.containerView setFrame:CGRectMake(0, 0, kScreenWidth, kContentHeight)];
     CGPoint point = CGPointMake(0, kTextInputHeight);
     [self.scrollView setContentOffset:point];
     self.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
@@ -142,7 +143,7 @@
     [self.progressButton setContentMode:UIViewContentModeCenter];
     [self.progressButton setFrame:arrowViewRect];
     
-    [self.scrollView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
+    [self.containerView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
     
     // Setup the progress view within scroll view
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kProgressHeaderNib owner:self options:nil];
@@ -156,14 +157,14 @@
     
     CGRect  viewRect = CGRectMake(0, kScreenHeight, kScreenWidth, self.progressHeader.bounds.size.height);
     [self.progressHeader setFrame:viewRect];
-    [self.scrollView insertSubview:self.progressHeader belowSubview:self.gestureRecognizerView];
+    [self.containerView insertSubview:self.progressHeader belowSubview:self.gestureRecognizerView];
 //    [self.scrollView addSubview:self.progressHeader];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
                                                                    kScreenHeight + kTextInputHeight + kProgressHeaderHeight,
                                                                    kScreenWidth,
                                                                    kScreenHeight - kProgressHeaderHeight)];
-    [self.scrollView addSubview:self.tableView];
+    [self.containerView addSubview:self.tableView];
     [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -194,6 +195,20 @@
     self.suggestionLabel.text = self.suggestions.suggestionMessages[self.suggestionIndex];
     [self startSuggestionsTimer];
 }
+
+//- (void)updateViewConstraints
+//{
+//    [super updateViewConstraints];
+//    
+//    [self.containerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+//    [self.containerView addConstraint:[NSLayoutConstraint constraintWithItem:self.scrollView
+//                                                       attribute:NSLayoutAttributeHeight
+//                                                       relatedBy:NSLayoutRelationEqual
+//                                                          toItem:nil
+//                                                       attribute:NSLayoutAttributeNotAnAttribute
+//                                                      multiplier:1.0
+//                                                        constant:kContentHeight]];
+//}
 
 -(void)keyboardOnScreen:(NSNotification *)notification
 {
