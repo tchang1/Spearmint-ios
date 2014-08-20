@@ -14,6 +14,7 @@
 #import "RDPImageFetcher.h"
 #import "RDPUserService.h"
 #import "RDPAnalyticsModule.h"
+#import "RDPDataHolder.h"
 
 
 #define kKeyName                    @"name"
@@ -86,6 +87,7 @@
                                  self.navigationController.view.frame.size.height);
     imageView.contentMode = UIViewContentModeScaleToFill;
     
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self setNavigationBarColor:kColor_SettingPanelHeader];
     
     [self.logoutButton setTitle:[RDPStrings stringForID:sLogout] forState:UIControlStateNormal];
@@ -255,6 +257,17 @@
                                bundle:NULL] instantiateViewControllerWithIdentifier:kFeedbackIdentifier];
     
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (IBAction)backTapped:(id)sender {
+    if ([RDPDataHolder getDataHolder].homeController) {
+        [self.navigationController popToViewController:[RDPDataHolder getDataHolder].homeController animated:YES];
+    }
+    else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    [self removeStatusBar];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 -(void)rateTapped

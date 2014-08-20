@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RDPViewController.h"
 
 @interface RDPDataHolder : NSObject
 
@@ -14,6 +15,7 @@
 @property (nonatomic, assign) BOOL hasJustSaved;
 @property (nonatomic, strong) NSNumber *amountJustSaved;
 @property (nonatomic, assign) BOOL reachedGoal;
+@property (nonatomic, weak) RDPViewController* homeController;
 
 + (RDPDataHolder *)getDataHolder;
 

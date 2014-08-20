@@ -98,7 +98,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [RDPDataHolder getDataHolder].homeController = self;
     self.keyboardHeight = 216;
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
@@ -155,8 +155,9 @@
 
 - (void)setup
 {
+    [self stopSuggestionsTimer];
     self.shouldDismissKeyboardWhenScrolling = YES;
-    
+    self.pressAndHoldGestureRecognizer.enabled = YES;
     // Initialize the press and hold gesture recognizer
     self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
     self.tapGestureRecognizer.enabled = NO;
@@ -206,6 +207,7 @@
     [self.suggestions getNextSuggestionMessages];
     self.suggestionLabel.text = self.suggestions.suggestionMessages[self.suggestionIndex];
     [self startSuggestionsTimer];
+    self.blurredImageView.alpha = 1;
     
     // Load the savings events
     [self loadSavings];
@@ -735,21 +737,26 @@
             double currentAmountSaved = [[[[RDPUserService getUser] getGoal] getCurrentAmount] doubleValue];
             double targetAmount = [[[[RDPUserService getUser] getGoal] getTargetAmount] doubleValue];
             if ([amountSaved doubleValue] + currentAmountSaved >= targetAmount
-                && ![RDPDataHolder getDataHolder].reachedGoal) {
+                && ![RDPDataHolder getDataHolder].reachedGoal
+                && amountHasBeenSaved) {
                 [self createSavingEventForAmount:amountSaved];
-//                UIStoryboard* storyboard = [UIStoryboard storyboardWithName:kStoryboardName bundle:NULL];
-//                RDPCompeteGoalController *viewController = [storyboard instantiateViewControllerWithIdentifier:kCompletedGoalScreenName];
+                UIStoryboard* storyboard = [UIStoryboard storyboardWithName:kStoryboardName bundle:NULL];
+                RDPCompeteGoalController *viewController = [storyboard instantiateViewControllerWithIdentifier:kCompletedGoalScreenName];
 
-//                [UIView transitionWithView:self.navigationController.view
-//                                  duration:1
-//                                   options:UIViewAnimationOptionTransitionCrossDissolve
-//                                animations:^{
-////                                    NSArray* viewControllers = [self.navigationController viewControllers];
-//                                    [self performSegueWithIdentifier: kHomeToCompleteSeque sender: self];
-//                                } 
-//                                completion:nil];
-                [self showCongratsMessage];
-                [self performSegueWithIdentifier: kHomeToCompleteSegue sender: self];
+                [UIView transitionWithView:self.navigationController.view
+                                  duration:1
+                                   options:UIViewAnimationOptionTransitionCrossDissolve
+                                animations:^{
+//                                    NSArray* viewControllers = [self.navigationController viewControllers];
+//                                    [self performSegueWithIdentifier: kHomeToCompleteSegue sender: self];
+                                    [self.navigationController pushViewController:viewController animated:NO];
+                                }
+                                completion:^(BOOL completed){
+                                    [self showCongratsMessage];
+                                }];
+//                [self showCongratsMessage];
+//                [self performSegueWithIdentifier: kHomeToCompleteSegue sender: self];
+                
                 [RDPDataHolder getDataHolder].reachedGoal = YES;
             }
             else {
