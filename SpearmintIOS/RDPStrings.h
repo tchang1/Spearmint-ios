@@ -104,7 +104,10 @@ typedef enum {
     sSavedBy,
     sSaveSome,
     sRecord,
-    sLoading
+    sLoading,
+    sReachedGoalLine1,
+    sReachedGoalLine2,
+    sReachedGoalButtonText
 } RDPStringID;
 
 @interface RDPStrings : NSObject

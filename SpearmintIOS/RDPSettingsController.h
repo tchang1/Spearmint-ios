@@ -11,4 +11,6 @@
 
 @interface RDPSettingsController : RDPViewController <UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate>
 
+-(void)navigateToMyGoal;
+
 @end

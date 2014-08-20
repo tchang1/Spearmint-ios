@@ -18,6 +18,8 @@
 #import "NSDate+Utilities.h"
 #import "RDPTableViewSavingsCell.h"
 #import "RDPArrowAnimation.h"
+#import <MediaPlayer/MediaPlayer.h>
+#import "RDPCompeteGoalController.h"
 
 #define kCellXibName                    @"RDPTableViewSavingsCell"
 #define kCellReusableIdentifier         @"SavingsCell"
@@ -32,6 +34,10 @@
 #define kTimeAndPlaceKey                @"timeAndPlaceKey"
 #define kSavingIDKey                    @"savingID"
 #define kSavingTagKey                   @"tag"
+
+#define kCompletedGoalScreenName        @"completedGoalScreen"
+#define kStoryboardName                 @"Main"
+#define kHomeToCompleteSeque            @"HomeToGoalCompleteSegue"
 
 #define kSavingCellHeight               50
 #define kHeaderSectionHeight            40
@@ -715,26 +721,47 @@
                 [self updatePlaceHolderForTextField];
             }
             
-            [UIView animateWithDuration:kFadeImagesTime animations:^{
-                
-                self.blurredImageView.alpha = 1.0;
-            }
-                             completion:^(BOOL finished){
-                                 if (amountHasBeenSaved) {
-                                     [self createSavingEventForAmount:amountSaved];
-                                     [self showCongratsMessage];
-                                     
-                                 } else {
-                                     if (self.screenMode == OnSaveScreen) {
-                                         self.pressAndHoldGestureRecognizer.enabled = YES;
-                                     }
-                                 }
-                             }];
-            
             [self.counterView stop];
             self.counterView.hidden = YES;
             // Reset the counter
             [self.counterView reset];
+            double currentAmountSaved = [[[[RDPUserService getUser] getGoal] getCurrentAmount] doubleValue];
+            double targetAmount = [[[[RDPUserService getUser] getGoal] getTargetAmount] doubleValue];
+            if ([amountSaved doubleValue] + currentAmountSaved >= targetAmount
+                && ![RDPDataHolder getDataHolder].reachedGoal) {
+                [self createSavingEventForAmount:amountSaved];
+//                UIStoryboard* storyboard = [UIStoryboard storyboardWithName:kStoryboardName bundle:NULL];
+//                RDPCompeteGoalController *viewController = [storyboard instantiateViewControllerWithIdentifier:kCompletedGoalScreenName];
+
+//                [UIView transitionWithView:self.navigationController.view
+//                                  duration:1
+//                                   options:UIViewAnimationOptionTransitionCrossDissolve
+//                                animations:^{
+////                                    NSArray* viewControllers = [self.navigationController viewControllers];
+//                                    [self performSegueWithIdentifier: kHomeToCompleteSeque sender: self];
+//                                } 
+//                                completion:nil];
+                [self performSegueWithIdentifier: kHomeToCompleteSeque sender: self];
+                [RDPDataHolder getDataHolder].reachedGoal = YES;
+            }
+            else {
+                [UIView animateWithDuration:kFadeImagesTime animations:^{
+                    
+                    self.blurredImageView.alpha = 1.0;
+                }
+                                 completion:^(BOOL finished){
+                                     if (amountHasBeenSaved) {
+                                         [self createSavingEventForAmount:amountSaved];
+                                         [self showCongratsMessage];
+                                         
+                                     } else {
+                                         if (self.screenMode == OnSaveScreen) {
+                                             self.pressAndHoldGestureRecognizer.enabled = YES;
+                                         }
+                                     }
+                                 }];
+            }
+            
             
         }
             break;

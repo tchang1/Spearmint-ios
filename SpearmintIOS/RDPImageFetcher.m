@@ -43,6 +43,12 @@ static RDPImageFetcher *imageFetcher = nil;
     return imageFetcher.blurredImagesArray[index];
 }
 
+- (UIImage *)getCurrentImage
+{
+    int index = imageFetcher.indexOfImageArray;
+    return imageFetcher.clearImagesArray[index];
+}
+
 #pragma mark - Image Arrays
 
 - (NSMutableArray *)clearImagesArray

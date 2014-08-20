@@ -303,6 +303,15 @@
         case sLoading:
             result = @"Verifying User...";
             break;
+        case sReachedGoalLine1:
+            result = @"You made it!";
+            break;
+        case sReachedGoalLine2:
+            result = @"Go enjoy it.";
+            break;
+        case sReachedGoalButtonText:
+            result = @"Set another goal";
+            break;
 }
     
     return result;

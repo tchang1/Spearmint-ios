@@ -52,7 +52,7 @@
 {
     if (!_menuItems) {
         _menuItems = @[@{kKeyName : [RDPStrings stringForID:sMyGoal],
-                         kKeySelector : NSStringFromSelector(@selector(goalsTapped))
+                         kKeySelector : NSStringFromSelector(@selector(navigateToMyGoal))
                          },
                        @{kKeyName : [RDPStrings stringForID:sNotificationSettings],
                          kKeySelector : NSStringFromSelector(@selector(notificationsTapped))
@@ -237,7 +237,7 @@
 
 #pragma mark tap handlers
                        
--(void)goalsTapped
+-(void)navigateToMyGoal
 {
     UIViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard

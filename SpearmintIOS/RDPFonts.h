@@ -16,7 +16,10 @@ typedef enum {
     fSmallText,
     fCurrencyFont,
     fLoginFont,
-    fLoginPlaceholderFont
+    fLoginPlaceholderFont,
+    fReachGoalLine1,
+    fReachGoalLine2,
+    fLargeButtonFont
 } RDPFontID;
 
 @interface RDPFonts : NSObject

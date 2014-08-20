@@ -9,6 +9,8 @@
 #import "RDPSettingsGoalViewController.h"
 #import "RDPTableViewCellWithInput.h"
 #import "RDPUserService.h"
+#import "RDPImageFetcher.h"
+#import "RDPDataHolder.h"
 
 #define kCellXibName                    @"RDPTableViewCellWithInput"
 #define kCellReusableIdentifier         @"InputCell"
@@ -50,6 +52,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIImage* backgroundImage = [[RDPImageFetcher getImageFetcher] getCurrentBlurredImage];
+    
+    backgroundImage = [UIImage imageWithCGImage:backgroundImage.CGImage
+                                          scale:backgroundImage.scale
+                                    orientation:UIImageOrientationUpMirrored];
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:backgroundImage];
+    
+    [self.navigationController.view insertSubview:imageView atIndex:0];
+    imageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
+                                 self.navigationController.view.frame.origin.y,
+                                 self.navigationController.view.frame.size.width,
+                                 self.navigationController.view.frame.size.height);
+    imageView.contentMode = UIViewContentModeScaleToFill;
     [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -167,6 +183,7 @@
     if (dirty && valid) {
         [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
             if (RDPResponseCodeOK == response) {
+                [RDPDataHolder getDataHolder].reachedGoal = NO;
                 self.modifiedUser = [RDPUserService getUser];
                 [self hideSaveButton];
             }
@@ -256,6 +273,7 @@
 - (IBAction)savePressed:(id)sender {
     [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
         if (RDPResponseCodeOK == response) {
+            [RDPDataHolder getDataHolder].reachedGoal = NO;
             self.modifiedUser = [RDPUserService getUser];
             [self hideSaveButton];
             

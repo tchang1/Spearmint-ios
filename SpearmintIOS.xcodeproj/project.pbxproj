@@ -264,6 +264,12 @@
 		F289318319A3E0DB0028CC29 /* RDPArrowAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F289318119A3E0DB0028CC29 /* RDPArrowAnimation.m */; };
 		F289318519A3E3140028CC29 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = F289318419A3E3140028CC29 /* 15.png */; };
 		F289318619A3E3140028CC29 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = F289318419A3E3140028CC29 /* 15.png */; };
+		F289318919A402190028CC29 /* RDPCompeteGoalController.m in Sources */ = {isa = PBXBuildFile; fileRef = F289318819A402190028CC29 /* RDPCompeteGoalController.m */; };
+		F289318A19A402190028CC29 /* RDPCompeteGoalController.m in Sources */ = {isa = PBXBuildFile; fileRef = F289318819A402190028CC29 /* RDPCompeteGoalController.m */; };
+		F289318D19A403F50028CC29 /* Savings_Success.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F289318C19A403F50028CC29 /* Savings_Success.mp4 */; };
+		F289318E19A403F50028CC29 /* Savings_Success.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F289318C19A403F50028CC29 /* Savings_Success.mp4 */; };
+		F289319019A4073A0028CC29 /* Saving_Success_Small.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F289318F19A4073A0028CC29 /* Saving_Success_Small.mp4 */; };
+		F289319119A4073A0028CC29 /* Saving_Success_Small.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F289318F19A4073A0028CC29 /* Saving_Success_Small.mp4 */; };
 		F2ACC0D4199AA93B00303C5B /* RDPUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */; };
 		F2ACC0D5199AA93B00303C5B /* RDPUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */; };
 		F2F1CF72198E9E7B00438A8A /* RDPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */; };
@@ -536,6 +542,10 @@
 		F289318019A3E0DB0028CC29 /* RDPArrowAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPArrowAnimation.h; sourceTree = "<group>"; };
 		F289318119A3E0DB0028CC29 /* RDPArrowAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPArrowAnimation.m; sourceTree = "<group>"; };
 		F289318419A3E3140028CC29 /* 15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 15.png; sourceTree = "<group>"; };
+		F289318719A402190028CC29 /* RDPCompeteGoalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPCompeteGoalController.h; sourceTree = "<group>"; };
+		F289318819A402190028CC29 /* RDPCompeteGoalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPCompeteGoalController.m; sourceTree = "<group>"; };
+		F289318C19A403F50028CC29 /* Savings_Success.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Savings_Success.mp4; sourceTree = "<group>"; };
+		F289318F19A4073A0028CC29 /* Saving_Success_Small.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Saving_Success_Small.mp4; sourceTree = "<group>"; };
 		F2ACC0D2199AA93B00303C5B /* RDPUITextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUITextView.h; sourceTree = "<group>"; };
 		F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUITextView.m; sourceTree = "<group>"; };
 		F2F1CF70198E9E7B00438A8A /* RDPSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSettingsController.h; sourceTree = "<group>"; };
@@ -791,6 +801,8 @@
 				58988F971992D68A00E05AC5 /* RDPFTUViewController.m */,
 				58988FA11994078E00E05AC5 /* RDPSetAGoalViewController.h */,
 				58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */,
+				F289318719A402190028CC29 /* RDPCompeteGoalController.h */,
+				F289318819A402190028CC29 /* RDPCompeteGoalController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -881,6 +893,7 @@
 		58F643E5197DACCC001D0236 /* Assets  */ = {
 			isa = PBXGroup;
 			children = (
+				F289318B19A403E20028CC29 /* videos */,
 				F28930B319A3D58E0028CC29 /* arrow_animation */,
 			);
 			name = "Assets ";
@@ -1027,6 +1040,15 @@
 			name = arrow_animation;
 			sourceTree = "<group>";
 		};
+		F289318B19A403E20028CC29 /* videos */ = {
+			isa = PBXGroup;
+			children = (
+				F289318F19A4073A0028CC29 /* Saving_Success_Small.mp4 */,
+				F289318C19A403F50028CC29 /* Savings_Success.mp4 */,
+			);
+			name = videos;
+			sourceTree = "<group>";
+		};
 		F2F1CFE8198FF66A00438A8A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1153,7 +1175,7 @@
 				ORGANIZATIONNAME = Spearmint;
 				TargetAttributes = {
 					58F643AD197DA5F6001D0236 = {
-						DevelopmentTeam = F6DWWXWEX6;
+						DevelopmentTeam = GZ7FHJCTQ4;
 					};
 					58F643C8197DA5F6001D0236 = {
 						TestTargetID = 58F643AD197DA5F6001D0236;
@@ -1249,9 +1271,11 @@
 				F289315619A3D5C30028CC29 /* 48.png in Resources */,
 				F289310819A3D5C30028CC29 /* 8.png in Resources */,
 				F289310A19A3D5C30028CC29 /* 9.png in Resources */,
+				F289319019A4073A0028CC29 /* Saving_Success_Small.mp4 in Resources */,
 				F289315E19A3D5C30028CC29 /* 52.png in Resources */,
 				F289315819A3D5C30028CC29 /* 49.png in Resources */,
 				F289317E19A3D5C30028CC29 /* 68.png in Resources */,
+				F289318D19A403F50028CC29 /* Savings_Success.mp4 in Resources */,
 				F289317819A3D5C30028CC29 /* 65.png in Resources */,
 				F2F1CF9C198EC2AA00438A8A /* 1.jpg in Resources */,
 				F2F1D00F19903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
@@ -1306,6 +1330,7 @@
 				55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */,
 				F289316119A3D5C30028CC29 /* 53.png in Resources */,
 				F289310F19A3D5C30028CC29 /* 11.png in Resources */,
+				F289319119A4073A0028CC29 /* Saving_Success_Small.mp4 in Resources */,
 				F289316519A3D5C30028CC29 /* 55.png in Resources */,
 				F289317919A3D5C30028CC29 /* 65.png in Resources */,
 				F2F1CFA9198EC2AA00438A8A /* 4.jpg in Resources */,
@@ -1318,6 +1343,7 @@
 				F289310119A3D5C30028CC29 /* 4.png in Resources */,
 				F289315319A3D5C30028CC29 /* 46.png in Resources */,
 				F289311919A3D5C30028CC29 /* 17.png in Resources */,
+				F289318E19A403F50028CC29 /* Savings_Success.mp4 in Resources */,
 				F289314319A3D5C30028CC29 /* 38.png in Resources */,
 				F289312519A3D5C30028CC29 /* 23.png in Resources */,
 				F289313D19A3D5C30028CC29 /* 35.png in Resources */,
@@ -1438,6 +1464,7 @@
 				F2F1D0041990301500438A8A /* RDPSettingsFeedbackViewController.m in Sources */,
 				55DCE1B1199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m in Sources */,
 				F2F1D01A1990992200438A8A /* RDPCongratulations.m in Sources */,
+				F289318919A402190028CC29 /* RDPCompeteGoalController.m in Sources */,
 				58988F4919885F9600E05AC5 /* RDPHomeViewController.m in Sources */,
 				F2F1D008199031AD00438A8A /* RDPFeedbackPanel.m in Sources */,
 				F2208C661989B0A200EDD6CF /* RDPCounter.m in Sources */,
@@ -1524,6 +1551,7 @@
 				F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */,
 				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
 				F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
+				F289318A19A402190028CC29 /* RDPCompeteGoalController.m in Sources */,
 				55DCE1AE199AB653003EA30D /* RDPAnalyticsModule.m in Sources */,
 				F2F1CFE1198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */,
 				F2892FE119A2B6E40028CC29 /* RDPFeedbackService.m in Sources */,
@@ -1661,8 +1689,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Corinne Mcelwain (TJX8V3K289)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Corinne Mcelwain (TJX8V3K289)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1691,8 +1719,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Corinne Mcelwain (TJX8V3K289)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Corinne Mcelwain (TJX8V3K289)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

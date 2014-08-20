@@ -26,6 +26,7 @@ typedef void(^ImageBlock)(UIImage*);
  Method to return the current blurred image for the settings screens to use as the background image
  */
 - (UIImage *)getCurrentBlurredImage;
+- (UIImage *)getCurrentImage;
 
 /**
  Method to be called by the view controller to load the next image for the home screen.

@@ -8,6 +8,10 @@
 
 #import "RDPDataHolder.h"
 
+@interface RDPDataHolder()
+
+@end
+
 @implementation RDPDataHolder
 
 static RDPDataHolder *savingData = nil;
@@ -18,6 +22,7 @@ static RDPDataHolder *savingData = nil;
     if (self) {
         self.hasJustSaved = NO;
         self.amountJustSaved = [NSNumber numberWithInt:-1];
+        self.reachedGoal = NO;
     }
     return self;
 }
