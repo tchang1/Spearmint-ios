@@ -138,6 +138,20 @@ static RDPImageFetcher *imageFetcher = nil;
 {
     NSString *path = [self documentsPathForFileName:name];
     [data writeToFile:path atomically:YES];
+    [self addSkipBackupAttributeToItemAtURL:[NSURL fileURLWithPath:path]];
+}
+
+- (BOOL)addSkipBackupAttributeToItemAtURL:(NSURL *)URL
+{
+    assert([[NSFileManager defaultManager] fileExistsAtPath: [URL path]]);
+    
+    NSError *error = nil;
+    BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
+                                  forKey: NSURLIsExcludedFromBackupKey error: &error];
+    if(!success){
+        NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+    }
+    return success;
 }
 
 #pragma mark - Blur and Save Image
