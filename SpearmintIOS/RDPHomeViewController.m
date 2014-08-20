@@ -55,6 +55,7 @@
 #define kAnimagedArrowWidgh             24
 #define kAnimatedArrowHeight            33
 #define kAnimatedArrowAlpha             0.5f
+#define kProgressNullStateMargin        30
 
 #define kScreenHeight  [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth 320
@@ -92,6 +93,7 @@
 @property (nonatomic, assign)CGFloat keyboardHeight;
 @property (nonatomic, assign)BOOL shouldDismissKeyboardWhenScrolling;
 @property (nonatomic, strong)RDPArrowAnimation* arrow;
+@property (nonatomic, strong)UIView* nullProgressView;
 
 //@property (strong, nonatomic) NSArray* savings;
 
@@ -155,6 +157,27 @@
     self.tableView.alwaysBounceVertical = NO;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     self.tableView.allowsSelection = NO;
+    
+    self.nullProgressView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                                    kScreenHeight + kTextInputHeight + kProgressHeaderHeight,
+                                                                    kScreenWidth,
+                                                                    kScreenHeight - kProgressHeaderHeight)];
+    UILabel* nullProgressLabel = [[UILabel alloc] initWithFrame:CGRectMake(kProgressNullStateMargin,
+                                                                           kProgressNullStateMargin,
+                                                                           self.nullProgressView.frame.size.width - (kProgressNullStateMargin * 2),
+                                                                           80)];
+
+    nullProgressLabel.textColor = kColor_LightText;
+    [nullProgressLabel setFont:[RDPFonts fontForID:fNullStateFont]];
+    nullProgressLabel.textAlignment = NSTextAlignmentCenter;
+    nullProgressLabel.text = [RDPStrings stringForID:sMyProgressNullState];
+    nullProgressLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    nullProgressLabel.numberOfLines = 0;
+    
+    [self.nullProgressView addSubview:nullProgressLabel];
+    self.nullProgressView.hidden = YES;
+    [self.containerView addSubview:self.nullProgressView];
+    
 }
 
 - (void)setup
@@ -277,15 +300,18 @@
 
 -(void)loadSavings
 {
+    NSInteger numberOfValidSavings = 0;
     NSMutableArray* savings = [[NSMutableArray alloc] init];
     NSArray* savingEventsModelBackwards = [[[RDPUserService getUser] getGoal] getSavingEvents];
     NSMutableArray* savingEventsModel = [[NSMutableArray alloc] init];
     for (NSInteger i = [savingEventsModelBackwards count] - 1; i >= 0; i--) {
         [savingEventsModel addObject:[savingEventsModelBackwards objectAtIndex:i]];
     }
+
     for (NSInteger i = 0; i < [savingEventsModel count]; i++) {
         RDPSavingEvent* savingEvent = [savingEventsModel objectAtIndex:i];
         if (!savingEvent.deleted) {
+            numberOfValidSavings++;
             NSMutableArray* savingEventsForDay = [[NSMutableArray alloc] init];
             NSMutableDictionary* savingSection = [NSMutableDictionary dictionaryWithDictionary:
                                                   @{kSectionTitleKey: [self stringForDate:savingEvent.date]}
@@ -303,6 +329,9 @@
         }
     }
     _savings = [savings copy];
+    
+    self.nullProgressView.hidden = (numberOfValidSavings != 0);
+//    [self.view setNeedsDisplay];
 }
 
 -(NSDictionary*) savingDictionaryFromSavingEvent:(RDPSavingEvent*)savingEvent andTag:(NSInteger)tag

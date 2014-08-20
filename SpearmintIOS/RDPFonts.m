@@ -48,6 +48,9 @@
         case fReachGoalLine2:
             font = [UIFont fontWithName:@"HelveticaNeue-Light" size:25];
             break;
+        case fNullStateFont:
+            font = [UIFont fontWithName:@"Helvetica-Light" size:24];
+            break;
     }
     
     return font;

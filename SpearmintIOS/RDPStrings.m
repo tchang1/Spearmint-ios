@@ -315,6 +315,9 @@
         case sReachedGoalButtonText:
             result = @"Set another goal";
             break;
+        case sMyProgressNullState:
+            result = @"You haven't kept anything yet...";
+            break;
 }
     
     return result;

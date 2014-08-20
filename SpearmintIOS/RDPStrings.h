@@ -108,7 +108,8 @@ typedef enum {
     sLoading,
     sReachedGoalLine1,
     sReachedGoalLine2,
-    sReachedGoalButtonText
+    sReachedGoalButtonText,
+    sMyProgressNullState
 } RDPStringID;
 
 @interface RDPStrings : NSObject
