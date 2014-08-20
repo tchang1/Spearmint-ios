@@ -50,7 +50,7 @@
     NSPredicate *dayPredicate = [NSPredicate predicateWithFormat:@"(date >= %@) AND (date <= %@) AND (deleted == NO)", startDate, endDate];
     NSArray *savingsToday = [savings filteredArrayUsingPredicate:dayPredicate];
     
-    NSPredicate *totalPredicate = [NSPredicate predicateWithFormat:@"(deleted == NO) AND (date <= %@)"];
+    NSPredicate *totalPredicate = [NSPredicate predicateWithFormat:@"(deleted == NO) AND (date <= %@)",endDate];
     
     NSArray *totalUndeletedSavings= [savings filteredArrayUsingPredicate:totalPredicate];
     
@@ -59,16 +59,18 @@
     
     NSString *message = @"";
     
-    //Didn't save yesterday
+    //Didn't save today
     if ([savingsToday count]<1)
     {
         message=[NSString stringWithFormat:@"%@ %@",
                  [shortQuotes objectAtIndex:0],
                  @"What can you Keep today?"];
     }
-    //Saved yesterday
+    //Saved today
     else
     {
+        int streak = [RDPNotificationsManager consecutiveSavingDays:totalUndeletedSavings];
+        
         float total=0;
         
         int totalCount=[totalUndeletedSavings count];
@@ -77,9 +79,13 @@
         int totalMilestones = totalCount/10;
         int untilYesterdayMilestones = untilYesterdayCount/10;
         
-        if (todayCount>=10 || totalMilestones>untilYesterdayMilestones)
+        if (streak>1 && (streak-1)%2==0)
         {
-            message= [NSString stringWithFormat:@"After your great work yesterday, you've now kept over %i times! Keep it up!", totalMilestones*10];
+            message =[NSString stringWithFormat:@"You've kept %i days in a row! What can you Keep today?",streak];
+        }
+        else if (todayCount>=10 || totalMilestones>untilYesterdayMilestones)
+        {
+            message= [NSString stringWithFormat:@"You've now kept over %i times! Keep it up!", totalMilestones*10];
         }
         
         else {
@@ -92,8 +98,8 @@
         }
     }
     
-    [self scheduleNotificationWithMessage:message date:[self daysFromToday:1 hours:8]];
-    //[self scheduleTestNotificationWithMessage:message after:5];
+    //[self scheduleNotificationWithMessage:message date:[self daysFromToday:1 hours:8]];
+    [self scheduleTestNotificationWithMessage:message after:5];
     
     for (int i=1; i<[shortQuotes count]; i++) {
         [self scheduleNotificationWithMessage:[NSString stringWithFormat:@"%@ %@",
@@ -138,6 +144,38 @@
     reminderTimeComponents.hour=hours;
     return [gregorian dateFromComponents:reminderTimeComponents];
 
+}
+
++(int)consecutiveSavingDays:(NSArray *)savings
+{
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    [gregorian setTimeZone:[NSTimeZone defaultTimeZone]];
+    NSDate *currentDate=nil;
+    NSDate *comparisonDate=nil;
+    NSComparisonResult result;
+    int streak=0;
+    RDPSavingEvent *currentSavings;
+    for (int i=[savings count]-1; i>=0 ; i--) {
+        currentSavings=[savings objectAtIndex:i];
+        currentDate=[RDPNotificationsManager extractDateFromNSDate:currentSavings.date withCalendar:gregorian];
+        comparisonDate=[RDPNotificationsManager daysFromToday:streak*-1 hours:0];
+        result=[currentDate compare:comparisonDate];
+        if (result ==NSOrderedSame)
+        {
+            streak++;
+        }
+        else if(result==NSOrderedAscending)
+        {
+            return streak;
+        }
+    }
+    return streak;
+}
+
++(NSDate *)extractDateFromNSDate:(NSDate *)date withCalendar:(NSCalendar *)cal
+{
+    NSDateComponents *comps=[cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:date];
+    return [cal dateFromComponents:comps];
 }
 
 +(void)enableLocalNotifications {
