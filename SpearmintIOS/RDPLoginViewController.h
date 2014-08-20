@@ -13,7 +13,7 @@
 
 
 
-@interface RDPLoginViewController : RDPViewController <MBProgressHUDDelegate, RDPHTTPClientDelegate, UITextFieldDelegate> {
+@interface RDPLoginViewController : RDPViewController <MBProgressHUDDelegate, RDPHTTPClientDelegate, UITextFieldDelegate, RDPUITextFieldProtocol> {
 
 MBProgressHUD *HUD;
 }

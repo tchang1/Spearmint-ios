@@ -85,11 +85,10 @@
     
     // Show the navigation bar without the background button
     [self.navigationItem setHidesBackButton:YES];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[RDPStrings stringForID:sBack] style:UIBarButtonItemStylePlain target:nil action:nil];
-    [self.navigationController.navigationBar setBackIndicatorImage:[[UIImage alloc]init]];
-    [self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc]init]];
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[RDPStrings stringForID:sBack] style:UIBarButtonItemStylePlain target:nil action:nil];
+    //[self.navigationController.navigationBar setBackIndicatorImage:[[UIImage alloc]init]];
+    //[self.navigationController.navigationBar setBackIndicatorTransitionMaskImage:[[UIImage alloc]init]];
     
-    [self addNavigationBarButton];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     [self setNavigationBarColor:kColor_SettingPanelHeader];
@@ -108,11 +107,14 @@
     [self.setAGoalTextField becomeFirstResponder];
 }
 
--(void)addNavigationBarButton{
-    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:
-                                  @"Next" style:UIBarButtonItemStylePlain target:
-                                  self action:@selector(nextButtonClicked)];
-    [self.navigationItem setRightBarButtonItem:nextButton];
+-(UIBarButtonItem *)rightNavButton {
+    if (!_rightNavButton) {
+        _rightNavButton = [[UIBarButtonItem alloc] initWithTitle:
+                           @"Next" style:UIBarButtonItemStylePlain target:
+                           self action:@selector(nextButtonClicked)];
+        //configure the button here
+    }
+    return _rightNavButton;
 }
 
 -(void)nextButtonClicked
@@ -120,6 +122,7 @@
     [RDPAnalyticsModule track:@"Saved goal in FTU" properties:@{@"name" : self.setAGoalTextField.text}];
     
     [self.userGoal setGoalName:self.setAGoalTextField.text];
+    [self.navigationItem setRightBarButtonItem:self.rightNavButton];
     
     RDPSetAmountViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
@@ -145,6 +148,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger length = self.setAGoalTextField.text.length - range.length + string.length;
+    if (length > 0) {
+         [self.navigationItem setRightBarButtonItem:self.rightNavButton];
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     if (textField == self.setAGoalTextField)
@@ -154,6 +167,9 @@
     return YES;
 }
 
-
+- (void)removeNextButton
+{
+    self.navigationItem.rightBarButtonItem = nil;
+}
 
 @end

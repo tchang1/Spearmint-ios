@@ -7,7 +7,8 @@
 //
 
 #import "RDPViewController.h"
+#import "RDPUITextField.h"
 
-@interface RDPSettingsGoalViewController : RDPViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface RDPSettingsGoalViewController : RDPViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, RDPUITextFieldProtocol>
 
 @end
