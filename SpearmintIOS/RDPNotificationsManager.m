@@ -98,8 +98,8 @@
         }
     }
     
-    //[self scheduleNotificationWithMessage:message date:[self daysFromToday:1 hours:8]];
-    [self scheduleTestNotificationWithMessage:message after:5];
+    [self scheduleNotificationWithMessage:message date:[self daysFromToday:1 hours:8]];
+    //[self scheduleTestNotificationWithMessage:message after:5];
     
     for (int i=1; i<[shortQuotes count]; i++) {
         [self scheduleNotificationWithMessage:[NSString stringWithFormat:@"%@ %@",
