@@ -8,6 +8,7 @@
 
 #import "RDPViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "RDPNavigator.h"
 
 #define kStatusBarViewTag 4357
 
@@ -31,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.delegate = [RDPNavigator sharedInstance];
     // Do any additional setup after loading the view.
 }
 
@@ -65,6 +67,7 @@
     [statusBarBackground removeFromSuperview];
 
 }
+
 /*
 #pragma mark - Navigation
 

@@ -9,7 +9,6 @@
 #import "RDPFTUViewController.h"
 #import "RDPImageBlur.h"
 #import "RDPStrings.h"
-#import "RDPPushAnimation.h"
 #import "RDPAnalyticsModule.h"
 #import "RDPTimerManager.h"
 #import "RDPUserService.h"
@@ -59,9 +58,6 @@
     
     // Initialize the minimum press duration to be short so it seems more responsive
     self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
-    
-    // Make this view the delegate for the navigation controller
-    self.navigationController.delegate = self;
     
     // Initialize the background images
     UIImage *image = [UIImage imageNamed:kFirstExampleImage];
@@ -430,13 +426,6 @@
         default:
             break;
     }
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
-    
-    RDPPushAnimation* pushAnimation = [RDPPushAnimation new];
-    pushAnimation.navigationControllerOperation = operation;
-    return pushAnimation;
 }
 
 -(void)setAGoalTapped

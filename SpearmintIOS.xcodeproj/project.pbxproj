@@ -336,6 +336,8 @@
 		F2F1D01D1990992200438A8A /* RDPSavingSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0191990992200438A8A /* RDPSavingSuggestions.m */; };
 		F2F1D0261990A49600438A8A /* RDPSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */; };
 		F2F1D0271990A49600438A8A /* RDPSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */; };
+		F2F595A119A514ED00C2D2B7 /* RDPNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */; };
+		F2F595A219A514ED00C2D2B7 /* RDPNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */; };
 		F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
 		F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
 		F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
@@ -602,6 +604,8 @@
 		F2F1D0191990992200438A8A /* RDPSavingSuggestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSavingSuggestions.m; sourceTree = "<group>"; };
 		F2F1D0241990A49600438A8A /* RDPSettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPSettingsNavigationController.h; sourceTree = "<group>"; };
 		F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSettingsNavigationController.m; sourceTree = "<group>"; };
+		F2F5959F19A514ED00C2D2B7 /* RDPNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPNavigator.h; sourceTree = "<group>"; };
+		F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPNavigator.m; sourceTree = "<group>"; };
 		F2FD6F4C198073A80035ED06 /* RDPInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPInterpolation.h; sourceTree = "<group>"; };
 		F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPInterpolation.m; sourceTree = "<group>"; };
 		F2FD6F4E198073A80035ED06 /* RDPLinearInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLinearInterpolation.h; sourceTree = "<group>"; };
@@ -803,8 +807,6 @@
 				F2F1CFEA198FF68E00438A8A /* Settings */,
 				F2F1CFD4198F016C00438A8A /* UINavigationController+Retro.h */,
 				F2F1CFD5198F016C00438A8A /* UINavigationController+Retro.m */,
-				F2F1CFD8198F103700438A8A /* RDPPushAnimation.h */,
-				F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */,
 				58988F961992D68A00E05AC5 /* RDPFTUViewController.h */,
 				58988F971992D68A00E05AC5 /* RDPFTUViewController.m */,
 				58988FA11994078E00E05AC5 /* RDPSetAGoalViewController.h */,
@@ -870,6 +872,7 @@
 		58F643E3197DAC9C001D0236 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F2F5959E19A514C000C2D2B7 /* Navigation */,
 				F23DEA91199C271B00689242 /* Utilities */,
 				55DCE1AA199AB5FB003EA30D /* Analytics */,
 				F2813425199350E700D7E9EF /* Services */,
@@ -1110,6 +1113,17 @@
 			name = Messages;
 			sourceTree = "<group>";
 		};
+		F2F5959E19A514C000C2D2B7 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F2F1CFD8198F103700438A8A /* RDPPushAnimation.h */,
+				F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */,
+				F2F5959F19A514ED00C2D2B7 /* RDPNavigator.h */,
+				F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
 		F2FD6F1A1980645E0035ED06 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,7 +1201,7 @@
 				ORGANIZATIONNAME = Spearmint;
 				TargetAttributes = {
 					58F643AD197DA5F6001D0236 = {
-						DevelopmentTeam = YFU53K9D3B;
+						DevelopmentTeam = GZ7FHJCTQ4;
 					};
 					58F643C8197DA5F6001D0236 = {
 						TestTargetID = 58F643AD197DA5F6001D0236;
@@ -1495,6 +1509,7 @@
 				F2892FE019A2B6E40028CC29 /* RDPFeedbackService.m in Sources */,
 				551AA6121992A5630010E65B /* RDPInputViewWithImage.m in Sources */,
 				58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */,
+				F2F595A119A514ED00C2D2B7 /* RDPNavigator.m in Sources */,
 				F28134341993513200D7E9EF /* RDPGoalModel.m in Sources */,
 				F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				5531CA0D198FED900076D8B8 /* RDPLoginViewController.m in Sources */,
@@ -1576,6 +1591,7 @@
 				F2ACC0D5199AA93B00303C5B /* RDPUITextView.m in Sources */,
 				58988FAC1994344A00E05AC5 /* RDPCutOutView.m in Sources */,
 				F2F1D01B1990992200438A8A /* RDPCongratulations.m in Sources */,
+				F2F595A219A514ED00C2D2B7 /* RDPNavigator.m in Sources */,
 				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,
 				F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
 				5531CA0E198FED900076D8B8 /* RDPLoginViewController.m in Sources */,

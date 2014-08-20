@@ -10,7 +10,7 @@
 #import "RDPViewController.h"
 #import "RDPTableViewCellWithName.h"
 #import "UINavigationController+Retro.h"
-#import "RDPPushAnimation.h"
+
 #import "RDPImageFetcher.h"
 #import "RDPUserService.h"
 #import "RDPAnalyticsModule.h"
@@ -93,7 +93,7 @@
     [self.logoutButton setTintColor:kColor_LightText];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.navigationController.delegate = self;
+    
     [self.view setBackgroundColor:kColor_Transparent];
     [self.tableView setBackgroundColor:kColor_Transparent];
     self.tableView.alwaysBounceVertical = NO;
@@ -228,18 +228,11 @@
     }
 }
 
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC{
-    
-    RDPPushAnimation* pushAnimation = [RDPPushAnimation new];
-    pushAnimation.navigationControllerOperation = operation;
-    return pushAnimation;
-}
-
 #pragma mark tap handlers
                        
 -(void)navigateToMyGoal
 {
-    UIViewController *viewController =
+    RDPViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kMyGoalIdentifier];
     
@@ -248,7 +241,7 @@
 
 -(void)notificationsTapped
 {
-    UIViewController *viewController =
+    RDPViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kNotificationsIdentifier];
     
@@ -257,7 +250,7 @@
 
 -(void)feedbackTapped
 {
-    UIViewController *viewController =
+    RDPViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kFeedbackIdentifier];
     

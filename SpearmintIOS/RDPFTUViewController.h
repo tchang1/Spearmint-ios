@@ -11,7 +11,7 @@
 #import "RDPCounter.h"
 #import "RDPViewController.h"
 
-@interface RDPFTUViewController : RDPViewController <UINavigationControllerDelegate>
+@interface RDPFTUViewController : RDPViewController
 
 // Keep track of the example we are on and if the user has seen "keep holding"
 @property (nonatomic, assign) BOOL onLastExmaple;
