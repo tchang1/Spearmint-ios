@@ -635,7 +635,6 @@
         case UIGestureRecognizerStateBegan:
         {
             self.scrollView.scrollEnabled = NO;
-            self.firstTouchLocation = [self.pressAndHoldGestureRecognizer locationInView:self.clearImageView].y;
             
             [UIView animateWithDuration:kFadeImagesTime animations:^{
                 
