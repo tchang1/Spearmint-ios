@@ -49,6 +49,7 @@
 
 -(void)setNavigationBarColor:(UIColor*)color
 {
+    [self removeStatusBar];
     if (!self.statusBarBackground) {
         [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                       forBarMetrics:UIBarMetricsDefault];

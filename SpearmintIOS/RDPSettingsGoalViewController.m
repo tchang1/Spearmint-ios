@@ -66,6 +66,8 @@
                                  self.navigationController.view.frame.size.width,
                                  self.navigationController.view.frame.size.height);
     imageView.contentMode = UIViewContentModeScaleToFill;
+    
+    [self setNavigationBarColor:kColor_SettingPanelHeader];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
     self.tableView.delegate = self;
