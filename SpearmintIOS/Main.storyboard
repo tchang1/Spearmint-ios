@@ -206,8 +206,8 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congrats" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="YEv-io-ZWm">
-                                                                <rect key="frame" x="30" y="260" width="260" height="50"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congrats on your hard work" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="YEv-io-ZWm">
+                                                                <rect key="frame" x="30" y="194" width="260" height="126"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -381,6 +381,7 @@
                         <outlet property="suggestionLabel" destination="gI3-wh-5QS" id="4V9-JY-Mv5"/>
                         <outlet property="suggestionView" destination="q4a-9m-o0x" id="hxT-Kc-7BB"/>
                         <outlet property="tapGestureRecognizer" destination="42K-Rd-GnE" id="3Ve-v0-M6q"/>
+                        <segue destination="gGj-eG-ZDk" kind="modal" identifier="HomeToGoalCompleteSegue" animates="NO" id="So2-Fj-ZII"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khc-m4-GGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -451,7 +452,7 @@
         <!--Settings Controller - Settings-->
         <scene sceneID="oQD-e9-0me">
             <objects>
-                <viewController id="4BB-pl-WkY" customClass="RDPSettingsController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RDPSettingsScreen" id="4BB-pl-WkY" customClass="RDPSettingsController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RVo-pW-RXY"/>
                         <viewControllerLayoutGuide type="bottom" id="aIL-EJ-bRb"/>
@@ -536,7 +537,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="Wx9-0V-ccd">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="M1t-K2-5Wg">
                             <connections>
-                                <segue destination="RLe-TQ-3X4" kind="modal" modalTransitionStyle="flipHorizontal" id="TuY-Lm-9nY"/>
+                                <segue destination="RLe-TQ-3X4" kind="custom" customClass="RDPDismissSegue" id="t7F-9O-dm1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -645,6 +646,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJ2-LZ-uEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2362" y="1540"/>
+        </scene>
+        <!--Compete Goal Controller-->
+        <scene sceneID="ahT-Us-FgO">
+            <objects>
+                <viewController storyboardIdentifier="completedGoalScreen" id="gGj-eG-ZDk" customClass="RDPCompeteGoalController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nkR-dw-vCs"/>
+                        <viewControllerLayoutGuide type="bottom" id="FjW-FA-FKG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dlG-qB-Z0t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You made it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-H7-pAi">
+                                <rect key="frame" x="20" y="160" width="280" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Go enjoy it." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3F-bH-uqe">
+                                <rect key="frame" x="20" y="260" width="280" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgU-I0-noq">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Set Another Goal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setAnotherGoalPressed:" destination="gGj-eG-ZDk" eventType="touchUpInside" id="Ts1-iV-VJi"/>
+                                    <segue destination="1me-PV-P89" kind="custom" identifier="SegueFromGoalCompletionToSettings" customClass="RDPDismissAndModalSegue" id="xME-Vv-1Ur"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.79571906887755106" green="0.79571906887755106" blue="0.79571906887755106" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="lineOneLabel" destination="jfi-H7-pAi" id="ytJ-PV-hHH"/>
+                        <outlet property="lineTwoLabel" destination="I3F-bH-uqe" id="URS-mi-fCe"/>
+                        <outlet property="setAnotherGoalButton" destination="RgU-I0-noq" id="eP5-wj-yM4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2IQ-s7-fE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2327" y="-1490"/>
         </scene>
         <!--Settings Goal View Controller - My Goal-->
         <scene sceneID="xkg-21-kfn">
@@ -1463,8 +1516,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="eHT-iJ-sJ8"/>
+        <segue reference="qDW-gb-Sri"/>
+        <segue reference="t7F-9O-dm1"/>
         <segue reference="yHg-sm-Cwz"/>
-        <segue reference="TuY-Lm-9nY"/>
+        <segue reference="eHT-iJ-sJ8"/>
     </inferredMetricsTieBreakers>
 </document>

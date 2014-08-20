@@ -149,12 +149,13 @@
 //    int parentViewOffset = self.pressAndHoldView.frame.origin.y + 10;
 //    CGRect  arrowViewRect = CGRectMake((kScreenWidth - arrowImage.size.width - 10)/2, kScreenHeight+kTextInputHeight - arrowImage.size.height - 10, arrowImage.size.width + 10, arrowImage.size.height + 10);
     CGRect  arrowViewRect = CGRectMake((kScreenWidth - kAnimagedArrowWidgh - 10)/2, kScreenHeight + 45 - kAnimatedArrowHeight, kAnimagedArrowWidgh + 10, kAnimatedArrowHeight + 10);
+    CGRect  arrowButtonRect = CGRectMake(0, kScreenHeight + 45 - kAnimatedArrowHeight, kScreenWidth, kAnimatedArrowHeight + 10);
     self.arrow = [[RDPArrowAnimation alloc] initWithFrame:arrowViewRect];
-    self.progressButton = [[UIButton alloc] initWithFrame:arrowViewRect];
+    self.progressButton = [[UIButton alloc] initWithFrame:arrowButtonRect];
 //    [self.progressButton setImage:arrowImage forState:UIControlStateNormal];
     [self.progressButton addTarget:nil action:@selector(displayProgress:) forControlEvents:UIControlEventTouchUpInside];
     [self.progressButton setContentMode:UIViewContentModeCenter];
-    [self.progressButton setFrame:arrowViewRect];
+    [self.progressButton setFrame:arrowButtonRect];
     
     [self.containerView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
     self.arrow.alpha = kAnimatedArrowAlpha;
