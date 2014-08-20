@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol RDPUITextFieldProtocol <UITextFieldDelegate>
+
+@optional
+-(void)removeNextButton;
+
+@end // end of delegate protocol
+
 @interface RDPUITextField : UITextField
 
 @property (nonatomic, assign) CGFloat indentAmount;
@@ -15,4 +22,8 @@
 @property (nonatomic, strong) UIColor* parentColor;
 @property (nonatomic, strong) UIColor* textFieldColor;
 
+@property (nonatomic, weak) id<RDPUITextFieldProtocol> delegate;
+
 @end
+
+

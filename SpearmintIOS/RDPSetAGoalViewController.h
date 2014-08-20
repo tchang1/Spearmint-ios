@@ -14,12 +14,14 @@
 #import "RDPSuggestionsView.h"
 #import "RDPSuggestionSquare.h"
 
-@interface RDPSetAGoalViewController : RDPViewController <UITextFieldDelegate>
+@interface RDPSetAGoalViewController : RDPViewController <UITextFieldDelegate, RDPUITextFieldProtocol>
 
 
 // The text field input 
 @property (weak, nonatomic) IBOutlet RDPCutOutView *cutOutView;
 @property (weak, nonatomic) IBOutlet RDPUITextField *setAGoalTextField;
+
+@property (nonatomic, retain) UIBarButtonItem *rightNavButton;
 
 // The suggestions view
 @property (weak, nonatomic) IBOutlet RDPSuggestionsView *suggestionsView;

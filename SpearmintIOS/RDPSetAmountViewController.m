@@ -12,6 +12,7 @@
 
 #define kStoryboard @"Main"
 #define kSignUp @"signUp"
+#define kSetGoal @"setGoal"
 #define kIndentAmount 20
 #define kBorderWidth 1
 #define kBorderRadius 5
@@ -66,7 +67,9 @@
     self.setAmountTextField.delegate=self;
     
     // Show the navigation bar with the back button
-    [self.navigationItem setHidesBackButton:NO];
+    //[self.navigationItem setHidesBackButton:NO];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[RDPStrings stringForID:sBack] style:UIBarButtonItemStylePlain target:
+                                             self action:@selector(backButtonClicked)];
     [self addNavigationBarButton];
     
     if ([self.userGoal.getGoalName length]<16)
@@ -102,6 +105,9 @@
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     NSNumber *amount = [formatter numberFromString:self.setAmountTextField.text];
+    if (amount == nil) {
+        amount = [NSNumber numberWithInt:0];
+    }
     [self.userGoal setTargetAmount:amount];
     
     RDPSignupViewController *viewController =
@@ -111,6 +117,11 @@
     viewController.userGoal = self.userGoal;
     
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)backButtonClicked
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

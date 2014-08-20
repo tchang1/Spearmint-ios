@@ -13,7 +13,7 @@
 #import "RDPSuggestionSquare.h"
 #import "RDPSuggestionsView.h"
 
-@interface RDPSetAmountViewController : RDPViewController <UITextFieldDelegate>
+@interface RDPSetAmountViewController : RDPViewController <UITextFieldDelegate, RDPUITextFieldProtocol>
 
 // The input text field
 @property (weak, nonatomic) IBOutlet RDPCutOutView *cutOutView;

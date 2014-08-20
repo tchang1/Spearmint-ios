@@ -117,20 +117,6 @@
     self.counterView.rotationsPerSecond = kFirstExampleSpeed;
 }
 
-//- (void)updateViewConstraints
-//{
-//    [super updateViewConstraints];
-//    
-//    // resize the container view to be the correct size dependent on the screen height
-//    [self.keepLogo addConstraint:[NSLayoutConstraint constraintWithItem:self.view
-//                                                                   attribute:NSLayoutAttributeHeight
-//                                                                   relatedBy:NSLayoutRelationEqual
-//                                                                      toItem:nil
-//                                                                   attribute:NSLayoutAttributeNotAnAttribute
-//                                                                  multiplier:1.0
-//                                                                    constant:kContentHeight]];
-//}
-
 -(void)viewWillAppear:(BOOL)animated
 {
    

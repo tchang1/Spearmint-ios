@@ -18,7 +18,7 @@
 #import "RDPUITextField.h"
 #import "RDPGoal.h"
 
-@interface RDPSignupViewController : RDPViewController <MBProgressHUDDelegate, RDPHTTPClientDelegate, UITextFieldDelegate> {
+@interface RDPSignupViewController : RDPViewController <MBProgressHUDDelegate, RDPHTTPClientDelegate, UITextFieldDelegate, RDPUITextFieldProtocol> {
 
 MBProgressHUD *HUD;
 }
