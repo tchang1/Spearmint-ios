@@ -39,7 +39,6 @@
 
     RDPMixpanelAnalyticsProvider *mixpanel= [[RDPMixpanelAnalyticsProvider alloc] init];
     [RDPAnalyticsModule initializeAnalyticsProviders:@[mixpanel]];
-    [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"launch" } ];
     
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
      setTitleTextAttributes:
@@ -54,9 +53,10 @@
     UILocalNotification *localNotif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotif) {
-        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Launched app via notification" message:localNotif.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        [RDPAnalyticsModule track:@"Notification tapped" properties:@{@"body" : localNotif.alertBody }];
     }
+    [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"launch" } ];
+
     application.applicationIconBadgeNumber = 0;
     
     
@@ -129,6 +129,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     NSLog(@"became active");
+    [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"awakeFromBackground"} ];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     application.applicationIconBadgeNumber = 0;
 }
@@ -150,8 +151,7 @@
     //App was in background and notification was tapped
     else if (application.applicationState==UIApplicationStateInactive)
     {
-        UIAlertView *alert= [[UIAlertView alloc] initWithTitle:@"Notification Received while app inactive" message:notification.alertBody delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        [RDPAnalyticsModule track:@"Notification tapped" properties:@{@"body" : notification.alertBody }];
     }
     application.applicationIconBadgeNumber = 0;
 

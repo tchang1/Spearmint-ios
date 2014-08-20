@@ -234,6 +234,8 @@
                        
 -(void)navigateToMyGoal
 {
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"myGoal"}];
+
     RDPViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kMyGoalIdentifier];
@@ -243,6 +245,8 @@
 
 -(void)notificationsTapped
 {
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"notifications"}];
+
     RDPViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kNotificationsIdentifier];
@@ -252,6 +256,8 @@
 
 -(void)feedbackTapped
 {
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"feedback"}];
+
     RDPViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kFeedbackIdentifier];
@@ -274,6 +280,8 @@
 
 -(void)rateTapped
 {
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Rate app"}];
+
     NSLog(@"Rate app");
 }
 

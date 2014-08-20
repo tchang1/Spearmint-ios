@@ -11,6 +11,7 @@
 #import "RDPUserService.h"
 #import "RDPImageFetcher.h"
 #import "RDPDataHolder.h"
+#import "RDPAnalyticsModule.h"
 
 #define kCellXibName                    @"RDPTableViewCellWithInput"
 #define kCellReusableIdentifier         @"InputCell"
@@ -193,6 +194,7 @@
         }];
     }
     if (valid) {
+        [RDPAnalyticsModule track:@"Settings" properties:@{@"action" : @"editGoal"}];
         [textField resignFirstResponder];
     }
     

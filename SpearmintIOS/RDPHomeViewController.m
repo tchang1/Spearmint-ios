@@ -556,17 +556,20 @@
     }
     else if (self.screenMode == OnSaveScreen) {
         if (self.scrollView.contentOffset.y <= breakPointTop && self.savingData.hasJustSaved) {
+            [RDPAnalyticsModule track:@"Scrolled to" properties:@{@"location" : @"recordView"}];
             [self goToRecordView];
         }
         else if (self.scrollView.contentOffset.y < breakPointMiddle) {
             [self goToSaveView];
         }
         else {
+            [RDPAnalyticsModule track:@"Scrolled to" properties:@{@"location" : @"progressView"}];
             [self goToProgressView];
         }
     }
     else if (self.screenMode == OnProgressView) {
         if (self.scrollView.contentOffset.y < breakPointBottom) {
+            [RDPAnalyticsModule track:@"Scrolled to" properties:@{@"location" : @"saveView"}];
             [self goToSaveView];
         }
         else {
@@ -577,6 +580,7 @@
 
 - (IBAction)recordReason:(id)sender
 {
+    [RDPAnalyticsModule track:@"tapped record reason button"];
     [self goToRecordView];
 }
 
@@ -752,6 +756,8 @@
             if ([amountSaved doubleValue] + currentAmountSaved >= targetAmount
                 && ![RDPDataHolder getDataHolder].reachedGoal
                 && amountHasBeenSaved) {
+                [RDPAnalyticsModule track:@"Goal completed"];
+
                 [self createSavingEventForAmount:amountSaved];
                 UIStoryboard* storyboard = [UIStoryboard storyboardWithName:kStoryboardName bundle:NULL];
                 RDPCompeteGoalController *viewController = [storyboard instantiateViewControllerWithIdentifier:kCompletedGoalScreenName];
@@ -814,6 +820,8 @@
         
         if (response != RDPResponseCodeOK)
         {
+            [RDPAnalyticsModule track:@"Error" properties:@{@"location" : @"createSavingEventForAmount"}];
+
             NSLog(@"Error response received");
             self.congratsLabel.text= @"Uh oh, we weren't able to record your savings";
             self.amountKeptLabel.text=@"Check your connection";
@@ -931,6 +939,7 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     if (textField == self.currentTextField) {
+        [RDPAnalyticsModule track:@"Reason entered in progressView"];
         UITableViewCell* cell = (UITableViewCell *) textField.superview.superview.superview.superview;
 //        [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
         [self.tableView scrollRectToVisible:CGRectMake(cell.frame.origin.x, cell.frame.origin.y -1, cell.frame.size.width, cell.frame.size.height) animated:YES];
@@ -970,7 +979,7 @@
 - (void)enterSavingReason
 {
     if (![self.savingsTextField.text isEqualToString:@""]) {
-        
+        [RDPAnalyticsModule track:@"Reason entered in recordView"];
         if (self.serverHasUpdatedSavingsEvents) {
             NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
             RDPSavingEvent *mostRecentEvent = [savingEvents objectAtIndex:(savingEvents.count - 1)];

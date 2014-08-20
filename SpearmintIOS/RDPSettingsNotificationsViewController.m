@@ -9,6 +9,7 @@
 #import "RDPSettingsNotificationsViewController.h"
 #import "RDPTableViewCellWithToggle.h"
 #import "RDPUserService.h"
+#import "RDPAnalyticsModule.h"
 
 #define kCellXibName                    @"RDPTableViewCellWithToggle"
 #define kCellReusableIdentifier         @"ToggleCell"
@@ -148,6 +149,7 @@
 - (void)updateNotificationPreference:(id)sender
 {
     BOOL preference = [sender isOn];
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"action" : @"toggleNotifications", @"value": [NSString stringWithFormat:@"%@",preference ? @"On" : @"Off"]}];
     RDPUser* modifiedUser = [RDPUserService getUser];
     [modifiedUser setNotificationsEnabled:preference];
     [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
