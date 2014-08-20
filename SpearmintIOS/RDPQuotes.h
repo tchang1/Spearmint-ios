@@ -12,5 +12,6 @@
 
 +(NSArray *)getRandomQuotes:(int)num;
 
++(NSArray *)getRandomShortQuotes;
 
 @end

@@ -21,7 +21,6 @@
     localNotif.alertBody= message;
     localNotif.timeZone=[NSTimeZone defaultTimeZone];
     localNotif.applicationIconBadgeNumber = 1;
-    localNotif.repeatInterval=NSMinuteCalendarUnit;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
@@ -39,49 +38,72 @@
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
 
-
 +(void)scheduleNotificationsBasedOnUser:(RDPUser *)user
 {
     [self clearLocalNotifications];
 
     RDPGoal *goal = user.getGoal;
     NSArray *savings = goal.getSavingEvents;
-    NSDate *startDate = [self daysFromToday:-1 hours:0];
-    NSDate *endDate = [self daysFromToday:0 hours:0];
+    NSDate *startDate = [self daysFromToday:0 hours:0];
+    NSDate *endDate = [self daysFromToday:1 hours:0];
 
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(date >= %@) AND (date <= %@) AND (deleted == NO)", startDate, endDate];
-    NSArray *filteredSavings = [savings filteredArrayUsingPredicate:predicate];
+    NSPredicate *dayPredicate = [NSPredicate predicateWithFormat:@"(date >= %@) AND (date <= %@) AND (deleted == NO)", startDate, endDate];
+    NSArray *savingsToday = [savings filteredArrayUsingPredicate:dayPredicate];
     
+    NSPredicate *totalPredicate = [NSPredicate predicateWithFormat:@"(deleted == NO) AND (date <= %@)"];
+    
+    NSArray *totalUndeletedSavings= [savings filteredArrayUsingPredicate:totalPredicate];
     
     NSArray *quotes=[RDPQuotes getRandomQuotes:30];
+    NSArray *shortQuotes=[RDPQuotes getRandomShortQuotes];
     
     NSString *message = @"";
     
-    if ([filteredSavings count]<1)
+    //Didn't save yesterday
+    if ([savingsToday count]<1)
     {
-        message=[NSString stringWithFormat:@"\"%@\" - %@.\n%@",
-                 [[quotes objectAtIndex:0] objectForKey:@"quote"],
-                 [[quotes objectAtIndex:0] objectForKey:@"author"],
+        message=[NSString stringWithFormat:@"%@ %@",
+                 [shortQuotes objectAtIndex:0],
                  @"What can you Keep today?"];
     }
+    //Saved yesterday
     else
     {
         float total=0;
-        for (RDPSavingEvent *saving in filteredSavings)
+        
+        int totalCount=[totalUndeletedSavings count];
+        int todayCount=[savingsToday count];
+        int untilYesterdayCount = totalCount-todayCount;
+        int totalMilestones = totalCount/10;
+        int untilYesterdayMilestones = untilYesterdayCount/10;
+        
+        if (todayCount>=10 || totalMilestones>untilYesterdayMilestones)
         {
-            total +=[saving.getAmount floatValue];
+            message= [NSString stringWithFormat:@"After your great work yesterday, you've now kept over %i times! Keep it up!", totalMilestones*10];
         }
-        NSNumber *totalSavings= [NSNumber numberWithFloat:total];
-        message= [NSString stringWithFormat:@"You kept %@ yesterday.\nWhat can you Keep today?",[[RDPConfig numberFormatter] stringFromNumber:totalSavings]];
+        
+        else {
+            for (RDPSavingEvent *saving in savingsToday)
+            {
+                total +=[saving.getAmount floatValue];
+            }
+            NSNumber *totalSavings= [NSNumber numberWithFloat:total];
+            message= [NSString stringWithFormat:@"You kept %@ yesterday.\nWhat can you Keep today?",[[RDPConfig numberFormatter] stringFromNumber:totalSavings]];
+        }
     }
     
     [self scheduleNotificationWithMessage:message date:[self daysFromToday:1 hours:8]];
+    //[self scheduleTestNotificationWithMessage:message after:5];
     
-    for (int i=1; i<30; i++) {
-        [self scheduleNotificationWithMessage:[NSString stringWithFormat:@"\"%@\" - %@.\n%@",
-                                                   [[quotes objectAtIndex:i] objectForKey:@"quote"],
-                                                   [[quotes objectAtIndex:i] objectForKey:@"author"],
-                                                   @"What can you Keep today?"] date:[self daysFromToday:i+1 hours:8]];
+    for (int i=1; i<[shortQuotes count]; i++) {
+        [self scheduleNotificationWithMessage:[NSString stringWithFormat:@"%@ %@",
+                                                    [shortQuotes objectAtIndex:i],
+                                                    @"What can you Keep today?"] date:[self daysFromToday:i+1 hours:8]];
+        /*
+        [self scheduleTestNotificationWithMessage:[NSString stringWithFormat:@"%@ %@",
+                                                   [shortQuotes objectAtIndex:i],
+                                                   @"What can you Keep today?"] after:5+i*10];
+         */
     }
     
 }

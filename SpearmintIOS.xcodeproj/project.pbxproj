@@ -35,6 +35,8 @@
 		55AA9B3419A43368002ED852 /* RDPDismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA9B3219A43368002ED852 /* RDPDismissSegue.m */; };
 		55AA9B3719A439EB002ED852 /* RDPDismissAndModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA9B3619A439EB002ED852 /* RDPDismissAndModalSegue.m */; };
 		55AA9B3819A439EB002ED852 /* RDPDismissAndModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA9B3619A439EB002ED852 /* RDPDismissAndModalSegue.m */; };
+		55AA9B3A19A51AC4002ED852 /* shortQuote.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55AA9B3919A51AC4002ED852 /* shortQuote.plist */; };
+		55AA9B3B19A51AC4002ED852 /* shortQuote.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55AA9B3919A51AC4002ED852 /* shortQuote.plist */; };
 		55DCE1A619994AFF003EA30D /* RDPNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */; };
 		55DCE1A719994AFF003EA30D /* RDPNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */; };
 		55DCE1AD199AB653003EA30D /* RDPAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1AC199AB653003EA30D /* RDPAnalyticsModule.m */; };
@@ -387,6 +389,7 @@
 		55AA9B3219A43368002ED852 /* RDPDismissSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPDismissSegue.m; sourceTree = "<group>"; };
 		55AA9B3519A439EB002ED852 /* RDPDismissAndModalSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPDismissAndModalSegue.h; sourceTree = "<group>"; };
 		55AA9B3619A439EB002ED852 /* RDPDismissAndModalSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPDismissAndModalSegue.m; sourceTree = "<group>"; };
+		55AA9B3919A51AC4002ED852 /* shortQuote.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shortQuote.plist; sourceTree = "<group>"; };
 		55DCE1A419994AFF003EA30D /* RDPNotificationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPNotificationsManager.h; sourceTree = "<group>"; };
 		55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPNotificationsManager.m; sourceTree = "<group>"; };
 		55DCE1AB199AB653003EA30D /* RDPAnalyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPAnalyticsModule.h; sourceTree = "<group>"; };
@@ -947,6 +950,7 @@
 				F2F1CFFE19902AD500438A8A /* RDPFonts.h */,
 				F2F1CFFF19902AD500438A8A /* RDPFonts.m */,
 				55DCE1B7199C09B3003EA30D /* quotes.plist */,
+				55AA9B3919A51AC4002ED852 /* shortQuote.plist */,
 				55DCE1B3199C041D003EA30D /* RDPQuotes.h */,
 				55DCE1B4199C041D003EA30D /* RDPQuotes.m */,
 			);
@@ -1259,6 +1263,7 @@
 				58F643E8197DAD2F001D0236 /* Main.storyboard in Resources */,
 				F289316A19A3D5C30028CC29 /* 58.png in Resources */,
 				F289317219A3D5C30028CC29 /* 62.png in Resources */,
+				55AA9B3A19A51AC4002ED852 /* shortQuote.plist in Resources */,
 				F289310619A3D5C30028CC29 /* 7.png in Resources */,
 				F289312A19A3D5C30028CC29 /* 26.png in Resources */,
 				F289312219A3D5C30028CC29 /* 22.png in Resources */,
@@ -1393,6 +1398,7 @@
 				F289312F19A3D5C30028CC29 /* 28.png in Resources */,
 				F2F1CFA5198EC2AA00438A8A /* 3.jpg in Resources */,
 				F289311719A3D5C30028CC29 /* 16.png in Resources */,
+				55AA9B3B19A51AC4002ED852 /* shortQuote.plist in Resources */,
 				F289310B19A3D5C30028CC29 /* 9.png in Resources */,
 				5560B8E1199098F80023691B /* (null) in Resources */,
 				F289317319A3D5C30028CC29 /* 62.png in Resources */,
