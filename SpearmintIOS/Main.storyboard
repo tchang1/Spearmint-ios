@@ -325,7 +325,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="320" id="M6t-bS-uCs"/>
-                                                    <constraint firstAttribute="height" constant="1136" id="hpK-8r-bvc"/>
+                                                    <constraint firstAttribute="height" constant="1136" placeholder="YES" id="hpK-8r-bvc"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
