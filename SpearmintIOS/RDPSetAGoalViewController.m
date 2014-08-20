@@ -62,7 +62,7 @@
         // setup the suggestion view
         [button.titleLabel setLineBreakMode:NSLineBreakByWordWrapping];
         [button.titleLabel setTextAlignment:NSTextAlignmentCenter];
-        int i = [buttons indexOfObject:button];
+        NSUInteger i = [buttons indexOfObject:button];
         NSString *title = buttonTitles[i];
         [button setTitle:title forState:UIControlStateNormal];
         [button addTarget:nil action:@selector(addGoalTitle:) forControlEvents:UIControlEventTouchUpInside];
