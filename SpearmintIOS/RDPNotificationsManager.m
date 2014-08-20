@@ -54,7 +54,6 @@
     
     NSArray *totalUndeletedSavings= [savings filteredArrayUsingPredicate:totalPredicate];
     
-    NSArray *quotes=[RDPQuotes getRandomQuotes:30];
     NSArray *shortQuotes=[RDPQuotes getRandomShortQuotes];
     
     NSString *message = @"";
@@ -78,11 +77,12 @@
         int untilYesterdayCount = totalCount-todayCount;
         int totalMilestones = totalCount/10;
         int untilYesterdayMilestones = untilYesterdayCount/10;
-        
+        //Should show streak
         if (streak>1 && (streak-1)%2==0)
         {
             message =[NSString stringWithFormat:@"You've kept %i days in a row! What can you Keep today?",streak];
         }
+        //Should show milestone
         else if (todayCount>=10 || totalMilestones>untilYesterdayMilestones)
         {
             message= [NSString stringWithFormat:@"You've now kept over %i times! Keep it up!", totalMilestones*10];
@@ -98,8 +98,8 @@
         }
     }
     
-    //[self scheduleNotificationWithMessage:message date:[self daysFromToday:1 hours:8]];
-    [self scheduleTestNotificationWithMessage:message after:5];
+    [self scheduleNotificationWithMessage:message date:[self daysFromToday:1 hours:8]];
+    //[self scheduleTestNotificationWithMessage:message after:5];
     
     for (int i=1; i<[shortQuotes count]; i++) {
         [self scheduleNotificationWithMessage:[NSString stringWithFormat:@"%@ %@",
