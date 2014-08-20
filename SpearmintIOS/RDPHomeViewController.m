@@ -99,23 +99,9 @@
 {
     [super viewDidLoad];
     
-    
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     self.keyboardHeight = 216;
-    self.shouldDismissKeyboardWhenScrolling = YES;
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
-    // Initialize the minimum press duration to be short so it seems more responsive
-    self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
-    
-    // Disable the tap gesture recognizer
-    self.tapGestureRecognizer.enabled = NO;
-    //self.tapGestureRecognizer.delegate = self;
-    
-    // Get the clear and blurred image from the image fetcher
-    self.imageFetcher = [RDPImageFetcher getImageFetcher];
-    int index = self.imageFetcher.indexOfImageArray;
-    self.clearImageView.image = self.imageFetcher.clearImagesArray[index];
-    self.blurredImageView.image = self.imageFetcher.blurredImagesArray[index];
     
     // Setup the scroll view
     [self.scrollView setScrollEnabled:YES];
@@ -126,6 +112,61 @@
     self.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
     self.screenMode = OnSaveScreen;
     self.scrollView.delegate = self;
+    
+    // Create the progress view within scroll view
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kProgressHeaderNib owner:self options:nil];
+    self.progressHeader = [topLevelObjects objectAtIndex:0];
+    CGRect  viewRect = CGRectMake(0, kScreenHeight, kScreenWidth, self.progressHeader.bounds.size.height);
+    [self.progressHeader setFrame:viewRect];
+    [self.containerView insertSubview:self.progressHeader belowSubview:self.gestureRecognizerView];
+    
+    
+    // Create the down arrow to the bottom of the screen
+    CGRect  arrowViewRect = CGRectMake((kScreenWidth - kAnimagedArrowWidgh - 10)/2, kScreenHeight + 45 - kAnimatedArrowHeight, kAnimagedArrowWidgh + 10, kAnimatedArrowHeight + 10);
+    CGRect  arrowButtonRect = CGRectMake(0, kScreenHeight + 45 - kAnimatedArrowHeight, kScreenWidth, kAnimatedArrowHeight + 10);
+    self.arrow = [[RDPArrowAnimation alloc] initWithFrame:arrowViewRect];
+    self.progressButton = [[UIButton alloc] initWithFrame:arrowButtonRect];
+    [self.progressButton addTarget:nil action:@selector(displayProgress:) forControlEvents:UIControlEventTouchUpInside];
+    [self.progressButton setContentMode:UIViewContentModeCenter];
+    [self.progressButton setFrame:arrowButtonRect];
+    [self.containerView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
+    self.arrow.alpha = kAnimatedArrowAlpha;
+    [self.containerView insertSubview:self.arrow aboveSubview:self.gestureRecognizerView];
+    
+    // create the congratulations and suggestion message views
+    self.congratulations = [[RDPCongratulations alloc] init];
+    self.suggestions = [[RDPSavingSuggestions alloc] init];
+    
+    // create the table view for my progress
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                   kScreenHeight + kTextInputHeight + kProgressHeaderHeight,
+                                                                   kScreenWidth,
+                                                                   kScreenHeight - kProgressHeaderHeight)];
+    [self.containerView addSubview:self.tableView];
+    [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView setBackgroundColor:kColor_Transparent];
+    self.tableView.alwaysBounceVertical = NO;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.tableView.allowsSelection = NO;
+}
+
+- (void)setup
+{
+    self.shouldDismissKeyboardWhenScrolling = YES;
+    
+    // Initialize the press and hold gesture recognizer
+    self.pressAndHoldGestureRecognizer.minimumPressDuration = kMinimumPressDuration;
+    self.tapGestureRecognizer.enabled = NO;
+    //self.tapGestureRecognizer.delegate = self;
+    
+    // Get the clear and blurred image from the image fetcher
+    self.imageFetcher = [RDPImageFetcher getImageFetcher];
+    int index = self.imageFetcher.indexOfImageArray;
+    self.clearImageView.image = self.imageFetcher.clearImagesArray[index];
+    self.blurredImageView.image = self.imageFetcher.blurredImagesArray[index];
     
     // Setup the cut out view with text field
     self.serverHasUpdatedSavingsEvents = YES;
@@ -144,51 +185,8 @@
         self.cutOutView.hidden = YES;
     }
     
-    // Add the down arrow to the bottom of the screen
-//    UIImage *arrowImage = [UIImage imageNamed:kArrowImage];
-//    int parentViewOffset = self.pressAndHoldView.frame.origin.y + 10;
-//    CGRect  arrowViewRect = CGRectMake((kScreenWidth - arrowImage.size.width - 10)/2, kScreenHeight+kTextInputHeight - arrowImage.size.height - 10, arrowImage.size.width + 10, arrowImage.size.height + 10);
-    CGRect  arrowViewRect = CGRectMake((kScreenWidth - kAnimagedArrowWidgh - 10)/2, kScreenHeight + 45 - kAnimatedArrowHeight, kAnimagedArrowWidgh + 10, kAnimatedArrowHeight + 10);
-    CGRect  arrowButtonRect = CGRectMake(0, kScreenHeight + 45 - kAnimatedArrowHeight, kScreenWidth, kAnimatedArrowHeight + 10);
-    self.arrow = [[RDPArrowAnimation alloc] initWithFrame:arrowViewRect];
-    self.progressButton = [[UIButton alloc] initWithFrame:arrowButtonRect];
-//    [self.progressButton setImage:arrowImage forState:UIControlStateNormal];
-    [self.progressButton addTarget:nil action:@selector(displayProgress:) forControlEvents:UIControlEventTouchUpInside];
-    [self.progressButton setContentMode:UIViewContentModeCenter];
-    [self.progressButton setFrame:arrowButtonRect];
-    
-    [self.containerView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
-    self.arrow.alpha = kAnimatedArrowAlpha;
-    [self.containerView insertSubview:self.arrow aboveSubview:self.gestureRecognizerView];
-    
-    // Setup the progress view within scroll view
-    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:kProgressHeaderNib owner:self options:nil];
-    self.progressHeader = [topLevelObjects objectAtIndex:0];
-    self.progressHeader.goalTitleLabel.text = [[[RDPUserService getUser] getGoal] getGoalName];
-    
-    NSString *targetAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getTargetAmount]];
-    NSString *keptAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getCurrentAmount]];
-    self.progressHeader.goalAmountLabel.text = [[RDPStrings stringForID:sGoalCaps] stringByAppendingString:targetAmount];
-    self.progressHeader.keptAmountLabel.text = [[RDPStrings stringForID:sKeptCaps] stringByAppendingString:keptAmount];
-    
-    CGRect  viewRect = CGRectMake(0, kScreenHeight, kScreenWidth, self.progressHeader.bounds.size.height);
-    [self.progressHeader setFrame:viewRect];
-    [self.containerView insertSubview:self.progressHeader belowSubview:self.gestureRecognizerView];
-//    [self.scrollView addSubview:self.progressHeader];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,
-                                                                   kScreenHeight + kTextInputHeight + kProgressHeaderHeight,
-                                                                   kScreenWidth,
-                                                                   kScreenHeight - kProgressHeaderHeight)];
-    [self.containerView addSubview:self.tableView];
-    [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.tableView setBackgroundColor:kColor_Transparent];
-    self.tableView.alwaysBounceVertical = NO;
-    self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    self.tableView.allowsSelection = NO;
+    // Load the progress header with the correct goal title and saving amounts
+    [self updateProgressHeaader];
     
     // Hide the counter
     self.counterView.hidden = YES;
@@ -197,19 +195,36 @@
     self.pressAndHoldLabel.text = [RDPStrings stringForID:sPressAndHold];
     
     // Prepare the congratulations message
-    self.congratulations = [[RDPCongratulations alloc] init];
     [self.congratulations getNextCongratsMessage];
     self.congratsLabel.text = self.congratulations.congratsMessage;
     [self.recordButton setTitle:[RDPStrings stringForID:sRecord] forState:UIControlStateNormal];
     self.congratsView.hidden = YES;
     self.recordButtonView.hidden = YES;
     
-    // Setup the saving suggestion messages
+    // Prepare the saving suggestion messages
     self.suggestionIndex = 0;
-    self.suggestions = [[RDPSavingSuggestions alloc] init];
     [self.suggestions getNextSuggestionMessages];
     self.suggestionLabel.text = self.suggestions.suggestionMessages[self.suggestionIndex];
     [self startSuggestionsTimer];
+    
+    // Load the savings events
+    [self loadSavings];
+    [self.tableView reloadData];
+}
+
+- (void)updateProgressHeaader
+{
+    [self.progressHeader.goalTitleLabel setText:[[[RDPUserService getUser] getGoal] getGoalName]];
+    NSString *targetAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getTargetAmount]];
+    NSString *keptAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getCurrentAmount]];
+    self.progressHeader.goalAmountLabel.text = [[RDPStrings stringForID:sGoalCaps] stringByAppendingString:targetAmount];
+    self.progressHeader.keptAmountLabel.text = [[RDPStrings stringForID:sKeptCaps] stringByAppendingString:keptAmount];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setup];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -243,15 +258,6 @@
     CGRect keyboardFrame = [self.view convertRect:rawFrame fromView:nil];
     
     self.keyboardHeight = keyboardFrame.size.height;
-}
-
-- (NSArray*) savings
-{
-    if (!_savings) {
-        [self loadSavings];
-    }
-    
-    return _savings;
 }
 
 -(void)loadSavings
@@ -433,8 +439,7 @@
                 [RDPUserService saveUser:editedUser withResponse:^(RDPResponseCode response) {
                     [self loadSavings];
                     [self.tableView reloadData];
-                    NSString *keptAmount = [[RDPConfig numberFormatter] stringFromNumber:[[[RDPUserService getUser] getGoal] getCurrentAmount]];
-                    self.progressHeader.keptAmountLabel.text = [[RDPStrings stringForID:sKeptCaps] stringByAppendingString:keptAmount];
+                    [self updateProgressHeaader];
                 }];
                 break;
             }
@@ -801,6 +806,8 @@
         [self.tableView reloadData];
         NSLog(@"SavingEvent returned with response %i", response);
         self.serverHasUpdatedSavingsEvents = YES;
+        
+        [self updateProgressHeaader];
         
         if (![self.savingReason isEqualToString:@""]) {
             NSArray *savingEvents = [[[RDPUserService getUser] getGoal] getSavingEvents];
