@@ -15,6 +15,9 @@
     NSString *result = @"";
     
     switch (stringID) {
+        case sPressAndHoldOnly:
+            result = @"Tap and hold";
+            break;
         case sPressAndHold:
             result = @"Tap and hold \n to keep the savings";
             break;
@@ -196,10 +199,10 @@
             result = @"When you decide to \n skip the $3 coffee that \n you usually buy...";
             break;
         case sCoffeeTapAndHold:
-            result = @"Tap and hold \nto keep the $3 \nfor your goal instead";
+            result = @"to keep the $3 \nfor your goal instead";
             break;
         case sCoffeeCounterLabel:
-            result = @"When the timer \nreaches $3, \nrelease the screen";
+            result = @"When the timer reaches $3, \nrelease the screen.";
             break;
         case sCoffeeReleaseScreen:
             result = @"Release the screen";
@@ -238,13 +241,13 @@
             result = @"When you decide to take a \n$2 bus over a $10 cab...";
             break;
         case sBusTapAndHold:
-            result = @"Tap and hold \nto keep the \n difference";
+            result = @"to keep the \n difference";
             break;
         case sBusCounterLabel:
-            result = @"Everytime you \nrecord something in \nKeep you'll get to \nsee a new photo.";
+            result = @"Everytime you record something \nin Keep you'll get to see a new photo.";
             break;
         case sBusReleaseScreen:
-            result = @"When the timer reaches \n the amount you Kept \nrelease the screen";
+            result = @"When the timer reaches \n the amount you Kept \nrelease the screen.";
             break;
         case sUseKeepInstructions:
             result = @"Use Keep to record \neverytime you make a \ngood spending decision.";

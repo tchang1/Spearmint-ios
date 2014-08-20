@@ -90,7 +90,8 @@
     
     // Set the text for the labels to be the first example
     self.keepSlogan.text = [RDPStrings stringForID:sSlogan];
-    self.tapAndHoldLabel.text = [RDPStrings stringForID:sCoffeeTapAndHold];
+    self.tapAndHoldLabel.text = [RDPStrings stringForID:sPressAndHoldOnly];
+    self.toKeepLabel.text = [RDPStrings stringForID:sCoffeeTapAndHold];
     self.savingsExampleLabel.text = [RDPStrings stringForID:sCoffeeExampleHeader];
     self.counterLabel.text = [RDPStrings stringForID:sCoffeeCounterLabel];
     self.keepHoldingLabel.text = [RDPStrings stringForID:sKeepHolding];
@@ -306,7 +307,8 @@
     self.counterView.rotationsPerSecond = kSecondExampleSpeed;
     
     // Change all the labels
-    self.tapAndHoldLabel.text = [RDPStrings stringForID:sBusTapAndHold];
+    self.tapAndHoldLabel.text = [RDPStrings stringForID:sPressAndHoldOnly];
+    self.toKeepLabel.text = [RDPStrings stringForID:sBusTapAndHold];
     self.savingsExampleLabel.text = [RDPStrings stringForID:sBusExmapleHeader];
     self.counterLabel.text = [RDPStrings stringForID:sBusCounterLabel];
     self.keepHoldingLabel.text = [RDPStrings stringForID:sKeepHolding];

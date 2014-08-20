@@ -33,6 +33,7 @@
 // The example starting view and labels
 @property (weak, nonatomic) IBOutlet CSAnimationView *startExampleView;
 @property (weak, nonatomic) IBOutlet UILabel *tapAndHoldLabel;
+@property (weak, nonatomic) IBOutlet UILabel *toKeepLabel;
 @property (weak, nonatomic) IBOutlet UILabel *savingsExampleLabel;
 
 // Counter and text

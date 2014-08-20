@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
+    sPressAndHoldOnly, 
     sPressAndHold,
     sSettings,
     sUndoSavingBodyMessage,
