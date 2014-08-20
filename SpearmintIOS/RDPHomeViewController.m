@@ -424,6 +424,13 @@
             scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
         }
     }
+    
+    CGFloat breakPointBottom = kTextInputHeight + (3*kScreenHeight/4);
+    if (self.screenMode == OnProgressView && self.scrollView.contentOffset.y < breakPointBottom) {
+        [scrollView setScrollEnabled:NO];
+        [self goToSaveView];
+        [scrollView setScrollEnabled:YES];
+    }
 }
 
 #pragma mark - Table view data source
