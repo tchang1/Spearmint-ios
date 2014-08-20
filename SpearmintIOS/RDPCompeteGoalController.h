@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDPViewController.h"
 
-@interface RDPCompeteGoalController : UIViewController
+@interface RDPCompeteGoalController : RDPViewController
 
 @end

@@ -80,7 +80,7 @@
     
     UIImageView* imageView = [[UIImageView alloc] initWithImage:backgroundImage];
     
-    [self.navigationController.view insertSubview:imageView atIndex:0];
+    [self.navigationController.view insertSubview:imageView atIndex:2];
     imageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
                                  self.navigationController.view.frame.origin.y,
                                  self.navigationController.view.frame.size.width,
@@ -260,14 +260,16 @@
 }
 
 - (IBAction)backTapped:(id)sender {
+    [self removeStatusBar];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     if ([RDPDataHolder getDataHolder].homeController) {
-        [self.navigationController popToViewController:[RDPDataHolder getDataHolder].homeController animated:YES];
+//        [self.navigationController popToViewController:[RDPDataHolder getDataHolder].homeController animated:YES];
+        [self.RDPNavigationController popToViewController:[RDPDataHolder getDataHolder].homeController withAnimation:RDPTransitionAnimationFlipLeft];
     }
     else {
         [self.navigationController popViewControllerAnimated:YES];
     }
-    [self removeStatusBar];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
 }
 
 -(void)rateTapped

@@ -14,6 +14,7 @@
 #import "RDPSettingsGoalViewController.h"
 
 #define kStoryboardName             @"Main"
+#define kSettingsScreen             @"RDPSettingsScreen"
 #define kSettingsMyGoalScreen       @"settingsMyGoal"
 #define kVideoPlayerViewIndex       2
 #define kVideoPlayerTag             98989
@@ -150,38 +151,33 @@
     return gradientLayer;
 }
 
-- (IBAction)setAnotherGoalPressed:(id)sender {
-//    RDPViewController *settingsController =
-//    [[UIStoryboard storyboardWithName:kStoryboardName
-//                               bundle:NULL] instantiateViewControllerWithIdentifier:kSettingsScreenName];
-//    
-//    RDPViewController *myGoalController =
-//    [[UIStoryboard storyboardWithName:kStoryboardName
-//                               bundle:NULL] instantiateViewControllerWithIdentifier:kSettingsMyGoalScreen];
-//    [self.navigationController pushViewController:settingsController animated:NO];
-//    [settingsController.navigationController pushViewController:myGoalController animated:YES];
-    
-}
-
 
 #pragma mark - Navigation
+- (IBAction)setAnotherGoalPressed:(id)sender {
+    RDPViewController *myGoalController = [[UIStoryboard storyboardWithName:kStoryboardName bundle:NULL] instantiateViewControllerWithIdentifier:kSettingsMyGoalScreen];
+    UINavigationController *settings = [[UIStoryboard storyboardWithName:kStoryboardName bundle:NULL] instantiateViewControllerWithIdentifier:kSettingsScreen];
+    self.player.view.hidden = YES;
+    [[self.navigationController.view viewWithTag:kVideoPlayerTag] removeFromSuperview];
+    
+    [self.RDPNavigationController pushViewController:settings animated:NO];
+    [self.RDPNavigationController pushViewController:myGoalController withAnimation:RDPTransitionAnimationFlipLeft];
+
+}
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"SegueFromGoalCompletionToSettings"])
-    {
-        // Get reference to the destination view controller
-        RDPViewController *myGoalController =
-        [[UIStoryboard storyboardWithName:kStoryboardName
-                                   bundle:NULL] instantiateViewControllerWithIdentifier:kSettingsMyGoalScreen];
-        UINavigationController *settingsNavigationController = [segue destinationViewController];
-        self.player.view.hidden = YES;
-        [[self.navigationController.view viewWithTag:kVideoPlayerTag] removeFromSuperview];
-        [settingsNavigationController pushViewController:myGoalController animated:YES];
-        
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"SegueFromGoalCompletionToSettings"])
+//    {
+//        // Get reference to the destination view controller
+//        RDPViewController *myGoalController = [[UIStoryboard storyboardWithName:kStoryboardName bundle:NULL] instantiateViewControllerWithIdentifier:kSettingsMyGoalScreen];
+//        UINavigationController *settings = [[UIStoryboard storyboardWithName:kStoryboardName bundle:NULL] instantiateViewControllerWithIdentifier:kSettingsScreen];
+//        self.player.view.hidden = YES;
+//        [[self.navigationController.view viewWithTag:kVideoPlayerTag] removeFromSuperview];
+//
+//        
+//    }
+//}
 
 
 @end

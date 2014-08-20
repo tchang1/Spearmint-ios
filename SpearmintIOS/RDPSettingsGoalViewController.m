@@ -60,12 +60,13 @@
     
     UIImageView* imageView = [[UIImageView alloc] initWithImage:backgroundImage];
     
-    [self.navigationController.view insertSubview:imageView atIndex:0];
+    [self.navigationController.view insertSubview:imageView atIndex:2];
     imageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
                                  self.navigationController.view.frame.origin.y,
                                  self.navigationController.view.frame.size.width,
                                  self.navigationController.view.frame.size.height);
     imageView.contentMode = UIViewContentModeScaleToFill;
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.tableView registerNib:[UINib nibWithNibName:kCellXibName bundle:nil] forCellReuseIdentifier:kCellReusableIdentifier];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

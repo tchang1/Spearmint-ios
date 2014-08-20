@@ -15,6 +15,7 @@
 #import "RDPUserService.h"
 #import "RDPAnalyticsModule.h"
 #import "RDPProgressHeader.h"
+#import "RDPSettingsController.h"
 #import "NSDate+Utilities.h"
 #import "RDPTableViewSavingsCell.h"
 #import "RDPArrowAnimation.h"
@@ -38,6 +39,7 @@
 #define kCompletedGoalScreenName        @"completedGoalScreen"
 #define kStoryboardName                 @"Main"
 #define kHomeToCompleteSegue            @"HomeToGoalCompleteSegue"
+#define kSettingsScreen                 @"RDPSettingsScreen"
 
 #define kSavingCellHeight               50
 #define kHeaderSectionHeight            40
@@ -229,6 +231,15 @@
 {
     [super viewWillAppear:animated];
     [self setup];
+}
+
+- (IBAction)settingsPressed:(id)sender {
+    RDPViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboardName
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kSettingsScreen];
+    
+//    [self.navigationController pushViewController:viewController animated:YES];
+    [self.RDPNavigationController pushViewController:viewController withAnimation:RDPTransitionAnimationFlipRight];
 }
 
 - (void)viewDidAppear:(BOOL)animated

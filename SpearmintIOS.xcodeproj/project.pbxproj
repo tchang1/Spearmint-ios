@@ -340,6 +340,8 @@
 		F2F1D0271990A49600438A8A /* RDPSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */; };
 		F2F595A119A514ED00C2D2B7 /* RDPNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */; };
 		F2F595A219A514ED00C2D2B7 /* RDPNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */; };
+		F2F595A519A53BB000C2D2B7 /* RDPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A419A53BB000C2D2B7 /* RDPNavigationController.m */; };
+		F2F595A619A53BB000C2D2B7 /* RDPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A419A53BB000C2D2B7 /* RDPNavigationController.m */; };
 		F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
 		F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
 		F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
@@ -609,6 +611,8 @@
 		F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSettingsNavigationController.m; sourceTree = "<group>"; };
 		F2F5959F19A514ED00C2D2B7 /* RDPNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPNavigator.h; sourceTree = "<group>"; };
 		F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPNavigator.m; sourceTree = "<group>"; };
+		F2F595A319A53BB000C2D2B7 /* RDPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPNavigationController.h; sourceTree = "<group>"; };
+		F2F595A419A53BB000C2D2B7 /* RDPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPNavigationController.m; sourceTree = "<group>"; };
 		F2FD6F4C198073A80035ED06 /* RDPInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPInterpolation.h; sourceTree = "<group>"; };
 		F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPInterpolation.m; sourceTree = "<group>"; };
 		F2FD6F4E198073A80035ED06 /* RDPLinearInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPLinearInterpolation.h; sourceTree = "<group>"; };
@@ -816,6 +820,8 @@
 				58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */,
 				F289318719A402190028CC29 /* RDPCompeteGoalController.h */,
 				F289318819A402190028CC29 /* RDPCompeteGoalController.m */,
+				F2F595A319A53BB000C2D2B7 /* RDPNavigationController.h */,
+				F2F595A419A53BB000C2D2B7 /* RDPNavigationController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1527,6 +1533,7 @@
 				F2F1CFED198FF6C300438A8A /* RDPSettingsGoalViewController.m in Sources */,
 				F2F1D00019902AD500438A8A /* RDPFonts.m in Sources */,
 				F2F1D00D19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */,
+				F2F595A519A53BB000C2D2B7 /* RDPNavigationController.m in Sources */,
 				F2ACC0D4199AA93B00303C5B /* RDPUITextView.m in Sources */,
 				F2F1CFE6198FF18D00438A8A /* RDPInputViewWithLabel.m in Sources */,
 				551AA60E1990B20C0010E65B /* RDPUITextField.m in Sources */,
@@ -1581,6 +1588,7 @@
 				F2813422199350D700D7E9EF /* RDPErrorCodes.m in Sources */,
 				F2813420199350D700D7E9EF /* RDPConfig.m in Sources */,
 				F281342D1993510500D7E9EF /* RDPUserService.m in Sources */,
+				F2F595A619A53BB000C2D2B7 /* RDPNavigationController.m in Sources */,
 				5560B8D2199006AF0023691B /* MBProgressHUD.m in Sources */,
 				55DCE1B2199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m in Sources */,
 				F28134351993513200D7E9EF /* RDPGoalModel.m in Sources */,

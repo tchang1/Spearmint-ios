@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="kpv-Um-FZL">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="vrk-LL-dKu" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="vrk-LL-dKu" customClass="RDPNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l3O-Qd-a97">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -296,7 +296,7 @@
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <segue destination="4BB-pl-WkY" kind="push" id="Yws-1Q-4It"/>
+                                                                    <action selector="settingsPressed:" destination="RLe-TQ-3X4" eventType="touchUpInside" id="xpD-EO-FOZ"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -667,8 +667,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="setAnotherGoalPressed:" destination="gGj-eG-ZDk" eventType="touchUpInside" id="Ts1-iV-VJi"/>
-                                    <segue destination="4BB-pl-WkY" kind="push" id="h7B-wr-Aai"/>
+                                    <action selector="setAnotherGoalPressed:" destination="gGj-eG-ZDk" eventType="touchUpInside" id="bRd-8i-R0a"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -733,7 +732,7 @@
         <!--Navigation Controller-->
         <scene sceneID="1K5-Vv-qBk">
             <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="pUt-ff-d5A" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="pUt-ff-d5A" customClass="RDPNavigationController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="CPZ-5z-oe2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HW0-zW-VHI">
                         <autoresizingMask key="autoresizingMask"/>
@@ -1503,9 +1502,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="h7B-wr-Aai"/>
         <segue reference="m5p-NK-Jov"/>
         <segue reference="Cmu-mV-A8S"/>
-        <segue reference="eHT-iJ-sJ8"/>
+        <segue reference="dnY-H0-bvM"/>
     </inferredMetricsTieBreakers>
 </document>

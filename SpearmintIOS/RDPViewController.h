@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RDPNavigationController.h"
 
 @interface RDPViewController : UIViewController
 
--(void)setNavigationBarColor:(UIColor*)color;
+@property (nonatomic, strong)RDPNavigationController* RDPNavigationController;
 
+-(void)setNavigationBarColor:(UIColor*)color;
 -(void)removeStatusBar;
 
 @end

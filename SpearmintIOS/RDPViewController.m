@@ -29,6 +29,11 @@
     return self;
 }
 
+-(RDPNavigationController*)RDPNavigationController
+{
+    return (RDPNavigationController*)self.navigationController;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,6 +72,8 @@
     [statusBarBackground removeFromSuperview];
 
 }
+
+
 
 /*
 #pragma mark - Navigation
