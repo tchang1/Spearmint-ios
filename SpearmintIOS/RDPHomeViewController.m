@@ -66,6 +66,8 @@
 #define kIndentAmount 10
 #define kBorderRadius 5
 
+#define kCounterSpeedMultiplier 2
+
 #define kSuggestionDisplayDuration 4
 #define kShowCongratsDuration 2500
 #define kWaitTimeToHideTextField 1000
@@ -633,6 +635,8 @@
         case UIGestureRecognizerStateBegan:
         {
             self.scrollView.scrollEnabled = NO;
+            self.firstTouchLocation = [self.pressAndHoldGestureRecognizer locationInView:self.clearImageView].y;
+            self.counterView.rotationsPerSecond = 1;
             
             [UIView animateWithDuration:kFadeImagesTime animations:^{
                 
@@ -657,6 +661,11 @@
         case UIGestureRecognizerStateChanged:
         {
             self.blurredImageView.alpha = 0.0;
+            
+            CGFloat location =  self.firstTouchLocation - [self.pressAndHoldGestureRecognizer locationInView:self.clearImageView].y;
+            CGFloat newspeed = 1 + kCounterSpeedMultiplier*location/kScreenHeight;
+            
+            self.counterView.rotationsPerSecond = newspeed;
         }
             break;
             

@@ -92,7 +92,10 @@ typedef enum HomeScreenMode {
 
 // Properties to ensure the reason gets saved to the correct saving event
 @property (nonatomic, assign) BOOL serverHasUpdatedSavingsEvents;
-@property (nonatomic, strong) NSString *savingReason; 
+@property (nonatomic, strong) NSString *savingReason;
+
+// location of the first touch for the tap and hold gesture recognizer
+@property (nonatomic, assign) CGFloat firstTouchLocation;
 
 // Keep track of the view
 @property HomeScreenMode screenMode; 
