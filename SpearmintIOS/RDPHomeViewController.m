@@ -37,7 +37,7 @@
 
 #define kCompletedGoalScreenName        @"completedGoalScreen"
 #define kStoryboardName                 @"Main"
-#define kHomeToCompleteSeque            @"HomeToGoalCompleteSegue"
+#define kHomeToCompleteSegue            @"HomeToGoalCompleteSegue"
 
 #define kSavingCellHeight               50
 #define kHeaderSectionHeight            40
@@ -214,6 +214,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+        
     [self.arrow startAnimating];
     NSLog(@"animation starting");
 }
@@ -741,7 +742,8 @@
 //                                    [self performSegueWithIdentifier: kHomeToCompleteSeque sender: self];
 //                                } 
 //                                completion:nil];
-                [self performSegueWithIdentifier: kHomeToCompleteSeque sender: self];
+                [self showCongratsMessage];
+                [self performSegueWithIdentifier: kHomeToCompleteSegue sender: self];
                 [RDPDataHolder getDataHolder].reachedGoal = YES;
             }
             else {
@@ -783,6 +785,17 @@
     double currentAmountDouble = [[[modifiedUser getGoal] getCurrentAmount] doubleValue];
     [[modifiedUser getGoal] setCurrentAmount:[NSNumber numberWithDouble:(amountSavedDouble + currentAmountDouble)]];
     [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
+        
+        if (response != RDPResponseCodeOK)
+        {
+            NSLog(@"Error response received");
+            self.congratsLabel.text= @"Uh oh, we weren't able to record your savings";
+            self.amountKeptLabel.text=@"Check your connection";
+            self.cutOutView.hidden = YES;
+            self.easterEgg.hidden = NO;
+            self.savingsTextField.text = @"";
+        }
+        
         [self loadSavings];
         [self.tableView reloadData];
         NSLog(@"SavingEvent returned with response %i", response);

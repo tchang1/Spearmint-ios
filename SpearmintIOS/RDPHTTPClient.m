@@ -242,6 +242,7 @@ andFailureBlock:(errorBlock)errorBlock
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
+        errorBlock(error);
     }];
 }
 -(void)postNewGoal:(RDPGoalModel *)goal withSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock

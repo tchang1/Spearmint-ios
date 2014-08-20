@@ -206,8 +206,8 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congrats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEv-io-ZWm">
-                                                                <rect key="frame" x="30" y="270" width="260" height="27"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congrats on your hard work" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="YEv-io-ZWm">
+                                                                <rect key="frame" x="30" y="194" width="260" height="126"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -537,7 +537,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="Wx9-0V-ccd">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="M1t-K2-5Wg">
                             <connections>
-                                <segue destination="RLe-TQ-3X4" kind="modal" modalTransitionStyle="flipHorizontal" id="TuY-Lm-9nY"/>
+                                <segue destination="RLe-TQ-3X4" kind="custom" customClass="RDPDismissSegue" id="t7F-9O-dm1"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -683,7 +683,7 @@
                                 </state>
                                 <connections>
                                     <action selector="setAnotherGoalPressed:" destination="gGj-eG-ZDk" eventType="touchUpInside" id="Ts1-iV-VJi"/>
-                                    <segue destination="1me-PV-P89" kind="modal" identifier="SegueFromGoalCompletionToSettings" modalTransitionStyle="flipHorizontal" animates="NO" id="xME-Vv-1Ur"/>
+                                    <segue destination="1me-PV-P89" kind="custom" identifier="SegueFromGoalCompletionToSettings" customClass="RDPDismissAndModalSegue" id="xME-Vv-1Ur"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1516,9 +1516,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="yHg-sm-Cwz"/>
+        <segue reference="xME-Vv-1Ur"/>
+        <segue reference="t7F-9O-dm1"/>
         <segue reference="eHT-iJ-sJ8"/>
-        <segue reference="qDW-gb-Sri"/>
-        <segue reference="TuY-Lm-9nY"/>
+        <segue reference="yHg-sm-Cwz"/>
     </inferredMetricsTieBreakers>
 </document>
