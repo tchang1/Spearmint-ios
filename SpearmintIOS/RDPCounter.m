@@ -29,6 +29,8 @@
 #define kNumberOffsetX              6
 #define kNumberOffsetY              -8
 
+#define kAccelerationRate 0.001
+
 #define kCounterUpdateBlockName     @"counterUpdateBlock"
 
 
@@ -177,6 +179,7 @@
 {
     self.progress += (self.rotationsPerSecond / 1000) * milliseconds;
     double value = [self.currencyValue doubleValue];
+    self.progress += value*kAccelerationRate;
     
     if (self.progress >= 1) {
         if (value < self.maxValue) {

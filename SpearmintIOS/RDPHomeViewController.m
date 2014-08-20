@@ -636,7 +636,6 @@
         {
             self.scrollView.scrollEnabled = NO;
             self.firstTouchLocation = [self.pressAndHoldGestureRecognizer locationInView:self.clearImageView].y;
-            self.counterView.rotationsPerSecond = 1;
             
             [UIView animateWithDuration:kFadeImagesTime animations:^{
                 
@@ -661,11 +660,6 @@
         case UIGestureRecognizerStateChanged:
         {
             self.blurredImageView.alpha = 0.0;
-            
-            CGFloat location =  self.firstTouchLocation - [self.pressAndHoldGestureRecognizer locationInView:self.clearImageView].y;
-            CGFloat newspeed = 1 + kCounterSpeedMultiplier*location/kScreenHeight;
-            
-            self.counterView.rotationsPerSecond = newspeed;
         }
             break;
             
