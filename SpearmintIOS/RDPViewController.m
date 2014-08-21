@@ -80,7 +80,15 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
+-(void)setPersistentBackgroundImage:(UIImage*)background
+{
+    
+}
 
+-(void)removePersistentBackgroundImage
+{
+    
+}
 
 /*
 #pragma mark - Navigation
