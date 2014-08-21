@@ -4,25 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="kpv-Um-FZL">
-            <objects>
-                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="vrk-LL-dKu" customClass="RDPNavigationController" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l3O-Qd-a97">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="0o8-qi-gHo" kind="relationship" relationship="rootViewController" id="Cmu-mV-A8S"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sPQ-gc-LwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-164" y="-543"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="64m-bC-BAL">
             <objects>
-                <viewController id="0o8-qi-gHo" customClass="RDPLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RDPLoginViewController" id="0o8-qi-gHo" customClass="RDPLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GLD-P8-b1u"/>
                         <viewControllerLayoutGuide type="bottom" id="OJe-1a-cYB"/>
@@ -455,7 +440,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vrk-LL-dKu" kind="modal" identifier="logoutSegue" modalTransitionStyle="crossDissolve" id="VM7-ma-g5e"/>
+                                    <action selector="logoutTapped:" destination="4BB-pl-WkY" eventType="touchUpInside" id="Znv-9m-kbm"/>
                                 </connections>
                             </button>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aIe-jk-axh">
@@ -1509,7 +1494,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="i4c-YM-z26"/>
+        <segue reference="m5p-NK-Jov"/>
         <segue reference="IdQ-DB-Vha"/>
         <segue reference="eHT-iJ-sJ8"/>
     </inferredMetricsTieBreakers>

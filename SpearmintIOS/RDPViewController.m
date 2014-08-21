@@ -74,6 +74,12 @@
 
 }
 
+-(void)clearNavigationView
+{
+    [self removeStatusBar];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
 
 
 /*

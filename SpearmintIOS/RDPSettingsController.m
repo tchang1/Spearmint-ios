@@ -29,6 +29,7 @@
 #define kSegueToFeedback            @"segueToFeedback"
 
 #define kStoryboard                 @"Main"
+#define kRDPLoginViewController     @"RDPLoginViewController"
 
 #define kMyGoalIdentifier           @"settingsMyGoal"
 #define kNotificationsIdentifier    @"settingsNotifications"
@@ -285,9 +286,26 @@
     NSLog(@"Rate app");
 }
 
--(void)logoutTapped
-{
-    
+- (IBAction)logoutTapped:(id)sender {
+    [RDPUserService logoutWithResponse:^(RDPResponseCode response) {
+        if (response==RDPResponseCodeOK)
+        {
+            NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+            for (NSHTTPCookie *each in cookieStorage.cookies) {
+                [cookieStorage deleteCookie:each];
+            }
+            [RDPAnalyticsModule track:@"Logged Out"];
+            UIViewController* rootController = [[UIStoryboard storyboardWithName:kStoryboard
+                                                                          bundle:NULL] instantiateViewControllerWithIdentifier:kRDPLoginViewController];
+            [self clearNavigationView];
+            [self.navigationController setViewControllers:@[rootController] animated:YES];
+        }
+        else
+        {
+            [RDPAnalyticsModule track:@"Error logging out"];
+        }
+    }];
 }
+
 
 @end

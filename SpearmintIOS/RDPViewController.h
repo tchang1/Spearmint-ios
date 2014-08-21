@@ -15,5 +15,6 @@
 
 -(void)setNavigationBarColor:(UIColor*)color;
 -(void)removeStatusBar;
+-(void)clearNavigationView;
 
 @end
