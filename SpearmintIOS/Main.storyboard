@@ -692,20 +692,14 @@
                         <barButtonItem id="Jjc-XV-6O0"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="My Goal" id="uvm-7k-bQj">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="rWR-H5-zDV">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="rWR-H5-zDV">
                             <connections>
                                 <action selector="cancelPressed:" destination="dfx-NA-hEn" id="Kyl-fp-zaN"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="aws-ke-HfZ">
-                            <connections>
-                                <action selector="savePressed:" destination="dfx-NA-hEn" id="iLn-vI-DaK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="saveButton" destination="aws-ke-HfZ" id="GaE-FC-fqv"/>
                         <outlet property="tableView" destination="IVz-kz-qDp" id="V5M-wN-c5e"/>
                     </connections>
                 </viewController>
@@ -1496,6 +1490,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="m5p-NK-Jov"/>
         <segue reference="IdQ-DB-Vha"/>
-        <segue reference="eHT-iJ-sJ8"/>
+        <segue reference="dnY-H0-bvM"/>
     </inferredMetricsTieBreakers>
 </document>

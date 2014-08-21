@@ -33,7 +33,6 @@
 @interface RDPSettingsGoalViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray* goalOptions;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (strong, nonatomic) RDPUser* modifiedUser;
 @property (strong, nonatomic) NSNumberFormatter* numberFormatter;
 
@@ -78,7 +77,6 @@
     self.modifiedUser = [RDPUserService getUser];
     self.numberFormatter = [[NSNumberFormatter alloc] init];
     // Get the reference to the current toolbar buttons
-    [self hideSaveButton];
 }
 
 - (void)didReceiveMemoryWarning
@@ -189,7 +187,6 @@
             if (RDPResponseCodeOK == response) {
                 [RDPDataHolder getDataHolder].reachedGoal = NO;
                 self.modifiedUser = [RDPUserService getUser];
-                [self hideSaveButton];
             }
         }];
     }
@@ -241,60 +238,18 @@
             }
         }
     }
-    
-    if (dirty && valid) {
-        [self showSaveButton];
-    }
-    else {
-        [self hideSaveButton];
-    }
     return YES;
 }
 
-- (void)hideSaveButton
-{
-    NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
-    [toolbarButtons removeObject:self.saveButton];
-    [self.navigationItem setRightBarButtonItems:toolbarButtons animated:YES];
-}
-
-- (void)showSaveButton
-{
-    NSMutableArray *toolbarButtons = [self.navigationItem.rightBarButtonItems mutableCopy];
-    // This is how you add the button to the toolbar and animate it
-    if (![toolbarButtons containsObject:self.saveButton]) {
-        // The following line adds the object to the end of the array.
-        // If you want to add the button somewhere else, use the `insertObject:atIndex:`
-        // method instead of the `addObject` method.
-        [toolbarButtons addObject:self.saveButton];
-        [self.navigationItem setRightBarButtonItems:toolbarButtons animated:YES];
-    }
-}
 
 - (IBAction)cancelPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)savePressed:(id)sender {
     [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
         if (RDPResponseCodeOK == response) {
             [RDPDataHolder getDataHolder].reachedGoal = NO;
-            self.modifiedUser = [RDPUserService getUser];
-            [self hideSaveButton];
-            
         }
     }];
 }
-
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    SEL selector = NSSelectorFromString([[self.menuItems objectAtIndex:indexPath.row] objectForKey:kKeySelector]);
-//    if (selector) {
-//        //        [self performSelector:selector];
-//        ((void (*)(id, SEL))[self methodForSelector:selector])(self, selector);
-//    }
-//}
 
 /*
 #pragma mark - Navigation
