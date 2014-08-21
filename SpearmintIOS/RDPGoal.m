@@ -163,6 +163,24 @@
     return responseCode;
 }
 
+-(BOOL) isEqualToGoal:(RDPGoal*) other
+{
+    BOOL equal = YES;
+    
+    if (![self.userGoalName isEqualToString:[other getGoalName]]) {
+        equal = NO;
+    }
+    if (![self.userTargetAmount isEqualToNumber:[other getTargetAmount]]) {
+        equal = NO;
+    }
+    if (![self.userCurrentAmount isEqualToNumber:[other getCurrentAmount]]) {
+        equal = NO;
+    }
+    
+    return equal;
+}
+
+
 -(RDPGoal*)copy
 {
     NSMutableArray* copyArray = [[NSMutableArray alloc] init];

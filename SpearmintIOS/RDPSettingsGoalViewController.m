@@ -244,11 +244,15 @@
 
 - (IBAction)cancelPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
-    [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
-        if (RDPResponseCodeOK == response) {
-            [RDPDataHolder getDataHolder].reachedGoal = NO;
-        }
-    }];
+    if (!([[self.modifiedUser getGoal] isEqualToGoal:[[RDPUserService getUser] getGoal]])) {
+        [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
+            if (RDPResponseCodeOK == response) {
+                [[NSUserDefaults standardUserDefaults]
+                 setObject:[NSNumber numberWithBool:YES] forKey:[RDPConfig stringSettingForID:RDPSettingUserShouldSeeCompleteGoalScreenKey]];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+        }];
+    }
 }
 
 /*

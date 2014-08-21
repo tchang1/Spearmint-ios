@@ -26,6 +26,7 @@
 -(RDPResponseCode)setSavingEvents:(NSArray*)savingEvents;
 -(RDPResponseCode)addSavingEvent:(RDPSavingEvent*)savingEvent;
 
+-(BOOL) isEqualToGoal:(RDPGoal*) other;
 -(id)copy;
 
 @end

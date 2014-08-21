@@ -794,9 +794,12 @@
             [self.counterView reset];
             double currentAmountSaved = [[[[RDPUserService getUser] getGoal] getCurrentAmount] doubleValue];
             double targetAmount = [[[[RDPUserService getUser] getGoal] getTargetAmount] doubleValue];
+            NSNumber* shouldDisplayCompletedGoalScreenNumber = [[NSUserDefaults standardUserDefaults] objectForKey:[RDPConfig stringSettingForID:RDPSettingUserShouldSeeCompleteGoalScreenKey]];
+            BOOL shouldDisplayCompletedGoalScreen = (shouldDisplayCompletedGoalScreenNumber) ? [shouldDisplayCompletedGoalScreenNumber boolValue] : YES;
             if ([amountSaved doubleValue] + currentAmountSaved >= targetAmount
-                && ![RDPDataHolder getDataHolder].reachedGoal
-                && amountHasBeenSaved) {
+                && shouldDisplayCompletedGoalScreen
+                && amountHasBeenSaved
+                && targetAmount != 0) {
                 [RDPAnalyticsModule track:@"Goal completed"];
 
                 [self createSavingEventForAmount:amountSaved];
@@ -807,17 +810,15 @@
                                   duration:1
                                    options:UIViewAnimationOptionTransitionCrossDissolve
                                 animations:^{
-//                                    NSArray* viewControllers = [self.navigationController viewControllers];
-//                                    [self performSegueWithIdentifier: kHomeToCompleteSegue sender: self];
                                     [self.navigationController pushViewController:viewController animated:NO];
                                 }
                                 completion:^(BOOL completed){
                                     [self showCongratsMessage];
                                 }];
-//                [self showCongratsMessage];
-//                [self performSegueWithIdentifier: kHomeToCompleteSegue sender: self];
                 
-                [RDPDataHolder getDataHolder].reachedGoal = YES;
+                [[NSUserDefaults standardUserDefaults]
+                 setObject:[NSNumber numberWithBool:NO] forKey:[RDPConfig stringSettingForID:RDPSettingUserShouldSeeCompleteGoalScreenKey]];
+                [[NSUserDefaults standardUserDefaults] synchronize];
             }
             else {
                 [UIView animateWithDuration:kFadeImagesTime animations:^{

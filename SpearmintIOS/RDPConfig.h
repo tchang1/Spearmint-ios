@@ -14,6 +14,7 @@ typedef enum {
     RDPSettingEmailRegex,
     RDPSettingMinimumGoalNameLength,
     RDPSettingMaximumGoalNameLength,
+    RDPSettingUserShouldSeeCompleteGoalScreenKey
 } RDPSettingID;
 
 @interface RDPConfig : NSObject

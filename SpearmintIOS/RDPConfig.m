@@ -45,6 +45,9 @@ static NSNumberFormatter* numberFormatter;
         case RDPSettingMinimumPasswordLength:
             setting = [[RDPConfig settings] objectForKey:@"minimumPasswordLength"];
             break;
+        case RDPSettingUserShouldSeeCompleteGoalScreenKey:
+            setting = [[RDPConfig settings] objectForKey:@"shouldSeeCompleteGoalScreenKey"];
+            break;
     }
     
     return setting;
