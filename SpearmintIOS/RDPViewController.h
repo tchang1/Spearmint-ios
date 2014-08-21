@@ -16,5 +16,7 @@
 -(void)setNavigationBarColor:(UIColor*)color;
 -(void)removeStatusBar;
 -(void)clearNavigationView;
+-(void)setPersistentBackgroundImage:(UIImage*)background;
+-(void)removePersistentBackgroundImage;
 
 @end

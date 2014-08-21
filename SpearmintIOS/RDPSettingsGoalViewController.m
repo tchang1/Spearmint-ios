@@ -145,9 +145,6 @@
     [cell.inputView.input setTextColor:kColor_WhiteText];
     [cell.contentView setBackgroundColor:kColor_Transparent];
     cell.inputView.input.delegate = self;
-    [cell.inputView.input addTarget:self
-                  action:@selector(textFieldDidChange:)
-        forControlEvents:UIControlEventEditingChanged];
     
     if ([[goalInfo objectForKey:kIdentifierKey] isEqualToString:kGoalNameIdentifier]) {
         cell.inputView.input.text = [[[RDPUserService getUser] getGoal] getGoalName];
@@ -167,84 +164,39 @@
     return cell;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    RDPResponseCode status;
-    BOOL dirty = NO;
-    BOOL valid = YES;
-    
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (kGoalNameTag == textField.tag) {
-        if (![[[[RDPUserService getUser] getGoal] getGoalName] isEqualToString:textField.text]) {
-            dirty = YES;
-            status = [[self.modifiedUser getGoal] setGoalName:textField.text];
-            if (RDPResponseCodeOK != status) {
-                valid = NO;
-            }
-        }
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return (newLength > [[RDPConfig numberSettingForID:RDPSettingMaximumGoalNameLength] integerValue]) ? NO : YES;
     }
-    
-    if (dirty && valid) {
-        [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
-            if (RDPResponseCodeOK == response) {
-                [RDPDataHolder getDataHolder].reachedGoal = NO;
-                self.modifiedUser = [RDPUserService getUser];
-            }
-        }];
+    else {
+        return YES;
     }
-    if (valid) {
-        [RDPAnalyticsModule track:@"Settings" properties:@{@"action" : @"editGoal"}];
-        [textField resignFirstResponder];
-    }
-    
-    return YES;
 }
 
-- (BOOL)textFieldDidChange:(UITextField *)textField
+- (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    BOOL dirty = NO;
-    BOOL valid = YES;
     RDPResponseCode status;
     NSString* value = textField.text;
     
     if (kGoalNameTag == textField.tag) {
-        if (![[[[RDPUserService getUser] getGoal] getGoalName] isEqualToString:textField.text]) {
-            dirty = YES;
-            status = [[self.modifiedUser getGoal] setGoalName:textField.text];
-            if (RDPResponseCodeOK != status) {
-                valid = NO;
-            }
-        }
+        status = [[self.modifiedUser getGoal] setGoalName:textField.text];
     }
     else if (kGoalTargetAmountTag == textField.tag) {
-        if (![[[[[RDPUserService getUser] getGoal] getTargetAmount] description] isEqualToString:textField.text]) {
-            dirty = YES;
-            if ([value isEqualToString:@""]) {
-                value = @"0";
-            }
-            status = [[self.modifiedUser getGoal] setTargetAmount:[self.numberFormatter numberFromString:value]];
-            if (RDPResponseCodeOK != status) {
-                valid = NO;
-            }
-        }
+        
+        status = [[self.modifiedUser getGoal] setTargetAmount:[self.numberFormatter numberFromString:value]];
+        
     }
     else if (kGoalAmountSavedTag == textField.tag) {
-        if (![[[[[RDPUserService getUser] getGoal] getCurrentAmount] description] isEqualToString:textField.text]) {
-            dirty = YES;
-            if ([value isEqualToString:@""]) {
-                value = @"0";
-            }
-            status = [[self.modifiedUser getGoal] setCurrentAmount:[self.numberFormatter numberFromString:textField.text]];
-            if (RDPResponseCodeOK != status) {
-                valid = NO;
-            }
-        }
+        status = [[self.modifiedUser getGoal] setCurrentAmount:[self.numberFormatter numberFromString:textField.text]];
     }
-    return YES;
 }
 
 
 - (IBAction)cancelPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     if (!([[self.modifiedUser getGoal] isEqualToGoal:[[RDPUserService getUser] getGoal]])) {
+        [RDPAnalyticsModule track:@"Settings" properties:@{@"action" : @"editGoal"}];
         [RDPUserService saveUser:self.modifiedUser withResponse:^(RDPResponseCode response) {
             if (RDPResponseCodeOK == response) {
                 [[NSUserDefaults standardUserDefaults]
