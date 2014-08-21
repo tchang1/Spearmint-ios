@@ -236,6 +236,9 @@ static RDPImageFetcher *imageFetcher = nil;
     [[NSUserDefaults standardUserDefaults]
      setObject:[NSNumber numberWithInt:self.indexOfImageArray] forKey:kIndexInArray];
     
+    [self setClearImagesArray:nil];
+    [self setBlurredImagesArray:nil];
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
