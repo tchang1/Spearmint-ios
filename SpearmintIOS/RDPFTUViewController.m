@@ -64,14 +64,14 @@
     self.clearImageView = [[UIImageView alloc] initWithImage:image];
     self.blurredImageView = [[UIImageView alloc] initWithImage:[RDPImageBlur applyBlurOnFTUImage:image]];
     
-    [self.navigationController.view insertSubview:self.clearImageView atIndex:0];
+    [self setPersistentBackgroundImageViewLower:self.clearImageView];
     self.clearImageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
                                  self.navigationController.view.frame.origin.y,
                                  self.navigationController.view.frame.size.width,
                                  self.navigationController.view.frame.size.height);
     self.clearImageView.contentMode = UIViewContentModeScaleToFill;
     
-    [self.navigationController.view insertSubview:self.blurredImageView atIndex:1];
+    [self setPersistentBackgroundImageView:self.blurredImageView];
     self.blurredImageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
                                            self.navigationController.view.frame.origin.y,
                                            self.navigationController.view.frame.size.width,

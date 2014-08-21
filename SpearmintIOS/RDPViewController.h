@@ -17,6 +17,9 @@
 -(void)removeStatusBar;
 -(void)clearNavigationView;
 -(void)setPersistentBackgroundImage:(UIImage*)background;
+-(void)setPersistentBackgroundImageLower:(UIImage*)background;
+-(void)setPersistentBackgroundImageView:(UIImageView*)background;
+-(void)setPersistentBackgroundImageViewLower:(UIImageView*)background;
 -(void)removePersistentBackgroundImage;
 
 @end

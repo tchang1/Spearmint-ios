@@ -11,8 +11,10 @@
 #import "RDPNavigator.h"
 
 #define kStatusBarViewTag           4357
-#define kBackgroundImageIndex       2
+#define kLowerBackgroundImageIndex  0
+#define kBackgroundImageIndex       1
 #define kBackgroundImageTag         1001
+#define kLowerBackgroundImageTag    1002
 
 @interface RDPViewController ()
 
@@ -79,6 +81,7 @@
 -(void)clearNavigationView
 {
     [self removeStatusBar];
+    [self removePersistentBackgroundImage];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
@@ -90,21 +93,66 @@
         }
     }
     
-    [self removePersistentBackgroundImage];
     UIImageView* imageView = [[UIImageView alloc] initWithImage:background];
     
-    [self.navigationController.view insertSubview:imageView atIndex:kBackgroundImageIndex];
     imageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
                                  self.navigationController.view.frame.origin.y,
                                  self.navigationController.view.frame.size.width,
                                  self.navigationController.view.frame.size.height);
     imageView.contentMode = UIViewContentModeScaleToFill;
-    imageView.tag = kBackgroundImageTag;
+    [self setPersistentBackgroundImageView:imageView];
+}
+
+-(void)setPersistentBackgroundImageLower:(UIImage*)background
+{
+    if ([self.navigationController.view viewWithTag:kBackgroundImageTag]) {
+        if ([(UIImageView*)[self.navigationController.view viewWithTag:kBackgroundImageTag] image] == background) {
+            return;
+        }
+    }
+    
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:background];
+    
+    
+    imageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
+                                 self.navigationController.view.frame.origin.y,
+                                 self.navigationController.view.frame.size.width,
+                                 self.navigationController.view.frame.size.height);
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    [self setPersistentBackgroundImageViewLower:imageView];
+}
+
+-(void)setPersistentBackgroundImageView:(UIImageView*)background
+{
+//    if ([self.navigationController.view viewWithTag:kBackgroundImageTag]) {
+//        if ((UIImageView*)[self.navigationController.view viewWithTag:kBackgroundImageTag] == background) {
+//            return;
+//        }
+//    }
+//    [self removePersistentBackgroundImage];
+    [[self.navigationController.view viewWithTag:kBackgroundImageTag] removeFromSuperview];
+    [self.navigationController.view insertSubview:background atIndex:kBackgroundImageIndex];
+    background.tag = kBackgroundImageTag;
+}
+
+-(void)setPersistentBackgroundImageViewLower:(UIImageView*)background
+{
+//    if ([self.navigationController.view viewWithTag:kBackgroundImageTag]) {
+//        if ((UIImageView*)[self.navigationController.view viewWithTag:kBackgroundImageTag] == background) {
+//            return;
+//        }
+//    }
+//    [self removePersistentBackgroundImage];
+    [[self.navigationController.view viewWithTag:kLowerBackgroundImageTag] removeFromSuperview];
+    [self.navigationController.view insertSubview:background atIndex:kLowerBackgroundImageIndex];
+    background.tag = kLowerBackgroundImageTag;
 }
 
 -(void)removePersistentBackgroundImage
 {
     [[self.navigationController.view viewWithTag:kBackgroundImageTag] removeFromSuperview];
+    [[self.navigationController.view viewWithTag:kLowerBackgroundImageTag] removeFromSuperview];
 }
 
 /*
