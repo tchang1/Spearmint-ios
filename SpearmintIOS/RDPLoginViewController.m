@@ -215,6 +215,6 @@
 }
 
 - (IBAction)forgotPasswordPressed:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:team%40trykeep.com?subject=Recover%20my%20password&body=Hi%20Keep%20Team%2C%0APlease%20help%20me%20recover%20my%20password.%0AMy%20username%20is..."]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"mailto:team%40trykeep.com?subject=Recover%20my%20password&body=Hi%20Keep%20Team%2C%0APlease%20help%20me%20recover%20my%20password.%0AThe%20email%20I%20used%20to%20sign%20up%20for%20keep%20is..."]];
 }
 @end
