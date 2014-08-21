@@ -113,7 +113,8 @@ typedef enum {
     sLoginUnauthorized,
     sLoginGeneralError,
     sSignupUsernameError,
-    sSignupGeneralError
+    sSignupGeneralError,
+    sTapRecord
 } RDPStringID;
 
 @interface RDPStrings : NSObject

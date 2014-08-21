@@ -73,7 +73,7 @@
 
 #define kSuggestionDisplayDuration 4
 #define kShowCongratsDuration 2500
-#define kWaitTimeToHideTextField 1000
+#define kWaitTimeToHideTextField 1500
 
 #define kMinimumPressDuration 0.2
 
@@ -92,7 +92,7 @@
 @property (nonatomic, weak)RDPProgressHeader* progressHeader;
 @property (nonatomic, assign)CGFloat keyboardHeight;
 @property (nonatomic, assign)BOOL shouldDismissKeyboardWhenScrolling;
-@property (nonatomic, strong)RDPArrowAnimation* arrow;
+//@property (nonatomic, strong)RDPArrowAnimation* arrow;
 @property (nonatomic, strong)UIView* nullProgressView;
 
 //@property (strong, nonatomic) NSArray* savings;
@@ -128,16 +128,18 @@
     
     
     // Create the down arrow to the bottom of the screen
-    CGRect  arrowViewRect = CGRectMake((kScreenWidth - kAnimagedArrowWidgh - 10)/2, kScreenHeight + 45 - kAnimatedArrowHeight, kAnimagedArrowWidgh + 10, kAnimatedArrowHeight + 10);
+    //CGRect  arrowViewRect = CGRectMake((kScreenWidth - kAnimagedArrowWidgh - 10)/2, kScreenHeight + 45 - kAnimatedArrowHeight, kAnimagedArrowWidgh + 10, kAnimatedArrowHeight + 10);
     CGRect  arrowButtonRect = CGRectMake(0, kScreenHeight + 45 - kAnimatedArrowHeight, kScreenWidth, kAnimatedArrowHeight + 10);
-    self.arrow = [[RDPArrowAnimation alloc] initWithFrame:arrowViewRect];
+    //self.arrow = [[RDPArrowAnimation alloc] initWithFrame:arrowViewRect];
     self.progressButton = [[UIButton alloc] initWithFrame:arrowButtonRect];
+    UIImage *upArrow = [UIImage imageNamed:kArrowImage];
+    [self.progressButton setImage:upArrow forState:UIControlStateNormal];
     [self.progressButton addTarget:nil action:@selector(displayProgress:) forControlEvents:UIControlEventTouchUpInside];
     [self.progressButton setContentMode:UIViewContentModeCenter];
     [self.progressButton setFrame:arrowButtonRect];
     [self.containerView insertSubview:self.progressButton aboveSubview:self.gestureRecognizerView];
-    self.arrow.alpha = kAnimatedArrowAlpha;
-    [self.containerView insertSubview:self.arrow aboveSubview:self.gestureRecognizerView];
+    //self.arrow.alpha = kAnimatedArrowAlpha;
+    //self.containerView insertSubview:self.arrow aboveSubview:self.gestureRecognizerView];
     
     // create the congratulations and suggestion message views
     self.congratulations = [[RDPCongratulations alloc] init];
@@ -269,8 +271,8 @@
 {
     [super viewDidAppear:animated];
         
-    [self.arrow startAnimating];
-    NSLog(@"animation starting");
+    //[self.arrow startAnimating];
+    //NSLog(@"animation starting");
 }
 
 - (void)updateViewConstraints
@@ -559,6 +561,7 @@
     cell.amountLabel.text = [cellData objectForKey:kAmountKey];
     [cell.amountLabel setFont:[RDPFonts fontForID:fCurrencyFont]];
     [cell.amountLabel setTextColor: kColor_WhiteText];
+    cell.reasonInput.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sTapRecord] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText, NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
     cell.reasonInput.text = [cellData objectForKey:kReasonKey];
     [cell.reasonInput setFont:[RDPFonts fontForID:fLoginFont]];
     [cell.reasonInput setTextColor:kColor_WhiteText];
@@ -648,6 +651,8 @@
 
 - (void)goToRecordView
 {
+    [RDPTimerManager clearAllTimers];
+    
     [UIView animateWithDuration:kBlackOverlayTime animations:^{
         
         self.gestureRecognizerView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.25];
@@ -700,7 +705,7 @@
             
             self.pressAndHoldView.hidden = YES;
             self.progressButton.hidden = YES;
-            self.arrow.hidden = YES;
+            //self.arrow.hidden = YES;
             self.progressButton.alpha = 0.0;
             self.settingsView.hidden = YES;
             self.suggestionView.hidden = YES;
@@ -732,9 +737,9 @@
                 [self.pressAndHoldView startCanvasAnimation];
                 
                 self.progressButton.hidden = NO;
-                self.arrow.hidden = NO;
-                self.arrow.alpha = kAnimatedArrowAlpha;
-                [self.arrow startAnimating];
+                //self.arrow.hidden = NO;
+                //self.arrow.alpha = kAnimatedArrowAlpha;
+                //[self.arrow startAnimating];
                 [UIView animateWithDuration:kFadeLabelsTime animations:^{
                     self.progressButton.alpha = 1.0;
                 }];
@@ -924,9 +929,9 @@
                         self.pressAndHoldView.duration = kFadeLabelsTime;
                         self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
                         [self.pressAndHoldView startCanvasAnimation];
-                        self.arrow.hidden = NO;
-                        self.arrow.alpha = kAnimatedArrowAlpha;
-                        [self.arrow startAnimating];
+                        //self.arrow.hidden = NO;
+                        //self.arrow.alpha = kAnimatedArrowAlpha;
+                        //[self.arrow startAnimating];
                         self.progressButton.hidden = NO;
                         [UIView animateWithDuration:kFadeLabelsTime animations:^{
                             self.progressButton.alpha = 1.0;
@@ -1024,18 +1029,6 @@
         else {
             self.savingReason = self.savingsTextField.text;
         }
-        
-        
-        self.savingData.hasJustSaved = NO;
-        
-        void (^transitionBlock)(void) = ^{
-            self.cutOutView.hidden = YES;
-            self.easterEgg.hidden = NO;
-            self.savingsTextField.text = @"";
-        };
-        
-        
-        [RDPTimerManager pauseFor:kWaitTimeToHideTextField millisecondsThen:transitionBlock];
     }
     
     if (self.congratsView.alpha == 1.0 && self.congratsView.hidden == NO) { // if we are still on congrats view
@@ -1068,10 +1061,15 @@
             // Remove the record view if the savings event is the most recent 
             RDPSavingEvent *mostRecentEvent = [newSavings objectAtIndex:(newSavings.count - 1)];
             if ([mostRecentEvent.savingID isEqualToString:savingEvent.savingID]) {
-                self.savingData.hasJustSaved = NO;
-                self.cutOutView.hidden = YES;
-                self.easterEgg.hidden = NO;
-                self.savingsTextField.text = @"";
+                void (^transitionBlock)(void) = ^{
+                    self.savingData.hasJustSaved = NO;
+                    self.cutOutView.hidden = YES;
+                    self.easterEgg.hidden = NO;
+                    self.savingsTextField.text = @"";
+                };
+                
+                
+                [RDPTimerManager pauseFor:kWaitTimeToHideTextField millisecondsThen:transitionBlock];
             }
             
             

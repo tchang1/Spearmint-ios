@@ -301,7 +301,7 @@
             result = @"It's your money, keep it!";
             break;
         case sRecord:
-            result = @"Record what you kept";
+            result = @"Describe what you kept";
             break;
         case sLoading:
             result = @"Verifying User...";
@@ -330,6 +330,9 @@
         case sSignupGeneralError:
             result = @"Unable to signup. Try later.";
             break;
+        case sTapRecord:
+            result = @"Tap to add description";
+            break; 
 }
     
     return result;
