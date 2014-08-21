@@ -366,6 +366,7 @@
                         <outlet property="suggestionView" destination="q4a-9m-o0x" id="hxT-Kc-7BB"/>
                         <outlet property="tapGestureRecognizer" destination="42K-Rd-GnE" id="3Ve-v0-M6q"/>
                         <segue destination="gGj-eG-ZDk" kind="push" identifier="HomeToGoalCompleteSegue" id="So2-Fj-ZII"/>
+                        <segue destination="4BB-pl-WkY" kind="push" id="pBO-eW-BpZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Khc-m4-GGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -380,7 +381,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="917" y="-591"/>
+            <point key="canvasLocation" x="941" y="-563"/>
         </scene>
         <!--Settings Notifications View Controller - Notifications-->
         <scene sceneID="WBb-Gn-pvm">
@@ -628,23 +629,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You made it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-H7-pAi">
-                                <rect key="frame" x="20" y="160" width="280" height="111"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You made it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-H7-pAi">
+                                <rect key="frame" x="40" y="160" width="240" height="111"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="vbC-Dh-KTH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Go enjoy it." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3F-bH-uqe">
-                                <rect key="frame" x="20" y="260" width="280" height="48"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go enjoy it." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3F-bH-uqe">
+                                <rect key="frame" x="98" y="269" width="125" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgU-I0-noq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgU-I0-noq">
                                 <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TDM-KL-KG0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Set Another Goal">
@@ -656,17 +663,27 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.79571906887755106" green="0.79571906887755106" blue="0.79571906887755106" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="I3F-bH-uqe" secondAttribute="centerX" id="6J7-hk-Tf4"/>
+                            <constraint firstAttribute="bottom" secondItem="RgU-I0-noq" secondAttribute="bottom" id="NXn-tz-tXN"/>
+                            <constraint firstAttribute="trailing" secondItem="RgU-I0-noq" secondAttribute="trailing" id="Q5S-Ym-3a4"/>
+                            <constraint firstAttribute="centerX" secondItem="jfi-H7-pAi" secondAttribute="centerX" id="SQL-e3-gFq"/>
+                            <constraint firstItem="I3F-bH-uqe" firstAttribute="centerY" secondItem="dlG-qB-Z0t" secondAttribute="centerY" id="fG5-Y3-jOL"/>
+                            <constraint firstItem="RgU-I0-noq" firstAttribute="leading" secondItem="dlG-qB-Z0t" secondAttribute="leading" id="mJb-zA-Gkd"/>
+                            <constraint firstItem="I3F-bH-uqe" firstAttribute="top" secondItem="jfi-H7-pAi" secondAttribute="bottom" constant="-2" id="oT0-a8-cvv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bmi-AN-g7T"/>
                     <connections>
                         <outlet property="lineOneLabel" destination="jfi-H7-pAi" id="ytJ-PV-hHH"/>
                         <outlet property="lineTwoLabel" destination="I3F-bH-uqe" id="URS-mi-fCe"/>
                         <outlet property="setAnotherGoalButton" destination="RgU-I0-noq" id="eP5-wj-yM4"/>
+                        <segue destination="4BB-pl-WkY" kind="push" id="pPr-2g-cPq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2IQ-s7-fE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="-1414"/>
+            <point key="canvasLocation" x="2302" y="-1538"/>
         </scene>
         <!--Settings Goal View Controller - My Goal-->
         <scene sceneID="xkg-21-kfn">
@@ -1490,6 +1507,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="m5p-NK-Jov"/>
         <segue reference="IdQ-DB-Vha"/>
+        <segue reference="pBO-eW-BpZ"/>
         <segue reference="dnY-H0-bvM"/>
     </inferredMetricsTieBreakers>
 </document>

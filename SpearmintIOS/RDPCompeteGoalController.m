@@ -19,7 +19,8 @@
 #define kVideoPlayerViewIndex       2
 #define kVideoPlayerTag             98989
 
-#define kScreenHeight  [UIScreen mainScreen].bounds.size.height
+#define kScreenHeight               [UIScreen mainScreen].bounds.size.height
+#define kFrameHeight                568
 
 @interface RDPCompeteGoalController ()
 @property (nonatomic, strong)MPMoviePlayerController* player;
@@ -50,6 +51,7 @@
     self.player = [[MPMoviePlayerController alloc] initWithContentURL:movieURL];
     [self.player setMovieSourceType:MPMovieSourceTypeFile];
     self.player.controlStyle = MPMovieControlStyleNone;
+    self.player.scalingMode = MPMovieScalingModeAspectFill;
 
     UIWindow *backgroundWindow = [[UIApplication sharedApplication] keyWindow];
     self.view.backgroundColor = kColor_Transparent;
@@ -67,7 +69,7 @@
     imageView.frame = CGRectMake(self.view.frame.origin.x,
                                  self.view.frame.origin.y,
                                  self.view.frame.size.width,
-                                 self.view.frame.size.height);
+                                 kFrameHeight);
     imageView.contentMode = UIViewContentModeScaleToFill;
     self.imageView = imageView;
     
