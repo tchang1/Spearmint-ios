@@ -109,7 +109,11 @@ typedef enum {
     sReachedGoalLine1,
     sReachedGoalLine2,
     sReachedGoalButtonText,
-    sMyProgressNullState
+    sMyProgressNullState,
+    sLoginUnauthorized,
+    sLoginGeneralError,
+    sSignupUsernameError,
+    sSignupGeneralError
 } RDPStringID;
 
 @interface RDPStrings : NSObject

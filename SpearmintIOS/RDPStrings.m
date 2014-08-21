@@ -318,6 +318,18 @@
         case sMyProgressNullState:
             result = @"You haven't kept anything yet...";
             break;
+        case sLoginUnauthorized:
+            result = @"Invalid credentials";
+            break;
+        case sLoginGeneralError:
+            result = @"Error. Try again later";
+            break;
+        case sSignupUsernameError:
+            result = @"Invalid email";
+            break;
+        case sSignupGeneralError:
+            result = @"Unable to signup. Try later.";
+            break;
 }
     
     return result;

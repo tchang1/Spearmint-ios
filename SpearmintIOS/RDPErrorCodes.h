@@ -13,6 +13,7 @@ typedef enum {
     RDPErrorCodeUnknown,
     RDPErrorCodeNilObject,
     RDPErrorCodeInvalidPassword,
+    RDPErrorCodeUnauthorized,
     RDPErrorCodeInvalidUsername,
     RDPErrorCodeInvalidGoalName,
     RDPErrorCodeNegativeAmount,

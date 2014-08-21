@@ -291,6 +291,12 @@ static RDPUser* storedUser;
         {
             return RDPErrorCodeInvalidUsername;
         }
+        case 401:
+        if ([[body objectForKey:@"result"] isEqualToString:@"loginFailed"])
+        {
+            return RDPErrorCodeUnauthorized;
+        }
+
         break;
             
     }

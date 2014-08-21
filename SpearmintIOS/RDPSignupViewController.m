@@ -93,7 +93,7 @@
     if (![RDPValidationService validateUsername:self.emailTextField.text])
     {
         
-        UIImage *errorImage=[UIImage imageNamed:@"Envelope_red.png"];
+        UIImage *errorImage=[UIImage imageNamed:@"Envelope_Red"];
         [UIView animateWithDuration:0.25f animations:^{
             self.emailView.alpha=0.25;
         } completion:^(BOOL finished) {
@@ -116,7 +116,7 @@
                           duration:0.5f
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
-                            self.emailFieldIcon.image =[UIImage imageNamed:@"Envelope.png"];
+                            self.emailFieldIcon.image =[UIImage imageNamed:@"Envelope"];
                         } completion:nil];
         self.emailStatusLabel.alpha=0;
         return YES;
@@ -133,7 +133,7 @@
                               duration:0.25f
                                options:UIViewAnimationOptionTransitionCrossDissolve
                             animations:^{
-                                self.passwordFieldIcon.image =[UIImage imageNamed:@"Key_red.png"];
+                                self.passwordFieldIcon.image =[UIImage imageNamed:@"Key_Red"];
                                 self.passwordView.alpha=1;
                                 self.passwordStatusLabel.alpha=1;
                             } completion:nil];
@@ -147,7 +147,7 @@
                           duration:0.5f
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
-                            self.passwordFieldIcon.image =[UIImage imageNamed:@"key.png"];
+                            self.passwordFieldIcon.image =[UIImage imageNamed:@"key"];
                         } completion:nil];
         self.passwordStatusLabel.alpha=0;
         return YES;
@@ -155,7 +155,6 @@
 }
 
 -(void)trySignupWithUsername:(NSString *)username andPassword:(NSString *)password {
-    NSLog(@"trying login");
     
     [self.userGoal setCurrentAmount:[[NSNumber alloc] initWithInt:0]];
     
@@ -180,10 +179,10 @@
         });
     } failure:^(RDPResponseCode errorCode) {
         if (errorCode==RDPErrorCodeInvalidUsername) {
-            HUD.labelText=@"Invalid email";
+            HUD.labelText=[RDPStrings stringForID:sSignupUsernameError];
         }
         else {
-            HUD.labelText=@"Something bad happened";
+            HUD.labelText=[RDPStrings stringForID:sSignupGeneralError];
         }
         
         [RDPAnalyticsModule track:@"Signup failed" properties:@{@"username" : self.emailTextField.text, @"reason" : HUD.labelText}];
