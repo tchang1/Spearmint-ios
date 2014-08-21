@@ -10,7 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RDPNavigator.h"
 
-#define kStatusBarViewTag 4357
+#define kStatusBarViewTag           4357
+#define kBackgroundImageIndex       2
+#define kBackgroundImageTag         1001
 
 @interface RDPViewController ()
 
@@ -82,12 +84,27 @@
 
 -(void)setPersistentBackgroundImage:(UIImage*)background
 {
+    if ([self.navigationController.view viewWithTag:kBackgroundImageTag]) {
+        if ([(UIImageView*)[self.navigationController.view viewWithTag:kBackgroundImageTag] image] == background) {
+            return;
+        }
+    }
     
+    [self removePersistentBackgroundImage];
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:background];
+    
+    [self.navigationController.view insertSubview:imageView atIndex:kBackgroundImageIndex];
+    imageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
+                                 self.navigationController.view.frame.origin.y,
+                                 self.navigationController.view.frame.size.width,
+                                 self.navigationController.view.frame.size.height);
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    imageView.tag = kBackgroundImageTag;
 }
 
 -(void)removePersistentBackgroundImage
 {
-    
+    [[self.navigationController.view viewWithTag:kBackgroundImageTag] removeFromSuperview];
 }
 
 /*

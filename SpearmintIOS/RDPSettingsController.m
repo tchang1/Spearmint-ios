@@ -79,14 +79,7 @@
                                                 scale:backgroundImage.scale
                                           orientation:UIImageOrientationUpMirrored];
     
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:backgroundImage];
-    
-    [self.navigationController.view insertSubview:imageView atIndex:2];
-    imageView.frame = CGRectMake(self.navigationController.view.frame.origin.x,
-                                 self.navigationController.view.frame.origin.y,
-                                 self.navigationController.view.frame.size.width,
-                                 self.navigationController.view.frame.size.height);
-    imageView.contentMode = UIViewContentModeScaleToFill;
+    [self setPersistentBackgroundImage:backgroundImage];
     
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self setNavigationBarColor:kColor_SettingPanelHeader];
