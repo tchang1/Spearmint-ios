@@ -1491,7 +1491,7 @@
         <image name="Keep_Circle" width="121" height="120"/>
         <image name="Keep_Text" width="180" height="52"/>
         <image name="Palm" width="35" height="35"/>
-        <image name="Settings" width="51" height="51"/>
+        <image name="Settings" width="50" height="51"/>
         <image name="Tuition" width="41" height="25"/>
         <image name="Umbrella" width="35" height="33"/>
         <image name="Weekend Away" width="35" height="32"/>

@@ -69,9 +69,11 @@
     if (!goalName) {
         responseCode = RDPErrorCodeNilObject;
     }
-    else if (goalName.length < [[RDPConfig numberSettingForID:RDPSettingMinimumGoalNameLength] integerValue] ||
-             goalName.length > [[RDPConfig numberSettingForID:RDPSettingMaximumGoalNameLength] integerValue]) {
+    else if (goalName.length < [[RDPConfig numberSettingForID:RDPSettingMinimumGoalNameLength] integerValue]) {
         responseCode = RDPErrorCodeInvalidGoalName;
+    }
+    else if (goalName.length > [[RDPConfig numberSettingForID:RDPSettingMaximumGoalNameLength] integerValue]) {
+        self.userGoalName = [goalName substringToIndex:([[RDPConfig numberSettingForID:RDPSettingMaximumGoalNameLength] integerValue] - 1)];
     }
     else {
         self.userGoalName = goalName;
