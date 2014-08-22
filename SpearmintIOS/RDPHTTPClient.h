@@ -31,29 +31,30 @@ typedef void (^stringBlock)(NSString*);
 
 +(RDPHTTPClient *)sharedRDPHTTPClient;
 -(instancetype)initWithBaseURL:(NSURL *)url;
--(void)testGETHTTPRequest:(NSString *)path;
+//-(void)testGETHTTPRequest:(NSString *)path;
 //Logs in with a test account
--(void)testPOSTHTTPRequest:(NSString *)path;
+//-(void)testPOSTHTTPRequest:(NSString *)path;
 //User
--(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
+//-(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password;
 -(void)loginWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 -(void)signupWithUsername:(NSString *)username andPassword:(NSString *)password andCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 -(void)getMyUserWithSuccess:(userModelBlock)block andFailure:(errorBlock)errorBlock;
 -(void)logoutWithCompletionBlock:(completionBlock)block andFailureBlock:(errorBlock)errorBlock;
 
 //Goals
+/*
 -(void)getMyGoal;
 -(void)updateMyGoal:(RDPGoalModel *)goal;
 -(void)postNewGoal:(RDPGoalModel *)goal;
-
+*/
 -(void)getMyGoalWithSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock;
 -(void)updateMyGoal:(RDPGoalModel *)goal withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock;
 -(void)postNewGoal:(RDPGoalModel *)goal withSuccess:(goalBlock)block andFailure:(errorBlock)errorBlock;
 
 //Savings
 -(void)getMySavings;
--(void)updateSavings:(RDPSavingEventModel *)saving;
--(void)postSavings:(RDPSavingEventModel *)saving;
+//-(void)updateSavings:(RDPSavingEventModel *)saving;
+//-(void)postSavings:(RDPSavingEventModel *)saving;
 
 -(void)getMySavingsWithSuccess:(arrayBlock)block andFailure:(errorBlock)errorBlock;
 -(void)updateMySaving:(RDPSavingEventModel *)saving withSuccess:(completionBlock)block andFailure:(errorBlock)errorBlock;

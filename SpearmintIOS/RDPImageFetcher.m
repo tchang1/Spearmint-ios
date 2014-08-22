@@ -149,7 +149,7 @@ static RDPImageFetcher *imageFetcher = nil;
     BOOL success = [URL setResourceValue: [NSNumber numberWithBool: YES]
                                   forKey: NSURLIsExcludedFromBackupKey error: &error];
     if(!success){
-        //*NSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
+        //DevNSLog(@"Error excluding %@ from backup %@", [URL lastPathComponent], error);
     }
     return success;
 }
@@ -161,7 +161,7 @@ static RDPImageFetcher *imageFetcher = nil;
     NSString *path = [self documentsPathForFileName:name];
     
     if (image == nil) {
-        //*NSLog(@"Image returned from server is nil");
+        //DevNSLog(@"Image returned from server is nil");
         return;
     } 
     
@@ -169,7 +169,7 @@ static RDPImageFetcher *imageFetcher = nil;
     
     // Save the blurred image to our array
     self.blurredImagesArray[index] = blurredImage;
-    ////*NSLog(@"SUCCESS! Saved blurred image %d", index);
+    ////DevNSLog(@"SUCCESS! Saved blurred image %d", index);
     
     // Save the image data for the blurred image to our documents
     NSData *pngData = UIImagePNGRepresentation(blurredImage);
@@ -212,7 +212,7 @@ static RDPImageFetcher *imageFetcher = nil;
         int nextIndex = (imageFetcher.indexOfImageFile + 1) % imageFetcher.numImages;
         imageFetcher.indexOfImageFile = nextIndex;
     
-        //*NSLog(@"ImageUrl: %@ saved to index: %d", nextImageURL, index);
+        //DevNSLog(@"ImageUrl: %@ saved to index: %d", nextImageURL, index);
     
         // Save the clear image to our documents
         NSString *fileName = [[NSString stringWithFormat:@"%d", index] stringByAppendingString:@".jpg"];

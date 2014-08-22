@@ -25,13 +25,13 @@
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
 ////    [RDPTimerManager registerUpdateBlock:^(NSInteger milliseconds) {
-////        //*NSLog(@"Milliseconds: %i", milliseconds);
+////        //DevNSLog(@"Milliseconds: %i", milliseconds);
 ////    }
 ////                                withName:@"testBlock"];
 ////    
 ////    [RDPTimerManager pauseFor:5000 millisecondsThen:^(void){
 ////        [RDPTimerManager clearUpdateBlockWithName:@"testBlock"];
-////        //*NSLog(@"Stopping now");
+////        //DevNSLog(@"Stopping now");
 ////    }];
 //    NSShadow *shadow = [[NSShadow alloc] init];
 //    shadow.shadowOffset = CGSizeMake(0.0, 1.0);
@@ -67,9 +67,9 @@
 //    [client getMyGoal];
 //    [client testPOSTHTTPRequest:@""];
 //     [client getSuggestions:@10 withSuccess:^(NSArray *suggestions) {
-//         //*NSLog(@"%@",suggestions);
+//         //DevNSLog(@"%@",suggestions);
 //     } andFailure:^(NSError *error) {
-//         //*NSLog(error);
+//         //DevNSLog(error);
 //     }];
 //    //[client getMyNotifications];
 //    [client logout];
@@ -80,7 +80,7 @@
 //    NSHTTPCookie *cookie;
 //    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
 //    for (cookie in [storage cookies]) {
-//        //*NSLog(@"%@",cookie);
+//        //DevNSLog(@"%@",cookie);
 //    }
     
 //   [RDPImageFetcher getImageFetcher];
@@ -92,7 +92,7 @@
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    //*NSLog(@"become inactive");
+    //DevNSLog(@"become inactive");
 
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -102,7 +102,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    //*NSLog(@"entered Background");
+    //DevNSLog(@"entered Background");
 
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -110,7 +110,7 @@
     RDPUser *userCopy=[RDPUserService getUser];
     if (userCopy==nil)
     {
-        //*NSLog(@"No user");
+        //DevNSLog(@"No user");
         return;
     }
     if ([userCopy isNotificationsEnabled]) {
@@ -120,7 +120,7 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    //*NSLog(@"entering foreground");
+    //DevNSLog(@"entering foreground");
 
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     [self.imageFetcher loadIndices];
@@ -128,7 +128,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    //*NSLog(@"became active");
+    //DevNSLog(@"became active");
     [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"awakeFromBackground"} ];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     application.applicationIconBadgeNumber = 0;
@@ -136,7 +136,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    //*NSLog(@"app will terminate");
+    //DevNSLog(@"app will terminate");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [self.imageFetcher saveIndices];
 }
