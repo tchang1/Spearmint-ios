@@ -377,7 +377,10 @@
         }
         dayString = [dayString stringByAppendingString:append];
     }
-    return dayString;
+    
+    
+    
+    return [dayString uppercaseString];
 }
 
 # pragma mark - Suggestion Timer

@@ -7,6 +7,7 @@
 //
 
 #import "RDPValidationService.h"
+#import "RDPConfig.h"
 
 @implementation RDPValidationService
 
@@ -24,7 +25,7 @@
 }
 
 +(BOOL)validatePassword:(NSString *)password {
-    return [password length]>=4;
+    return [password length]>=[[RDPConfig numberSettingForID:RDPSettingMinimumPasswordLength] integerValue];
 }
 
 @end

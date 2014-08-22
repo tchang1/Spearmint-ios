@@ -201,7 +201,6 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string  {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     return (newLength <= 32);
-    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
