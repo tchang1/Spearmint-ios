@@ -69,11 +69,14 @@ static RDPImageFetcher *imageFetcher = nil;
         
         UIImage *image;
         if (fileExists) { // If the image exists in our documents directory, load from the image data
-            NSData *pngData = [NSData dataWithContentsOfFile:imageFilePath];
-            image = [UIImage imageWithData:pngData];
+//            NSData *pngData = [NSData dataWithContentsOfFile:imageFilePath];
+            NSData *pngData = [[NSData alloc] initWithContentsOfFile:imageFilePath];
+//            image = [UIImage imageWithData:pngData];
+            image = [[UIImage alloc] initWithData:pngData];
         }
         else { // If the image has not yet been written to our documents directory, get it from our app files then write it to documents
-            image = [UIImage imageNamed:imageFileName];
+//            image = [UIImage imageNamed:imageFileName];
+            image = [[UIImage alloc] initWithContentsOfFile:imageFileName];
             NSData *pngData = UIImagePNGRepresentation(image);
             [self saveImageWithName:imageFileName andImageData:pngData];
             
@@ -106,11 +109,14 @@ static RDPImageFetcher *imageFetcher = nil;
         
         UIImage *image;
         if (fileExists) { // If the image exists in our documents directory, load from the image data
-            NSData *pngData = [NSData dataWithContentsOfFile:imageFilePath];
-            image = [UIImage imageWithData:pngData];
+//            NSData *pngData = [NSData dataWithContentsOfFile:imageFilePath];
+            NSData *pngData = [[NSData alloc] initWithContentsOfFile:imageFilePath];
+//            image = [UIImage imageWithData:pngData];
+            image = [[UIImage alloc] initWithData:pngData];
         }
         else { // If the image has not yet been written to our documents directory, get it from our app files then write it to documents
-            UIImage *clearImage = [UIImage imageNamed:clearImageFileName];
+//            UIImage *clearImage = [UIImage imageNamed:clearImageFileName];
+            UIImage *clearImage = [[UIImage alloc] initWithContentsOfFile:clearImageFileName];
             image = [RDPImageBlur applyBlurOnImage:clearImage];
             NSData *pngData = UIImagePNGRepresentation(image);
             [self saveImageWithName:imageFileName andImageData:pngData];
@@ -199,10 +205,12 @@ static RDPImageFetcher *imageFetcher = nil;
     NSURL *nextImageURL = imageURL;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSData *imageData = [NSData dataWithContentsOfURL:nextImageURL];
+//        NSData *imageData = [NSData dataWithContentsOfURL:nextImageURL];
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL:nextImageURL];
         
         // Get the image from the data returned from the server
-        UIImage *image =[UIImage imageWithData:imageData];
+//        UIImage *image =[UIImage imageWithData:imageData];
+        UIImage *image = [[UIImage alloc] initWithData:imageData];
         
         // Save the image to our local images array
         int index = imageFetcher.indexOfImageFile;

@@ -10,6 +10,7 @@
 #import "RDPGoalModel.h"
 #import "RDPUserModel.h"
 #import "RDPJSONResponseSerializer.h"
+#import "RDPUserService.h"
 
 static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
 static NSString* const notificationsKey = @"notifications";
@@ -409,7 +410,7 @@ andFailureBlock:(errorBlock)errorBlock
 
 -(void)getNextImage
 {
-    NSDictionary *params = @{@"goalid":@"53d2bf28c5fb963e0717d8c8", @"categoryid":@"0"};
+    NSDictionary *params = @{@"goalid":[[[RDPUserService getUser] getGoal] goalID], @"categoryid":@"0"};
     [self GET:@"images/me" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *responseArray= responseObject;
         NSString *qaURL = @"http://moment-qa.intuitlabs.com/images/";
