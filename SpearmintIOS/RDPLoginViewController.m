@@ -163,7 +163,7 @@
 }
 
 -(void)tryLoginWithUsername:(NSString *)username andPassword:(NSString *)password {
-    NSLog(@"trying login");
+    //*NSLog(@"trying login");
     [RDPUserService loginWithUsername:username andPassword:password then:^(RDPUser *user) {
         [RDPAnalyticsModule track:@"Logged In" properties:@{@"username" : username } ];
         [RDPAnalyticsModule identifyProfile];

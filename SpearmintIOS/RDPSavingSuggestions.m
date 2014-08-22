@@ -39,7 +39,7 @@ NSString * const kSuggestion5 = @"Biked to work?";
 {
     [[RDPHTTPClient sharedRDPHTTPClient] getSuggestions:@5 withSuccess:^(NSArray *suggestions) {
         _suggestionMessages=suggestions;
-        NSLog(@"Got server suggestions");
+        //*NSLog(@"Got server suggestions");
     } andFailure:^(NSError *error) {
         _suggestionMessages=self.defaultMessages;
     }];

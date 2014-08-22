@@ -153,7 +153,7 @@
 
             
                     } failure:^(RDPResponseCode code) {
-                        NSLog(@"autologin failed");
+                        ////*NSLog(@"autologin failed");
                         self.loadingLabel.hidden = YES;
                         [RDPAnalyticsModule track:@"Error with existing login"];
 

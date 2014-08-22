@@ -15,7 +15,7 @@
     NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:emailRegex options:NSRegularExpressionCaseInsensitive error:nil];
     NSUInteger regExMatches = [regEx numberOfMatchesInString:username options:0 range:NSMakeRange(0, [username length])];
     
-    NSLog(@"%lu", (unsigned long)regExMatches);
+    //*NSLog(@"%lu", (unsigned long)regExMatches);
     if (regExMatches == 0) {
         return NO;
     } else {

@@ -276,7 +276,7 @@
 {
     [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Rate app"}];
 
-    NSLog(@"Rate app");
+    //*NSLog(@"Rate app");
 }
 
 - (IBAction)logoutTapped:(id)sender {

@@ -52,10 +52,10 @@ static NSString* const feedbackKey = @"feedback";
         NSDictionary *response=(NSDictionary *) responseObject;
         NSError *error=nil;
         RDPGoalModel *goal=[MTLJSONAdapter modelOfClass:RDPGoalModel.class fromJSONDictionary:response error:&error];
-        NSLog( @"%@", goal );
+        //*NSLog( @"%@", goal );
 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                NSLog(@"error");
+                //*NSLog(@"error");
 
     }];
     
@@ -67,11 +67,11 @@ static NSString* const feedbackKey = @"feedback";
                                         @"password": @"test"};
     [self POST:@"login" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
 
 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
 
     }];
     
@@ -84,14 +84,14 @@ static NSString* const feedbackKey = @"feedback";
                                  @"password": password};
     [self POST:@"login" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClientDidLogIn)]) {
             [self.delegate RDPHTTPClientDidLogIn];
         }
         
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         
     }];
     
@@ -104,11 +104,11 @@ andFailureBlock:(errorBlock)errorBlock
                                  @"password": password};
     [self POST:@"login" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         block();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }];
     
@@ -122,11 +122,11 @@ andFailureBlock:(errorBlock)errorBlock
                                  @"notifications":@"Y"};
     [self POST:@"users" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         block();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }];
 }
@@ -141,7 +141,7 @@ andFailureBlock:(errorBlock)errorBlock
         block(user);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
         
     }];
@@ -155,7 +155,7 @@ andFailureBlock:(errorBlock)errorBlock
     [self GET:@"logoutWithoutRedirect" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         block();
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }
 
@@ -175,7 +175,7 @@ andFailureBlock:(errorBlock)errorBlock
             [self.delegate RDPHTTPClient:self didGetMyGoal:goal];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         
     }];
     
@@ -186,7 +186,7 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
     [self PUT:@"goals/me" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClientDidUpdateMyGoal)]) {
             [self.delegate RDPHTTPClientDidUpdateMyGoal];
@@ -194,7 +194,7 @@ andFailureBlock:(errorBlock)errorBlock
         
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
     }];
 }
 
@@ -203,7 +203,7 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
     [self POST:@"goals" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         NSError *error=nil;
         RDPGoalModel *returnedGoal=[MTLJSONAdapter modelOfClass:RDPGoalModel.class fromJSONDictionary:response error:&error];
         
@@ -212,7 +212,7 @@ andFailureBlock:(errorBlock)errorBlock
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
     }];
 }
 
@@ -226,7 +226,7 @@ andFailureBlock:(errorBlock)errorBlock
         block(goal);
 
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
         
     }];
@@ -237,11 +237,11 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
     [self PUT:@"goals/me" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         block();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }];
 }
@@ -250,14 +250,14 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:goal];
     [self POST:@"goals" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         NSError *error=nil;
         RDPGoalModel *returnedGoal=[MTLJSONAdapter modelOfClass:RDPGoalModel.class fromJSONDictionary:response error:&error];
         
         block(returnedGoal);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }];
 }
@@ -274,12 +274,12 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:savings];
     [self POST:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didPostSavings:)]) {
             [self.delegate RDPHTTPClient:self didPostSavings:savings];
         }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
     }];
 }
 
@@ -288,13 +288,13 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:savings];
     [self PUT:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didUpdateSavings:)]) {
             [self.delegate RDPHTTPClient:self didUpdateSavings:savings];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
     }];
 }
 
@@ -303,15 +303,15 @@ andFailureBlock:(errorBlock)errorBlock
     [self GET:@"savings/me" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *response= responseObject;
         NSError *error=nil;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         NSArray *savings = [MTLJSONAdapter modelsOfClass:RDPSavingEventModel.class fromJSONArray:response error:&error];
-        NSLog( @"%@", savings );
+        //*NSLog( @"%@", savings );
         
         block(savings);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         errorBlock(error);
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         
     }];
 }
@@ -320,11 +320,11 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary *reqparams=[MTLJSONAdapter JSONDictionaryFromModel:saving];
     [self PUT:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         block();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }];
 }
@@ -334,13 +334,13 @@ andFailureBlock:(errorBlock)errorBlock
     [self POST:@"savings" parameters:reqparams success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
         NSError *error=nil;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         RDPSavingEventModel *returnedSaving=[MTLJSONAdapter modelOfClass:RDPSavingEventModel.class fromJSONDictionary:response error:&error];
         block(returnedSaving);
 
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }];
 }
@@ -354,10 +354,10 @@ andFailureBlock:(errorBlock)errorBlock
         NSDictionary *response=(NSDictionary *) responseObject;
         NSString *notifications=[response objectForKey:@"notifications"];
             block(notifications);
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
         
     }];
@@ -370,11 +370,11 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary* params = @{notificationsKey : preference};
     [self PUT:@"notifications/me" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         block();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }];
 }
@@ -387,11 +387,11 @@ andFailureBlock:(errorBlock)errorBlock
     NSDictionary* params = @{feedbackKey : feedback};
     [self POST:feedbackURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *response=(NSDictionary *) responseObject;
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         block();
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
     }];
 }
@@ -410,10 +410,10 @@ andFailureBlock:(errorBlock)errorBlock
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didGetImageURLs:)]) {
             [self.delegate RDPHTTPClient:self didGetImageURLs:urlArray];
         }
-        //NSLog( @"%@", urlArray );
+        ////*NSLog( @"%@", urlArray );
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
     }];
 }
 
@@ -425,11 +425,11 @@ andFailureBlock:(errorBlock)errorBlock
     [self GET:@"suggestions" parameters:param success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *response= responseObject;
         
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         block(response);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
         
     }];
@@ -442,11 +442,11 @@ andFailureBlock:(errorBlock)errorBlock
     [self GET:@"congratulations" parameters:param success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *response= responseObject;
         
-        NSLog( @"%@", response );
+        //*NSLog( @"%@", response );
         block(response);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"%@", error);
+        //*NSLog(@"%@", error);
         errorBlock(error);
         
     }];

@@ -136,7 +136,7 @@ static dispatch_source_t gcdTimer;
         }
     };
     
-    NSLog(@"Setting new block");
+    //*NSLog(@"Setting new block");
     [timer setCompletionBlock:newBlock];
 }
 

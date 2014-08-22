@@ -272,7 +272,7 @@
     [super viewDidAppear:animated];
         
     //[self.arrow startAnimating];
-    //NSLog(@"animation starting");
+    ////*NSLog(@"animation starting");
 }
 
 - (void)updateViewConstraints
@@ -726,7 +726,7 @@
             self.pressAndHoldGestureRecognizer.enabled = NO;
             
             NSNumber *amountSaved = self.counterView.currencyValue;
-            NSLog(@"GestureStateEnded amount: %@",amountSaved);
+            //*NSLog(@"GestureStateEnded amount: %@",amountSaved);
             BOOL amountHasBeenSaved = ![amountSaved isEqualToNumber:[NSNumber numberWithInt:0]];
             [RDPAnalyticsModule track:@"User saved" properties:@{@"amount" : amountSaved}];
             
@@ -864,7 +864,7 @@
         {
             [RDPAnalyticsModule track:@"Error" properties:@{@"location" : @"createSavingEventForAmount"}];
 
-            NSLog(@"Error response received");
+            //*NSLog(@"Error response received");
             self.congratsLabel.text= @"Uh oh, we weren't able to record your savings";
             self.amountKeptLabel.text=@"Check your connection";
             self.cutOutView.hidden = YES;
@@ -874,7 +874,7 @@
         
         [self loadSavings];
         [self.tableView reloadData];
-        NSLog(@"SavingEvent returned with response %i", response);
+        //*NSLog(@"SavingEvent returned with response %i", response);
         self.serverHasUpdatedSavingsEvents = YES;
         
         [self updateProgressHeaader];
@@ -916,7 +916,7 @@
     self.clearImageView.image = self.imageFetcher.clearImagesArray[nextIndex];
     
     // Slowly transition to the next blurred image
-    NSLog(@"trasitioning to index %d",nextIndex);
+    //*NSLog(@"trasitioning to index %d",nextIndex);
     UIImage * toImage = self.imageFetcher.blurredImagesArray[nextIndex];
     [UIView transitionWithView:self.blurredImageView
                       duration:kImageTransitionTime
