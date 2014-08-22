@@ -31,6 +31,7 @@
 #define kHeaderSectionHeight            30
 #define kHeaderSectionLabelMarginX      15
 #define kHeaderSectionLabelMarginY      0
+#define kCellHeight                     55
 
 @interface RDPSettingsNotificationsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -91,10 +92,10 @@
     return [self.sections count];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    return kCellHeight;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kCellHeight;
+}
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 //{
