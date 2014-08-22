@@ -50,7 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self removePersistentBackgroundImage];
     //
     CGRect newFrame = self.keepLogo.frame;
     newFrame.origin.y = (kScreenHeight - self.keepLogo.frame.size.height)/2;
