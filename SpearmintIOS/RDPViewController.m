@@ -81,7 +81,6 @@
 -(void)clearNavigationView
 {
     [self removeStatusBar];
-    [self removePersistentBackgroundImage];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
