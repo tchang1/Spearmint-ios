@@ -38,8 +38,10 @@
     self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sPasswordPlaceholder] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
                                                                                                                                                          NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
     
-    self.emailTextField.attributedText = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName: kColor_WhiteText, NSFontAttributeName : [RDPFonts fontForID:fLoginFont]}];
-    self.passwordTextField.attributedText = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName: kColor_WhiteText, NSFontAttributeName : [RDPFonts fontForID:fLoginFont]}];
+    self.emailTextField.font= [RDPFonts fontForID:fLoginFont];
+    self.emailTextField.textColor=kColor_WhiteText;
+    self.passwordTextField.font= [RDPFonts fontForID:fLoginFont];
+    self.passwordTextField.textColor=kColor_WhiteText;
     
     self.emailTextField.layer.cornerRadius = 2;
     self.emailTextField.clipsToBounds = YES;
