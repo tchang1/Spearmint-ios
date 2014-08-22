@@ -155,7 +155,7 @@
     } else {
         self.navigationItem.rightBarButtonItem = nil;
     }
-    return YES;
+    return length<=[[RDPConfig numberSettingForID:RDPSettingMaximumGoalNameLength] integerValue];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

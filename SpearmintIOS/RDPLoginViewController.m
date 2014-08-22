@@ -220,7 +220,7 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string  {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (newLength <= 32);
+    return (newLength <= [[RDPConfig numberSettingForID:RDPSettingMaximumPasswordLength] integerValue]);
 
 }
 
