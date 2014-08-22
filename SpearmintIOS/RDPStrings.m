@@ -34,7 +34,7 @@
             result = @"Cancel";
             break;
         case sSubmitFeedbackAlertText:
-            result = @"Than you for the feedback! We are working hard to make Keep better.";
+            result = @"Thank you for the feedback! We are working hard to make Keep better.";
             break;
         case sSubmitFeedbackAlertDismissButton:
             result = @"Dismiss";
@@ -244,7 +244,7 @@
             result = @"to keep the \n difference";
             break;
         case sBusCounterLabel:
-            result = @"Everytime you record something \nin Keep you'll get to see a new photo.";
+            result = @"Everytime you record something \nin Keep you'll see a new photo.";
             break;
         case sBusReleaseScreen:
             result = @"When the timer reaches \n the amount you Kept \nrelease the screen.";
@@ -295,7 +295,7 @@
             result = @"KEPT ";
             break;
         case sSavedBy:
-            result = @"I saved %@ by...";
+            result = @"I kept %@ by...";
             break;
         case sSaveSome:
             result = @"It's your money, keep it!";

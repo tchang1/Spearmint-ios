@@ -14,7 +14,7 @@
 +(void)scheduleTestNotificationWithMessage:(NSString*)message after:(int)seconds;
 +(void)clearLocalNotifications;
 +(void)enableLocalNotifications;
-+(void)enableNotificationsAtHour:(int)hour;
+//+(void)enableNotificationsAtHour:(int)hour;
 +(void)scheduleNotificationsBasedOnUser:(RDPUser *)user;
 
 @end
