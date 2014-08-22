@@ -72,11 +72,11 @@
         
         float total=0;
         
-        int totalCount=[totalUndeletedSavings count];
-        int todayCount=[savingsToday count];
-        int untilYesterdayCount = totalCount-todayCount;
-        int totalMilestones = totalCount/10;
-        int untilYesterdayMilestones = untilYesterdayCount/10;
+        NSUInteger totalCount=[totalUndeletedSavings count];
+        NSUInteger todayCount=[savingsToday count];
+        NSUInteger untilYesterdayCount = totalCount-todayCount;
+        NSUInteger totalMilestones = totalCount/10;
+        NSUInteger untilYesterdayMilestones = untilYesterdayCount/10;
         //Should show streak
         if (streak>1 && (streak-1)%2==0)
         {
@@ -85,7 +85,7 @@
         //Should show milestone
         else if (todayCount>=10 || totalMilestones>untilYesterdayMilestones)
         {
-            message= [NSString stringWithFormat:@"You've now kept over %i times! Keep it up!", totalMilestones*10];
+            message= [NSString stringWithFormat:@"You've now kept over %i times! Keep it up!", (int)totalMilestones*10];
         }
         
         else {
@@ -155,7 +155,7 @@
     NSComparisonResult result;
     int streak=0;
     RDPSavingEvent *currentSavings;
-    for (int i=[savings count]-1; i>=0 ; i--) {
+    for (int i=(int)[savings count]-1; i>=0 ; i--) {
         currentSavings=[savings objectAtIndex:i];
         currentDate=[RDPNotificationsManager extractDateFromNSDate:currentSavings.date withCalendar:gregorian];
         comparisonDate=[RDPNotificationsManager daysFromToday:streak*-1 hours:0];

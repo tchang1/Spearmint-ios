@@ -10,7 +10,7 @@
 
 @interface RDPQuotes : NSObject
 
-+(NSArray *)getRandomQuotes:(int)num;
++(NSArray *)getRandomQuotes:(NSUInteger)num;
 
 +(NSArray *)getRandomShortQuotes;
 

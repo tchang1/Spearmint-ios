@@ -31,7 +31,7 @@ static NSArray *shortQuotes;
     return shortQuotes;
 }
 
-+(NSArray *)getRandomQuotes:(int)num
++(NSArray *)getRandomQuotes:(NSUInteger)num
 {
     NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:[self quotes]];
     NSUInteger count = [mutableArray count];
