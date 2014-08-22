@@ -45,7 +45,7 @@
 #define kHeaderSectionHeight            40
 #define kUndoButtonIndex                1
 #define kCancelButtonIndex              0
-#define kHeaderSectionLabelMarginX      20
+#define kHeaderSectionLabelMarginX      15
 #define kHeaderSectionLabelMarginY      0
 #define kHeaderSectionMargin            0
 #define kHeaderBorderBottomWidth        2
