@@ -37,6 +37,8 @@
 
 #define kLogoutSegue                @"logoutSegue"
 
+#define kAppStoreURL                @"itms-apps://itunes.apple.com/app/id911943746"
+
 #define kStatusBarHeight            38
 #define kCellHeight                 55
 
@@ -275,8 +277,9 @@
 -(void)rateTapped
 {
     [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Rate app"}];
-
+    
     //DevNSLog(@"Rate app");
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: kAppStoreURL]];
 }
 
 - (IBAction)logoutTapped:(id)sender {
