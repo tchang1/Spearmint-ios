@@ -466,6 +466,15 @@
     }
 }
 
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    // Used in cases where we are coming back to the home saving screen and need to not
+    // enable the tap and hold unless we have transitioned from the congrats view 
+    if (self.screenMode == OnSaveScreen && self.congratsView.hidden == YES) {
+        self.pressAndHoldGestureRecognizer.enabled = YES;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -642,7 +651,6 @@
         self.gestureRecognizerView.backgroundColor = [UIColor clearColor];
     }];
     
-    self.pressAndHoldGestureRecognizer.enabled = YES;
     [self.scrollView setContentOffset:CGPointMake(0, kTextInputHeight) animated:YES];
     [self.savingsTextField resignFirstResponder];
     if (self.suggestionTimer == nil) {
@@ -925,7 +933,8 @@
                     animations:^{
                         self.blurredImageView.image = self.imageFetcher.blurredImagesArray[nextIndex];
                     } completion:^(BOOL finished){
-    
+                        
+                        self.congratsView.hidden = YES;
                         self.pressAndHoldView.hidden = NO;
                         self.pressAndHoldView.duration = kFadeLabelsTime;
                         self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
