@@ -45,7 +45,7 @@
 {
     [super viewDidLoad];
     NSBundle *bundle = [NSBundle mainBundle];
-    NSString *moviePath = [bundle pathForResource:@"Savings_Success" ofType:@"mp4"];
+    NSString *moviePath = [bundle pathForResource:@"Savings_Success_2" ofType:@"mp4"];
     NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
     
     self.player = [[MPMoviePlayerController alloc] initWithContentURL:movieURL];
