@@ -18,7 +18,6 @@
 #import "RDPSettingsController.h"
 #import "NSDate+Utilities.h"
 #import "RDPTableViewSavingsCell.h"
-#import "RDPArrowAnimation.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "RDPCompeteGoalController.h"
 
@@ -86,7 +85,7 @@
 
 @interface RDPHomeViewController ()
 @property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic)NSArray* sortingKey;
+//@property (strong, nonatomic)NSArray* sortingKey;
 @property (nonatomic, strong)NSArray* savings;
 @property (nonatomic, weak)UITextField* currentTextField;
 @property (nonatomic, weak)RDPProgressHeader* progressHeader;
@@ -920,15 +919,13 @@
     
     // Slowly transition to the next blurred image
     //DevNSLog(@"trasitioning to index %d",nextIndex);
-    UIImage * toImage = self.imageFetcher.blurredImagesArray[nextIndex];
     [UIView transitionWithView:self.blurredImageView
                       duration:kImageTransitionTime
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
-                        self.blurredImageView.image = toImage;
+                        self.blurredImageView.image = self.imageFetcher.blurredImagesArray[nextIndex];
                     } completion:^(BOOL finished){
-                        
-                        
+    
                         self.pressAndHoldView.hidden = NO;
                         self.pressAndHoldView.duration = kFadeLabelsTime;
                         self.pressAndHoldView.type     = CSAnimationTypeFadeIn;
