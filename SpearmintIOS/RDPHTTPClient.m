@@ -408,14 +408,14 @@ andFailureBlock:(errorBlock)errorBlock
 
 #pragma mark - IMAGES
 
--(void)getNextImage
+-(void)getNextImage:(NSString *)goalid
 {
-    NSDictionary *params = @{@"goalid":[[[RDPUserService getUser] getGoal] goalID], @"categoryid":@"0"};
+    NSDictionary *params = @{@"goalid":goalid, @"categoryid":@"0"};
     [self GET:@"images/me" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *responseArray= responseObject;
-        NSString *qaURL = @"http://moment-qa.intuitlabs.com/images/";
-        NSURL *imageurl1 = [NSURL URLWithString:[qaURL stringByAppendingString:[responseArray[0] objectForKey:@"uri"]]];
-        NSURL *imageurl2 = [NSURL URLWithString:[qaURL stringByAppendingString:[responseArray[1] objectForKey:@"uri"]]];
+        //NSString *qaURL = @"http://moment-qa.intuitlabs.com/images/";
+        NSURL *imageurl1 = [NSURL URLWithString:[responseArray[0] objectForKey:@"uri"]];
+        NSURL *imageurl2 = [NSURL URLWithString:[responseArray[1] objectForKey:@"uri"]];
         NSArray *urlArray = @[imageurl1,imageurl2];
         if ([self.delegate respondsToSelector:@selector(RDPHTTPClient:didGetImageURLs:)]) {
             [self.delegate RDPHTTPClient:self didGetImageURLs:urlArray];

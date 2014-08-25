@@ -31,7 +31,7 @@ typedef void(^ImageBlock)(UIImage*);
 /**
  Method to be called by the view controller to load the next image for the home screen.
  */
-- (void)nextImage;
+- (void)nextImage:(NSString *)goalid;
 
 /**
  Methods to save and load the indices for the images arrays 

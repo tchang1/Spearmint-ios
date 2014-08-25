@@ -67,7 +67,7 @@ typedef void (^stringBlock)(NSString*);
 //-(void)getMyNotificationsWithSuccess;
 
 //Images
--(void)getNextImage;
+-(void)getNextImage:(NSString *)goalid;
 //-(void)getNextImageWithSuccess:(arrayBlock)imageURLs andFailure:(errorBlock)errorBlock;
 
 //Messages

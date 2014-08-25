@@ -184,12 +184,12 @@ static RDPImageFetcher *imageFetcher = nil;
 
 #pragma mark - Getting the Next Image
 
-- (void)nextImage
+- (void)nextImage:(NSString *)goalid
 {
     // Get the next image from the client
     RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
     client.delegate = self;
-    [client getNextImage];
+    [client getNextImage:goalid];
 }
 
 -(void)RDPHTTPClient:(RDPHTTPClient *)client didGetImageURLs:(NSArray *)images {

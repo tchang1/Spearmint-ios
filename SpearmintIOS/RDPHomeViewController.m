@@ -965,7 +965,7 @@
     
     // Get new images from the server
 
-    [self.imageFetcher nextImage];
+    [self.imageFetcher nextImage:[[[RDPUserService getUser] getGoal] goalID]];
 
 }
 
