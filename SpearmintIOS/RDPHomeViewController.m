@@ -430,6 +430,12 @@
     if (self.tableView != scrollView) {
         [self scrollToNextPoint];
     }
+    else if (scrollView==self.tableView)
+    {
+            if (scrollView.contentOffset.y<=kHeaderSectionHeight&&scrollView.contentOffset.y>=0) {
+                [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+            }
+    }
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -438,6 +444,14 @@
     if (scrollView != self.tableView) {
         if (!decelerate) {
             [self scrollToNextPoint];
+        }
+    }
+    else if (scrollView==self.tableView)
+    {
+        if (!decelerate) {
+            if (scrollView.contentOffset.y<=kHeaderSectionHeight&&scrollView.contentOffset.y>=0) {
+                [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+            }
         }
     }
 }
@@ -457,7 +471,7 @@
             scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
         }
     }
-    
+
     CGFloat breakPointBottom = kTextInputHeight + (3*kScreenHeight/4);
     if (self.screenMode == OnProgressView && self.scrollView.contentOffset.y < breakPointBottom) {
         [scrollView setScrollEnabled:NO];
