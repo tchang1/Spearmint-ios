@@ -76,7 +76,8 @@ static RDPImageFetcher *imageFetcher = nil;
         }
         else { // If the image has not yet been written to our documents directory, get it from our app files then write it to documents
 //            image = [UIImage imageNamed:imageFileName];
-            image = [[UIImage alloc] initWithContentsOfFile:imageFileName];
+            NSString *thePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d", i] ofType:@"jpg"];
+            image = [[UIImage alloc] initWithContentsOfFile:thePath];
             NSData *pngData = UIImagePNGRepresentation(image);
             [self saveImageWithName:imageFileName andImageData:pngData];
             
@@ -100,7 +101,7 @@ static RDPImageFetcher *imageFetcher = nil;
     NSMutableArray *array = [NSMutableArray array];
     
     for (int i=0; i < imageFetcher.numImages; i++) {
-        NSString *clearImageFileName = [[NSString stringWithFormat:@"%d", i] stringByAppendingString:@".jpg"];
+        //NSString *clearImageFileName = [[NSString stringWithFormat:@"%d", i] stringByAppendingString:@".jpg"];
         NSString *imageFileName = [[NSString stringWithFormat:@"%d", i] stringByAppendingString:@"_blur.jpg"];
         
         // Get the path for the file if it exists in our documents directory
@@ -116,7 +117,8 @@ static RDPImageFetcher *imageFetcher = nil;
         }
         else { // If the image has not yet been written to our documents directory, get it from our app files then write it to documents
 //            UIImage *clearImage = [UIImage imageNamed:clearImageFileName];
-            UIImage *clearImage = [[UIImage alloc] initWithContentsOfFile:clearImageFileName];
+            NSString *thePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d", i] ofType:@"jpg"];
+            UIImage *clearImage = [[UIImage alloc] initWithContentsOfFile:thePath];
             image = [RDPImageBlur applyBlurOnImage:clearImage];
             NSData *pngData = UIImagePNGRepresentation(image);
             [self saveImageWithName:imageFileName andImageData:pngData];
