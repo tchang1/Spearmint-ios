@@ -93,6 +93,7 @@
 @property (nonatomic, assign)BOOL shouldDismissKeyboardWhenScrolling;
 //@property (nonatomic, strong)RDPArrowAnimation* arrow;
 @property (nonatomic, strong)UIView* nullProgressView;
+@property (nonatomic, assign)CGFloat scrollHeight;
 
 //@property (strong, nonatomic) NSArray* savings;
 
@@ -105,6 +106,7 @@
     [super viewDidLoad];
     [RDPDataHolder getDataHolder].homeController = self;
     self.keyboardHeight = 216;
+    self.scrollHeight = 0;
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(keyboardOnScreen:) name:UIKeyboardDidShowNotification object:nil];
     
@@ -1007,7 +1009,10 @@
         [RDPAnalyticsModule track:@"Reason entered in progressView"];
         UITableViewCell* cell = (UITableViewCell *) textField.superview.superview.superview.superview;
 //        [self.tableView scrollToRowAtIndexPath:[self.tableView indexPathForCell:cell] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-        [self.tableView scrollRectToVisible:CGRectMake(cell.frame.origin.x, cell.frame.origin.y -1, cell.frame.size.width, cell.frame.size.height) animated:YES];
+        if (self.scrollHeight > 0) {
+            [self.tableView scrollRectToVisible:CGRectMake(cell.frame.origin.x, cell.frame.origin.y + self.scrollHeight, cell.frame.size.width, cell.frame.size.height)
+                                   animated:YES];
+        }
         for (NSInteger i = 0; i < [self.savings count]; i++) {
             NSArray* savingsArray = [[self.savings objectAtIndex:i] objectForKey:kSavingsEventsKey];
             for (NSInteger j = 0; j < [savingsArray count]; j++) {
@@ -1114,9 +1119,9 @@
     if (textField != self.savingsTextField) {
         self.currentTextField = textField;
         UITableViewCell* cell = (UITableViewCell *) textField.superview.superview.superview.superview;
-        CGFloat scrollHeight = 0;
+        self.scrollHeight = 0;
         if (cell.frame.origin.x + cell.frame.size.height > kScreenHeight - self.keyboardHeight) {
-            scrollHeight = (cell.frame.origin.x + cell.frame.size.height) - self.keyboardHeight;
+            self.scrollHeight = (cell.frame.origin.x + cell.frame.size.height) - self.keyboardHeight;
         }
         self.shouldDismissKeyboardWhenScrolling = NO;
         CGFloat sectionHeaderHeight = kHeaderSectionHeight;

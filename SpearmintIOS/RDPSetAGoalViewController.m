@@ -14,7 +14,7 @@
 
 #define kStoryboard @"Main"
 #define kSetAmount @"setAmount"
-#define kSpacing 6.0
+#define kSpacing 8.0
 #define kBorderWidth 1
 #define kBorderRadius 5
 #define kIndentAmount 10
@@ -67,12 +67,12 @@
         [button setTitle:title forState:UIControlStateNormal];
         [button addTarget:nil action:@selector(addGoalTitle:) forControlEvents:UIControlEventTouchUpInside];
         
-        
         CGSize imageSize = button.imageView.frame.size;
         button.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + kSpacing), 0.0);
         
-        CGSize titleSize = button.titleLabel.frame.size;
-        button.imageEdgeInsets = UIEdgeInsetsMake( - (titleSize.height + kSpacing), 0.0, 0.0, - titleSize.width);
+//        CGSize titleSize = button.titleLabel.frame.size;
+        button.imageEdgeInsets = UIEdgeInsetsMake( - (imageSize.height + kSpacing), 0.0, 0.0, - button.frame.size.width + button.frame.origin.x + imageSize.width / 2);
+//        NSLog(@"button x %f", button.titleLabel.frame.origin.x);
     }
     
     

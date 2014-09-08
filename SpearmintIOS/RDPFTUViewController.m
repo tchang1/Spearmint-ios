@@ -254,11 +254,11 @@
 {
     [RDPAnalyticsModule track:@"FTU Started"];
     
-    //Reposition frame based on welcomeView before adding as a subview prior to fadeout.
-    CGRect newFrame = self.keepLogo.frame;
-    newFrame.origin.y -= self.welcomeView.frame.origin.y;
-    self.keepLogo.frame=newFrame;
-    [self.welcomeView insertSubview:self.keepLogo atIndex:0];
+    [UIView animateWithDuration:kFadeLabelsTime animations:^{
+        self.keepLogo.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.keepLogo removeFromSuperview];
+    }];
     
     // Fade out the welcome screen
     self.welcomeView.duration = kFadeLabelsTime;

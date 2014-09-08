@@ -24,7 +24,7 @@
 #define kIdentifierKey                  @"identifier"
 #define kPlaceholderKey                 @"placeholder"
 
-#define kCellHeight                     62
+#define kCellHeight                     63
 
 #define kGoalNameTag                    1
 #define kGoalTargetAmountTag            2
@@ -187,6 +187,7 @@
 
 
 - (IBAction)cancelPressed:(id)sender {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
     [self.navigationController popViewControllerAnimated:YES];
     if (!([[self.modifiedUser getGoal] isEqualToGoal:[[RDPUserService getUser] getGoal]])) {
         [RDPAnalyticsModule track:@"Settings" properties:@{@"action" : @"editGoal"}];
