@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    sPressAndHoldOnly, 
+    sPressAndHoldOnly,
+    sPressAndHOldTheScreen, 
     sPressAndHold,
     sSettings,
     sUndoSavingBodyMessage,
@@ -114,7 +115,12 @@ typedef enum {
     sLoginGeneralError,
     sSignupUsernameError,
     sSignupGeneralError,
-    sTapRecord
+    sTapRecord,
+    sWelcomeTitle,
+    sWelcomeMessage,
+    sNoNotifications,
+    sYesNotifications,
+    sSignUpToSave
 } RDPStringID;
 
 @interface RDPStrings : NSObject

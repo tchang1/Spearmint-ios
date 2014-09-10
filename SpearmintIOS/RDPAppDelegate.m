@@ -14,7 +14,6 @@
 #import "RDPAnalyticsModule.h"
 #import "RDPMixpanelAnalyticsProvider.h"
 #import "RDPUserService.h"
-#import <Crashlytics/Crashlytics.h>
 
 @implementation RDPAppDelegate
 
@@ -56,11 +55,12 @@
         [RDPAnalyticsModule track:@"Notification tapped" properties:@{@"body" : localNotif.alertBody }];
     }
     [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"launch" } ];
-
-    application.applicationIconBadgeNumber = 0;
     
-    
-    [RDPNotificationsManager clearLocalNotifications];
+    RDPUser *userCopy=[RDPUserService getUser];
+    if ([userCopy isNotificationsEnabled]) {
+        application.applicationIconBadgeNumber = 0;
+        [RDPNotificationsManager clearLocalNotifications];
+    }
 //    [RDPNotificationsManager scheduleTestNotificationWithMessage:@"test" after:5];
 //    [RDPNotificationsManager scheduleTestNotificationWithMessage:@"hello" after:10];
 //    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];
@@ -84,9 +84,7 @@
 //    }
     
 //   [RDPImageFetcher getImageFetcher];
-    
-    [Crashlytics startWithAPIKey:@"2e5bc380686d78611d360d2a169c82892bc19922"];
-    
+        
     return YES;
 }
 
@@ -131,7 +129,10 @@
     //DevNSLog(@"became active");
     [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"awakeFromBackground"} ];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    application.applicationIconBadgeNumber = 0;
+    RDPUser *userCopy=[RDPUserService getUser];
+    if ([userCopy isNotificationsEnabled]) {
+        application.applicationIconBadgeNumber = 0;
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -153,7 +154,10 @@
     {
         [RDPAnalyticsModule track:@"Notification tapped" properties:@{@"body" : notification.alertBody }];
     }
-    application.applicationIconBadgeNumber = 0;
+    RDPUser *userCopy=[RDPUserService getUser];
+    if ([userCopy isNotificationsEnabled]) {
+        application.applicationIconBadgeNumber = 0;
+    }
 
 }
 

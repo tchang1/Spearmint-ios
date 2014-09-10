@@ -124,7 +124,7 @@
     localNotif.alertBody= @"Daily reminder";
     localNotif.timeZone=[NSTimeZone defaultTimeZone];
     localNotif.applicationIconBadgeNumber = 1;
-    localNotif.repeatInterval = NSDayCalendarUnit;
+    localNotif.repeatInterval = NSCalendarUnitDay;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
     
@@ -134,13 +134,13 @@
 +(NSDate*)daysFromToday:(int)days hours:(int)hours
 {
     NSDate *today = [[NSDate alloc] init];
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [gregorian setTimeZone:[NSTimeZone defaultTimeZone]];
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setDay:days];
     
     NSDate *daysFromToday = [gregorian dateByAddingComponents:components toDate:today options:0];
-    NSDateComponents *reminderTimeComponents = [gregorian components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:daysFromToday];
+    NSDateComponents *reminderTimeComponents = [gregorian components:(NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:daysFromToday];
     reminderTimeComponents.hour=hours;
     return [gregorian dateFromComponents:reminderTimeComponents];
 
@@ -148,7 +148,7 @@
 
 +(int)consecutiveSavingDays:(NSArray *)savings
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     [gregorian setTimeZone:[NSTimeZone defaultTimeZone]];
     NSDate *currentDate=nil;
     NSDate *comparisonDate=nil;
@@ -174,7 +174,7 @@
 
 +(NSDate *)extractDateFromNSDate:(NSDate *)date withCalendar:(NSCalendar *)cal
 {
-    NSDateComponents *comps=[cal components:(NSEraCalendarUnit|NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit) fromDate:date];
+    NSDateComponents *comps=[cal components:(NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay) fromDate:date];
     return [cal dateFromComponents:comps];
 }
 

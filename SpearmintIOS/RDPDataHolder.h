@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSNumber *amountJustSaved;
 @property (nonatomic, assign) BOOL reachedGoal;
 @property (nonatomic, weak) RDPViewController* homeController;
+@property (nonatomic, assign) BOOL firstTime; 
 
 + (RDPDataHolder *)getDataHolder;
 

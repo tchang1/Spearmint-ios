@@ -171,13 +171,13 @@
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congrats on your hard work" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="YEv-io-ZWm">
                                                                 <rect key="frame" x="30" y="194" width="260" height="126"/>
-                                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
+                                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You just kept" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7T6-h7-ZKy">
                                                                 <rect key="frame" x="30" y="325" width="260" height="27"/>
-                                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
+                                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="24"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -190,9 +190,9 @@
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q4a-9m-o0x" customClass="CSAnimationView">
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saving Suggestion?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="gI3-wh-5QS">
-                                                                <rect key="frame" x="20" y="-70" width="280" height="60"/>
+                                                                <rect key="frame" x="20" y="170" width="280" height="60"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="22"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -215,7 +215,7 @@
                                                         <subviews>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap and hold" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-OA-0G6">
                                                                 <rect key="frame" x="40" y="100" width="240" height="75"/>
-                                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
+                                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="24"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -586,8 +586,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You made it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-H7-pAi">
-                                <rect key="frame" x="40" y="160" width="240" height="111"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You made it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-H7-pAi">
+                                <rect key="frame" x="41.5" y="160" width="237.5" height="111"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="111" id="vbC-Dh-KTH"/>
                                 </constraints>
@@ -595,8 +595,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Go enjoy it." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3F-bH-uqe">
-                                <rect key="frame" x="98" y="269" width="125" height="30"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go enjoy it." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3F-bH-uqe">
+                                <rect key="frame" x="98" y="269" width="124" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -742,20 +742,13 @@
                                             <segue destination="0o8-qi-gHo" kind="push" id="yHg-sm-Cwz"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="GOC-C4-VMU">
-                                        <rect key="frame" x="30" y="110" width="260" height="150"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="slogan" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="GOC-C4-VMU">
+                                        <rect key="frame" x="10" y="110" width="300" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="hBb-hV-rhb"/>
                                         </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="slogan">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="17" name="Helvetica-Light"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="20" paragraphSpacing="2" paragraphSpacingBefore="2" minimumLineHeight="10" maximumLineHeight="10" lineHeightMultiple="10"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -763,7 +756,7 @@
                                 <constraints>
                                     <constraint firstItem="7oy-83-WK3" firstAttribute="leading" secondItem="aD2-14-RzB" secondAttribute="leading" id="3MD-Ab-GTX"/>
                                     <constraint firstAttribute="trailing" secondItem="7oy-83-WK3" secondAttribute="trailing" id="5nI-vv-LtG"/>
-                                    <constraint firstItem="GOC-C4-VMU" firstAttribute="leading" secondItem="aD2-14-RzB" secondAttribute="leading" constant="30" id="AVl-hU-ISX"/>
+                                    <constraint firstItem="GOC-C4-VMU" firstAttribute="leading" secondItem="aD2-14-RzB" secondAttribute="leading" constant="10" id="AVl-hU-ISX"/>
                                     <constraint firstItem="aWH-f0-bLS" firstAttribute="leading" secondItem="aD2-14-RzB" secondAttribute="leading" constant="20" symbolic="YES" id="Hfs-lD-ykv"/>
                                     <constraint firstItem="7oy-83-WK3" firstAttribute="top" secondItem="GOC-C4-VMU" secondAttribute="bottom" constant="80" id="Jlz-Ar-bhz"/>
                                     <constraint firstItem="GOC-C4-VMU" firstAttribute="centerX" secondItem="7oy-83-WK3" secondAttribute="centerX" id="RGB-yV-JqM"/>
@@ -994,7 +987,7 @@
                                         <rect key="frame" x="8" y="5" width="304" height="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
@@ -1134,7 +1127,7 @@
                                         <rect key="frame" x="8" y="5" width="304" height="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJt-rt-hE0">
                                         <rect key="frame" x="16" y="20" width="44" height="20"/>
@@ -1353,9 +1346,12 @@
                                     </button>
                                 </subviews>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Keep_Text" translatesAutoresizingMaskIntoConstraints="NO" id="Dsh-Xz-xB2">
-                                <rect key="frame" x="90" y="36" width="140" height="40"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sign up message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPm-ui-NGK">
+                                <rect key="frame" x="10" y="40" width="300" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1371,6 +1367,7 @@
                         <outlet property="passwordStatusLabel" destination="6B9-bh-SO6" id="UxR-xV-GA5"/>
                         <outlet property="passwordTextField" destination="dFR-hB-y2v" id="jhK-EJ-72Q"/>
                         <outlet property="passwordView" destination="eAV-gP-r3Z" id="y5M-ON-8VN"/>
+                        <outlet property="signupMessage" destination="VPm-ui-NGK" id="RdX-X8-PNp"/>
                         <segue destination="RLe-TQ-3X4" kind="push" identifier="signupToHome" id="i4c-YM-z26"/>
                     </connections>
                 </viewController>
@@ -1408,9 +1405,9 @@
         </simulatedScreenMetrics>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pBO-eW-BpZ"/>
-        <segue reference="m5p-NK-Jov"/>
-        <segue reference="yHg-sm-Cwz"/>
+        <segue reference="i4c-YM-z26"/>
+        <segue reference="IdQ-DB-Vha"/>
         <segue reference="eHT-iJ-sJ8"/>
+        <segue reference="pBO-eW-BpZ"/>
     </inferredMetricsTieBreakers>
 </document>

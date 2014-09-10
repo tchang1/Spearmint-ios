@@ -47,8 +47,6 @@
 		55DCE1B6199C041D003EA30D /* RDPQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B4199C041D003EA30D /* RDPQuotes.m */; };
 		55DCE1B8199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
 		55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
-		55DCE1BC199E792E003EA30D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DCE1BB199E792E003EA30D /* Crashlytics.framework */; };
-		55DCE1BD199E792E003EA30D /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DCE1BB199E792E003EA30D /* Crashlytics.framework */; };
 		5849BC76199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
 		5849BC77199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
 		5849BC7A199C1E91008BAEBF /* RDPProgressHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */; };
@@ -92,7 +90,6 @@
 		58F643BE197DA5F6001D0236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643BD197DA5F6001D0236 /* main.m */; };
 		58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643C1197DA5F6001D0236 /* RDPAppDelegate.m */; };
 		58F643C4197DA5F6001D0236 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F643C3197DA5F6001D0236 /* Images.xcassets */; };
-		58F643CB197DA5F6001D0236 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643CA197DA5F6001D0236 /* XCTest.framework */; };
 		58F643CC197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643CD197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
 		58F643D5197DA5F6001D0236 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58F643D3197DA5F6001D0236 /* InfoPlist.strings */; };
@@ -399,7 +396,6 @@
 		55DCE1B3199C041D003EA30D /* RDPQuotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPQuotes.h; sourceTree = "<group>"; };
 		55DCE1B4199C041D003EA30D /* RDPQuotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPQuotes.m; sourceTree = "<group>"; };
 		55DCE1B7199C09B3003EA30D /* quotes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = quotes.plist; sourceTree = "<group>"; };
-		55DCE1BB199E792E003EA30D /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPProgressHeader.xib; sourceTree = "<group>"; };
 		5849BC78199C1E91008BAEBF /* RDPProgressHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProgressHeader.h; sourceTree = "<group>"; };
 		5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProgressHeader.m; sourceTree = "<group>"; };
@@ -444,7 +440,6 @@
 		58F643C1197DA5F6001D0236 /* RDPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RDPAppDelegate.m; sourceTree = "<group>"; };
 		58F643C3197DA5F6001D0236 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearmintIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		58F643CA197DA5F6001D0236 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		58F643D2197DA5F6001D0236 /* SpearmintIOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpearmintIOSTests-Info.plist"; sourceTree = "<group>"; };
 		58F643D4197DA5F6001D0236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58F643D6197DA5F6001D0236 /* SpearmintIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpearmintIOSTests.m; sourceTree = "<group>"; };
@@ -635,7 +630,6 @@
 				58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */,
 				58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */,
 				3DA685B260D1443591BE91E6 /* libPods.a in Frameworks */,
-				55DCE1BC199E792E003EA30D /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,9 +637,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58F643CB197DA5F6001D0236 /* XCTest.framework in Frameworks */,
 				58F643CD197DA5F6001D0236 /* UIKit.framework in Frameworks */,
-				55DCE1BD199E792E003EA30D /* Crashlytics.framework in Frameworks */,
 				58F643CC197DA5F6001D0236 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -729,7 +721,6 @@
 		58F643B0197DA5F6001D0236 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				55DCE1BB199E792E003EA30D /* Crashlytics.framework */,
 				58988F80198EF2BD00E05AC5 /* Accelerate.framework */,
 				58988F4519881C1300E05AC5 /* QuartzCore.framework */,
 				58988F4319881C0000E05AC5 /* AVFoundation.framework */,
@@ -739,7 +730,6 @@
 				58F643B1197DA5F6001D0236 /* Foundation.framework */,
 				58F643B3197DA5F6001D0236 /* CoreGraphics.framework */,
 				58F643B5197DA5F6001D0236 /* UIKit.framework */,
-				58F643CA197DA5F6001D0236 /* XCTest.framework */,
 				C1A66A01DDAC4711864FBE10 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1207,7 +1197,7 @@
 				ORGANIZATIONNAME = Spearmint;
 				TargetAttributes = {
 					58F643AD197DA5F6001D0236 = {
-						DevelopmentTeam = GZ7FHJCTQ4;
+						DevelopmentTeam = YFU53K9D3B;
 					};
 					58F643C8197DA5F6001D0236 = {
 						TestTargetID = 58F643AD197DA5F6001D0236;

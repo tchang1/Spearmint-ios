@@ -242,6 +242,68 @@
     // Load the savings events
     [self loadSavings];
     [self.tableView reloadData];
+    
+    // If they have saved more than 10 times, try asking
+    // for notificaitons again
+    RDPUser* modifiedUser = [RDPUserService getUser];
+    BOOL moreThan10 = [[[modifiedUser getGoal] getSavingEvents] count] > 10;
+    if (moreThan10 && [[NSUserDefaults standardUserDefaults] boolForKey:@"HasSeenWelcomeMessage"] && ![modifiedUser isNotificationsEnabled]) {
+        [self registerNotifications];
+        
+        // Save this user as having notificaitons enabled since they have now seen the
+        // apple request for user notifications
+        [modifiedUser setNotificationsEnabled:YES];
+        [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
+            //
+        }];
+    }
+    
+    // Show welcome message if this is their first time in the app
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasSeenWelcomeMessage"]) {
+        [self showWelcomeMessage];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasSeenWelcomeMessage"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+- (void)showWelcomeMessage
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:[RDPStrings stringForID:sWelcomeTitle]
+                                                      message:[RDPStrings stringForID:sWelcomeMessage]
+                                                     delegate:self
+                                            cancelButtonTitle:[RDPStrings stringForID:sNoNotifications]
+                                            otherButtonTitles:[RDPStrings stringForID:sYesNotifications],nil];
+    
+    [message show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    
+    BOOL preference;
+    if([title isEqualToString:[RDPStrings stringForID:sNoNotifications]]){
+        preference = NO;
+    }
+    else if([title isEqualToString:[RDPStrings stringForID:sYesNotifications]]){
+        preference = YES;
+        [self registerNotifications];
+    }
+    
+    [RDPAnalyticsModule track:@"Notifications" properties:@{@"action" : @"toggleNotifications", @"value": [NSString stringWithFormat:@"%@",preference ? @"Accept" : @"Decline"]}];
+    RDPUser* modifiedUser = [RDPUserService getUser];
+    [modifiedUser setNotificationsEnabled:preference];
+    [RDPUserService saveUser:modifiedUser withResponse:^(RDPResponseCode response) {
+        //
+    }];
+
+}
+
+- (void)registerNotifications
+{
+    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeAlert;
+    UIUserNotificationSettings *keepSettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:keepSettings];
 }
 
 - (void)updateProgressHeaader
@@ -1118,7 +1180,7 @@
 {
     if (textField != self.savingsTextField) {
         self.currentTextField = textField;
-        UITableViewCell* cell = (UITableViewCell *) textField.superview.superview.superview.superview;
+        UITableViewCell* cell = (UITableViewCell *) textField.superview.superview.superview;
         self.scrollHeight = 0;
         if (cell.frame.origin.x + cell.frame.size.height > kScreenHeight - self.keyboardHeight) {
             self.scrollHeight = (cell.frame.origin.x + cell.frame.size.height) - self.keyboardHeight;

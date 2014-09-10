@@ -96,7 +96,14 @@
 
 -(BOOL) isNotificationsEnabled
 {
-    return self.notifications;
+    UIUserNotificationSettings *currentSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+    
+    if (currentSettings.types == UIUserNotificationTypeNone) {
+        return NO;
+    }
+    else {
+        return self.notifications;
+    } 
 }
 
 -(RDPResponseCode) setNotificationsEnabled:(BOOL)enabled

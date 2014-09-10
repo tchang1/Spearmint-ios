@@ -18,6 +18,9 @@
         case sPressAndHoldOnly:
             result = @"Tap and hold";
             break;
+        case sPressAndHOldTheScreen:
+            result = @"Tap and hold the screen";
+            break;
         case sPressAndHold:
             result = @"Tap and hold \n to keep the savings";
             break;
@@ -332,7 +335,23 @@
             break;
         case sTapRecord:
             result = @"Tap to add description";
-            break; 
+            break;
+        case sWelcomeTitle:
+            result = @"Welcome to Keep!";
+            break;
+        case sWelcomeMessage:
+            result = @"\nWe want you to reach your goal as much as you do.\n \nTurn on notifications so we can help?";
+            break;
+        case sNoNotifications:
+            result = @"No, thanks";
+            break;
+        case sYesNotifications:
+            result = @"Yes";
+            break;
+        case sSignUpToSave:
+            result = @"Sign up to start saving!";
+            break;
+        
 }
     
     return result;

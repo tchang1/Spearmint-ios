@@ -24,7 +24,7 @@
 #define kCellXibName                @"RDPTableViewCellWithName"
 
 #define kSegueToMyGoal              @"segueToMyGoal"
-#define kSegueToNotifications       @"segueToNotifications"
+//#define kSegueToNotifications       @"segueToNotifications"
 #define kSegueToHistory             @"segueToHistory"
 #define kSegueToFeedback            @"segueToFeedback"
 
@@ -32,7 +32,7 @@
 #define kRDPLoginViewController     @"RDPLoginViewController"
 
 #define kMyGoalIdentifier           @"settingsMyGoal"
-#define kNotificationsIdentifier    @"settingsNotifications"
+//#define kNotificationsIdentifier    @"settingsNotifications"
 #define kFeedbackIdentifier         @"settingsFeedback"
 
 #define kLogoutSegue                @"logoutSegue"
@@ -58,9 +58,9 @@
         _menuItems = @[@{kKeyName : [RDPStrings stringForID:sMyGoal],
                          kKeySelector : NSStringFromSelector(@selector(navigateToMyGoal))
                          },
-                       @{kKeyName : [RDPStrings stringForID:sNotificationSettings],
-                         kKeySelector : NSStringFromSelector(@selector(notificationsTapped))
-                         },
+//                       @{kKeyName : [RDPStrings stringForID:sNotificationSettings],
+//                         kKeySelector : NSStringFromSelector(@selector(notificationsTapped))
+//                         },
                        @{kKeyName : [RDPStrings stringForID:sSubmitFeedback],
                          kKeySelector : NSStringFromSelector(@selector(feedbackTapped))
                          },
@@ -239,16 +239,16 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
--(void)notificationsTapped
-{
-    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"notifications"}];
-
-    RDPViewController *viewController =
-    [[UIStoryboard storyboardWithName:kStoryboard
-                               bundle:NULL] instantiateViewControllerWithIdentifier:kNotificationsIdentifier];
-    
-    [self.navigationController pushViewController:viewController animated:YES];
-}
+//-(void)notificationsTapped
+//{
+//    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"notifications"}];
+//
+//    RDPViewController *viewController =
+//    [[UIStoryboard storyboardWithName:kStoryboard
+//                               bundle:NULL] instantiateViewControllerWithIdentifier:kNotificationsIdentifier];
+//    
+//    [self.navigationController pushViewController:viewController animated:YES];
+//}
 
 -(void)feedbackTapped
 {

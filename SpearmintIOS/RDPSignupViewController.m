@@ -33,6 +33,8 @@
     [super viewDidLoad];
     [_backgroundImageView setImage:[RDPImageBlur applyBlurOnImage:_backgroundImageView.image]];
     
+    self.signupMessage.text = [RDPStrings stringForID:sSignUpToSave]; 
+    
     self.emailTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:SEmailPlaceholder] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
                                                                                                                                                    NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
     self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sPasswordPlaceholder] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,

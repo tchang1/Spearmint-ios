@@ -172,7 +172,7 @@ static dispatch_source_t gcdTimer;
 
 +(void) registerUpdateBlock:(UpdateBlock) updateBlock
 {
-    [RDPTimerManager registerUpdateBlock:updateBlock withName:[NSUUID UUID]];
+    [RDPTimerManager registerUpdateBlock:updateBlock withName:[[NSUUID UUID] UUIDString]];
 }
 
 +(void) registerUpdateBlock:(UpdateBlock) updateBlock withName:(NSString*)name

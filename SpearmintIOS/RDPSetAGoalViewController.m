@@ -160,7 +160,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if (textField == self.setAGoalTextField)
+    if (textField == self.setAGoalTextField && textField.text.length > 0)
     {
         [self nextButtonClicked];
     }
