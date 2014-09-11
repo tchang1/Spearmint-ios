@@ -1719,8 +1719,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Corinne McElwain (YFU53K9D3B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Corinne McElwain (YFU53K9D3B)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1737,7 +1737,7 @@
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = Keep;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "89624a2d-161d-4c1d-9178-c0f11ea3c6b4";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1749,8 +1749,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Corinne McElwain (YFU53K9D3B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Corinne McElwain (YFU53K9D3B)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1767,7 +1767,7 @@
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = Keep;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "89624a2d-161d-4c1d-9178-c0f11ea3c6b4";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

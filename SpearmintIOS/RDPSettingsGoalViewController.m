@@ -141,6 +141,7 @@
     
     if ([[goalInfo objectForKey:kIdentifierKey] isEqualToString:kGoalNameIdentifier]) {
         cell.inputView.input.text = [[[RDPUserService getUser] getGoal] getGoalName];
+        cell.inputView.input.autocorrectionType = UITextAutocorrectionTypeNo;
         cell.inputView.input.tag = kGoalNameTag;
     }
     else if ([[goalInfo objectForKey:kIdentifierKey]  isEqualToString: kGoalAmountIdentifier]) {
