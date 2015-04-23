@@ -58,7 +58,7 @@
     
     RDPUser *userCopy=[RDPUserService getUser];
     if ([userCopy isNotificationsEnabled]) {
-        application.applicationIconBadgeNumber = 0;
+//        application.applicationIconBadgeNumber = 0;
         [RDPNotificationsManager clearLocalNotifications];
     }
 //    [RDPNotificationsManager scheduleTestNotificationWithMessage:@"test" after:5];
@@ -129,10 +129,10 @@
     //DevNSLog(@"became active");
     [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"awakeFromBackground"} ];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    RDPUser *userCopy=[RDPUserService getUser];
-    if ([userCopy isNotificationsEnabled]) {
-        application.applicationIconBadgeNumber = 0;
-    }
+    //RDPUser *userCopy=[RDPUserService getUser];
+//    if ([userCopy isNotificationsEnabled]) {
+//        application.applicationIconBadgeNumber = 0;
+//    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -154,10 +154,10 @@
     {
         [RDPAnalyticsModule track:@"Notification tapped" properties:@{@"body" : notification.alertBody }];
     }
-    RDPUser *userCopy=[RDPUserService getUser];
-    if ([userCopy isNotificationsEnabled]) {
-        application.applicationIconBadgeNumber = 0;
-    }
+//    RDPUser *userCopy=[RDPUserService getUser];
+//    if ([userCopy isNotificationsEnabled]) {
+//        application.applicationIconBadgeNumber = 0;
+//    }
 
 }
 

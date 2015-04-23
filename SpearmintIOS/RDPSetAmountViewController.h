@@ -17,6 +17,7 @@
 
 // The input text field
 @property (weak, nonatomic) IBOutlet RDPCutOutView *cutOutView;
+@property (weak, nonatomic) IBOutlet UILabel *currencySymbol;
 @property (weak, nonatomic) IBOutlet RDPUITextField *setAmountTextField;
 
 

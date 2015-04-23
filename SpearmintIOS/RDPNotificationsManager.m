@@ -20,7 +20,7 @@
     localNotif.alertAction = @"Keep";
     localNotif.alertBody= message;
     localNotif.timeZone=[NSTimeZone defaultTimeZone];
-    localNotif.applicationIconBadgeNumber = 1;
+//    localNotif.applicationIconBadgeNumber = 1;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
@@ -33,7 +33,7 @@
     localNotif.alertAction = @"Keep";
     localNotif.alertBody= message;
     localNotif.timeZone=[NSTimeZone defaultTimeZone];
-    localNotif.applicationIconBadgeNumber = 1;
+//    localNotif.applicationIconBadgeNumber = 1;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
 }
@@ -123,7 +123,7 @@
     localNotif.fireDate = [self daysFromToday:1 hours:8];
     localNotif.alertBody= @"Daily reminder";
     localNotif.timeZone=[NSTimeZone defaultTimeZone];
-    localNotif.applicationIconBadgeNumber = 1;
+//    localNotif.applicationIconBadgeNumber = 1;
     localNotif.repeatInterval = NSCalendarUnitDay;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotif];

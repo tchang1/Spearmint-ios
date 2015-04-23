@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RDPConfig.h"
 
 typedef enum {
     sPressAndHoldOnly,

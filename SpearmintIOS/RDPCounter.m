@@ -79,7 +79,9 @@
     self.backgroundColor = [UIColor clearColor];
     self.font = [UIFont fontWithName:kDefaultFontName size:kDefaultFontSize];
     self.currencySymbolFont = [UIFont fontWithName:kDefaultFontName size:kDefaultFontSize * kCurrencySymbolFontScale];
-    self.currencySymbol = kDefaultCurrencySymbol;
+    NSLocale *theLocale = [NSLocale currentLocale];
+    NSString *currencySymbol = [theLocale objectForKey:NSLocaleCurrencySymbol];
+    self.currencySymbol = currencySymbol;
     [self setOpaque:NO];
     self.hidden = NO;
     self.maxValue = kTrueMaxValue;

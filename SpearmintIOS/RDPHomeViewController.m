@@ -301,7 +301,7 @@
 
 - (void)registerNotifications
 {
-    UIUserNotificationType types = UIUserNotificationTypeBadge | UIUserNotificationTypeAlert;
+    UIUserNotificationType types = UIUserNotificationTypeAlert;
     UIUserNotificationSettings *keepSettings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:keepSettings];
 }
@@ -418,27 +418,39 @@
         dayString = [RDPStrings stringForID:sYesterday];
     }
     else {
-        dayString = [date longDateString];
-        NSString* append;
-        dayString = [dayString substringWithRange:NSMakeRange(0, dayString.length - 6)];
-        NSInteger daySingleDigit = date.day % 10;
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+        NSString *localeFormatString = [NSDateFormatter dateFormatFromTemplate:@"MMMMd" options:0 locale:dateFormatter.locale];
+        dateFormatter.dateFormat = localeFormatString;
         
-        if (daySingleDigit == 1) {
-            append = @"st";
+        
+        dayString = [dateFormatter stringFromDate:date];
+        //dayString = [date longDateString];
+        //dayString = [dayString substringWithRange:NSMakeRange(0, dayString.length - 6)];
+        
+        
+        NSString *locale = [[NSLocale currentLocale] localeIdentifier];
+
+        if ([locale isEqual:@"en_US"]) {
+            NSString* append;
+            NSInteger daySingleDigit = date.day % 10;
+            
+            if (daySingleDigit == 1) {
+                append = @"st";
+            }
+            else if (daySingleDigit == 2) {
+                append = @"nd";
+            }
+            else if (daySingleDigit == 3) {
+                append = @"rd";
+            }
+            else {
+                append = @"th";
+            }
+            if (date.day == 11 || date.day == 12 || date.day == 13) {
+                append = @"th";
+            }
+            dayString = [dayString stringByAppendingString:append];
         }
-        else if (daySingleDigit == 2) {
-            append = @"nd";
-        }
-        else if (daySingleDigit == 3) {
-            append = @"rd";
-        }
-        else {
-            append = @"th";
-        }
-        if (date.day == 11 || date.day == 12 || date.day == 13) {
-            append = @"th";
-        }
-        dayString = [dayString stringByAppendingString:append];
     }
     
     
@@ -849,9 +861,8 @@
                     }
                 }
             } else {
-                NSString *symbol = self.counterView.currencySymbol;
                 NSString *justKept = [RDPStrings stringForID:sJustKept];
-                NSString *amount = [symbol stringByAppendingString:[amountSaved stringValue]];
+                NSString *amount = [[RDPConfig numberFormatter] stringFromNumber:amountSaved];
                 self.amountKeptLabel.text = [justKept stringByAppendingString:amount];
                 
                 self.congratsLabel.text = self.congratulations.congratsMessage;

@@ -12,7 +12,7 @@
 #import "RDPJSONResponseSerializer.h"
 #import "RDPUserService.h"
 
-static NSString * const APIURLString = @"http://moment-qa.intuitlabs.com/";
+static NSString * const APIURLString = @"http://ec2-54-221-20-6.compute-1.amazonaws.com/";
 static NSString* const notificationsKey = @"notifications";
 static NSString* const feedbackURL = @"/feedback";
 static NSString* const feedbackKey = @"feedback";

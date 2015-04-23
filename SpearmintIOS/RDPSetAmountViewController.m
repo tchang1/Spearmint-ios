@@ -66,6 +66,11 @@
     self.setAmountTextField.parentColor = self.cutOutView.backgroundColor;
     self.setAmountTextField.delegate=self;
     
+    // get the correct currency symbol
+    NSLocale *theLocale = [NSLocale currentLocale];
+    NSString *currencySymbol = [theLocale objectForKey:NSLocaleCurrencySymbol];
+    self.currencySymbol.text = currencySymbol;
+    
     // Show the navigation bar with the back button
     //[self.navigationItem setHidesBackButton:NO];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[RDPStrings stringForID:sBack] style:UIBarButtonItemStylePlain target:

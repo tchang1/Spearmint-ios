@@ -357,8 +357,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		585971B41A1D2BAD00D5E0CF /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		418596D1A2794C27B7EA9326 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		2B66048ECD85FE433E4CAAB9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		462B8402855058FEC41F3937 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		551AA60C1990B20C0010E65B /* RDPUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPUITextField.h; sourceTree = "<group>"; };
 		551AA60D1990B20C0010E65B /* RDPUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPUITextField.m; sourceTree = "<group>"; };
 		551AA6101992A5630010E65B /* RDPInputViewWithImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPInputViewWithImage.h; sourceTree = "<group>"; };
@@ -399,6 +413,7 @@
 		5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RDPProgressHeader.xib; sourceTree = "<group>"; };
 		5849BC78199C1E91008BAEBF /* RDPProgressHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPProgressHeader.h; sourceTree = "<group>"; };
 		5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPProgressHeader.m; sourceTree = "<group>"; };
+		5859718D1A1D2BAD00D5E0CF /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = System/Library/Frameworks/WatchKit.framework; sourceTree = SDKROOT; };
 		585F1590199D79F100992AE3 /* RDPDataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPDataHolder.h; sourceTree = "<group>"; };
 		585F1591199D79F100992AE3 /* RDPDataHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPDataHolder.m; sourceTree = "<group>"; };
 		58988F231987065200E05AC5 /* RDPImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPImageFetcher.h; sourceTree = "<group>"; };
@@ -705,7 +720,7 @@
 				58F643D0197DA5F6001D0236 /* SpearmintIOSTests */,
 				58F643B0197DA5F6001D0236 /* Frameworks */,
 				58F643AF197DA5F6001D0236 /* Products */,
-				418596D1A2794C27B7EA9326 /* Pods.xcconfig */,
+				9DF776A898F0F0A5B46323D6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -731,6 +746,7 @@
 				58F643B3197DA5F6001D0236 /* CoreGraphics.framework */,
 				58F643B5197DA5F6001D0236 /* UIKit.framework */,
 				C1A66A01DDAC4711864FBE10 /* libPods.a */,
+				5859718D1A1D2BAD00D5E0CF /* WatchKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -918,6 +934,15 @@
 				58988F9A1993114500E05AC5 /* Keep.png */,
 			);
 			name = "FTU Images";
+			sourceTree = "<group>";
+		};
+		9DF776A898F0F0A5B46323D6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B66048ECD85FE433E4CAAB9 /* Pods.debug.xcconfig */,
+				462B8402855058FEC41F3937 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		F2208C611989B08900EDD6CF /* Counter */ = {
@@ -1158,6 +1183,7 @@
 				58F643AB197DA5F6001D0236 /* Frameworks */,
 				58F643AC197DA5F6001D0236 /* Resources */,
 				66C255A1333A40159BE76363 /* Copy Pods Resources */,
+				585971B41A1D2BAD00D5E0CF /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -1442,7 +1468,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9B289DAF7BF241F0B1BA7943 /* Check Pods Manifest.lock */ = {
@@ -1715,12 +1741,12 @@
 		};
 		58F643DB197DA5F6001D0236 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 418596D1A2794C27B7EA9326 /* Pods.xcconfig */;
+			baseConfigurationReference = 2B66048ECD85FE433E4CAAB9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Corinne McElwain (YFU53K9D3B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Corinne McElwain (YFU53K9D3B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1737,7 +1763,7 @@
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = Keep;
-				PROVISIONING_PROFILE = "248326b1-2786-49f0-8c4e-aec3692449a2";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1745,12 +1771,12 @@
 		};
 		58F643DC197DA5F6001D0236 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 418596D1A2794C27B7EA9326 /* Pods.xcconfig */;
+			baseConfigurationReference = 462B8402855058FEC41F3937 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Corinne McElwain (YFU53K9D3B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Corinne McElwain (YFU53K9D3B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1767,7 +1793,7 @@
 				INFOPLIST_FILE = "SpearmintIOS/SpearmintIOS-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = Keep;
-				PROVISIONING_PROFILE = "248326b1-2786-49f0-8c4e-aec3692449a2";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

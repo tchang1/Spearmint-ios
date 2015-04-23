@@ -199,13 +199,13 @@
             result = @"Keep is a way to save for your \ngoals by recording good \nspending decisions";
             break;
         case sCoffeeExampleHeader:
-            result = @"When you decide to \n skip the $3 coffee that \n you usually buy...";
+            result = [NSString stringWithFormat:@"When you decide to \n skip the %@ coffee that \n you usually buy...", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:3]]];
             break;
         case sCoffeeTapAndHold:
-            result = @"to keep the $3 \nfor your goal instead";
+            result = [NSString stringWithFormat:@"to keep the %@ \nfor your goal instead", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:3]]];
             break;
         case sCoffeeCounterLabel:
-            result = @"When the timer reaches $3, \nrelease the screen.";
+            result = [NSString stringWithFormat:@"When the timer reaches %@, \nrelease the screen.", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:3]]];
             break;
         case sCoffeeReleaseScreen:
             result = @"Release the screen";
@@ -235,13 +235,13 @@
             result = @"Keep holding";
             break;
         case sKeepHolding3:
-            result = @"Keep holding until \nyou reach $3";
+            result = [NSString stringWithFormat:@"Keep holding until \nyou reach %@", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:3]]];
             break;
         case sKeepHolding8:
-            result = @"Keep holding until \nyou reach $8";
+            result = [NSString stringWithFormat:@"Keep holding until \nyou reach %@", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:8]]];
             break;
         case sBusExmapleHeader:
-            result = @"When you decide to take a \n$2 bus over a $10 cab...";
+            result = [NSString stringWithFormat:@"When you decide to take a \n%@ bus over a %@ cab...", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:2]], [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:10]]];
             break;
         case sBusTapAndHold:
             result = @"to keep the \n difference";
