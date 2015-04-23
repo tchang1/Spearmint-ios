@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @protocol RDPUITextFieldProtocol <UITextFieldDelegate>
+
 
 @optional
 -(void)removeNextButton;
@@ -22,7 +22,7 @@
 @property (nonatomic, strong) UIColor* parentColor;
 @property (nonatomic, strong) UIColor* textFieldColor;
 
-@property (nonatomic, weak) id<RDPUITextFieldProtocol> delegate;
+
 
 @end
 

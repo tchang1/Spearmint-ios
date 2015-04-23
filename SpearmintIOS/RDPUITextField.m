@@ -49,11 +49,7 @@
 - (void)clearTextField:(id)sender
 {
     self.text = @"";
-    if (self.delegate && [self.delegate respondsToSelector:@selector(removeNextButton)]) {
-        
-        [self.delegate removeNextButton];
-        
-    }
+
 }
 
 
