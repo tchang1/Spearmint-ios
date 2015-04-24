@@ -5,7 +5,7 @@
 	<key>shouldSeeCompleteGoalScreenKey</key>
 	<string>shouldSeeCompleteGoalScreen</string>
 	<key>maximumPasswordLength</key>
-	<integer>32</integer>
+	<integer>42</integer>
 	<key>emailRegex</key>
 	<string>@&quot;^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$&quot;</string>
 	<key>minimumGoalNameLength</key>
