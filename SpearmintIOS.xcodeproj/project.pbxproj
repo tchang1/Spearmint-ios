@@ -1223,7 +1223,7 @@
 				ORGANIZATIONNAME = Spearmint;
 				TargetAttributes = {
 					58F643AD197DA5F6001D0236 = {
-						DevelopmentTeam = YFU53K9D3B;
+						DevelopmentTeam = G4SSPX3CBL;
 					};
 					58F643C8197DA5F6001D0236 = {
 						TestTargetID = 58F643AD197DA5F6001D0236;
