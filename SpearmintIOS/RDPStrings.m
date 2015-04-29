@@ -351,6 +351,9 @@
         case sSignUpToSave:
             result = @"Sign up to start saving!";
             break;
+        case sPrivacyPolicy:
+            result = @"Privacy Policy";
+            break;
         
 }
     

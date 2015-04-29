@@ -121,7 +121,8 @@ typedef enum {
     sWelcomeMessage,
     sNoNotifications,
     sYesNotifications,
-    sSignUpToSave
+    sSignUpToSave,
+    sPrivacyPolicy
 } RDPStringID;
 
 @interface RDPStrings : NSObject

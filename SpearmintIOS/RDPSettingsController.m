@@ -34,6 +34,7 @@
 #define kMyGoalIdentifier           @"settingsMyGoal"
 //#define kNotificationsIdentifier    @"settingsNotifications"
 #define kFeedbackIdentifier         @"settingsFeedback"
+#define kPrivacyIdentifier          @"settingsPrivacy"
 
 #define kLogoutSegue                @"logoutSegue"
 
@@ -66,6 +67,9 @@
                          },
                        @{kKeyName : [RDPStrings stringForID:sRateTheApp],
                          kKeySelector : NSStringFromSelector(@selector(rateTapped))
+                         },
+                       @{kKeyName : [RDPStrings stringForID:sPrivacyPolicy],
+                         kKeySelector : NSStringFromSelector(@selector(privacyTapped))
                          }
                        ];
     }
@@ -281,6 +285,16 @@
     //DevNSLog(@"Rate app");
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: kAppStoreURL]];
 }
+
+-(void)privacyTapped
+{
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Privacy Policy"}];
+    
+    RDPViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kPrivacyIdentifier];
+    
+    [self.navigationController pushViewController:viewController animated:YES];}
 
 - (IBAction)logoutTapped:(id)sender {
     [RDPUserService logoutWithResponse:^(RDPResponseCode response) {
