@@ -9,80 +9,49 @@
 /* Begin PBXBuildFile section */
 		3DA685B260D1443591BE91E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1A66A01DDAC4711864FBE10 /* libPods.a */; };
 		551AA60E1990B20C0010E65B /* RDPUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA60D1990B20C0010E65B /* RDPUITextField.m */; };
-		551AA60F1990B20C0010E65B /* RDPUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA60D1990B20C0010E65B /* RDPUITextField.m */; };
 		551AA6121992A5630010E65B /* RDPInputViewWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA6111992A5630010E65B /* RDPInputViewWithImage.m */; };
-		551AA6131992A5630010E65B /* RDPInputViewWithImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA6111992A5630010E65B /* RDPInputViewWithImage.m */; };
 		551AA6181992AE390010E65B /* RDPInputViewWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6171992AE390010E65B /* RDPInputViewWithImage.xib */; };
-		551AA6191992AE390010E65B /* RDPInputViewWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 551AA6171992AE390010E65B /* RDPInputViewWithImage.xib */; };
 		551AA63419941FB60010E65B /* RDPSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA63319941FB60010E65B /* RDPSignupViewController.m */; };
-		551AA63519941FB60010E65B /* RDPSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA63319941FB60010E65B /* RDPSignupViewController.m */; };
 		551AA638199427430010E65B /* RDPValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA637199427430010E65B /* RDPValidationService.m */; };
-		551AA639199427430010E65B /* RDPValidationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 551AA637199427430010E65B /* RDPValidationService.m */; };
 		5531CA05198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */; };
-		5531CA06198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA04198EFE6F0076D8B8 /* UIImage+ImageEffects.m */; };
 		5531CA09198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA08198F23AD0076D8B8 /* RDPJSONResponseSerializer.m */; };
-		5531CA0A198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA08198F23AD0076D8B8 /* RDPJSONResponseSerializer.m */; };
 		5531CA0D198FED900076D8B8 /* RDPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA0C198FED900076D8B8 /* RDPLoginViewController.m */; };
-		5531CA0E198FED900076D8B8 /* RDPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5531CA0C198FED900076D8B8 /* RDPLoginViewController.m */; };
 		5560B8D1199006AF0023691B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5560B8D0199006AF0023691B /* MBProgressHUD.m */; };
-		5560B8D2199006AF0023691B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5560B8D0199006AF0023691B /* MBProgressHUD.m */; };
 		5560B8E0199098F80023691B /* (null) in Resources */ = {isa = PBXBuildFile; };
-		5560B8E1199098F80023691B /* (null) in Resources */ = {isa = PBXBuildFile; };
 		5569A7DA19808617001FC14C /* RDPHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5569A7D919808617001FC14C /* RDPHTTPClient.m */; };
 		558181A81986F83600390741 /* RDPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181A71986F83600390741 /* RDPUser.m */; };
 		558181AB1987009F00390741 /* RDPSavingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 558181AA1987009F00390741 /* RDPSavingEvent.m */; };
 		55AA9B3319A43368002ED852 /* RDPDismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA9B3219A43368002ED852 /* RDPDismissSegue.m */; };
-		55AA9B3419A43368002ED852 /* RDPDismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA9B3219A43368002ED852 /* RDPDismissSegue.m */; };
 		55AA9B3719A439EB002ED852 /* RDPDismissAndModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA9B3619A439EB002ED852 /* RDPDismissAndModalSegue.m */; };
-		55AA9B3819A439EB002ED852 /* RDPDismissAndModalSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AA9B3619A439EB002ED852 /* RDPDismissAndModalSegue.m */; };
 		55AA9B3A19A51AC4002ED852 /* shortQuote.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55AA9B3919A51AC4002ED852 /* shortQuote.plist */; };
-		55AA9B3B19A51AC4002ED852 /* shortQuote.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55AA9B3919A51AC4002ED852 /* shortQuote.plist */; };
+		55ACC3E41AF0893500EE21CC /* RDPSettingsPrivacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55ACC3E31AF0893500EE21CC /* RDPSettingsPrivacyViewController.m */; };
 		55DCE1A619994AFF003EA30D /* RDPNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */; };
-		55DCE1A719994AFF003EA30D /* RDPNotificationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */; };
 		55DCE1AD199AB653003EA30D /* RDPAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1AC199AB653003EA30D /* RDPAnalyticsModule.m */; };
-		55DCE1AE199AB653003EA30D /* RDPAnalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1AC199AB653003EA30D /* RDPAnalyticsModule.m */; };
 		55DCE1B1199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B0199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m */; };
-		55DCE1B2199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B0199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m */; };
 		55DCE1B5199C041D003EA30D /* RDPQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B4199C041D003EA30D /* RDPQuotes.m */; };
-		55DCE1B6199C041D003EA30D /* RDPQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 55DCE1B4199C041D003EA30D /* RDPQuotes.m */; };
 		55DCE1B8199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
-		55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 55DCE1B7199C09B3003EA30D /* quotes.plist */; };
 		5849BC76199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
-		5849BC77199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5849BC75199C1B8F008BAEBF /* RDPProgressHeader.xib */; };
 		5849BC7A199C1E91008BAEBF /* RDPProgressHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */; };
-		5849BC7B199C1E91008BAEBF /* RDPProgressHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5849BC79199C1E91008BAEBF /* RDPProgressHeader.m */; };
 		585F1592199D79F100992AE3 /* RDPDataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 585F1591199D79F100992AE3 /* RDPDataHolder.m */; };
-		585F1593199D79F100992AE3 /* RDPDataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 585F1591199D79F100992AE3 /* RDPDataHolder.m */; };
 		58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
 		58988F2C198814D200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
-		58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F241987065200E05AC5 /* RDPImageFetcher.m */; };
-		58988F2F1988153200E05AC5 /* RDPImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F2B198814D200E05AC5 /* RDPImageBlur.m */; };
 		58988F3E19881BD600E05AC5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F3D19881BD600E05AC5 /* CoreMedia.framework */; };
 		58988F4019881BE200E05AC5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F3F19881BE200E05AC5 /* CoreVideo.framework */; };
 		58988F4219881BF300E05AC5 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F4119881BF300E05AC5 /* OpenGLES.framework */; };
 		58988F4419881C0000E05AC5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F4319881C0000E05AC5 /* AVFoundation.framework */; };
 		58988F4619881C1300E05AC5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F4519881C1300E05AC5 /* QuartzCore.framework */; };
 		58988F4919885F9600E05AC5 /* RDPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F4819885F9600E05AC5 /* RDPHomeViewController.m */; };
-		58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F4819885F9600E05AC5 /* RDPHomeViewController.m */; };
 		58988F81198EF2BD00E05AC5 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58988F80198EF2BD00E05AC5 /* Accelerate.framework */; };
 		58988F941992D0E300E05AC5 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		58988F951992D0E300E05AC5 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		58988F981992D68A00E05AC5 /* RDPFTUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F971992D68A00E05AC5 /* RDPFTUViewController.m */; };
-		58988F991992D68A00E05AC5 /* RDPFTUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988F971992D68A00E05AC5 /* RDPFTUViewController.m */; };
 		58988F9B1993114500E05AC5 /* Keep.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9A1993114500E05AC5 /* Keep.png */; };
-		58988F9C1993114500E05AC5 /* Keep.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9A1993114500E05AC5 /* Keep.png */; };
 		58988F9E1993F56A00E05AC5 /* ridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9D1993F56A00E05AC5 /* ridge.png */; };
 		58988FA01993F57600E05AC5 /* ireland.png in Resources */ = {isa = PBXBuildFile; fileRef = 58988F9F1993F57600E05AC5 /* ireland.png */; };
 		58988FA31994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */; };
-		58988FA41994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA21994078E00E05AC5 /* RDPSetAGoalViewController.m */; };
 		58988FA719942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA619942BF400E05AC5 /* RDPSetAmountViewController.m */; };
-		58988FA819942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FA619942BF400E05AC5 /* RDPSetAmountViewController.m */; };
 		58988FAB1994344A00E05AC5 /* RDPCutOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAA1994344A00E05AC5 /* RDPCutOutView.m */; };
-		58988FAC1994344A00E05AC5 /* RDPCutOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAA1994344A00E05AC5 /* RDPCutOutView.m */; };
 		58988FAF19953A8E00E05AC5 /* RDPSuggestionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAE19953A8E00E05AC5 /* RDPSuggestionsView.m */; };
-		58988FB019953A8E00E05AC5 /* RDPSuggestionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FAE19953A8E00E05AC5 /* RDPSuggestionsView.m */; };
 		58988FB31995411100E05AC5 /* RDPSuggestionSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FB21995411100E05AC5 /* RDPSuggestionSquare.m */; };
-		58988FB41995411100E05AC5 /* RDPSuggestionSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 58988FB21995411100E05AC5 /* RDPSuggestionSquare.m */; };
 		58F643B2197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
 		58F643B4197DA5F6001D0236 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B3197DA5F6001D0236 /* CoreGraphics.framework */; };
 		58F643B6197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
@@ -90,272 +59,134 @@
 		58F643BE197DA5F6001D0236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643BD197DA5F6001D0236 /* main.m */; };
 		58F643C2197DA5F6001D0236 /* RDPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643C1197DA5F6001D0236 /* RDPAppDelegate.m */; };
 		58F643C4197DA5F6001D0236 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F643C3197DA5F6001D0236 /* Images.xcassets */; };
-		58F643CC197DA5F6001D0236 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B1197DA5F6001D0236 /* Foundation.framework */; };
-		58F643CD197DA5F6001D0236 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F643B5197DA5F6001D0236 /* UIKit.framework */; };
-		58F643D5197DA5F6001D0236 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58F643D3197DA5F6001D0236 /* InfoPlist.strings */; };
-		58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643D6197DA5F6001D0236 /* SpearmintIOSTests.m */; };
 		58F643E8197DAD2F001D0236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F643E7197DAD2F001D0236 /* Main.storyboard */; };
 		58F643EB197F16C1001D0236 /* RDPGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643EA197F16C1001D0236 /* RDPGoal.m */; };
 		58F643EE197F2750001D0236 /* RDPStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F643ED197F2750001D0236 /* RDPStrings.m */; };
 		F2208C661989B0A200EDD6CF /* RDPCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2208C651989B0A200EDD6CF /* RDPCounter.m */; };
-		F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2208C651989B0A200EDD6CF /* RDPCounter.m */; };
 		F24556E7199D5EA800D07BDD /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F24556E6199D5EA800D07BDD /* NSDate+Utilities.m */; };
-		F24556E8199D5EA800D07BDD /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F24556E6199D5EA800D07BDD /* NSDate+Utilities.m */; };
 		F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
-		F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A4197DB60300A14D94 /* RDPViewController.m */; };
 		F26756AA197DC05F00A14D94 /* RDPTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A9197DC05F00A14D94 /* RDPTimerManager.m */; };
-		F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756A9197DC05F00A14D94 /* RDPTimerManager.m */; };
 		F26756AE197DC19500A14D94 /* RDPTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756AD197DC19500A14D94 /* RDPTimer.m */; };
-		F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = F26756AD197DC19500A14D94 /* RDPTimer.m */; };
 		F281341F199350D700D7E9EF /* RDPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F281341B199350D700D7E9EF /* RDPConfig.m */; };
-		F2813420199350D700D7E9EF /* RDPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F281341B199350D700D7E9EF /* RDPConfig.m */; };
 		F2813421199350D700D7E9EF /* RDPErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = F281341D199350D700D7E9EF /* RDPErrorCodes.m */; };
-		F2813422199350D700D7E9EF /* RDPErrorCodes.m in Sources */ = {isa = PBXBuildFile; fileRef = F281341D199350D700D7E9EF /* RDPErrorCodes.m */; };
 		F2813423199350D700D7E9EF /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F281341E199350D700D7E9EF /* settings.plist */; };
-		F2813424199350D700D7E9EF /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F281341E199350D700D7E9EF /* settings.plist */; };
 		F281342A1993510500D7E9EF /* RDPAsyncProgressTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134271993510500D7E9EF /* RDPAsyncProgressTracker.m */; };
-		F281342B1993510500D7E9EF /* RDPAsyncProgressTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134271993510500D7E9EF /* RDPAsyncProgressTracker.m */; };
 		F281342C1993510500D7E9EF /* RDPUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134291993510500D7E9EF /* RDPUserService.m */; };
-		F281342D1993510500D7E9EF /* RDPUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134291993510500D7E9EF /* RDPUserService.m */; };
 		F28134341993513200D7E9EF /* RDPGoalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F281342F1993513200D7E9EF /* RDPGoalModel.m */; };
-		F28134351993513200D7E9EF /* RDPGoalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F281342F1993513200D7E9EF /* RDPGoalModel.m */; };
 		F28134361993513200D7E9EF /* RDPSavingEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134311993513200D7E9EF /* RDPSavingEventModel.m */; };
-		F28134371993513200D7E9EF /* RDPSavingEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134311993513200D7E9EF /* RDPSavingEventModel.m */; };
 		F28134381993513200D7E9EF /* RDPUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134331993513200D7E9EF /* RDPUserModel.m */; };
-		F28134391993513200D7E9EF /* RDPUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F28134331993513200D7E9EF /* RDPUserModel.m */; };
 		F281343C1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */; };
-		F281343D1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = F281343B1993514300D7E9EF /* RDPFlipLeftSegue.m */; };
 		F2892FE019A2B6E40028CC29 /* RDPFeedbackService.m in Sources */ = {isa = PBXBuildFile; fileRef = F2892FDF19A2B6E40028CC29 /* RDPFeedbackService.m */; };
-		F2892FE119A2B6E40028CC29 /* RDPFeedbackService.m in Sources */ = {isa = PBXBuildFile; fileRef = F2892FDF19A2B6E40028CC29 /* RDPFeedbackService.m */; };
 		F28930F819A3D5C30028CC29 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B419A3D5C30028CC29 /* 0.png */; };
-		F28930F919A3D5C30028CC29 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B419A3D5C30028CC29 /* 0.png */; };
 		F28930FA19A3D5C30028CC29 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B519A3D5C30028CC29 /* 1.png */; };
-		F28930FB19A3D5C30028CC29 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B519A3D5C30028CC29 /* 1.png */; };
 		F28930FC19A3D5C30028CC29 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B619A3D5C30028CC29 /* 2.png */; };
-		F28930FD19A3D5C30028CC29 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B619A3D5C30028CC29 /* 2.png */; };
 		F28930FE19A3D5C30028CC29 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B719A3D5C30028CC29 /* 3.png */; };
-		F28930FF19A3D5C30028CC29 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B719A3D5C30028CC29 /* 3.png */; };
 		F289310019A3D5C30028CC29 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B819A3D5C30028CC29 /* 4.png */; };
-		F289310119A3D5C30028CC29 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B819A3D5C30028CC29 /* 4.png */; };
 		F289310219A3D5C30028CC29 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B919A3D5C30028CC29 /* 5.png */; };
-		F289310319A3D5C30028CC29 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930B919A3D5C30028CC29 /* 5.png */; };
 		F289310419A3D5C30028CC29 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BA19A3D5C30028CC29 /* 6.png */; };
-		F289310519A3D5C30028CC29 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BA19A3D5C30028CC29 /* 6.png */; };
 		F289310619A3D5C30028CC29 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BB19A3D5C30028CC29 /* 7.png */; };
-		F289310719A3D5C30028CC29 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BB19A3D5C30028CC29 /* 7.png */; };
 		F289310819A3D5C30028CC29 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BC19A3D5C30028CC29 /* 8.png */; };
-		F289310919A3D5C30028CC29 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BC19A3D5C30028CC29 /* 8.png */; };
 		F289310A19A3D5C30028CC29 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BD19A3D5C30028CC29 /* 9.png */; };
-		F289310B19A3D5C30028CC29 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BD19A3D5C30028CC29 /* 9.png */; };
 		F289310C19A3D5C30028CC29 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BE19A3D5C30028CC29 /* 10.png */; };
-		F289310D19A3D5C30028CC29 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BE19A3D5C30028CC29 /* 10.png */; };
 		F289310E19A3D5C30028CC29 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BF19A3D5C30028CC29 /* 11.png */; };
-		F289310F19A3D5C30028CC29 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930BF19A3D5C30028CC29 /* 11.png */; };
 		F289311019A3D5C30028CC29 /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C019A3D5C30028CC29 /* 12.png */; };
-		F289311119A3D5C30028CC29 /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C019A3D5C30028CC29 /* 12.png */; };
 		F289311219A3D5C30028CC29 /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C119A3D5C30028CC29 /* 13.png */; };
-		F289311319A3D5C30028CC29 /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C119A3D5C30028CC29 /* 13.png */; };
 		F289311419A3D5C30028CC29 /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C219A3D5C30028CC29 /* 14.png */; };
-		F289311519A3D5C30028CC29 /* 14.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C219A3D5C30028CC29 /* 14.png */; };
 		F289311619A3D5C30028CC29 /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C319A3D5C30028CC29 /* 16.png */; };
-		F289311719A3D5C30028CC29 /* 16.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C319A3D5C30028CC29 /* 16.png */; };
 		F289311819A3D5C30028CC29 /* 17.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C419A3D5C30028CC29 /* 17.png */; };
-		F289311919A3D5C30028CC29 /* 17.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C419A3D5C30028CC29 /* 17.png */; };
 		F289311A19A3D5C30028CC29 /* 18.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C519A3D5C30028CC29 /* 18.png */; };
-		F289311B19A3D5C30028CC29 /* 18.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C519A3D5C30028CC29 /* 18.png */; };
 		F289311C19A3D5C30028CC29 /* 19.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C619A3D5C30028CC29 /* 19.png */; };
-		F289311D19A3D5C30028CC29 /* 19.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C619A3D5C30028CC29 /* 19.png */; };
 		F289311E19A3D5C30028CC29 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C719A3D5C30028CC29 /* 20.png */; };
-		F289311F19A3D5C30028CC29 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C719A3D5C30028CC29 /* 20.png */; };
 		F289312019A3D5C30028CC29 /* 21.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C819A3D5C30028CC29 /* 21.png */; };
-		F289312119A3D5C30028CC29 /* 21.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C819A3D5C30028CC29 /* 21.png */; };
 		F289312219A3D5C30028CC29 /* 22.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C919A3D5C30028CC29 /* 22.png */; };
-		F289312319A3D5C30028CC29 /* 22.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930C919A3D5C30028CC29 /* 22.png */; };
 		F289312419A3D5C30028CC29 /* 23.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CA19A3D5C30028CC29 /* 23.png */; };
-		F289312519A3D5C30028CC29 /* 23.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CA19A3D5C30028CC29 /* 23.png */; };
 		F289312619A3D5C30028CC29 /* 24.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CB19A3D5C30028CC29 /* 24.png */; };
-		F289312719A3D5C30028CC29 /* 24.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CB19A3D5C30028CC29 /* 24.png */; };
 		F289312819A3D5C30028CC29 /* 25.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CC19A3D5C30028CC29 /* 25.png */; };
-		F289312919A3D5C30028CC29 /* 25.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CC19A3D5C30028CC29 /* 25.png */; };
 		F289312A19A3D5C30028CC29 /* 26.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CD19A3D5C30028CC29 /* 26.png */; };
-		F289312B19A3D5C30028CC29 /* 26.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CD19A3D5C30028CC29 /* 26.png */; };
 		F289312C19A3D5C30028CC29 /* 27.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CE19A3D5C30028CC29 /* 27.png */; };
-		F289312D19A3D5C30028CC29 /* 27.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CE19A3D5C30028CC29 /* 27.png */; };
 		F289312E19A3D5C30028CC29 /* 28.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CF19A3D5C30028CC29 /* 28.png */; };
-		F289312F19A3D5C30028CC29 /* 28.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930CF19A3D5C30028CC29 /* 28.png */; };
 		F289313019A3D5C30028CC29 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D019A3D5C30028CC29 /* 29.png */; };
-		F289313119A3D5C30028CC29 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D019A3D5C30028CC29 /* 29.png */; };
 		F289313219A3D5C30028CC29 /* 30.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D119A3D5C30028CC29 /* 30.png */; };
-		F289313319A3D5C30028CC29 /* 30.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D119A3D5C30028CC29 /* 30.png */; };
 		F289313419A3D5C30028CC29 /* 31.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D219A3D5C30028CC29 /* 31.png */; };
-		F289313519A3D5C30028CC29 /* 31.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D219A3D5C30028CC29 /* 31.png */; };
 		F289313619A3D5C30028CC29 /* 32.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D319A3D5C30028CC29 /* 32.png */; };
-		F289313719A3D5C30028CC29 /* 32.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D319A3D5C30028CC29 /* 32.png */; };
 		F289313819A3D5C30028CC29 /* 33.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D419A3D5C30028CC29 /* 33.png */; };
-		F289313919A3D5C30028CC29 /* 33.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D419A3D5C30028CC29 /* 33.png */; };
 		F289313A19A3D5C30028CC29 /* 34.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D519A3D5C30028CC29 /* 34.png */; };
-		F289313B19A3D5C30028CC29 /* 34.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D519A3D5C30028CC29 /* 34.png */; };
 		F289313C19A3D5C30028CC29 /* 35.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D619A3D5C30028CC29 /* 35.png */; };
-		F289313D19A3D5C30028CC29 /* 35.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D619A3D5C30028CC29 /* 35.png */; };
 		F289313E19A3D5C30028CC29 /* 36.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D719A3D5C30028CC29 /* 36.png */; };
-		F289313F19A3D5C30028CC29 /* 36.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D719A3D5C30028CC29 /* 36.png */; };
 		F289314019A3D5C30028CC29 /* 37.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D819A3D5C30028CC29 /* 37.png */; };
-		F289314119A3D5C30028CC29 /* 37.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D819A3D5C30028CC29 /* 37.png */; };
 		F289314219A3D5C30028CC29 /* 38.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D919A3D5C30028CC29 /* 38.png */; };
-		F289314319A3D5C30028CC29 /* 38.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930D919A3D5C30028CC29 /* 38.png */; };
 		F289314419A3D5C30028CC29 /* 39.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DA19A3D5C30028CC29 /* 39.png */; };
-		F289314519A3D5C30028CC29 /* 39.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DA19A3D5C30028CC29 /* 39.png */; };
 		F289314619A3D5C30028CC29 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DB19A3D5C30028CC29 /* 40.png */; };
-		F289314719A3D5C30028CC29 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DB19A3D5C30028CC29 /* 40.png */; };
 		F289314819A3D5C30028CC29 /* 41.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DC19A3D5C30028CC29 /* 41.png */; };
-		F289314919A3D5C30028CC29 /* 41.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DC19A3D5C30028CC29 /* 41.png */; };
 		F289314A19A3D5C30028CC29 /* 42.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DD19A3D5C30028CC29 /* 42.png */; };
-		F289314B19A3D5C30028CC29 /* 42.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DD19A3D5C30028CC29 /* 42.png */; };
 		F289314C19A3D5C30028CC29 /* 43.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DE19A3D5C30028CC29 /* 43.png */; };
-		F289314D19A3D5C30028CC29 /* 43.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DE19A3D5C30028CC29 /* 43.png */; };
 		F289314E19A3D5C30028CC29 /* 44.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DF19A3D5C30028CC29 /* 44.png */; };
-		F289314F19A3D5C30028CC29 /* 44.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930DF19A3D5C30028CC29 /* 44.png */; };
 		F289315019A3D5C30028CC29 /* 45.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E019A3D5C30028CC29 /* 45.png */; };
-		F289315119A3D5C30028CC29 /* 45.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E019A3D5C30028CC29 /* 45.png */; };
 		F289315219A3D5C30028CC29 /* 46.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E119A3D5C30028CC29 /* 46.png */; };
-		F289315319A3D5C30028CC29 /* 46.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E119A3D5C30028CC29 /* 46.png */; };
 		F289315419A3D5C30028CC29 /* 47.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E219A3D5C30028CC29 /* 47.png */; };
-		F289315519A3D5C30028CC29 /* 47.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E219A3D5C30028CC29 /* 47.png */; };
 		F289315619A3D5C30028CC29 /* 48.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E319A3D5C30028CC29 /* 48.png */; };
-		F289315719A3D5C30028CC29 /* 48.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E319A3D5C30028CC29 /* 48.png */; };
 		F289315819A3D5C30028CC29 /* 49.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E419A3D5C30028CC29 /* 49.png */; };
-		F289315919A3D5C30028CC29 /* 49.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E419A3D5C30028CC29 /* 49.png */; };
 		F289315A19A3D5C30028CC29 /* 50.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E519A3D5C30028CC29 /* 50.png */; };
-		F289315B19A3D5C30028CC29 /* 50.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E519A3D5C30028CC29 /* 50.png */; };
 		F289315C19A3D5C30028CC29 /* 51.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E619A3D5C30028CC29 /* 51.png */; };
-		F289315D19A3D5C30028CC29 /* 51.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E619A3D5C30028CC29 /* 51.png */; };
 		F289315E19A3D5C30028CC29 /* 52.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E719A3D5C30028CC29 /* 52.png */; };
-		F289315F19A3D5C30028CC29 /* 52.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E719A3D5C30028CC29 /* 52.png */; };
 		F289316019A3D5C30028CC29 /* 53.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E819A3D5C30028CC29 /* 53.png */; };
-		F289316119A3D5C30028CC29 /* 53.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E819A3D5C30028CC29 /* 53.png */; };
 		F289316219A3D5C30028CC29 /* 54.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E919A3D5C30028CC29 /* 54.png */; };
-		F289316319A3D5C30028CC29 /* 54.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930E919A3D5C30028CC29 /* 54.png */; };
 		F289316419A3D5C30028CC29 /* 55.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EA19A3D5C30028CC29 /* 55.png */; };
-		F289316519A3D5C30028CC29 /* 55.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EA19A3D5C30028CC29 /* 55.png */; };
 		F289316619A3D5C30028CC29 /* 56.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EB19A3D5C30028CC29 /* 56.png */; };
-		F289316719A3D5C30028CC29 /* 56.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EB19A3D5C30028CC29 /* 56.png */; };
 		F289316819A3D5C30028CC29 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EC19A3D5C30028CC29 /* 57.png */; };
-		F289316919A3D5C30028CC29 /* 57.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EC19A3D5C30028CC29 /* 57.png */; };
 		F289316A19A3D5C30028CC29 /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930ED19A3D5C30028CC29 /* 58.png */; };
-		F289316B19A3D5C30028CC29 /* 58.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930ED19A3D5C30028CC29 /* 58.png */; };
 		F289316C19A3D5C30028CC29 /* 59.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EE19A3D5C30028CC29 /* 59.png */; };
-		F289316D19A3D5C30028CC29 /* 59.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EE19A3D5C30028CC29 /* 59.png */; };
 		F289316E19A3D5C30028CC29 /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EF19A3D5C30028CC29 /* 60.png */; };
-		F289316F19A3D5C30028CC29 /* 60.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930EF19A3D5C30028CC29 /* 60.png */; };
 		F289317019A3D5C30028CC29 /* 61.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F019A3D5C30028CC29 /* 61.png */; };
-		F289317119A3D5C30028CC29 /* 61.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F019A3D5C30028CC29 /* 61.png */; };
 		F289317219A3D5C30028CC29 /* 62.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F119A3D5C30028CC29 /* 62.png */; };
-		F289317319A3D5C30028CC29 /* 62.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F119A3D5C30028CC29 /* 62.png */; };
 		F289317419A3D5C30028CC29 /* 63.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F219A3D5C30028CC29 /* 63.png */; };
-		F289317519A3D5C30028CC29 /* 63.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F219A3D5C30028CC29 /* 63.png */; };
 		F289317619A3D5C30028CC29 /* 64.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F319A3D5C30028CC29 /* 64.png */; };
-		F289317719A3D5C30028CC29 /* 64.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F319A3D5C30028CC29 /* 64.png */; };
 		F289317819A3D5C30028CC29 /* 65.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F419A3D5C30028CC29 /* 65.png */; };
-		F289317919A3D5C30028CC29 /* 65.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F419A3D5C30028CC29 /* 65.png */; };
 		F289317A19A3D5C30028CC29 /* 66.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F519A3D5C30028CC29 /* 66.png */; };
-		F289317B19A3D5C30028CC29 /* 66.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F519A3D5C30028CC29 /* 66.png */; };
 		F289317C19A3D5C30028CC29 /* 67.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F619A3D5C30028CC29 /* 67.png */; };
-		F289317D19A3D5C30028CC29 /* 67.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F619A3D5C30028CC29 /* 67.png */; };
 		F289317E19A3D5C30028CC29 /* 68.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F719A3D5C30028CC29 /* 68.png */; };
-		F289317F19A3D5C30028CC29 /* 68.png in Resources */ = {isa = PBXBuildFile; fileRef = F28930F719A3D5C30028CC29 /* 68.png */; };
 		F289318219A3E0DB0028CC29 /* RDPArrowAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F289318119A3E0DB0028CC29 /* RDPArrowAnimation.m */; };
-		F289318319A3E0DB0028CC29 /* RDPArrowAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F289318119A3E0DB0028CC29 /* RDPArrowAnimation.m */; };
 		F289318519A3E3140028CC29 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = F289318419A3E3140028CC29 /* 15.png */; };
-		F289318619A3E3140028CC29 /* 15.png in Resources */ = {isa = PBXBuildFile; fileRef = F289318419A3E3140028CC29 /* 15.png */; };
 		F289318919A402190028CC29 /* RDPCompeteGoalController.m in Sources */ = {isa = PBXBuildFile; fileRef = F289318819A402190028CC29 /* RDPCompeteGoalController.m */; };
-		F289318A19A402190028CC29 /* RDPCompeteGoalController.m in Sources */ = {isa = PBXBuildFile; fileRef = F289318819A402190028CC29 /* RDPCompeteGoalController.m */; };
 		F2ACC0D4199AA93B00303C5B /* RDPUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */; };
-		F2ACC0D5199AA93B00303C5B /* RDPUITextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ACC0D3199AA93B00303C5B /* RDPUITextView.m */; };
 		F2C02FEC19ABE60C00419E2A /* Savings_Success_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F2C02FEB19ABE60C00419E2A /* Savings_Success_2.mp4 */; };
-		F2C02FED19ABE60C00419E2A /* Savings_Success_2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F2C02FEB19ABE60C00419E2A /* Savings_Success_2.mp4 */; };
 		F2F1CF72198E9E7B00438A8A /* RDPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */; };
-		F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF71198E9E7B00438A8A /* RDPSettingsController.m */; };
 		F2F1CF7B198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF79198EB39000438A8A /* RDPTableViewCellWithName.m */; };
-		F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CF79198EB39000438A8A /* RDPTableViewCellWithName.m */; };
 		F2F1CF7D198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF7A198EB39000438A8A /* RDPTableViewCellWithName.xib */; };
-		F2F1CF7E198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF7A198EB39000438A8A /* RDPTableViewCellWithName.xib */; };
 		F2F1CF98198EC2AA00438A8A /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF83198EC2AA00438A8A /* 0.jpg */; };
-		F2F1CF99198EC2AA00438A8A /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF83198EC2AA00438A8A /* 0.jpg */; };
 		F2F1CF9C198EC2AA00438A8A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF85198EC2AA00438A8A /* 1.jpg */; };
-		F2F1CF9D198EC2AA00438A8A /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF85198EC2AA00438A8A /* 1.jpg */; };
 		F2F1CFA0198EC2AA00438A8A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF87198EC2AA00438A8A /* 2.jpg */; };
-		F2F1CFA1198EC2AA00438A8A /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF87198EC2AA00438A8A /* 2.jpg */; };
 		F2F1CFA4198EC2AA00438A8A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF89198EC2AA00438A8A /* 3.jpg */; };
-		F2F1CFA5198EC2AA00438A8A /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF89198EC2AA00438A8A /* 3.jpg */; };
 		F2F1CFA8198EC2AA00438A8A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF8B198EC2AA00438A8A /* 4.jpg */; };
-		F2F1CFA9198EC2AA00438A8A /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF8B198EC2AA00438A8A /* 4.jpg */; };
 		F2F1CFAC198EC2AA00438A8A /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF8D198EC2AA00438A8A /* 5.jpg */; };
-		F2F1CFAD198EC2AA00438A8A /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF8D198EC2AA00438A8A /* 5.jpg */; };
 		F2F1CFB0198EC2AA00438A8A /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF8F198EC2AA00438A8A /* 6.jpg */; };
-		F2F1CFB1198EC2AA00438A8A /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF8F198EC2AA00438A8A /* 6.jpg */; };
 		F2F1CFB4198EC2AA00438A8A /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF91198EC2AA00438A8A /* 7.jpg */; };
-		F2F1CFB5198EC2AA00438A8A /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF91198EC2AA00438A8A /* 7.jpg */; };
 		F2F1CFB8198EC2AA00438A8A /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF93198EC2AA00438A8A /* 8.jpg */; };
-		F2F1CFB9198EC2AA00438A8A /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF93198EC2AA00438A8A /* 8.jpg */; };
 		F2F1CFBC198EC2AA00438A8A /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF95198EC2AA00438A8A /* 9.jpg */; };
-		F2F1CFBD198EC2AA00438A8A /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CF95198EC2AA00438A8A /* 9.jpg */; };
 		F2F1CFD6198F016C00438A8A /* UINavigationController+Retro.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFD5198F016C00438A8A /* UINavigationController+Retro.m */; };
-		F2F1CFD7198F016C00438A8A /* UINavigationController+Retro.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFD5198F016C00438A8A /* UINavigationController+Retro.m */; };
 		F2F1CFDA198F103700438A8A /* RDPPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */; };
-		F2F1CFDB198F103700438A8A /* RDPPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFD9198F103700438A8A /* RDPPushAnimation.m */; };
 		F2F1CFE0198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFDE198FEE0600438A8A /* RDPTableViewCellWithInput.m */; };
-		F2F1CFE1198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFDE198FEE0600438A8A /* RDPTableViewCellWithInput.m */; };
 		F2F1CFE2198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CFDF198FEE0600438A8A /* RDPTableViewCellWithInput.xib */; };
-		F2F1CFE3198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CFDF198FEE0600438A8A /* RDPTableViewCellWithInput.xib */; };
 		F2F1CFE6198FF18D00438A8A /* RDPInputViewWithLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFE5198FF18D00438A8A /* RDPInputViewWithLabel.m */; };
-		F2F1CFE7198FF18D00438A8A /* RDPInputViewWithLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFE5198FF18D00438A8A /* RDPInputViewWithLabel.m */; };
 		F2F1CFED198FF6C300438A8A /* RDPSettingsGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFEC198FF6C300438A8A /* RDPSettingsGoalViewController.m */; };
-		F2F1CFEE198FF6C300438A8A /* RDPSettingsGoalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFEC198FF6C300438A8A /* RDPSettingsGoalViewController.m */; };
 		F2F1CFF119900DAC00438A8A /* RDPSettingsNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFF019900DAC00438A8A /* RDPSettingsNotificationsViewController.m */; };
-		F2F1CFF219900DAC00438A8A /* RDPSettingsNotificationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFF019900DAC00438A8A /* RDPSettingsNotificationsViewController.m */; };
 		F2F1CFFA19900E5200438A8A /* RDPTableViewCellWithToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFF819900E5200438A8A /* RDPTableViewCellWithToggle.m */; };
-		F2F1CFFB19900E5200438A8A /* RDPTableViewCellWithToggle.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFF819900E5200438A8A /* RDPTableViewCellWithToggle.m */; };
 		F2F1CFFC19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CFF919900E5200438A8A /* RDPTableViewCellWithToggle.xib */; };
-		F2F1CFFD19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1CFF919900E5200438A8A /* RDPTableViewCellWithToggle.xib */; };
 		F2F1D00019902AD500438A8A /* RDPFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFFF19902AD500438A8A /* RDPFonts.m */; };
-		F2F1D00119902AD500438A8A /* RDPFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1CFFF19902AD500438A8A /* RDPFonts.m */; };
 		F2F1D0041990301500438A8A /* RDPSettingsFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0031990301500438A8A /* RDPSettingsFeedbackViewController.m */; };
-		F2F1D0051990301500438A8A /* RDPSettingsFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0031990301500438A8A /* RDPSettingsFeedbackViewController.m */; };
 		F2F1D008199031AD00438A8A /* RDPFeedbackPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D007199031AD00438A8A /* RDPFeedbackPanel.m */; };
-		F2F1D009199031AD00438A8A /* RDPFeedbackPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D007199031AD00438A8A /* RDPFeedbackPanel.m */; };
 		F2F1D00D19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D00B19903CAE00438A8A /* RDPTableViewSavingsCell.m */; };
-		F2F1D00E19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D00B19903CAE00438A8A /* RDPTableViewSavingsCell.m */; };
 		F2F1D00F19903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1D00C19903CAE00438A8A /* RDPTableViewSavingsCell.xib */; };
-		F2F1D01019903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2F1D00C19903CAE00438A8A /* RDPTableViewSavingsCell.xib */; };
 		F2F1D01A1990992200438A8A /* RDPCongratulations.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0171990992200438A8A /* RDPCongratulations.m */; };
-		F2F1D01B1990992200438A8A /* RDPCongratulations.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0171990992200438A8A /* RDPCongratulations.m */; };
 		F2F1D01C1990992200438A8A /* RDPSavingSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0191990992200438A8A /* RDPSavingSuggestions.m */; };
-		F2F1D01D1990992200438A8A /* RDPSavingSuggestions.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0191990992200438A8A /* RDPSavingSuggestions.m */; };
 		F2F1D0261990A49600438A8A /* RDPSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */; };
-		F2F1D0271990A49600438A8A /* RDPSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */; };
 		F2F595A119A514ED00C2D2B7 /* RDPNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */; };
-		F2F595A219A514ED00C2D2B7 /* RDPNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A019A514ED00C2D2B7 /* RDPNavigator.m */; };
 		F2F595A519A53BB000C2D2B7 /* RDPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A419A53BB000C2D2B7 /* RDPNavigationController.m */; };
-		F2F595A619A53BB000C2D2B7 /* RDPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F595A419A53BB000C2D2B7 /* RDPNavigationController.m */; };
 		F2FD6F50198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
-		F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4D198073A80035ED06 /* RDPInterpolation.m */; };
 		F2FD6F52198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
-		F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F4F198073A80035ED06 /* RDPLinearInterpolation.m */; };
 		F2FD6F5619807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F5519807BE90035ED06 /* RDPEaseInInterpolation.m */; };
-		F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F5519807BE90035ED06 /* RDPEaseInInterpolation.m */; };
 		F2FD6F5A19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F5919807CC90035ED06 /* RDPEaseOutInterpolation.m */; };
-		F2FD6F5B19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FD6F5919807CC90035ED06 /* RDPEaseOutInterpolation.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		58F643CE197DA5F6001D0236 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58F643A6197DA5F6001D0236 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 58F643AD197DA5F6001D0236;
-			remoteInfo = SpearmintIOS;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		585971B41A1D2BAD00D5E0CF /* Embed App Extensions */ = {
@@ -401,6 +232,8 @@
 		55AA9B3519A439EB002ED852 /* RDPDismissAndModalSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPDismissAndModalSegue.h; sourceTree = "<group>"; };
 		55AA9B3619A439EB002ED852 /* RDPDismissAndModalSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPDismissAndModalSegue.m; sourceTree = "<group>"; };
 		55AA9B3919A51AC4002ED852 /* shortQuote.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = shortQuote.plist; sourceTree = "<group>"; };
+		55ACC3E21AF0891000EE21CC /* RDPSettingsPrivacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDPSettingsPrivacyViewController.h; sourceTree = "<group>"; };
+		55ACC3E31AF0893500EE21CC /* RDPSettingsPrivacyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPSettingsPrivacyViewController.m; sourceTree = "<group>"; };
 		55DCE1A419994AFF003EA30D /* RDPNotificationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPNotificationsManager.h; sourceTree = "<group>"; };
 		55DCE1A519994AFF003EA30D /* RDPNotificationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDPNotificationsManager.m; sourceTree = "<group>"; };
 		55DCE1AB199AB653003EA30D /* RDPAnalyticsModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDPAnalyticsModule.h; sourceTree = "<group>"; };
@@ -454,7 +287,6 @@
 		58F643C0197DA5F6001D0236 /* RDPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDPAppDelegate.h; sourceTree = "<group>"; };
 		58F643C1197DA5F6001D0236 /* RDPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RDPAppDelegate.m; sourceTree = "<group>"; };
 		58F643C3197DA5F6001D0236 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpearmintIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F643D2197DA5F6001D0236 /* SpearmintIOSTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpearmintIOSTests-Info.plist"; sourceTree = "<group>"; };
 		58F643D4197DA5F6001D0236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58F643D6197DA5F6001D0236 /* SpearmintIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpearmintIOSTests.m; sourceTree = "<group>"; };
@@ -648,15 +480,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58F643C6197DA5F6001D0236 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58F643CD197DA5F6001D0236 /* UIKit.framework in Frameworks */,
-				58F643CC197DA5F6001D0236 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -728,7 +551,6 @@
 			isa = PBXGroup;
 			children = (
 				58F643AE197DA5F6001D0236 /* Keep.app */,
-				58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1117,6 +939,8 @@
 				F2F1CFF019900DAC00438A8A /* RDPSettingsNotificationsViewController.m */,
 				F2F1D0021990301500438A8A /* RDPSettingsFeedbackViewController.h */,
 				F2F1D0031990301500438A8A /* RDPSettingsFeedbackViewController.m */,
+				55ACC3E21AF0891000EE21CC /* RDPSettingsPrivacyViewController.h */,
+				55ACC3E31AF0893500EE21CC /* RDPSettingsPrivacyViewController.m */,
 				F2F1D0241990A49600438A8A /* RDPSettingsNavigationController.h */,
 				F2F1D0251990A49600438A8A /* RDPSettingsNavigationController.m */,
 			);
@@ -1194,24 +1018,6 @@
 			productReference = 58F643AE197DA5F6001D0236 /* Keep.app */;
 			productType = "com.apple.product-type.application";
 		};
-		58F643C8197DA5F6001D0236 /* SpearmintIOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 58F643DD197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearmintIOSTests" */;
-			buildPhases = (
-				58F643C5197DA5F6001D0236 /* Sources */,
-				58F643C6197DA5F6001D0236 /* Frameworks */,
-				58F643C7197DA5F6001D0236 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				58F643CF197DA5F6001D0236 /* PBXTargetDependency */,
-			);
-			name = SpearmintIOSTests;
-			productName = SpearmintIOSTests;
-			productReference = 58F643C9197DA5F6001D0236 /* SpearmintIOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1224,9 +1030,6 @@
 				TargetAttributes = {
 					58F643AD197DA5F6001D0236 = {
 						DevelopmentTeam = YFU53K9D3B;
-					};
-					58F643C8197DA5F6001D0236 = {
-						TestTargetID = 58F643AD197DA5F6001D0236;
 					};
 				};
 			};
@@ -1243,7 +1046,6 @@
 			projectRoot = "";
 			targets = (
 				58F643AD197DA5F6001D0236 /* SpearmintIOS */,
-				58F643C8197DA5F6001D0236 /* SpearmintIOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1353,106 +1155,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58F643C7197DA5F6001D0236 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F289318619A3E3140028CC29 /* 15.png in Resources */,
-				F289316719A3D5C30028CC29 /* 56.png in Resources */,
-				F289314D19A3D5C30028CC29 /* 43.png in Resources */,
-				F289313F19A3D5C30028CC29 /* 36.png in Resources */,
-				F289313319A3D5C30028CC29 /* 30.png in Resources */,
-				F289315119A3D5C30028CC29 /* 45.png in Resources */,
-				F289317719A3D5C30028CC29 /* 64.png in Resources */,
-				F289310919A3D5C30028CC29 /* 8.png in Resources */,
-				F289313719A3D5C30028CC29 /* 32.png in Resources */,
-				F2F1CFB9198EC2AA00438A8A /* 8.jpg in Resources */,
-				F289314719A3D5C30028CC29 /* 40.png in Resources */,
-				551AA6191992AE390010E65B /* RDPInputViewWithImage.xib in Resources */,
-				F289313119A3D5C30028CC29 /* 29.png in Resources */,
-				F2F1CFE3198FEE0600438A8A /* RDPTableViewCellWithInput.xib in Resources */,
-				F289317B19A3D5C30028CC29 /* 66.png in Resources */,
-				58988F951992D0E300E05AC5 /* (null) in Resources */,
-				F289313B19A3D5C30028CC29 /* 34.png in Resources */,
-				58988F9C1993114500E05AC5 /* Keep.png in Resources */,
-				55DCE1B9199C09B3003EA30D /* quotes.plist in Resources */,
-				F289316119A3D5C30028CC29 /* 53.png in Resources */,
-				F289310F19A3D5C30028CC29 /* 11.png in Resources */,
-				F289316519A3D5C30028CC29 /* 55.png in Resources */,
-				F289317919A3D5C30028CC29 /* 65.png in Resources */,
-				F2F1CFA9198EC2AA00438A8A /* 4.jpg in Resources */,
-				F2813424199350D700D7E9EF /* settings.plist in Resources */,
-				F289314919A3D5C30028CC29 /* 41.png in Resources */,
-				F289311B19A3D5C30028CC29 /* 18.png in Resources */,
-				F2F1D01019903CAE00438A8A /* RDPTableViewSavingsCell.xib in Resources */,
-				F289310519A3D5C30028CC29 /* 6.png in Resources */,
-				F289315519A3D5C30028CC29 /* 47.png in Resources */,
-				F289310119A3D5C30028CC29 /* 4.png in Resources */,
-				F289315319A3D5C30028CC29 /* 46.png in Resources */,
-				F289311919A3D5C30028CC29 /* 17.png in Resources */,
-				F289314319A3D5C30028CC29 /* 38.png in Resources */,
-				F289312519A3D5C30028CC29 /* 23.png in Resources */,
-				F289313D19A3D5C30028CC29 /* 35.png in Resources */,
-				F289317F19A3D5C30028CC29 /* 68.png in Resources */,
-				F28930FB19A3D5C30028CC29 /* 1.png in Resources */,
-				F289315B19A3D5C30028CC29 /* 50.png in Resources */,
-				F289311D19A3D5C30028CC29 /* 19.png in Resources */,
-				F2F1CF99198EC2AA00438A8A /* 0.jpg in Resources */,
-				F289310D19A3D5C30028CC29 /* 10.png in Resources */,
-				F2F1CF9D198EC2AA00438A8A /* 1.jpg in Resources */,
-				F289316919A3D5C30028CC29 /* 57.png in Resources */,
-				F289312D19A3D5C30028CC29 /* 27.png in Resources */,
-				F289314B19A3D5C30028CC29 /* 42.png in Resources */,
-				F289313919A3D5C30028CC29 /* 33.png in Resources */,
-				F28930FD19A3D5C30028CC29 /* 2.png in Resources */,
-				F289315919A3D5C30028CC29 /* 49.png in Resources */,
-				F289311F19A3D5C30028CC29 /* 20.png in Resources */,
-				F289316F19A3D5C30028CC29 /* 60.png in Resources */,
-				F289315D19A3D5C30028CC29 /* 51.png in Resources */,
-				F289311519A3D5C30028CC29 /* 14.png in Resources */,
-				F289312F19A3D5C30028CC29 /* 28.png in Resources */,
-				F2F1CFA5198EC2AA00438A8A /* 3.jpg in Resources */,
-				F289311719A3D5C30028CC29 /* 16.png in Resources */,
-				55AA9B3B19A51AC4002ED852 /* shortQuote.plist in Resources */,
-				F289310B19A3D5C30028CC29 /* 9.png in Resources */,
-				5560B8E1199098F80023691B /* (null) in Resources */,
-				F289317319A3D5C30028CC29 /* 62.png in Resources */,
-				F289312119A3D5C30028CC29 /* 21.png in Resources */,
-				F289314F19A3D5C30028CC29 /* 44.png in Resources */,
-				F289317D19A3D5C30028CC29 /* 67.png in Resources */,
-				F289312919A3D5C30028CC29 /* 25.png in Resources */,
-				F28930F919A3D5C30028CC29 /* 0.png in Resources */,
-				F2C02FED19ABE60C00419E2A /* Savings_Success_2.mp4 in Resources */,
-				F289315F19A3D5C30028CC29 /* 52.png in Resources */,
-				F289312319A3D5C30028CC29 /* 22.png in Resources */,
-				F289317519A3D5C30028CC29 /* 63.png in Resources */,
-				58F643D5197DA5F6001D0236 /* InfoPlist.strings in Resources */,
-				F289314119A3D5C30028CC29 /* 37.png in Resources */,
-				F289312B19A3D5C30028CC29 /* 26.png in Resources */,
-				F289316319A3D5C30028CC29 /* 54.png in Resources */,
-				5849BC77199C1B8F008BAEBF /* RDPProgressHeader.xib in Resources */,
-				F2F1CFBD198EC2AA00438A8A /* 9.jpg in Resources */,
-				F2F1CFB1198EC2AA00438A8A /* 6.jpg in Resources */,
-				F289313519A3D5C30028CC29 /* 31.png in Resources */,
-				F2F1CFFD19900E5200438A8A /* RDPTableViewCellWithToggle.xib in Resources */,
-				F28930FF19A3D5C30028CC29 /* 3.png in Resources */,
-				F2F1CFAD198EC2AA00438A8A /* 5.jpg in Resources */,
-				F289314519A3D5C30028CC29 /* 39.png in Resources */,
-				F289316B19A3D5C30028CC29 /* 58.png in Resources */,
-				F289317119A3D5C30028CC29 /* 61.png in Resources */,
-				F289311319A3D5C30028CC29 /* 13.png in Resources */,
-				F289312719A3D5C30028CC29 /* 24.png in Resources */,
-				F2F1CFA1198EC2AA00438A8A /* 2.jpg in Resources */,
-				F289311119A3D5C30028CC29 /* 12.png in Resources */,
-				F289316D19A3D5C30028CC29 /* 59.png in Resources */,
-				F289315719A3D5C30028CC29 /* 48.png in Resources */,
-				F289310319A3D5C30028CC29 /* 5.png in Resources */,
-				F289310719A3D5C30028CC29 /* 7.png in Resources */,
-				F2F1CFB5198EC2AA00438A8A /* 7.jpg in Resources */,
-				F2F1CF7E198EB39000438A8A /* RDPTableViewCellWithName.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1530,6 +1232,7 @@
 				F26756A5197DB60300A14D94 /* RDPViewController.m in Sources */,
 				F2892FE019A2B6E40028CC29 /* RDPFeedbackService.m in Sources */,
 				551AA6121992A5630010E65B /* RDPInputViewWithImage.m in Sources */,
+				55ACC3E41AF0893500EE21CC /* RDPSettingsPrivacyViewController.m in Sources */,
 				58988F251987065200E05AC5 /* RDPImageFetcher.m in Sources */,
 				F2F595A119A514ED00C2D2B7 /* RDPNavigator.m in Sources */,
 				F28134341993513200D7E9EF /* RDPGoalModel.m in Sources */,
@@ -1567,87 +1270,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58F643C5197DA5F6001D0236 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5531CA06198EFE6F0076D8B8 /* UIImage+ImageEffects.m in Sources */,
-				58988FA41994078E00E05AC5 /* RDPSetAGoalViewController.m in Sources */,
-				F2F1D0051990301500438A8A /* RDPSettingsFeedbackViewController.m in Sources */,
-				55DCE1A719994AFF003EA30D /* RDPNotificationsManager.m in Sources */,
-				F281343D1993514300D7E9EF /* RDPFlipLeftSegue.m in Sources */,
-				F2F1CF73198E9E7B00438A8A /* RDPSettingsController.m in Sources */,
-				58988F2E1988152E00E05AC5 /* RDPImageFetcher.m in Sources */,
-				58988FB019953A8E00E05AC5 /* RDPSuggestionsView.m in Sources */,
-				58988FA819942BF400E05AC5 /* RDPSetAmountViewController.m in Sources */,
-				F2F1CFEE198FF6C300438A8A /* RDPSettingsGoalViewController.m in Sources */,
-				55AA9B3819A439EB002ED852 /* RDPDismissAndModalSegue.m in Sources */,
-				F2F1D00119902AD500438A8A /* RDPFonts.m in Sources */,
-				5531CA0A198F23AD0076D8B8 /* RDPJSONResponseSerializer.m in Sources */,
-				F2FD6F5B19807CC90035ED06 /* RDPEaseOutInterpolation.m in Sources */,
-				F281342B1993510500D7E9EF /* RDPAsyncProgressTracker.m in Sources */,
-				F28134391993513200D7E9EF /* RDPUserModel.m in Sources */,
-				F2F1CFDB198F103700438A8A /* RDPPushAnimation.m in Sources */,
-				58988FB41995411100E05AC5 /* RDPSuggestionSquare.m in Sources */,
-				F2F1CFFB19900E5200438A8A /* RDPTableViewCellWithToggle.m in Sources */,
-				F2F1CFD7198F016C00438A8A /* UINavigationController+Retro.m in Sources */,
-				F2F1D009199031AD00438A8A /* RDPFeedbackPanel.m in Sources */,
-				F2F1CFF219900DAC00438A8A /* RDPSettingsNotificationsViewController.m in Sources */,
-				F28134371993513200D7E9EF /* RDPSavingEventModel.m in Sources */,
-				551AA639199427430010E65B /* RDPValidationService.m in Sources */,
-				F2813422199350D700D7E9EF /* RDPErrorCodes.m in Sources */,
-				F2813420199350D700D7E9EF /* RDPConfig.m in Sources */,
-				F281342D1993510500D7E9EF /* RDPUserService.m in Sources */,
-				F2F595A619A53BB000C2D2B7 /* RDPNavigationController.m in Sources */,
-				5560B8D2199006AF0023691B /* MBProgressHUD.m in Sources */,
-				55DCE1B2199ABE05003EA30D /* RDPMixpanelAnalyticsProvider.m in Sources */,
-				F28134351993513200D7E9EF /* RDPGoalModel.m in Sources */,
-				F2FD6F51198073A80035ED06 /* RDPInterpolation.m in Sources */,
-				F26756AF197DC19500A14D94 /* RDPTimer.m in Sources */,
-				F2FD6F53198073A80035ED06 /* RDPLinearInterpolation.m in Sources */,
-				F289318A19A402190028CC29 /* RDPCompeteGoalController.m in Sources */,
-				55DCE1AE199AB653003EA30D /* RDPAnalyticsModule.m in Sources */,
-				F2F1CFE1198FEE0600438A8A /* RDPTableViewCellWithInput.m in Sources */,
-				F2892FE119A2B6E40028CC29 /* RDPFeedbackService.m in Sources */,
-				F2208C671989B0A200EDD6CF /* RDPCounter.m in Sources */,
-				551AA63519941FB60010E65B /* RDPSignupViewController.m in Sources */,
-				55DCE1B6199C041D003EA30D /* RDPQuotes.m in Sources */,
-				F2ACC0D5199AA93B00303C5B /* RDPUITextView.m in Sources */,
-				58988FAC1994344A00E05AC5 /* RDPCutOutView.m in Sources */,
-				F2F1D01B1990992200438A8A /* RDPCongratulations.m in Sources */,
-				F2F595A219A514ED00C2D2B7 /* RDPNavigator.m in Sources */,
-				58F643D7197DA5F6001D0236 /* SpearmintIOSTests.m in Sources */,
-				F2FD6F5719807BE90035ED06 /* RDPEaseInInterpolation.m in Sources */,
-				5531CA0E198FED900076D8B8 /* RDPLoginViewController.m in Sources */,
-				551AA60F1990B20C0010E65B /* RDPUITextField.m in Sources */,
-				58988F4A19885F9600E05AC5 /* RDPHomeViewController.m in Sources */,
-				F26756A6197DB60300A14D94 /* RDPViewController.m in Sources */,
-				F24556E8199D5EA800D07BDD /* NSDate+Utilities.m in Sources */,
-				55AA9B3419A43368002ED852 /* RDPDismissSegue.m in Sources */,
-				551AA6131992A5630010E65B /* RDPInputViewWithImage.m in Sources */,
-				F2F1D01D1990992200438A8A /* RDPSavingSuggestions.m in Sources */,
-				F2F1CF7C198EB39000438A8A /* RDPTableViewCellWithName.m in Sources */,
-				F26756AB197DC05F00A14D94 /* RDPTimerManager.m in Sources */,
-				5849BC7B199C1E91008BAEBF /* RDPProgressHeader.m in Sources */,
-				58988F991992D68A00E05AC5 /* RDPFTUViewController.m in Sources */,
-				F2F1CFE7198FF18D00438A8A /* RDPInputViewWithLabel.m in Sources */,
-				F289318319A3E0DB0028CC29 /* RDPArrowAnimation.m in Sources */,
-				F2F1D00E19903CAE00438A8A /* RDPTableViewSavingsCell.m in Sources */,
-				58988F2F1988153200E05AC5 /* RDPImageBlur.m in Sources */,
-				F2F1D0271990A49600438A8A /* RDPSettingsNavigationController.m in Sources */,
-				585F1593199D79F100992AE3 /* RDPDataHolder.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		58F643CF197DA5F6001D0236 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 58F643AD197DA5F6001D0236 /* SpearmintIOS */;
-			targetProxy = 58F643CE197DA5F6001D0236 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		58F643BA197DA5F6001D0236 /* InfoPlist.strings */ = {
@@ -1799,48 +1422,6 @@
 			};
 			name = Release;
 		};
-		58F643DE197DA5F6001D0236 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpearmintIOS.app/SpearmintIOS";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SpearmintIOSTests/SpearmintIOSTests-Info.plist";
-				PRODUCT_NAME = SpearmintIOSTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		58F643DF197DA5F6001D0236 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpearmintIOS.app/SpearmintIOS";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(PROJECT_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SpearmintIOS/SpearmintIOS-Prefix.pch";
-				INFOPLIST_FILE = "SpearmintIOSTests/SpearmintIOSTests-Info.plist";
-				PRODUCT_NAME = SpearmintIOSTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1858,15 +1439,6 @@
 			buildConfigurations = (
 				58F643DB197DA5F6001D0236 /* Debug */,
 				58F643DC197DA5F6001D0236 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		58F643DD197DA5F6001D0236 /* Build configuration list for PBXNativeTarget "SpearmintIOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				58F643DE197DA5F6001D0236 /* Debug */,
-				58F643DF197DA5F6001D0236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
