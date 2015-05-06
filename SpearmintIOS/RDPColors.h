@@ -24,3 +24,4 @@
 #define kColor_WarningRed                   [UIColor colorWithRed:1 green:0 blue:0 alpha:1]
 #define kColor_WhiteText                    [UIColor colorWithWhite:1 alpha:1]
 #define kColor_halfWhiteText                [UIColor colorWithWhite:1 alpha:.5]
+#define kColor_White                        [UIColor colorWithWhite:1 alpha:1]

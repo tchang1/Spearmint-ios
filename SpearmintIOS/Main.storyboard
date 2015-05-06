@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pUt-ff-d5A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pUt-ff-d5A">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -82,17 +83,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u24-DA-9Wo">
-                                        <rect key="frame" x="5" y="213" width="159" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <state key="normal" title="Forgot your password?">
-                                            <color key="titleColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="forgotPasswordPressed:" destination="0o8-qi-gHo" eventType="touchUpInside" id="dcX-8W-QEg"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6u-GR-elt">
                                         <rect key="frame" x="190" y="213" width="115" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -102,6 +92,17 @@
                                         </state>
                                         <connections>
                                             <segue destination="zvA-QD-V2k" kind="push" id="eHT-iJ-sJ8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u24-DA-9Wo">
+                                        <rect key="frame" x="8" y="213" width="159" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Forgot your password?">
+                                            <color key="titleColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgotPasswordPressed:" destination="0o8-qi-gHo" eventType="touchUpInside" id="dcX-8W-QEg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -524,7 +525,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You made it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfi-H7-pAi">
-                                <rect key="frame" x="41.5" y="160" width="237.5" height="111"/>
+                                <rect key="frame" x="42" y="160" width="238" height="111"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -637,7 +638,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-14-RzB" customClass="CSAnimationView">
                                 <rect key="frame" x="0.0" y="120" width="320" height="448"/>
                                 <subviews>
-                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oy-83-WK3">
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" verticalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oy-83-WK3">
                                         <rect key="frame" x="0.0" y="340" width="320" height="50"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
@@ -661,11 +662,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="slogan" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="260" translatesAutoresizingMaskIntoConstraints="NO" id="GOC-C4-VMU">
-                                        <rect key="frame" x="10" y="110" width="300" height="150"/>
+                                        <rect key="frame" x="0.0" y="120" width="320" height="160"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="labs_logo" translatesAutoresizingMaskIntoConstraints="NO" id="gPU-5k-bWQ">
+                                        <rect key="frame" x="120" y="240" width="80" height="40"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -697,7 +701,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-82-yrS" customClass="CSAnimationView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+                                <rect key="frame" x="0.0" y="105" width="320" height="0.0"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iwm-DV-oXP" customClass="RDPCounter">
                                         <rect key="frame" x="20" y="40" width="65" height="65"/>
@@ -744,7 +748,7 @@
                                         <rect key="frame" x="79" y="10" width="81" height="82"/>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep holding" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="srH-9v-ta9">
-                                        <rect key="frame" x="20" y="102" width="200" height="80"/>
+                                        <rect key="frame" x="20" y="100" width="200" height="80"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="22"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1117,10 +1121,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ridge.png" translatesAutoresizingMaskIntoConstraints="NO" id="igf-hE-mUk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ridge.png" translatesAutoresizingMaskIntoConstraints="NO" id="igf-hE-mUk">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WyC-Hq-boS" customClass="RDPInputViewWithImage">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WyC-Hq-boS" customClass="RDPInputViewWithImage">
                                 <rect key="frame" x="0.0" y="105" width="320" height="247"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIv-CH-ILW">
@@ -1192,14 +1196,38 @@
                                     </button>
                                 </subviews>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sign up message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPm-ui-NGK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sign up message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPm-ui-NGK">
                                 <rect key="frame" x="10" y="40" width="300" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="rxI-Zb-8dt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJM-4k-zZu">
+                                <rect key="frame" x="30" y="480" width="260" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WJM-4k-zZu" firstAttribute="top" secondItem="OON-te-GS2" secondAttribute="top" constant="480" id="4U3-9p-fF7"/>
+                            <constraint firstItem="igf-hE-mUk" firstAttribute="leading" secondItem="OON-te-GS2" secondAttribute="leading" id="5hA-hc-1KX"/>
+                            <constraint firstAttribute="bottom" secondItem="WyC-Hq-boS" secondAttribute="bottom" constant="216" id="9Ej-Vq-0Tf"/>
+                            <constraint firstAttribute="trailing" secondItem="igf-hE-mUk" secondAttribute="trailing" id="A2n-wO-1SF"/>
+                            <constraint firstItem="WyC-Hq-boS" firstAttribute="top" secondItem="VPm-ui-NGK" secondAttribute="bottom" constant="33" id="KAJ-wL-Rbi"/>
+                            <constraint firstItem="VPm-ui-NGK" firstAttribute="top" secondItem="cc1-qs-a8H" secondAttribute="bottom" constant="20" id="OTt-yg-Kdq"/>
+                            <constraint firstItem="igf-hE-mUk" firstAttribute="leading" secondItem="WyC-Hq-boS" secondAttribute="leading" id="W29-uP-gvj"/>
+                            <constraint firstItem="VPm-ui-NGK" firstAttribute="leading" secondItem="OON-te-GS2" secondAttribute="leadingMargin" constant="-6" id="aID-6N-Bfm"/>
+                            <constraint firstItem="igf-hE-mUk" firstAttribute="bottom" secondItem="0xc-ju-WOJ" secondAttribute="top" id="adw-Z6-tks"/>
+                            <constraint firstItem="igf-hE-mUk" firstAttribute="top" secondItem="OON-te-GS2" secondAttribute="top" id="cIK-Y4-hnX"/>
+                            <constraint firstItem="VPm-ui-NGK" firstAttribute="centerX" secondItem="WyC-Hq-boS" secondAttribute="centerX" id="gk0-U2-pcm"/>
+                            <constraint firstItem="VPm-ui-NGK" firstAttribute="centerX" secondItem="WJM-4k-zZu" secondAttribute="centerX" id="iea-QA-Fjj"/>
+                            <constraint firstItem="0xc-ju-WOJ" firstAttribute="top" secondItem="WJM-4k-zZu" secondAttribute="bottom" constant="8" symbolic="YES" id="rwM-rW-QQz"/>
+                            <constraint firstItem="igf-hE-mUk" firstAttribute="trailing" secondItem="WyC-Hq-boS" secondAttribute="trailing" id="ssR-bl-ddv"/>
+                            <constraint firstItem="WJM-4k-zZu" firstAttribute="leading" secondItem="OON-te-GS2" secondAttribute="leadingMargin" constant="14" id="xR9-W0-FRv"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="csW-HK-mjO"/>
                     <connections>
@@ -1208,6 +1236,7 @@
                         <outlet property="emailStatusLabel" destination="sJF-xg-KhG" id="ijZ-zo-hcU"/>
                         <outlet property="emailTextField" destination="TNc-yG-Slq" id="2BH-do-doF"/>
                         <outlet property="emailView" destination="OIv-CH-ILW" id="aPP-X7-18G"/>
+                        <outlet property="legalLinksView" destination="WJM-4k-zZu" id="wAX-rQ-7cT"/>
                         <outlet property="loginButton" destination="reN-eg-RnS" id="6av-xb-Pec"/>
                         <outlet property="passwordFieldIcon" destination="y3Y-HQ-dsS" id="oWP-aL-tJq"/>
                         <outlet property="passwordStatusLabel" destination="6B9-bh-SO6" id="UxR-xV-GA5"/>
@@ -1263,6 +1292,7 @@
         <image name="Umbrella" width="35" height="33"/>
         <image name="Weekend Away" width="35" height="32"/>
         <image name="key" width="50" height="50"/>
+        <image name="labs_logo" width="82" height="38"/>
         <image name="ridge.png" width="640" height="1136"/>
         <image name="youRock" width="529" height="143"/>
     </resources>
@@ -1273,7 +1303,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="pBO-eW-BpZ"/>
-        <segue reference="m5p-NK-Jov"/>
+        <segue reference="i4c-YM-z26"/>
         <segue reference="yHg-sm-Cwz"/>
         <segue reference="eHT-iJ-sJ8"/>
     </inferredMetricsTieBreakers>

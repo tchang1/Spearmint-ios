@@ -15,6 +15,8 @@
 #import "RDPUserService.h"
 #import "RDPAnalyticsModule.h"
 #import "RDPDataHolder.h"
+#import "RDPSettingsPrivacyViewController.h"
+#import "TTTAttributedLabel.h"
 
 
 #define kKeyName                    @"name"
@@ -70,6 +72,9 @@
                          },
                        @{kKeyName : [RDPStrings stringForID:sPrivacyPolicy],
                          kKeySelector : NSStringFromSelector(@selector(privacyTapped))
+                         },
+                       @{kKeyName : [RDPStrings stringForID:sTermsOfService],
+                         kKeySelector : NSStringFromSelector(@selector(tosTapped))
                          }
                        ];
     }
@@ -290,11 +295,29 @@
 {
     [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Privacy Policy"}];
     
-    RDPViewController *viewController =
+    RDPSettingsPrivacyViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
                                bundle:NULL] instantiateViewControllerWithIdentifier:kPrivacyIdentifier];
     
-    [self.navigationController pushViewController:viewController animated:YES];}
+    viewController.webViewTitle = [RDPStrings stringForID:sPrivacyPolicy];
+    viewController.webURL = [[NSURL alloc] initWithString: @"https://security.intuit.com/privacy/"];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+-(void)tosTapped
+{
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Privacy Policy"}];
+    
+    RDPSettingsPrivacyViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kPrivacyIdentifier];
+    
+    viewController.webViewTitle = [RDPStrings stringForID:sTermsOfService];
+    viewController.webURL = [[NSURL alloc] initWithString: @"http://trykeep.com/terms-of-service"];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 - (IBAction)logoutTapped:(id)sender {
     [RDPUserService logoutWithResponse:^(RDPResponseCode response) {

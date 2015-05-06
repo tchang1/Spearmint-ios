@@ -8,20 +8,26 @@
 
 #import "RDPSettingsPrivacyViewController.h"
 
+
 @implementation RDPSettingsPrivacyViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURL *URL = [NSURL URLWithString:@"http://placehold.it/300x550&text=There+is+no+PRIVACY"];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:URL];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:self.webURL];
     [self.privacyWebView loadRequest:requestObj];
     [self setNavigationBarColor:[UIColor whiteColor]];
-
+    self.title = self.webViewTitle;
 }
 
+
 - (IBAction)backPressed:(id)sender {
+    
     [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 @end

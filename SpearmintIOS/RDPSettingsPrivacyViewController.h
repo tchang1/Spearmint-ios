@@ -7,8 +7,12 @@
 //
 
 #import "RDPViewController.h"
+#import "RDPSignupViewController.h" 
+#import "TTTAttributedLabel.h"
 
 @interface RDPSettingsPrivacyViewController : RDPViewController <UITextViewDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *privacyWebView;
+@property (strong, nonatomic) NSString* webViewTitle;
+@property (strong, nonatomic) NSURL* webURL;
 
 @end

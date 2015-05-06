@@ -354,6 +354,12 @@
         case sPrivacyPolicy:
             result = @"Privacy Policy";
             break;
+        case slegalLinks:
+            result = @"By tapping Sign up, you agree to our Terms of Service and Privacy Policy.";
+            break;
+        case sTermsOfService:
+            result = @"Terms Of Service";
+            break;
         
 }
     

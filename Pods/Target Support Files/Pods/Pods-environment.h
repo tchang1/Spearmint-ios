@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_Mixpanel 4
 #define COCOAPODS_VERSION_PATCH_Mixpanel 1
 
+// TTTAttributedLabel
+#define COCOAPODS_POD_AVAILABLE_TTTAttributedLabel
+#define COCOAPODS_VERSION_MAJOR_TTTAttributedLabel 1
+#define COCOAPODS_VERSION_MINOR_TTTAttributedLabel 13
+#define COCOAPODS_VERSION_PATCH_TTTAttributedLabel 3
+
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop
 #define COCOAPODS_VERSION_MAJOR_pop 1

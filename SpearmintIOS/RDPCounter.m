@@ -70,7 +70,7 @@
 // Sets all the default parameters
 - (void)setDefaultParameters
 {
-    self.colors = @[kColor_Green, kColor_Blue];
+    self.colors = @[kColor_Green, kColor_White];
     self.startAngle = M_PI * 1.5;
     self.lineWidth = kDefaultLineWidth;
     self.padding = kDefaultPadding;

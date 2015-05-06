@@ -9,9 +9,14 @@
 #import "RDPSignupViewController.h"
 #import "RDPValidationService.h"
 #import "RDPAnalyticsModule.h"
+#import "RDPSettingsPrivacyViewController.h"
 
 #define kStoryboard @"Main"
 #define kHome @"home"
+#define kPrivacyIdentifier @"settingsPrivacy"
+
+#define kTosURL @"http://trykeep.com/terms-of-service"
+#define kPrivacyURL @"https://security.intuit.com/privacy/"
 
 @interface RDPSignupViewController ()
 
@@ -28,6 +33,12 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self removeStatusBar];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -39,6 +50,28 @@
                                                                                                                                                    NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
     self.passwordTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:[RDPStrings stringForID:sPasswordPlaceholder] attributes:@{NSForegroundColorAttributeName: kColor_halfWhiteText,
                                                                                                                                                          NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
+    
+    // Setup the legal links on the sign up page
+    TTTAttributedLabel *legalLinksLabel = [[TTTAttributedLabel alloc] initWithFrame:[self.legalLinksView frame]];
+    legalLinksLabel.font = [RDPFonts fontForID:fNavigationButtonFont];
+    legalLinksLabel.numberOfLines = 0;
+    legalLinksLabel.textColor = kColor_halfWhiteText;
+    legalLinksLabel.enabledTextCheckingTypes = NSTextCheckingTypeLink;
+    legalLinksLabel.userInteractionEnabled = YES;
+    legalLinksLabel.delegate = self;
+    legalLinksLabel.textAlignment = NSTextAlignmentCenter;
+    legalLinksLabel.linkAttributes = @{ (id)kCTForegroundColorAttributeName: kColor_Blue,
+                                        (id)kCTUnderlineStyleAttributeName : [NSNumber numberWithInt:NSUnderlineStyleSingle] };
+    legalLinksLabel.activeLinkAttributes = @{ (id)kCTForegroundColorAttributeName: kColor_DarkText,
+                                              (id)kCTUnderlineStyleAttributeName : [NSNumber numberWithInt:NSUnderlineStyleSingle] };
+    
+    legalLinksLabel.text = [RDPStrings stringForID:slegalLinks];
+    NSRange termsOfService = [legalLinksLabel.text rangeOfString:@"Terms of Service"];
+    NSRange privacyPolicy = [legalLinksLabel.text rangeOfString:@"Privacy Policy"];
+    [legalLinksLabel addLinkToURL:[NSURL URLWithString:kTosURL] withRange:termsOfService];
+    [legalLinksLabel addLinkToURL:[NSURL URLWithString:kPrivacyURL] withRange:privacyPolicy];
+    [self.view addSubview:legalLinksLabel];
+    
     
     self.emailTextField.font= [RDPFonts fontForID:fLoginFont];
     self.emailTextField.textColor=kColor_WhiteText;
@@ -226,6 +259,34 @@
 {
     return YES;
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}
+
+
+// TTTAttributedLabelDelegate Methods
+- (void)attributedLabel:(TTTAttributedLabel *)label didSelectLinkWithURL:(NSURL *)url {
+
+    RDPSettingsPrivacyViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kPrivacyIdentifier];
+    
+    viewController.webURL = url;
+    if ([url.absoluteString  isEqual: kTosURL]) {
+        viewController.webViewTitle = [RDPStrings stringForID:sTermsOfService];
+    }
+    if ([url.absoluteString  isEqual: kPrivacyURL]) {
+        viewController.webViewTitle = [RDPStrings stringForID:sPrivacyPolicy];
+    }
+    
+    [self.RDPNavigationController pushViewController:viewController withAnimation:RDPTransitionAnimationDefault];
+    
+}
+
+
+
 
 /*
 #pragma mark - Navigation

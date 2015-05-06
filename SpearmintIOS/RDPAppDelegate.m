@@ -56,11 +56,16 @@
     }
     [RDPAnalyticsModule track:@"App opened" properties:@{@"method" : @"launch" } ];
     
-    RDPUser *userCopy=[RDPUserService getUser];
-    if ([userCopy isNotificationsEnabled]) {
-//        application.applicationIconBadgeNumber = 0;
-        [RDPNotificationsManager clearLocalNotifications];
-    }
+    // Clear notification badges because Cori hates them
+    application.applicationIconBadgeNumber = 0;
+    [RDPNotificationsManager clearLocalNotifications];
+    
+    
+//    RDPUser *userCopy=[RDPUserService getUser];
+//    if ([userCopy isNotificationsEnabled]) {
+////        application.applicationIconBadgeNumber = 0;
+//        [RDPNotificationsManager clearLocalNotifications];
+//    }
 //    [RDPNotificationsManager scheduleTestNotificationWithMessage:@"test" after:5];
 //    [RDPNotificationsManager scheduleTestNotificationWithMessage:@"hello" after:10];
 //    RDPHTTPClient *client = [RDPHTTPClient sharedRDPHTTPClient];

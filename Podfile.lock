@@ -26,6 +26,7 @@ PODS:
   - Mantle/extobjc (1.5)
   - Mixpanel (2.4.1)
   - pop (1.0.6)
+  - TTTAttributedLabel (1.13.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - Mantle
   - Mixpanel
   - pop (~> 1.0)
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
@@ -40,5 +42,6 @@ SPEC CHECKSUMS:
   Mantle: 3bf6db311c8b4a19b6be01f2483fa4590aa166f3
   Mixpanel: 86eb466077e77e729160a19719818e5cf92a0437
   pop: 1d978024a33fcf46426b42e60fb32e685d1f1d2e
+  TTTAttributedLabel: 6f3174aef8e738f44dff97c2eb7d8184f6ab6277
 
 COCOAPODS: 0.36.3
