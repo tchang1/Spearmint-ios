@@ -52,6 +52,8 @@
                                                                                                                                                          NSFontAttributeName : [RDPFonts fontForID:fLoginPlaceholderFont]}];
     
     // Setup the legal links on the sign up page
+    [self.legalLinksView setNeedsLayout];
+    [self.legalLinksView layoutIfNeeded];
     TTTAttributedLabel *legalLinksLabel = [[TTTAttributedLabel alloc] initWithFrame:[self.legalLinksView frame]];
     legalLinksLabel.font = [RDPFonts fontForID:fNavigationButtonFont];
     legalLinksLabel.numberOfLines = 0;
