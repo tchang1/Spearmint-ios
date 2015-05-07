@@ -40,7 +40,7 @@
 
 #define kLogoutSegue                @"logoutSegue"
 
-#define kAppStoreURL                @"itms-apps://itunes.apple.com/app/id911943746"
+#define kAppStoreURL                @"itms-apps://itunes.apple.com/app/id992544389"
 
 #define kStatusBarHeight            38
 #define kCellHeight                 55

@@ -343,13 +343,13 @@
     [super updateViewConstraints];
     
     // resize the container view to be the correct size dependent on the screen height
-    [self.containerView addConstraint:[NSLayoutConstraint constraintWithItem:self.containerView
-                                                       attribute:NSLayoutAttributeHeight
-                                                       relatedBy:NSLayoutRelationEqual
-                                                          toItem:nil
-                                                       attribute:NSLayoutAttributeNotAnAttribute
-                                                      multiplier:1.0
-                                                        constant:kContentHeight]];
+//    [self.containerView addConstraint:[NSLayoutConstraint constraintWithItem:self.containerView
+//                                                       attribute:NSLayoutAttributeHeight
+//                                                       relatedBy:NSLayoutRelationEqual
+//                                                          toItem:nil
+//                                                       attribute:NSLayoutAttributeNotAnAttribute
+//                                                      multiplier:1.0
+//                                                        constant:kContentHeight]];
 }
 
 -(void)keyboardOnScreen:(NSNotification *)notification
