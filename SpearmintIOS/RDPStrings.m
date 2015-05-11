@@ -22,7 +22,7 @@
             result = @"Tap and hold the screen";
             break;
         case sPressAndHold:
-            result = @"Tap and hold \n to keep the savings";
+            result = @"Tap and hold \n anywhere to save";
             break;
         case sSettings:
             result = @"Settings";
@@ -202,7 +202,7 @@
             result = [NSString stringWithFormat:@"When you decide to \n skip the %@ coffee that \n you usually buy...", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:3]]];
             break;
         case sCoffeeTapAndHold:
-            result = [NSString stringWithFormat:@"to keep the %@ \nfor your goal instead", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:3]]];
+            result = [NSString stringWithFormat:@"the screen to keep %@ for your goal", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:3]]];
             break;
         case sCoffeeCounterLabel:
             result = [NSString stringWithFormat:@"When the timer reaches %@, \nrelease the screen.", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:3]]];
@@ -244,7 +244,7 @@
             result = [NSString stringWithFormat:@"When you decide to take a \n%@ bus over a %@ cab...", [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:2]], [[RDPConfig numberFormatter] stringFromNumber:[NSNumber numberWithDouble:10]]];
             break;
         case sBusTapAndHold:
-            result = @"to keep the \n difference";
+            result = @"anywhere to keep the difference";
             break;
         case sBusCounterLabel:
             result = @"Everytime you record something \nin Keep you'll see a new photo.";
@@ -359,6 +359,9 @@
             break;
         case sTermsOfService:
             result = @"Terms Of Service";
+            break;
+        case sThirdPartyNotices:
+            result = @"Third Party Notices";
             break;
         
 }

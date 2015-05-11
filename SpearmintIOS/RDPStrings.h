@@ -124,7 +124,8 @@ typedef enum {
     sSignUpToSave,
     sPrivacyPolicy,
     slegalLinks,
-    sTermsOfService
+    sTermsOfService,
+    sThirdPartyNotices
 } RDPStringID;
 
 @interface RDPStrings : NSObject

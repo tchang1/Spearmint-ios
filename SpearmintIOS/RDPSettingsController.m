@@ -75,6 +75,9 @@
                          },
                        @{kKeyName : [RDPStrings stringForID:sTermsOfService],
                          kKeySelector : NSStringFromSelector(@selector(tosTapped))
+                         },
+                       @{kKeyName : [RDPStrings stringForID:sThirdPartyNotices],
+                         kKeySelector : NSStringFromSelector(@selector(thirdPartyNoticesTapped))
                          }
                        ];
     }
@@ -307,7 +310,7 @@
 
 -(void)tosTapped
 {
-    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Privacy Policy"}];
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Terms of Service"}];
     
     RDPSettingsPrivacyViewController *viewController =
     [[UIStoryboard storyboardWithName:kStoryboard
@@ -315,6 +318,20 @@
     
     viewController.webViewTitle = [RDPStrings stringForID:sTermsOfService];
     viewController.webURL = [[NSURL alloc] initWithString: @"http://trykeep.com/terms-of-service"];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+-(void)thirdPartyNoticesTapped
+{
+    [RDPAnalyticsModule track:@"Settings" properties:@{@"location" : @"Third Party Notices"}];
+    
+    RDPSettingsPrivacyViewController *viewController =
+    [[UIStoryboard storyboardWithName:kStoryboard
+                               bundle:NULL] instantiateViewControllerWithIdentifier:kPrivacyIdentifier];
+    
+    viewController.webViewTitle = [RDPStrings stringForID:sThirdPartyNotices];
+    viewController.webURL = [[NSURL alloc] initWithString: @"http://trykeep.com/third-party-notices"];
     
     [self.navigationController pushViewController:viewController animated:YES];
 }
